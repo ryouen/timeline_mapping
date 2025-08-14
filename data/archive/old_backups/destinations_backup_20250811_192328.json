@@ -1,0 +1,76 @@
+{
+    "destinations": [
+        {
+            "id": "shizenkan_university",
+            "name": "Shizenkan University",
+            "category": "school",
+            "address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+            "owner": "you",
+            "monthly_frequency": 13.2,
+            "time_preference": "morning"
+        },
+        {
+            "id": "tokyo_american_club",
+            "name": "東京アメリカンクラブ",
+            "category": "gym",
+            "address": "東京都中央区日本橋室町３丁目２−１",
+            "owner": "both",
+            "monthly_frequency": 8.8,
+            "time_preference": "morning"
+        },
+        {
+            "id": "axle_ochanomizu",
+            "name": "axle御茶ノ水",
+            "category": "office",
+            "address": "東京都千代田区神田小川町３丁目２８−５",
+            "owner": "you",
+            "monthly_frequency": 1.5,
+            "time_preference": "morning"
+        },
+        {
+            "id": "yawara_gym",
+            "name": "Yawara",
+            "category": "gym",
+            "address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+            "owner": "you",
+            "monthly_frequency": 4,
+            "time_preference": "morning"
+        },
+        {
+            "id": "tokyo_station",
+            "name": "東京駅",
+            "category": "station",
+            "address": "",
+            "owner": "both",
+            "monthly_frequency": 3,
+            "time_preference": "morning"
+        },
+        {
+            "id": "haneda_airport",
+            "name": "羽田空港",
+            "category": "airport",
+            "address": "",
+            "owner": "you",
+            "monthly_frequency": 0.5,
+            "time_preference": "morning"
+        },
+        {
+            "id": "kamiyacho_ee_office",
+            "name": "神谷町(EE)",
+            "category": "office",
+            "address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+            "owner": "partner",
+            "monthly_frequency": 6.6,
+            "time_preference": "morning"
+        },
+        {
+            "id": "waseda_university",
+            "name": "早稲田大学",
+            "category": "school",
+            "address": "東京都新宿区西早稲田１丁目６ 11号館",
+            "owner": "partner",
+            "monthly_frequency": 6.6,
+            "time_preference": "morning"
+        }
+    ]
+}

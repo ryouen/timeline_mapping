@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゴールデンファイル作成用 Google Maps リンク集</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4285f4;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a73e8;
+            margin-top: 30px;
+        }
+        .route-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .route-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .route-info p {
+            margin: 5px 0;
+        }
+        .links-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .link-box {
+            background: #e8f0fe;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #dadce0;
+        }
+        .link-box h3 {
+            margin: 0 0 10px 0;
+            color: #1967d2;
+            font-size: 16px;
+        }
+        .link-box a {
+            display: inline-block;
+            background: #1a73e8;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+        .link-box a:hover {
+            background: #1557b0;
+        }
+        .instructions {
+            background: #fef7e0;
+            border: 1px solid #fdc935;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #ea8600;
+        }
+        .instructions ol {
+            margin-bottom: 0;
+        }
+        .data-template {
+            background: #f1f3f4;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .warning {
+            color: #d93025;
+            font-weight: bold;
+        }
+        .success {
+            color: #188038;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗺️ ゴールデンファイル作成用 Google Maps リンク集</h1>
+    
+    <div class="instructions">
+        <h3>📋 使用方法</h3>
+        <ol>
+            <li>各ルートの「9時出発」または「10時到着」リンクをクリック</li>
+            <li>Google Mapsが開いたら、<span class="warning">時刻設定を確認</span>してください
+                <ul>
+                    <li>もし現在時刻になっている場合は、「出発時刻」をクリックして手動で設定</li>
+                    <li>9時出発: 平日の朝9:00を設定</li>
+                    <li>10時到着: 平日の朝10:00に到着を設定</li>
+                </ul>
+            </li>
+            <li>表示されたルート情報（総時間、徒歩時間、駅名、路線名など）をメモ</li>
+            <li>下記のデータテンプレートを参考に、JSONファイルに記入</li>
+            <li><span class="success">verified_manually: true</span> に変更するのを忘れずに！</li>
+        </ol>
+    </div>
+
+    <h2>テストルート一覧</h2>
+
+    <!-- シンプルルート -->
+    <div class="route-section">
+        <h2>1. シンプルルート（乗り換えなし）</h2>
+        <div class="route-info">
+            <p><strong>出発:</strong> 東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア</p>
+            <p><strong>到着:</strong> 東京都中央区日本橋2-5-1 髙島屋三井ビルディング</p>
+            <p><strong>特徴:</strong> 銀座線で乗り換えなしの短距離ルート</p>
+        </div>
+        <div class="links-container">
+            <div class="link-box">
+                <h3>🚂 9時出発</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都中央区日本橋2-5-1+髙島屋三井ビルディング&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、出発時刻を9:00に設定してください</p>
+            </div>
+            <div class="link-box">
+                <h3>🎯 10時到着</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都中央区日本橋2-5-1+髙島屋三井ビルディング&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、到着時刻を10:00に設定してください</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 複数乗り換えルート -->
+    <div class="route-section">
+        <h2>2. 複数乗り換えルート</h2>
+        <div class="route-info">
+            <p><strong>出発:</strong> 東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア</p>
+            <p><strong>到着:</strong> 東京都港区六本木6-10-1 六本木ヒルズ</p>
+            <p><strong>特徴:</strong> 複数の路線を乗り継ぐ中距離ルート</p>
+        </div>
+        <div class="links-container">
+            <div class="link-box">
+                <h3>🚂 9時出発</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都港区六本木6-10-1+六本木ヒルズ&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、出発時刻を9:00に設定してください</p>
+            </div>
+            <div class="link-box">
+                <h3>🎯 10時到着</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都港区六本木6-10-1+六本木ヒルズ&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、到着時刻を10:00に設定してください</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 徒歩が長いルート -->
+    <div class="route-section">
+        <h2>3. 徒歩が長いルート</h2>
+        <div class="route-info">
+            <p><strong>出発:</strong> 東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア</p>
+            <p><strong>到着:</strong> 東京都江東区青海1-1-10 ダイバーシティ東京</p>
+            <p><strong>特徴:</strong> 駅から目的地までの徒歩が長いルート</p>
+        </div>
+        <div class="links-container">
+            <div class="link-box">
+                <h3>🚂 9時出発</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都江東区青海1-1-10+ダイバーシティ東京&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、出発時刻を9:00に設定してください</p>
+            </div>
+            <div class="link-box">
+                <h3>🎯 10時到着</h3>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=東京都千代田区神田須田町1-20-1+ルフォンプログレ神田プレミア&destination=東京都江東区青海1-1-10+ダイバーシティ東京&travelmode=transit" target="_blank">
+                    Google Mapsで開く
+                </a>
+                <p style="font-size: 12px; margin-top: 10px;">※ 開いた後、到着時刻を10:00に設定してください</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>📝 データ記入テンプレート</h2>
+    <div class="data-template">{
+  "total_time": [総所要時間（分）],
+  "walk_to_station": [出発地から駅までの徒歩時間（分）],
+  "station_used": "[最初に使用する駅名（「駅」を除く）]",
+  "trains": [
+    {
+      "line": "[路線名（例：地下鉄銀座線）]",
+      "time": [乗車時間（分）],
+      "from": "[出発駅名（「駅」を除く）]",
+      "to": "[到着駅名（「駅」を除く）]"
+    }
+  ],
+  "walk_from_station": [最後の駅から目的地までの徒歩時間（分）]
+}</div>
+
+    <h2>💡 記入時の注意点</h2>
+    <ul>
+        <li>駅名から「駅」を除去する（例：「神田駅」→「神田」）</li>
+        <li>路線名は正確に記入（例：「地下鉄銀座線」「JR山手線」）</li>
+        <li>時間は分単位で記入（秒は切り捨て）</li>
+        <li>複数の電車を使う場合は、trains配列に順番に追加</li>
+        <li>待ち時間（wait_time_minutes）は常に3分で固定</li>
+        <li><span class="warning">verified_manually: true</span> に変更するのを忘れずに！</li>
+    </ul>
+
+    <div style="margin-top: 50px; text-align: center; color: #666;">
+        <p>このページは Google Maps スクレイピングの検証用ゴールデンファイル作成のために作成されました。</p>
+        <p>ファイルパス: /var/www/japandatascience.com/timeline-mapping/data/golden.html</p>
+    </div>
+</body>
+</html>

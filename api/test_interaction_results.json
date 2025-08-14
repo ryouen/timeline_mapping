@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "steps": [
+    "時刻ボタンをクリック: span.uEubGf.NlVald",
+    "時刻選択UI発見: div[role='menu'] (1個)",
+    "時刻選択UI発見: button[aria-label*='出発'] (2個)"
+  ],
+  "final_url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%A7%85%E3%80%81%E3%80%92100-0005+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E4%B8%B8%E3%81%AE%E5%86%85%EF%BC%91%E4%B8%81%E7%9B%AE/%E6%B8%8B%E8%B0%B7%E9%A7%85%E3%80%81%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA/@35.6596234,139.6947972,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x60188bfbd89f700b:0x277c49ba34ed38!2m2!1d139.7670658!2d35.6812996!1m5!1m1!1s0x60188b563b00109f:0x337328def1e2ab26!2m2!1d139.7016358!2d35.6580339!3e3?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D",
+  "time_selected": "出発時刻",
+  "screenshot_after_click": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/interaction_after_click_20250814_043929.png"
+}

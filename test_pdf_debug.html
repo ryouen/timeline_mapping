@@ -1,0 +1,91 @@
+<\!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Debug</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        pre { background: #f0f0f0; padding: 10px; overflow: auto; max-height: 500px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; margin: 10px; cursor: pointer; }
+        #status { margin: 20px 0; font-weight: bold; }
+        .processing { color: #007bff; }
+        .error { color: #dc3545; }
+        .success { color: #28a745; }
+    </style>
+</head>
+<body>
+    <h1>PDF API デバッグ</h1>
+    <input type="file" id="pdfFile" accept=".pdf">
+    <br>
+    <button onclick="testPDF(false)">通常モード</button>
+    <button onclick="testPDF(true)">デバッグモード（全レスポンス表示）</button>
+    
+    <div id="status"></div>
+    <div id="result"></div>
+    
+    <script>
+        async function testPDF(debug) {
+            console.log("testPDF called with debug:", debug);
+            
+            const fileInput = document.getElementById("pdfFile");
+            const file = fileInput.files[0];
+            
+            if (\!file) { 
+                alert("PDFを選択してください"); 
+                return; 
+            }
+            
+            const statusDiv = document.getElementById("status");
+            const resultDiv = document.getElementById("result");
+            
+            statusDiv.className = "processing";
+            statusDiv.innerHTML = "処理中... (" + file.name + ", " + Math.round(file.size/1024) + "KB)";
+            resultDiv.innerHTML = "";
+            
+            const formData = new FormData();
+            formData.append("pdf", file);
+            formData.append("action", "parseProperties");
+            if (debug) {
+                formData.append("debug", "true");
+            }
+            
+            console.log("Sending request...");
+            
+            try {
+                const response = await fetch("/timeline-mapping/api/generate_pdf.php", {
+                    method: "POST",
+                    body: formData
+                });
+                
+                console.log("Response received:", response.status);
+                
+                const text = await response.text();
+                console.log("Response text:", text);
+                
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch (e) {
+                    statusDiv.className = "error";
+                    statusDiv.innerHTML = "JSONパースエラー";
+                    resultDiv.innerHTML = "<pre>Raw response:" + text + "</pre>";
+                    return;
+                }
+                
+                statusDiv.className = "success";
+                statusDiv.innerHTML = "完了";
+                resultDiv.innerHTML = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+                
+                console.log("Full response:", data);
+                
+            } catch (error) {
+                console.error("Fetch error:", error);
+                statusDiv.className = "error";
+                statusDiv.innerHTML = "エラー: " + error.message;
+                resultDiv.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
+EOF < /dev/null

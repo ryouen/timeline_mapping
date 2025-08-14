@@ -1,0 +1,50 @@
+{
+  "test_info": {
+    "test_id": "long_walk_route",
+    "test_name": "徒歩が長いルート",
+    "mode": "departure",
+    "origin": "東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア",
+    "destination": "東京都江東区青海1-1-10 ダイバーシティ東京",
+    "created_at": "2025-08-14T12:00:00",
+    "verified_manually": true
+  },
+  "expected_result": {
+    "status": "success",
+    "search_info": {
+      "type": "departure",
+      "day_of_week": "Thursday",
+      "arrival_time": null
+    },
+    "route": {
+      "total_time": 41,
+      "details": {
+        "walk_to_station": 7,
+        "station_used": "神田",
+        "trains": [
+          {
+            "line": "京浜東北線",
+            "time": 7,
+            "from": "神田",
+            "to": "新橋",
+            "departure": "9:08",
+            "arrival": "9:15",
+            "transfer_after": {
+              "walk_time": 5,
+              "wait_time": 1,
+              "to_station": "新橋"
+            }
+          },
+          {
+            "line": "ゆりかもめ",
+            "time": 16,
+            "from": "新橋",
+            "to": "台場",
+            "departure": "9:21",
+            "arrival": "9:37"
+          }
+        ],
+        "walk_from_station": 5
+      }
+    }
+  }
+}

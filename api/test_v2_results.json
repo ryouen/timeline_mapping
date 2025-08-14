@@ -1,0 +1,23 @@
+{
+  "test_date": "2025-08-14 13:46:53",
+  "test_cases": [
+    {
+      "name": "現在時刻での検索",
+      "origin": "東京駅",
+      "destination": "新宿駅",
+      "time_arg": "now"
+    },
+    {
+      "name": "明日の朝8時出発",
+      "origin": "東京駅",
+      "destination": "渋谷駅",
+      "time_arg": "departure:2025-08-15 08:00:00"
+    },
+    {
+      "name": "明日の午後2時到着",
+      "origin": "品川駅",
+      "destination": "横浜駅",
+      "time_arg": "arrival:2025-08-15 14:00:00"
+    }
+  ]
+}

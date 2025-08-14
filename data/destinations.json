@@ -1,0 +1,85 @@
+{
+    "destinations": [
+        {
+            "id": "shizenkan-university",
+            "name": "Shizenkan University",
+            "category": "school",
+            "address": "東京都中央区日本橋２丁目５−１",
+            "owner": "you",
+            "monthly_frequency": 13.2,
+            "time_preference": "morning"
+        },
+        {
+            "id": "tokyo-american-club",
+            "name": "東京アメリカンクラブ",
+            "category": "gym",
+            "address": "東京都中央区日本橋室町３丁目２−１",
+            "owner": "both",
+            "monthly_frequency": 8.8,
+            "time_preference": "morning"
+        },
+        {
+            "id": "axle-ochanomizu",
+            "name": "axle御茶ノ水",
+            "category": "office",
+            "address": "東京都千代田区神田小川町３丁目２８−５",
+            "owner": "you",
+            "monthly_frequency": 1.5,
+            "time_preference": "morning"
+        },
+        {
+            "id": "yawara",
+            "name": "Yawara",
+            "category": "gym",
+            "address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+            "owner": "you",
+            "monthly_frequency": 4,
+            "time_preference": "morning"
+        },
+        {
+            "id": "kamiyacho",
+            "name": "神谷町",
+            "category": "office",
+            "address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+            "owner": "partner",
+            "monthly_frequency": 6.6,
+            "time_preference": "morning"
+        },
+        {
+            "id": "waseda_university",
+            "name": "早稲田大学",
+            "category": "school",
+            "address": "東京都新宿区西早稲田１丁目６ 11号館",
+            "owner": "partner",
+            "monthly_frequency": 6.6,
+            "time_preference": "morning"
+        },
+        {
+            "id": "tokyo-station",
+            "name": "東京駅",
+            "category": "station",
+            "address": "東京都千代田区丸の内1丁目9-1",
+            "owner": "both",
+            "monthly_frequency": 3,
+            "time_preference": "morning"
+        },
+        {
+            "id": "haneda-airport",
+            "name": "羽田空港 第一・第二ターミナル",
+            "category": "airport",
+            "address": "東京都大田区羽田空港３丁目３−４",
+            "owner": "you",
+            "monthly_frequency": 0.5,
+            "time_preference": "morning"
+        },
+        {
+            "id": "fuchu-office",
+            "name": "府中オフィス",
+            "category": "office",
+            "address": "東京都府中市住吉町５丁目２２−５",
+            "owner": "you",
+            "monthly_frequency": 1,
+            "time_preference": "morning"
+        }
+    ]
+}

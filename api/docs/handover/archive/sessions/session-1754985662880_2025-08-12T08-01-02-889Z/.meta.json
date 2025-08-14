@@ -1,0 +1,14 @@
+{
+  "last_updated": "2025-08-12T08:01:02.887Z",
+  "updated_by": "claude-handover-setup",
+  "session_id": "session-1754983675777",
+  "session_ended": true,
+  "session_started": "2025-08-12T07:27:55.782Z",
+  "document_version": "1.0.0",
+  "validation": {
+    "last_checked": "2025-08-12T14:30:00Z",
+    "is_valid": true,
+    "warnings": []
+  },
+  "session_end_time": "2025-08-12T08:01:02.887Z"
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Server Check</title>
+</head>
+<body>
+    <h1>Server Status Check</h1>
+    
+    <h2>1. Static Files Test</h2>
+    <p>This HTML file is working ✅</p>
+    
+    <h2>2. PHP Test</h2>
+    <p>Check if PHP is working by accessing: 
+        <a href="phpinfo.php" target="_blank">phpinfo.php</a>
+    </p>
+    <p>Expected: PHP configuration page</p>
+    <p>If you see the code instead, PHP is not configured properly</p>
+    
+    <h2>3. API Test</h2>
+    <p>Check API endpoints:</p>
+    <ul>
+        <li><a href="api/test.php" target="_blank">api/test.php</a></li>
+        <li><a href="api/debug.php" target="_blank">api/debug.php</a></li>
+    </ul>
+    
+    <h2>4. Server Information</h2>
+    <script>
+        document.write(`
+            <p>User Agent: ${navigator.userAgent}</p>
+            <p>Current URL: ${window.location.href}</p>
+            <p>Domain: ${window.location.hostname}</p>
+        `);
+    </script>
+    
+    <h2>5. Possible Solutions</h2>
+    <ol>
+        <li><strong>Apache:</strong> mod_php must be installed and enabled</li>
+        <li><strong>Nginx + PHP-FPM:</strong> PHP-FPM must be running</li>
+        <li><strong>.htaccess:</strong> May need AddHandler or SetHandler directive</li>
+        <li><strong>File permissions:</strong> PHP files need correct ownership</li>
+    </ol>
+    
+    <h2>6. Quick Fix Attempts</h2>
+    <p>Try these .htaccess configurations:</p>
+    <pre>
+# Option 1: Basic PHP handler
+AddHandler application/x-httpd-php .php
+
+# Option 2: Specific handler
+&lt;FilesMatch "\.php$"&gt;
+    SetHandler application/x-httpd-php
+&lt;/FilesMatch&gt;
+
+# Option 3: Alternative handler
+AddType application/x-httpd-php .php
+    </pre>
+</body>
+</html>

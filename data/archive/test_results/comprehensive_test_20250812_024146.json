@@ -1,0 +1,63 @@
+{
+  "origin": "ルフォンプログレ神田プレミア",
+  "origin_address": "千代田区神田須田町1-20-1",
+  "test_time": "20250812_024146",
+  "results": [
+    {
+      "destination": "Shizenkan University",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "東京アメリカンクラブ",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "axle御茶ノ水",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "Yawara",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "東京駅",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "羽田空港",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "神谷町(EE)",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    },
+    {
+      "destination": "早稲田大学",
+      "result": {
+        "status": "error",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      }
+    }
+  ]
+}

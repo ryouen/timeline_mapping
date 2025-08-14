@@ -1,0 +1,91 @@
+{
+  "html_sizes": {
+    "initial": 495106,
+    "expanded": 524001
+  },
+  "found_patterns": {
+    "route_lines": [
+      "銀座線"
+    ],
+    "stations": [
+      "こんにちは"
+    ],
+    "times": [
+      "15",
+      "30",
+      "7",
+      "3",
+      [
+        "1",
+        "0"
+      ],
+      [
+        "9",
+        "0"
+      ],
+      [
+        "9",
+        "50"
+      ],
+      [
+        "9",
+        "57"
+      ],
+      [
+        "7",
+        "0"
+      ],
+      [
+        "9",
+        "53"
+      ],
+      [
+        "9",
+        "56"
+      ]
+    ],
+    "walk_info": []
+  },
+  "potential_selectors": [
+    {
+      "section": "directions_panel",
+      "text": "\n出発地: 〒101-0041 東京都千代田区神田須田町１丁目２０−１ 吉川ビル\n目的地: 日本橋髙島屋三井ビルディング、〒103-0027 東京都中央区日本橋２丁目５−１ 日本橋高島屋三井ビルディ",
+      "classes": "m6QErb WNBkOb XiKgde "
+    },
+    {
+      "section": "transit_details",
+      "text": "銀座線\n神田駅から 9:53\n180円  4 分",
+      "classes": "transit"
+    },
+    {
+      "section": "transit_details",
+      "text": "徒歩\n\n約 3 分、210 m",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    },
+    {
+      "section": "transit_details",
+      "text": "銀座線各停渋谷行\n\n3 分\n（2 駅乗車）\n· 1 番ホーム · 乗換地点 ID: G13",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    },
+    {
+      "section": "transit_details",
+      "text": "徒歩\n\n約 1 分、230 m",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    }
+  ],
+  "summary": {
+    "lines_found": [
+      "銀座線"
+    ],
+    "stations_found": [
+      "こんにちは"
+    ],
+    "times_found": [
+      "3",
+      "15",
+      "30",
+      "7"
+    ],
+    "walk_info_found": []
+  }
+}

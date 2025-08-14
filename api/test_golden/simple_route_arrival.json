@@ -1,0 +1,37 @@
+{
+  "test_info": {
+    "test_id": "simple_route",
+    "test_name": "シンプルルート（乗り換えなし）",
+    "mode": "arrival",
+    "origin": "東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア",
+    "destination": "東京都中央区日本橋2-5-1 髙島屋三井ビルディング",
+    "created_at": "2025-08-14T11:45:00",
+    "verified_manually": true
+  },
+  "expected_result": {
+    "status": "success",
+    "search_info": {
+      "type": "arrival",
+      "day_of_week": "Thursday",
+      "arrival_time": "2025-08-14 10:00:00"
+    },
+    "route": {
+      "total_time": 8,
+      "details": {
+        "walk_to_station": 4,
+        "station_used": "神田",
+        "trains": [
+          {
+            "line": "地下鉄銀座線",
+            "time": 3,
+            "from": "神田",
+            "to": "日本橋",
+            "departure": "9:53",
+            "arrival": "9:56"
+          }
+        ],
+        "walk_from_station": 1
+      }
+    }
+  }
+}

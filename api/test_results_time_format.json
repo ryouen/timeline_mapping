@@ -1,0 +1,38 @@
+{
+  "現在の形式（data=）": {
+    "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%A7%85/%E6%B8%8B%E8%B0%B7%E9%A7%85/data=!3m1!4b1!4m2!4m1!3e3",
+    "時刻選択UI": "未検出",
+    "出発時刻表示": "未検出",
+    "エラー": null,
+    "ルート表示": "あり",
+    "スクリーンショット": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/test_現在の形式_data=__20250814_043127.png",
+    "HTML冒頭": "<html itemscope=\"\" itemtype=\"http://schema.org/Place\" lang=\"ja\" style=\"font-family: Roboto, &quot;Noto Sans JP&quot;, Arial, sans-serif;\"><head>  <link href=\"/maps/_/js/k=maps.m.ja.ollGi0xZzHA.2021.O/m=sc2,per,mo,lp,ep,ti,ds,stx,dwi,enr,pwd,dw,pdm,log,std,b/am=5AAAkgAE/rt=j/d=1/rs=ACT90oE5RWlem7F89NWkGGUOuGC87ilujQ?wli=m.2giWiJ5fl5E.loadSv.O%3A%3Bm.c2vYCpnfA28.mapcore.O%3A%3B&amp;cb=A.M\" as=\"script\" rel=\"preload\" type=\"application/javascript\" nonce=\"\">  <link href=\"/maps/preview/opensearch.xml?hl=ja\" title=\"Google マップ\" rel=\"search\" type=\"application/opensearchdescription+xml\"> <title>東京駅 から 渋谷駅 - Google マップ</title> <meta content=\"Google マップで地図を検索。乗換案内、路線図、ドライブルート、ストリートビューも。見やすい地図でお店やサービス、地域の情報を検索できます。世界地図も日本語で、旅のプランにも便利。\" name=\"Description\">  <meta content=\"東京駅 to 渋谷駅\" itemprop=\"name\"> <meta content=\"東京駅 to 渋谷駅\" property=\"og:title\">  <meta content=\"https://maps.google.com/maps/api/staticmap?center=35.65636828%2C139.69436616&amp;zoom=12&amp;size=900x900&amp;markers=35.6812996%2C139.7670"
+  },
+  "アプローチA（departure_time）": {
+    "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%A7%85/%E6%B8%8B%E8%B0%B7%E9%A7%85/?travelmode=transit&departure_time=1755244800",
+    "時刻選択UI": "未検出",
+    "出発時刻表示": "未検出",
+    "エラー": null,
+    "ルート表示": "あり",
+    "スクリーンショット": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/test_アプローチA_departure_time__20250814_043137.png",
+    "HTML冒頭": "<html itemscope=\"\" itemtype=\"http://schema.org/Place\" lang=\"ja\" style=\"font-family: Roboto, &quot;Noto Sans JP&quot;, Arial, sans-serif;\"><head>  <link href=\"/maps/_/js/k=maps.m.ja.ollGi0xZzHA.2021.O/m=sc2,per,mo,lp,ep,ti,ds,stx,dwi,enr,pwd,dw,pdm,log,std,b/am=5AAAkgAE/rt=j/d=1/rs=ACT90oE5RWlem7F89NWkGGUOuGC87ilujQ?wli=m.2giWiJ5fl5E.loadSv.O%3A%3Bm.c2vYCpnfA28.mapcore.O%3A%3B&amp;cb=A.M\" as=\"script\" rel=\"preload\" type=\"application/javascript\" nonce=\"\">  <link href=\"/maps/preview/opensearch.xml?hl=ja\" title=\"Google マップ\" rel=\"search\" type=\"application/opensearchdescription+xml\"> <title>東京駅 から 渋谷駅 - Google マップ</title> <meta content=\"Google マップで地図を検索。乗換案内、路線図、ドライブルート、ストリートビューも。見やすい地図でお店やサービス、地域の情報を検索できます。世界地図も日本語で、旅のプランにも便利。\" name=\"Description\">  <meta content=\"東京駅 to 渋谷駅\" itemprop=\"name\"> <meta content=\"東京駅 to 渋谷駅\" property=\"og:title\">  <meta content=\"https://maps.google.com/maps/api/staticmap?center=35.65412568%2C139.69310216&amp;zoom=12&amp;size=900x900&amp;markers=35.6812996%2C139.7670"
+  },
+  "アプローチA（API版）": {
+    "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%9D%B1%E4%BA%AC%E9%A7%85&destination=%E6%B8%8B%E8%B0%B7%E9%A7%85&travelmode=transit&departure_time=1755244800",
+    "時刻選択UI": "未検出",
+    "出発時刻表示": "未検出",
+    "エラー": null,
+    "ルート表示": "あり",
+    "スクリーンショット": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/test_アプローチA_API版__20250814_043143.png",
+    "HTML冒頭": "<html itemscope=\"\" itemtype=\"http://schema.org/Place\" lang=\"ja\" style=\"font-family: Roboto, &quot;Noto Sans JP&quot;, Arial, sans-serif;\"><head>  <link href=\"/maps/_/js/k=maps.m.ja.ollGi0xZzHA.2021.O/m=sc2,per,mo,lp,ep,ti,ds,stx,dwi,enr,pwd,dw,pdm,log,std,b/am=5AAAkgAE/rt=j/d=1/rs=ACT90oE5RWlem7F89NWkGGUOuGC87ilujQ?wli=m.2giWiJ5fl5E.loadSv.O%3A%3Bm.c2vYCpnfA28.mapcore.O%3A%3B&amp;cb=A.M\" as=\"script\" rel=\"preload\" type=\"application/javascript\" nonce=\"\">  <link href=\"/maps/preview/opensearch.xml?hl=ja\" title=\"Google マップ\" rel=\"search\" type=\"application/opensearchdescription+xml\"> <title>東京駅 から 渋谷駅 - Google マップ</title> <meta content=\"Google マップで地図を検索。乗換案内、路線図、ドライブルート、ストリートビューも。見やすい地図でお店やサービス、地域の情報を検索できます。世界地図も日本語で、旅のプランにも便利。\" name=\"Description\">  <meta content=\"東京駅 to 渋谷駅\" itemprop=\"name\"> <meta content=\"東京駅 to 渋谷駅\" property=\"og:title\">  <meta content=\"https://maps.google.com/maps/api/staticmap?center=35.65636828%2C139.69436616&amp;zoom=12&amp;size=900x900&amp;markers=35.6812996%2C139.7670"
+  },
+  "アプローチB（data=時刻付き）": {
+    "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%A7%85/%E6%B8%8B%E8%B0%B7%E9%A7%85/data=!3e3!6e1!8j1755244800",
+    "時刻選択UI": "未検出",
+    "出発時刻表示": "未検出",
+    "エラー": null,
+    "ルート表示": "あり",
+    "スクリーンショット": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/test_アプローチB_data=時刻付き__20250814_043151.png",
+    "HTML冒頭": "<html itemscope=\"\" itemtype=\"http://schema.org/Place\" lang=\"ja\" style=\"font-family: Roboto, &quot;Noto Sans JP&quot;, Arial, sans-serif;\"><head>  <link href=\"/maps/_/js/k=maps.m.ja.ollGi0xZzHA.2021.O/m=sc2,per,mo,lp,ep,ti,ds,stx,dwi,enr,pwd,dw,pdm,log,std,b/am=5AAAkgAE/rt=j/d=1/rs=ACT90oE5RWlem7F89NWkGGUOuGC87ilujQ?wli=m.2giWiJ5fl5E.loadSv.O%3A%3Bm.c2vYCpnfA28.mapcore.O%3A%3B&amp;cb=A.M\" as=\"script\" rel=\"preload\" type=\"application/javascript\" nonce=\"\">  <link href=\"/maps/preview/opensearch.xml?hl=ja\" title=\"Google マップ\" rel=\"search\" type=\"application/opensearchdescription+xml\"> <title>東京駅 から 渋谷駅 - Google マップ</title> <meta content=\"Google マップで地図を検索。乗換案内、路線図、ドライブルート、ストリートビューも。見やすい地図でお店やサービス、地域の情報を検索できます。世界地図も日本語で、旅のプランにも便利。\" name=\"Description\">  <meta content=\"東京駅 to 渋谷駅\" itemprop=\"name\"> <meta content=\"東京駅 to 渋谷駅\" property=\"og:title\">  <meta content=\"https://maps.google.com/maps/api/staticmap?center=35.65412568%2C139.69310216&amp;zoom=12&amp;size=900x900&amp;markers=35.6812996%2C139.7670"
+  }
+}

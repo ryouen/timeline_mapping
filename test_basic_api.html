@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>基本API動作テスト</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
+        .pass { background: #d4edda; }
+        .fail { background: #f8d7da; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>基本API動作テスト</h1>
+    
+    <button onclick="runTests()">テスト実行</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        async function runTests() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h2>テスト実行中...</h2>';
+            
+            // 1. test.php の動作確認
+            results.innerHTML += '<div class="test"><h3>1. test.php 動作確認</h3><pre id="test1">実行中...</pre></div>';
+            
+            try {
+                const response1 = await fetch('/timeline-mapping/api/test.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ test: 'data' })
+                });
+                
+                const text1 = await response1.text();
+                document.getElementById('test1').textContent = 
+                    `Status: ${response1.status}\nResponse: ${text1}`;
+                    
+                if (text1) {
+                    try {
+                        const json = JSON.parse(text1);
+                        document.getElementById('test1').parentElement.classList.add('pass');
+                    } catch (e) {
+                        document.getElementById('test1').parentElement.classList.add('fail');
+                    }
+                } else {
+                    document.getElementById('test1').parentElement.classList.add('fail');
+                    document.getElementById('test1').textContent += '\n\n❌ レスポンスが空です';
+                }
+            } catch (error) {
+                document.getElementById('test1').textContent = `Error: ${error.message}`;
+                document.getElementById('test1').parentElement.classList.add('fail');
+            }
+            
+            // 2. generate.php のヘルスチェック
+            results.innerHTML += '<div class="test"><h3>2. generate.php ヘルスチェック</h3><pre id="test2">実行中...</pre></div>';
+            
+            try {
+                const response2 = await fetch('/timeline-mapping/api/generate.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'health' })
+                });
+                
+                const text2 = await response2.text();
+                document.getElementById('test2').textContent = 
+                    `Status: ${response2.status}\nResponse Length: ${text2.length}\nFirst 500 chars: ${text2.substring(0, 500)}`;
+                    
+                if (!text2) {
+                    document.getElementById('test2').textContent += '\n\n❌ レスポンスが空です - PHPエラーの可能性';
+                    document.getElementById('test2').parentElement.classList.add('fail');
+                } else if (text2.startsWith('<!') || text2.startsWith('<br')) {
+                    document.getElementById('test2').textContent += '\n\n❌ HTMLエラーページが返されています';
+                    document.getElementById('test2').parentElement.classList.add('fail');
+                } else {
+                    try {
+                        const json = JSON.parse(text2);
+                        document.getElementById('test2').textContent += '\n\n✅ JSON: ' + JSON.stringify(json);
+                        document.getElementById('test2').parentElement.classList.add('pass');
+                    } catch (e) {
+                        document.getElementById('test2').textContent += '\n\n⚠️ JSONパースエラー';
+                        document.getElementById('test2').parentElement.classList.add('fail');
+                    }
+                }
+            } catch (error) {
+                document.getElementById('test2').textContent = `Error: ${error.message}`;
+                document.getElementById('test2').parentElement.classList.add('fail');
+            }
+            
+            // 3. generate.php に正しいアクションを送信
+            results.innerHTML += '<div class="test"><h3>3. generate.php 正常リクエスト</h3><pre id="test3">実行中...</pre></div>';
+            
+            try {
+                const response3 = await fetch('/timeline-mapping/api/generate.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: 'parseDestinations',
+                        text: 'テスト'
+                    })
+                });
+                
+                const text3 = await response3.text();
+                document.getElementById('test3').textContent = 
+                    `Status: ${response3.status}\nResponse Length: ${text3.length}\nResponse: ${text3.substring(0, 500)}`;
+                    
+                if (!text3) {
+                    document.getElementById('test3').textContent += '\n\n❌ レスポンスが空です';
+                    document.getElementById('test3').parentElement.classList.add('fail');
+                } else {
+                    document.getElementById('test3').parentElement.classList.add('pass');
+                }
+            } catch (error) {
+                document.getElementById('test3').textContent = `Error: ${error.message}`;
+                document.getElementById('test3').parentElement.classList.add('fail');
+            }
+            
+            // 4. PHPエラーログの確認方法を表示
+            results.innerHTML += `
+                <div class="test">
+                    <h3>4. デバッグ情報</h3>
+                    <pre>
+PHPが空のレスポンスを返す場合の確認事項：
+
+1. PHPのエラーログを確認
+   - サーバーのerror_logファイル
+   - /var/log/apache2/error.log または /var/log/nginx/error.log
+
+2. PHP設定の確認
+   - memory_limit
+   - max_execution_time
+   - post_max_size
+
+3. .htaccessの影響
+   - RewriteRuleが影響している可能性
+
+4. ob_start()の問題
+   - 出力バッファリングが原因の可能性
+                    </pre>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

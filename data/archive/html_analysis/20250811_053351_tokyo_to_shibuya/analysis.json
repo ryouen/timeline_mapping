@@ -1,0 +1,83 @@
+{
+  "html_sizes": {
+    "initial": 507747,
+    "expanded": 520209
+  },
+  "found_patterns": {
+    "route_lines": [
+      "丸ノ内線",
+      "銀座線"
+    ],
+    "stations": [
+      "こんにちは"
+    ],
+    "times": [
+      "15",
+      "30",
+      "19",
+      "9",
+      "1",
+      [
+        "1",
+        "0"
+      ],
+      [
+        "9",
+        "40"
+      ],
+      [
+        "9",
+        "59"
+      ],
+      [
+        "9",
+        "49"
+      ]
+    ],
+    "walk_info": []
+  },
+  "potential_selectors": [
+    {
+      "section": "directions_panel",
+      "text": "\n出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目\n目的地: 渋谷駅、東京都渋谷区\n\n\n\n9:40 (火曜日) - 9:59 （19 分）\n丸ノ内線  銀座線\n東京駅から 9",
+      "classes": "m6QErb WNBkOb XiKgde "
+    },
+    {
+      "section": "transit_details",
+      "text": "丸ノ内線  銀座線\n東京駅から 9:40\n210円  1 分",
+      "classes": "transit"
+    },
+    {
+      "section": "transit_details",
+      "text": "丸ノ内線各停荻窪行\n\n9 分\n（4 駅乗車）\n· 1 番ホーム · 乗換地点 ID: M17",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    },
+    {
+      "section": "transit_details",
+      "text": "徒歩\n\n約 1 分",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    },
+    {
+      "section": "transit_details",
+      "text": "銀座線各停渋谷行\n\n8 分\n（4 駅乗車）\n· 1 番ホーム · 乗換地点 ID: G05",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    }
+  ],
+  "summary": {
+    "lines_found": [
+      "銀座線",
+      "丸ノ内線"
+    ],
+    "stations_found": [
+      "こんにちは"
+    ],
+    "times_found": [
+      "9",
+      "19",
+      "15",
+      "30",
+      "1"
+    ],
+    "walk_info_found": []
+  }
+}

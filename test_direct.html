@@ -1,0 +1,47 @@
+<\!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Direct API Test</title>
+</head>
+<body>
+    <h1>API Direct Test</h1>
+    <textarea id="input" rows="10" cols="50">週3回ジムに通う</textarea>
+    <br>
+    <button onclick="testAPI()">Test API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const text = document.getElementById('input').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = 'Sending...';
+            
+            try {
+                console.log('Request:', text);
+                
+                const response = await fetch('/timeline-mapping/api/generate_test.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'parseDestinations',
+                        text: text
+                    })
+                });
+                
+                console.log('Response:', response);
+                const responseText = await response.text();
+                console.log('Text:', responseText);
+                
+                const data = JSON.parse(responseText);
+                resultDiv.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+[
+  {
+    "name": "API版_departure_time",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%9D%B1%E4%BA%AC%E9%A7%85&destination=%E6%B8%8B%E8%B0%B7%E9%A7%85&travelmode=transit&departure_time=1755244800",
+    "timestamp": 1755244800,
+    "stages": {
+      "initial_load": {
+        "name": "API版_departure_time_initial",
+        "elements_found": {
+          "time_options": "2 found",
+          "route_panel": "6 found"
+        },
+        "time_related_texts": [
+          {
+            "text": "\nおすすめ\n\n17 分\n\n26 分\n\n1 時間 39 分\n\n32 分\n\n\n\n\n\n\n\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n  \n\nすぐ",
+            "tag": "html",
+            "class": ""
+          },
+          {
+            "text": "\nおすすめ\n\n17 分\n\n26 分\n\n1 時間 39 分\n\n32 分\n\n\n\n\n\n\n\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n  \n\nすぐ",
+            "tag": "body",
+            "class": "LoJzbe keynav-mode-off TbqDH"
+          },
+          {
+            "text": "17 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "Fl2iee "
+          },
+          {
+            "text": "1 時間 39 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "32 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "cGRe9e"
+          },
+          {
+            "text": "\n\nすぐに出発\n\nオプション",
+            "tag": "div",
+            "class": "MlqQ3d Hk4XGb "
+          },
+          {
+            "text": "すぐに出発",
+            "tag": "span",
+            "class": "uEubGf NlVald"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "Fk3sm fontHeadlineSmall"
+          },
+          {
+            "text": "東京駅から 13:38 定刻\n210円 5 分間隔",
+            "tag": "div",
+            "class": "ue5qRc"
+          }
+        ],
+        "buttons_found": [
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "\nおすすめ",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n17 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n26 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n1 時間 39 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n32 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "",
+            "aria-label": "ルートを閉じる",
+            "class": "YismEf"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "この目的地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地と目的地を入れ替える",
+            "class": "j9zajd"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "wR3cXd"
+          },
+          {
+            "text": "\n保存済み",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          },
+          {
+            "text": "\n最近",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          }
+        ],
+        "inputs_found": [
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "出発地 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "value": "東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "目的地 渋谷駅、東京都渋谷区",
+            "value": "渋谷駅、東京都渋谷区",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "",
+            "value": "4:35",
+            "class": "LgGJQc"
+          }
+        ],
+        "screenshot": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_API版_departure_time_1_initial_20250814_043535.png"
+      },
+      "after_route_click": {
+        "name": "API版_departure_time_after_click",
+        "elements_found": {},
+        "time_related_texts": [
+          {
+            "text": "\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n\n出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目\n目的地: 渋谷駅、東京都渋谷区\n\n\n\n13:",
+            "tag": "html",
+            "class": ""
+          },
+          {
+            "text": "\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n\n出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目\n目的地: 渋谷駅、東京都渋谷区\n\n\n\n13:",
+            "tag": "body",
+            "class": "LoJzbe keynav-mode-off TbqDH"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "cGRe9e"
+          },
+          {
+            "text": "出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "tag": "div",
+            "class": "KUej9d"
+          },
+          {
+            "text": "13:38 - 14:04 （26 分）",
+            "tag": "h1",
+            "class": "yIkJof lfPIob"
+          },
+          {
+            "text": "13:38 - 14:04 （26 分）",
+            "tag": "span",
+            "class": ""
+          },
+          {
+            "text": "（26 分）",
+            "tag": "span",
+            "class": "hPzYFf"
+          },
+          {
+            "text": "東京駅から 13:38 定刻\n210円 5 分間隔",
+            "tag": "div",
+            "class": "ue5qRc"
+          },
+          {
+            "text": "5 分間隔",
+            "tag": "span",
+            "class": "tUEI8e fontBodyMedium"
+          }
+        ],
+        "buttons_found": [
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "Hse3Ec FeXq4d"
+          },
+          {
+            "text": "",
+            "aria-label": "ルートを閉じる",
+            "class": "YismEf"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "この目的地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地と目的地を入れ替える",
+            "class": "j9zajd"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "wR3cXd"
+          },
+          {
+            "text": "\n保存済み",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          }
+        ],
+        "inputs_found": [
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "出発地 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "value": "",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "目的地 渋谷駅、東京都渋谷区",
+            "value": "",
+            "class": "tactile-searchbox-input"
+          }
+        ],
+        "screenshot": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_API版_departure_time_2_clicked_20250814_043535.png"
+      }
+    },
+    "html_saved": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_API版_departure_time_full.html"
+  },
+  {
+    "name": "arrival_time版",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%9D%B1%E4%BA%AC%E9%A7%85&destination=%E6%B8%8B%E8%B0%B7%E9%A7%85&travelmode=transit&arrival_time=1755244800",
+    "timestamp": 1755244800,
+    "stages": {
+      "initial_load": {
+        "name": "arrival_time版_initial",
+        "elements_found": {
+          "time_options": "2 found",
+          "route_panel": "6 found"
+        },
+        "time_related_texts": [
+          {
+            "text": "\nおすすめ\n\n17 分\n\n26 分\n\n1 時間 39 分\n\n32 分\n\n\n\n\n\n\n\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n  \n\nすぐ",
+            "tag": "html",
+            "class": ""
+          },
+          {
+            "text": "\nおすすめ\n\n17 分\n\n26 分\n\n1 時間 39 分\n\n32 分\n\n\n\n\n\n\n\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n  \n\nすぐ",
+            "tag": "body",
+            "class": "LoJzbe keynav-mode-off TbqDH"
+          },
+          {
+            "text": "17 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "Fl2iee "
+          },
+          {
+            "text": "1 時間 39 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "32 分",
+            "tag": "div",
+            "class": "Fl2iee HNPWFe"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "cGRe9e"
+          },
+          {
+            "text": "\n\nすぐに出発\n\nオプション",
+            "tag": "div",
+            "class": "MlqQ3d Hk4XGb "
+          },
+          {
+            "text": "すぐに出発",
+            "tag": "span",
+            "class": "uEubGf NlVald"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "Fk3sm fontHeadlineSmall"
+          },
+          {
+            "text": "東京駅から 13:38 定刻\n210円 5 分間隔",
+            "tag": "div",
+            "class": "ue5qRc"
+          }
+        ],
+        "buttons_found": [
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "\nおすすめ",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n17 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n26 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n1 時間 39 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "\n32 分",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "",
+            "aria-label": "",
+            "class": "m6Uuef"
+          },
+          {
+            "text": "",
+            "aria-label": "ルートを閉じる",
+            "class": "YismEf"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "この目的地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地と目的地を入れ替える",
+            "class": "j9zajd"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "wR3cXd"
+          },
+          {
+            "text": "\n保存済み",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          },
+          {
+            "text": "\n最近",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          }
+        ],
+        "inputs_found": [
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "出発地 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "value": "東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "目的地 渋谷駅、東京都渋谷区",
+            "value": "渋谷駅、東京都渋谷区",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "",
+            "value": "4:35",
+            "class": "LgGJQc"
+          }
+        ],
+        "screenshot": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_arrival_time版_1_initial_20250814_043551.png"
+      },
+      "after_route_click": {
+        "name": "arrival_time版_after_click",
+        "elements_found": {},
+        "time_related_texts": [
+          {
+            "text": "\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n\n出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目\n目的地: 渋谷駅、東京都渋谷区\n\n\n\n13:",
+            "tag": "html",
+            "class": ""
+          },
+          {
+            "text": "\n\n保存済み\n\n最近\n\n渋谷駅\n26 分\n2\n東京\n\nアプリをゲット\n\n出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目\n目的地: 渋谷駅、東京都渋谷区\n\n\n\n13:",
+            "tag": "body",
+            "class": "LoJzbe keynav-mode-off TbqDH"
+          },
+          {
+            "text": "26 分",
+            "tag": "div",
+            "class": "cGRe9e"
+          },
+          {
+            "text": "出発地: 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "tag": "div",
+            "class": "KUej9d"
+          },
+          {
+            "text": "13:38 - 14:04 （26 分）",
+            "tag": "h1",
+            "class": "yIkJof lfPIob"
+          },
+          {
+            "text": "13:38 - 14:04 （26 分）",
+            "tag": "span",
+            "class": ""
+          },
+          {
+            "text": "（26 分）",
+            "tag": "span",
+            "class": "hPzYFf"
+          },
+          {
+            "text": "東京駅から 13:38 定刻\n210円 5 分間隔",
+            "tag": "div",
+            "class": "ue5qRc"
+          },
+          {
+            "text": "5 分間隔",
+            "tag": "span",
+            "class": "tUEI8e fontBodyMedium"
+          }
+        ],
+        "buttons_found": [
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "Hse3Ec FeXq4d"
+          },
+          {
+            "text": "",
+            "aria-label": "ルートを閉じる",
+            "class": "YismEf"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "検索",
+            "class": "mL3xi"
+          },
+          {
+            "text": "",
+            "aria-label": "この目的地を削除",
+            "class": "t2T4rd"
+          },
+          {
+            "text": "",
+            "aria-label": "出発地と目的地を入れ替える",
+            "class": "j9zajd"
+          },
+          {
+            "text": "",
+            "aria-label": "サイドパネルを折りたたむ",
+            "class": "fn8vub Hk4XGb"
+          },
+          {
+            "text": "",
+            "aria-label": "メニュー",
+            "class": "wR3cXd"
+          },
+          {
+            "text": "\n保存済み",
+            "aria-label": "",
+            "class": "wR3cXd fontLabelMedium"
+          }
+        ],
+        "inputs_found": [
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "出発地 東京駅、〒100-0005 東京都千代田区丸の内１丁目",
+            "value": "",
+            "class": "tactile-searchbox-input"
+          },
+          {
+            "type": "text",
+            "placeholder": "",
+            "aria-label": "目的地 渋谷駅、東京都渋谷区",
+            "value": "",
+            "class": "tactile-searchbox-input"
+          }
+        ],
+        "screenshot": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_arrival_time版_2_clicked_20250814_043551.png"
+      }
+    },
+    "html_saved": "/app/output/japandatascience.com/timeline-mapping/api/test_screenshots/v2_arrival_time版_full.html"
+  }
+]

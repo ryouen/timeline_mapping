@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>API レスポンスタイムテスト</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
+        .pass { background: #d4edda; }
+        .fail { background: #f8d7da; }
+        .slow { background: #fff3cd; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>API レスポンスタイムテスト</h1>
+    
+    <button onclick="runTests()">テスト実行</button>
+    <button onclick="clearResults()">クリア</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        async function measureAPIResponse(name, url, payload) {
+            const startTime = performance.now();
+            let status = 'fail';
+            let details = '';
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const endTime = performance.now();
+                const responseTime = endTime - startTime;
+                
+                // まずテキストとして取得
+                const responseText = await response.text();
+                
+                // HTMLエラーページかチェック
+                if (responseText.startsWith('<!DOCTYPE') || responseText.startsWith('<html') || responseText.startsWith('<br')) {
+                    status = 'fail';
+                    details = `
+                        PHPエラーが発生しています:
+                        レスポンスタイム: ${responseTime.toFixed(2)}ms
+                        ステータス: ${response.status}
+                        エラー内容（最初の500文字）:
+                        ${responseText.substring(0, 500)}
+                    `;
+                } else {
+                    try {
+                        const data = JSON.parse(responseText);
+                        
+                        if (responseTime < 1000) {
+                            status = 'pass';
+                        } else if (responseTime < 3000) {
+                            status = 'slow';
+                        }
+                        
+                        details = `
+                            レスポンスタイム: ${responseTime.toFixed(2)}ms
+                            ステータス: ${response.status}
+                            データ: ${JSON.stringify(data).substring(0, 100)}...
+                        `;
+                    } catch (jsonError) {
+                        status = 'fail';
+                        details = `
+                            JSONパースエラー:
+                            レスポンスタイム: ${responseTime.toFixed(2)}ms
+                            ステータス: ${response.status}
+                            生のレスポンス: ${responseText.substring(0, 200)}
+                        `;
+                    }
+                }
+            } catch (error) {
+                details = `エラー: ${error.message}`;
+            }
+            
+            return { name, status, details };
+        }
+        
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>テスト実行中...</h2>';
+            
+            const tests = [
+                {
+                    name: 'Gemini API - 短いテキスト',
+                    url: '/timeline-mapping/api/generate.php',
+                    payload: {
+                        action: 'parseDestinations',
+                        text: '私の会社は東京都千代田区にあります。週3回通っています。'
+                    }
+                },
+                {
+                    name: 'Gemini API - 中程度のテキスト',
+                    url: '/timeline-mapping/api/generate.php',
+                    payload: {
+                        action: 'parseDestinations',
+                        text: `ShizenkanUniv. 〒103-0027 東京都中央区日本橋２丁目５−１ 週３回
+                               日本橋(ジム) 〒103-0022 東京都中央区日本橋室町３丁目２−１ 週１回
+                               東京駅 東京駅新幹線乗り場 月２～３回`
+                    }
+                },
+                {
+                    name: 'Gemini API - 長いテキスト',
+                    url: '/timeline-mapping/api/generate.php',
+                    payload: {
+                        action: 'parseDestinations',
+                        text: 'テスト目的地 '.repeat(50) + ' 週2回'
+                    }
+                },
+                {
+                    name: 'Google Maps API',
+                    url: '/timeline-mapping/api/maps.php',
+                    payload: {
+                        origin: '東京都千代田区神田須田町1-20',
+                        destination: '東京都中央区日本橋2-5-1'
+                    }
+                },
+                {
+                    name: '不正なアクション',
+                    url: '/timeline-mapping/api/generate.php',
+                    payload: {
+                        action: 'invalid_action',
+                        text: 'test'
+                    }
+                },
+                {
+                    name: '空のペイロード',
+                    url: '/timeline-mapping/api/generate.php',
+                    payload: {}
+                }
+            ];
+            
+            resultsDiv.innerHTML = '';
+            
+            for (const test of tests) {
+                const result = await measureAPIResponse(test.name, test.url, test.payload);
+                
+                const resultHtml = `
+                    <div class="test ${result.status}">
+                        <h3>${result.name}</h3>
+                        <pre>${result.details}</pre>
+                    </div>
+                `;
+                
+                resultsDiv.innerHTML += resultHtml;
+            }
+            
+            // パフォーマンス統計
+            resultsDiv.innerHTML += `
+                <div class="test">
+                    <h3>パフォーマンス基準</h3>
+                    <ul>
+                        <li>✅ 良好: < 1秒</li>
+                        <li>⚠️ 遅い: 1-3秒</li>
+                        <li>❌ タイムアウトリスク: > 3秒</li>
+                    </ul>
+                </div>
+            `;
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

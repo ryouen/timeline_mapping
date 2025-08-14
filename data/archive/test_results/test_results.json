@@ -1,0 +1,128 @@
+{
+  "test_date": "2025-08-11 10:00:00",
+  "total_tests": 4,
+  "results": [
+    {
+      "name": "神田→Shizenkan University",
+      "status": "success",
+      "actual": {
+        "total_time": 7,
+        "details": {
+          "walk_to_station": 3,
+          "station_used": "神田駅",
+          "trains": [
+            {
+              "line": "銀座線",
+              "time": 3,
+              "from": "神田",
+              "to": "日本橋"
+            }
+          ],
+          "walk_from_station": 1
+        }
+      },
+      "expected": {
+        "total_time": 13,
+        "walk_to_station": 4,
+        "trains": [
+          {
+            "line": "銀座線",
+            "time": 2
+          }
+        ],
+        "walk_from_station": 7
+      },
+      "differences": [
+        "総時間: 実際=7分, 期待=13分",
+        "駅から徒歩: 実際=1分, 期待=7分"
+      ]
+    },
+    {
+      "name": "神田→東京アメリカンクラブ",
+      "status": "success",
+      "actual": {
+        "total_time": 7,
+        "details": {
+          "walk_to_station": 3,
+          "station_used": "神田駅",
+          "trains": [
+            {
+              "line": "銀座線",
+              "time": 1,
+              "from": "神田",
+              "to": "三越前"
+            }
+          ],
+          "walk_from_station": 3
+        }
+      },
+      "expected": {
+        "total_time": 8,
+        "walk_to_station": 4,
+        "trains": [
+          {
+            "line": "銀座線",
+            "time": 2
+          }
+        ],
+        "walk_from_station": 2
+      },
+      "differences": []
+    },
+    {
+      "name": "神田→axle御茶ノ水",
+      "status": "error",
+      "message": "ルート情報の抽出に失敗しました"
+    },
+    {
+      "name": "神田→神谷町(EE)",
+      "status": "success",
+      "actual": {
+        "total_time": 24,
+        "details": {
+          "walk_to_station": 3,
+          "station_used": "神田駅",
+          "trains": [
+            {
+              "line": "銀座線",
+              "time": 6,
+              "from": "神田",
+              "to": "銀座",
+              "transfer_after": {
+                "time": 5,
+                "to_line": "日比谷線"
+              }
+            },
+            {
+              "line": "日比谷線",
+              "time": 7,
+              "from": "銀座",
+              "to": "神谷町",
+              "wait_time": 7
+            }
+          ],
+          "walk_from_station": 3
+        }
+      },
+      "expected": {
+        "total_time": 25,
+        "walk_to_station": 3,
+        "trains": [
+          {
+            "line": "銀座線",
+            "time": 6,
+            "transfer_after": {
+              "time": 1
+            }
+          },
+          {
+            "line": "日比谷線",
+            "time": 6
+          }
+        ],
+        "walk_from_station": 3
+      },
+      "differences": []
+    }
+  ]
+}

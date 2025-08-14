@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>時間距離マップ - 居住地視点</title>
+    <style>
+        /* グローバルな色定義とスペーシング */
+        :root {
+            --color-walk: #FFA726;
+            --color-train: #42A5F5;
+            --color-transfer: #EF5350;
+            --color-walk-gradient: linear-gradient(90deg, #FFA726, #FFB74D);
+            --color-train-gradient: linear-gradient(90deg, #42A5F5, #64B5F6);
+            --color-transfer-gradient: linear-gradient(90deg, #EF5350, #E57373);
+            
+            /* スペーシングシステム */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 12px;
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans JP', sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+
+        #canvas.grabbing {
+            cursor: grabbing;
+        }
+
+        /* デスクトップ用コントロール */
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 100;
+            max-width: 380px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        select:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: rgba(100, 200, 255, 0.6);
+            background: rgba(30, 30, 30, 0.9);
+        }
+
+        .area-info {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 13px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .area-info .rent {
+            color: #ffc107;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .area-info .stations {
+            color: #64c8ff;
+            margin-bottom: 5px;
+        }
+
+        .area-info .score {
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+        
+        .area-info .total-time {
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .area-info .walk-time {
+            color: #ffa726;
+            margin-bottom: 5px;
+        }
+
+        /* 右上の情報パネル */
+        .info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            max-width: 250px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 凡例 */
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            max-width: 300px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .legend h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .legend-color.walk {
+            background: linear-gradient(90deg, rgba(255, 193, 7, 0.9), rgba(255, 193, 7, 0.7));
+        }
+        
+        .legend-color.train {
+            background: linear-gradient(90deg, rgba(100, 200, 255, 0.9), rgba(100, 200, 255, 0.7));
+        }
+        
+        .legend-color.transfer {
+            background: linear-gradient(90deg, rgba(255, 100, 100, 0.9), rgba(255, 100, 100, 0.7));
+        }
+
+        /* ズームコントロール */
+        .zoom-controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .zoom-btn {
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .zoom-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        #zoomLevel {
+            min-width: 50px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* 目的地マーカー */
+        .destination-marker {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ff4444;
+            border: 2px solid white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 25;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .destination-marker.partner {
+            background: #44ff44;
+        }
+
+        .destination-marker.shared {
+            background: #ffff44;
+        }
+
+        .destination-marker:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            z-index: 30;
+        }
+
+        .destination-label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            transform: translateX(-50%);
+            margin-top: 15px;
+            z-index: 24;
+            pointer-events: none;
+        }
+
+        /* ホームマーカー */
+        .home-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 30;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+        }
+
+        .home-marker::before {
+            content: '🏠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        /* 経路セグメント */
+        .route-segment {
+            position: absolute;
+            height: 8px;
+            transform-origin: left center;
+            transition: all 0.3s;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .route-segment.walk {
+            background: linear-gradient(90deg, rgba(255, 193, 7, 0.9), rgba(255, 193, 7, 0.7));
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            z-index: 12;
+        }
+
+        .route-segment.train {
+            background: linear-gradient(90deg, rgba(100, 200, 255, 0.9), rgba(100, 200, 255, 0.7));
+            border: 1px solid rgba(100, 200, 255, 0.5);
+            z-index: 11;
+        }
+
+        .route-segment.transfer {
+            background: linear-gradient(90deg, rgba(255, 100, 100, 0.9), rgba(255, 100, 100, 0.7));
+            border: 1px solid rgba(255, 100, 100, 0.5);
+            z-index: 12;
+        }
+
+        .route-segment.shared {
+            height: 12px;
+            background: linear-gradient(90deg, rgba(100, 200, 255, 0.9), rgba(100, 200, 255, 0.7));
+            border: 1px solid rgba(100, 200, 255, 0.5);
+            z-index: 13;
+        }
+
+        .route-segment:hover {
+            height: 12px;
+            margin-top: -2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+
+        /* 時間情報ツールチップ */
+        .time-info {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: white;
+            z-index: 50;
+            max-width: 250px;
+            pointer-events: none;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* モバイル用ボトムシート */
+        .bottom-sheet {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1c1c1e;
+            border-radius: 20px 20px 0 0;
+            z-index: 200;
+            transform: translateY(calc(100% - 120px));
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-bottom: env(safe-area-inset-bottom);
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.3);
+        }
+
+        .bottom-sheet.expanded {
+            transform: translateY(0);
+            max-height: 70vh;
+        }
+
+        .sheet-handle {
+            width: 36px;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+            margin: 8px auto;
+            cursor: grab;
+        }
+
+        .sheet-content {
+            padding: 0 20px 20px;
+            max-height: 50vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .property-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .property-chip {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 8px 16px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .property-chip.active {
+            background: #007AFF;
+            border-color: #007AFF;
+        }
+
+        /* ビューモード切り替え - 最上位レイヤー（z-index問題の完全解決） */
+        .view-mode-toggle {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 10000;
+            display: flex;
+            gap: 2px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .view-mode-btn {
+            padding: 4px 10px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 11px;
+            font-weight: 500;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            line-height: 1;
+        }
+        
+        .view-mode-btn.active {
+            background: rgba(100, 200, 255, 0.2);
+            color: #64c8ff;
+        }
+        
+        .view-mode-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* ビューコンテナ */
+        .view-container {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .view-container.active {
+            display: block;
+        }
+        
+        /* 比較ビュー - 時間軸バーグラフ形式 */
+        .compare-view {
+            padding: 30px;
+            height: 100%;
+            overflow-y: auto;
+            background: #000;
+        }
+        
+        .compare-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .compare-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .compare-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .compare-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .compare-legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .compare-destinations {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* 比較ビューの横棒グラフ - 徹底的な高さ圧縮 */
+        .compare-view {
+            padding: 15px;
+            height: 100%;
+            overflow-y: auto;
+            background: #000;
+        }
+        
+        .compare-header {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .compare-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .compare-legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .compare-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .compare-legend-color {
+            width: 16px;
+            height: 3px;
+            border-radius: 2px;
+        }
+        
+        .compare-destinations {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .destination-comparison {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .destination-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .destination-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .destination-frequency {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .axis-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 6px;
+            padding: 0 3px;
+        }
+        
+        .property-comparison {
+            margin-bottom: 4px;
+        }
+        
+        .property-label {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2px;
+        }
+        
+        .property-label.current {
+            color: #64c8ff;
+            font-weight: 600;
+        }
+        
+        .time-bar-container {
+            position: relative;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 9px;
+            margin-bottom: 4px;
+            margin-left: 55px;
+        }
+        
+        .time-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            font-size: 0; /* 隙間を防ぐ */
+        }
+        
+        .time-segment {
+            display: inline-flex; /* inline-flexに変更 */
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 500;
+            color: white;
+            position: relative;
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            vertical-align: middle; /* middleに変更 */
+            line-height: 1;
+        }
+        
+        .time-total {
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: right;
+            width: 45px;
+            white-space: nowrap;
+        }
+        
+        .segment-walk {
+            background: var(--color-walk-gradient);
+        }
+        
+        .segment-train {
+            background: var(--color-train-gradient);
+        }
+        
+        .segment-transfer {
+            background: var(--color-transfer-gradient);
+        }
+        
+        .time-total {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .best-marker {
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+        
+        /* ランキングビュー - 色の完全統一と高さの最適化 */
+        .ranking-view {
+            padding: 15px;
+            height: 100%;
+            overflow-y: auto;
+            background: #000;
+        }
+        
+        .ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .ranking-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .ranking-filters {
+            display: flex;
+            gap: 8px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .ranking-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .ranking-item {
+            padding: 8px 0 8px 8px;  /* 左パディングを最初から設定 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;  /* 疑似要素用 */
+        }
+        
+        /* 左の縦線は疑似要素で実装 */
+        .ranking-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: transparent;
+            transition: background 0.2s;
+        }
+        
+        .ranking-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .ranking-item.current::before {
+            background: rgba(100, 200, 255, 0.8);
+        }
+        
+        .ranking-item.current {
+            background: rgba(100, 200, 255, 0.04);
+        }
+        
+        .ranking-item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        
+        .ranking-number {
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 25px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .ranking-medal {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .ranking-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            flex: 1;
+        }
+        
+        .ranking-time-total {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ff6b6b;
+        }
+        
+        .ranking-time-bar {
+            position: relative;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            overflow: hidden;
+        }
+        
+        .ranking-time-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(66, 165, 245, 0.25), rgba(100, 181, 246, 0.25));
+            border: 1px solid rgba(66, 165, 245, 0.3);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .ranking-walk-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--color-walk-gradient);
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 9px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ranking-details {
+            display: flex;
+            gap: 12px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            padding-left: 35px;
+        }
+        
+        .ranking-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .ranking-detail-item strong {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+        }
+        
+        .ranking-details {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            padding-left: 35px;  /* 番号/メダルの幅を考慮して調整 */
+        }
+        
+        .ranking-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ranking-detail-item strong {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 1024px) {
+            .compare-view {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            #controls {
+                display: none;
+            }
+            
+            .info {
+                display: none;
+            }
+            
+            .legend {
+                display: block;
+            }
+            
+            .bottom-sheet {
+                display: block;
+            }
+            
+            .compare-view {
+                grid-template-columns: 1fr;
+            }
+            
+            .ranking-view {
+                padding: 20px;
+            }
+            
+            .ranking-item {
+                padding: 15px;
+            }
+            
+            .ranking-number {
+                font-size: 20px;
+                margin-right: 15px;
+            }
+            
+            .ranking-name {
+                font-size: 16px;
+            }
+            
+            .ranking-details {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- 個別ビュー -->
+        <div id="singleView" class="view-container active">
+            <canvas id="canvas"></canvas>
+            
+            <!-- デスクトップ用コントロール -->
+            <div id="controls">
+                <h2>🏠 居住地から見た目的地マップ</h2>
+                
+                <div class="control-group">
+                    <label>居住物件を選択</label>
+                    <select id="areaSelect" onchange="updateSelectedArea()">
+                        <!-- 動的に生成されます -->
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>並び順</label>
+                    <select id="sortOrder" onchange="updateSortOrder()">
+                        <option value="time_desc">移動時間の短い順</option>
+                        <option value="walk_desc">徒歩時間の短い順</option>
+                        <option value="rent_asc">家賃の安い順</option>
+                    </select>
+                </div>
+                
+                
+                <div class="area-info" id="areaInfo">
+                    <div class="rent">家賃: -</div>
+                    <div class="stations">最寄駅: -</div>
+                    <div class="total-time">月間総移動時間: -</div>
+                    <div class="walk-time">うち徒歩時間: -</div>
+                </div>
+            </div>
+            
+            <!-- 情報パネル -->
+            <div class="info">
+                <strong>📍 見方</strong><br>
+                選択した物件を中心に、各目的地への実際の移動時間が可視化されます。<br><br>
+                🔴 あなたの目的地<br>
+                🟢 パートナーの目的地<br>
+                🟡 共通の目的地<br><br>
+                <strong>マウスホイール</strong>でズーム<br>
+                <strong>ドラッグ</strong>で移動<br><br>
+                <div class="zoom-controls" style="margin-top: 10px;">
+                    <button class="zoom-btn" onclick="zoom(0.8)">−</button>
+                    <span id="zoomLevelInfo">200%</span>
+                    <button class="zoom-btn" onclick="zoom(1.2)">＋</button>
+                </div>
+            </div>
+            
+            <!-- 凡例 -->
+            <div class="legend">
+                <h4>移動経路</h4>
+                <div class="legend-item">
+                    <div class="legend-color walk"></div>
+                    <span>徒歩</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color train"></div>
+                    <span>電車</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color transfer"></div>
+                    <span>乗り換え</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 比較ビュー -->
+        <div id="compareView" class="view-container">
+            <div id="compareControls" style="position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.9); padding: 20px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); z-index: 100; max-width: 380px; backdrop-filter: blur(10px);">
+                <h2>🏠 居住地から見た目的地マップ</h2>
+                
+                <div class="control-group">
+                    <label>居住物件を選択</label>
+                    <select id="compareAreaSelect" onchange="updateSelectedArea()">
+                        <!-- 動的に生成されます -->
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>並び順</label>
+                    <select id="compareSortOrder" onchange="updateSortOrder()">
+                        <option value="time_desc">移動時間の短い順</option>
+                        <option value="walk_desc">徒歩時間の短い順</option>
+                        <option value="rent_asc">家賃の安い順</option>
+                    </select>
+                </div>
+                
+                <div class="area-info" id="compareAreaInfo">
+                    <div class="rent">家賃: -</div>
+                    <div class="stations">最寄駅: -</div>
+                    <div class="total-time">月間総移動時間: -</div>
+                    <div class="walk-time">うち徒歉時間: -</div>
+                </div>
+            </div>
+            <div class="compare-view">
+                <div class="compare-header">
+                    <h2 class="compare-title">目的地への移動時間比較</h2>
+                    <div class="compare-legend">
+                        <div class="compare-legend-item">
+                            <div class="compare-legend-color" style="background: var(--color-walk);"></div>
+                            <span>徒歩</span>
+                        </div>
+                        <div class="compare-legend-item">
+                            <div class="compare-legend-color" style="background: var(--color-train);"></div>
+                            <span>電車</span>
+                        </div>
+                        <div class="compare-legend-item">
+                            <div class="compare-legend-color" style="background: var(--color-transfer);"></div>
+                            <span>乗換</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="compare-destinations" id="compareContent">
+                    <!-- 動的に生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- ランキングビュー -->
+        <div id="rankingView" class="view-container">
+            <div id="rankingControls" style="position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.9); padding: 20px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); z-index: 100; max-width: 380px; backdrop-filter: blur(10px);">
+                <h2>🏠 居住地から見た目的地マップ</h2>
+                
+                <div class="control-group">
+                    <label>居住物件を選択</label>
+                    <select id="rankingAreaSelect" onchange="updateSelectedArea()">
+                        <!-- 動的に生成されます -->
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>並び順</label>
+                    <select id="rankingSortOrder" onchange="updateSortOrder()">
+                        <option value="time_desc">移動時間の短い順</option>
+                        <option value="walk_desc">徒歩時間の短い順</option>
+                        <option value="rent_asc">家賃の安い順</option>
+                    </select>
+                </div>
+                
+                <div class="area-info" id="rankingAreaInfo">
+                    <div class="rent">家賃: -</div>
+                    <div class="stations">最寄駅: -</div>
+                    <div class="total-time">月間総移動時間: -</div>
+                    <div class="walk-time">うち徒歩時間: -</div>
+                </div>
+            </div>
+            <div class="ranking-view">
+                <div class="ranking-header">
+                    <h2 class="ranking-title">物件ランキング</h2>
+                    <div class="ranking-filters">
+                        <span>☑総移動</span>
+                        <span>☑徒歩</span>
+                        <span>☑家賃</span>
+                    </div>
+                </div>
+                <div class="ranking-list" id="rankingList">
+                    <!-- 動的に生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ビューモード切り替え（最上位に配置） -->
+    <div class="view-mode-toggle">
+        <button class="view-mode-btn active" onclick="setViewMode('single', event)">個別</button>
+        <button class="view-mode-btn" onclick="setViewMode('compare', event)">比較</button>
+        <button class="view-mode-btn" onclick="setViewMode('ranking', event)">ランキング</button>
+    </div>
+        
+        <!-- モバイル用ボトムシート -->
+        <div class="bottom-sheet" id="bottomSheet">
+            <div class="sheet-handle" onclick="toggleBottomSheet()"></div>
+            <div class="sheet-content">
+                <div class="view-modes">
+                    <button class="view-btn active" onclick="setViewMode('single', event)">個別</button>
+                    <button class="view-btn" onclick="setViewMode('compare', event)">比較</button>
+                    <button class="view-btn" onclick="setViewMode('ranking', event)">ランキング</button>
+                </div>
+                
+                <div class="property-chips" id="propertyChips">
+                    <!-- 動的に生成されます -->
+                </div>
+                
+                <div class="area-info">
+                    <div class="rent" id="mobileRent">家賃: -</div>
+                    <div class="stations" id="mobileStation">最寄駅: -</div>
+                    <div class="total-time" id="mobileTotalTime">月間総移動時間: -</div>
+                    <div class="walk-time" id="mobileWalkTime">うち徒歩時間: -</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ツールチップ -->
+        <div class="time-info" id="timeInfo"></div>
+    </div>
+
+    <script>
+        // キャンバス設定
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // キャンバスサイズ設定
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // ========================================
+        // データ定義（JSONファイルから動的に読み込み）
+        // ========================================
+        
+        // データ格納変数
+        let destinations = [];
+        let areas = [];
+        
+        // JSONデータを読み込んで内部形式に変換
+        async function loadDataFromJSON() {
+            try {
+                // JSONファイルを並列で読み込み
+                const [destResponse, propResponse] = await Promise.all([
+                    fetch('./data/destinations.json'),
+                    fetch('./data/properties.json')
+                ]);
+                
+                if (!destResponse.ok || !propResponse.ok) {
+                    throw new Error('データファイルの読み込みに失敗しました');
+                }
+                
+                const destData = await destResponse.json();
+                const propData = await propResponse.json();
+                
+                // destinations配列を構築（等間隔に角度を配置）
+                destinations = destData.destinations.map((dest, index) => ({
+                    name: dest.name,
+                    owner: dest.owner === 'both' ? 'shared' : dest.owner,
+                    frequency: dest.monthly_frequency,
+                    angle: (index * 360 / destData.destinations.length)
+                }));
+                
+                // 重複を除去（同じ名前と住所の物件を1つだけ残す）
+                const uniqueProperties = [];
+                const seen = new Set();
+                propData.properties.forEach(prop => {
+                    const key = `${prop.name}_${prop.address}`;
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        uniqueProperties.push(prop);
+                    }
+                });
+                
+                console.log(`物件データ: ${propData.properties.length}件 → ${uniqueProperties.length}件（重複除去）`);
+                
+                // areas配列を構築（インデックスも保持）
+                areas = uniqueProperties.map((prop, index) => {
+                    const area = {
+                        originalIndex: index,  // 元のインデックスを保持
+                        name: prop.name,
+                        address: prop.address,
+                        stations: formatStations(prop.stations),
+                        rent: prop.rent,
+                        routes: []
+                    };
+                    
+                    // 各目的地への経路情報を変換
+                    prop.routes.forEach(route => {
+                        const destIndex = findDestinationIndex(route.destination);
+                        if (destIndex !== -1) {
+                            // walk_onlyの場合の処理
+                            if (route.details && route.details.walk_only) {
+                                area.routes.push({
+                                    dest: destIndex,
+                                    walk: route.details.walk_time || route.total_time,
+                                    lines: [],
+                                    transfer: 0,
+                                    walk2: 0,
+                                    total: route.total_time,
+                                    rawDetails: route.details  // 元データを保持
+                                });
+                            } else {
+                                // 通常の電車利用経路
+                                const trainSegments = extractTrainLines(route.details);
+                                
+                                // 旧形式の場合の乗換時間（新形式では個別に含まれる）
+                                let totalTransfer = 0;
+                                if (!route.details.trains?.[0]?.hasOwnProperty('from')) {
+                                    totalTransfer = route.details.transfer_time || 0;
+                                }
+                                
+                                area.routes.push({
+                                    dest: destIndex,
+                                    walk: route.details.walk_to_station || 0,
+                                    lines: trainSegments,
+                                    transfer: totalTransfer,
+                                    walk2: route.details.walk_from_station || 0,
+                                    total: route.total_time,
+                                    rawDetails: route.details  // 元データを保持
+                                });
+                            }
+                        }
+                    });
+                    
+                    return area;
+                });
+                
+                // ソートを実行してからUIを更新
+                sortAreas();
+                updatePropertySelector();
+                updateAreaInfo();
+                animate();
+                
+            } catch (error) {
+                console.error('データ読み込みエラー:', error);
+                // エラー時はフォールバックデータを表示
+                alert('データの読み込みに失敗しました。サンプルデータを表示します。');
+            }
+        }
+        
+        // ヘルパー関数：駅情報のフォーマット
+        function formatStations(stations) {
+            if (!stations || stations.length === 0) return '駅情報なし';
+            // 最初の駅のみを表示（メインの最寄り駅）
+            const mainStation = stations[0];
+            return `${mainStation.name} 徒歩${mainStation.walk_time}分`;
+        }
+        
+        // ヘルパー関数：目的地名からインデックスを検索
+        function findDestinationIndex(destName) {
+            // destinations配列から直接検索（完全一致）
+            const index = destinations.findIndex(d => d.name === destName);
+            if (index === -1) {
+                console.warn(`目的地が見つかりません: "${destName}"`);
+                console.log('利用可能な目的地:', destinations.map(d => d.name));
+            }
+            return index;
+        }
+        
+        // ヘルパー関数：電車情報を抽出（新旧両形式に対応）
+        function extractTrainLines(details) {
+            if (!details.trains || details.trains.length === 0) return [];
+            
+            // 新形式（transfer_afterあり）の場合
+            if (details.trains[0] && details.trains[0].hasOwnProperty('from')) {
+                // 新形式: 各電車と乗換情報を含む詳細データ
+                const segments = [];
+                details.trains.forEach((train, index) => {
+                    segments.push({
+                        name: train.line,
+                        time: train.time,
+                        from: train.from,
+                        to: train.to
+                    });
+                    
+                    // 乗換情報があれば追加
+                    if (train.transfer_after) {
+                        segments.push({
+                            type: 'transfer',
+                            time: train.transfer_after.time,
+                            from_line: train.line,
+                            to_line: train.transfer_after.to_line
+                        });
+                    }
+                });
+                return segments;
+            } else {
+                // 旧形式: シンプルな配列
+                return details.trains.map(train => ({
+                    name: train.line,
+                    time: train.time
+                }));
+            }
+        }
+        
+        // ソート処理
+        function sortAreas() {
+            if (areas.length === 0) {
+                console.log('sortAreas: areas is empty');
+                return;
+            }
+            
+            console.log('sortAreas called. currentSortOrder:', currentSortOrder);
+            console.log('areas before sort:', areas.map(a => a.name));
+            
+            // ルフォンプログレ（最初の物件）を除いて並び替え
+            const firstProperty = areas[0];
+            const otherProperties = areas.slice(1);
+            
+            // ソート実行
+            switch(currentSortOrder) {
+                case 'time_desc':
+                    // 月間総移動時間の短い順（昇順）
+                    otherProperties.sort((a, b) => {
+                        const { totalTime: timeA } = calculateMonthlyTimes(a);
+                        const { totalTime: timeB } = calculateMonthlyTimes(b);
+                        console.log(`Comparing ${a.name}(${timeA}) vs ${b.name}(${timeB}) = ${timeA - timeB}`);
+                        return timeA - timeB;
+                    });
+                    break;
+                case 'walk_desc':
+                    // 徒歩時間の短い順（昇順）
+                    otherProperties.sort((a, b) => {
+                        const { totalWalkTime: walkA } = calculateMonthlyTimes(a);
+                        const { totalWalkTime: walkB } = calculateMonthlyTimes(b);
+                        return walkA - walkB;
+                    });
+                    break;
+                case 'rent_asc':
+                    // 家賃の安い順
+                    otherProperties.sort((a, b) => {
+                        // rentが文字列の場合と数値の場合両方に対応
+                        let rentA = a.rent;
+                        let rentB = b.rent;
+                        if (typeof rentA === 'string') {
+                            rentA = parseInt(rentA.replace(/[^0-9]/g, '')) || 0;
+                        }
+                        if (typeof rentB === 'string') {
+                            rentB = parseInt(rentB.replace(/[^0-9]/g, '')) || 0;
+                        }
+                        return rentA - rentB;
+                    });
+                    break;
+            }
+            
+            // ルフォンプログレを最初に配置し、インデックスを保持
+            sortedAreas = [firstProperty, ...otherProperties];
+            
+            console.log('sortedAreas after sort:', sortedAreas.map(a => a.name));
+            console.log('sortedAreas.length:', sortedAreas.length);
+            
+            // originalIndexが失われていないか確認
+            sortedAreas.forEach((area, newIndex) => {
+                if (area.originalIndex === undefined) {
+                    console.error('originalIndex is missing for area:', area.name);
+                }
+            });
+        }
+        
+        // セレクタを動的に更新
+        function updatePropertySelector() {
+            const select = document.getElementById('areaSelect');
+            const rankingSelect = document.getElementById('rankingAreaSelect');
+            const compareSelect = document.getElementById('compareAreaSelect');
+            if (!select && !rankingSelect && !compareSelect) return;
+            
+            // ソート済みリストが空の場合は元のareasを使用
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            
+            const optionsHtml = displayAreas.map((area, index) => 
+                `<option value="${index}">${area.name}</option>`
+            ).join('');
+            
+            if (select) select.innerHTML = optionsHtml;
+            if (rankingSelect) rankingSelect.innerHTML = optionsHtml;
+            if (compareSelect) compareSelect.innerHTML = optionsHtml;
+            
+            // モバイル用のチップも更新
+            updateMobileChips();
+        }
+        
+        // モバイル用チップを動的生成
+        function updateMobileChips() {
+            const container = document.getElementById('propertyChips');
+            if (!container) return;
+            
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            
+            // 最初の5件のみチップとして表示
+            container.innerHTML = displayAreas.slice(0, 5).map((area, index) => 
+                `<div class="property-chip ${index === 0 ? 'active' : ''}" 
+                      onclick="selectPropertyMobile(${index})">
+                    ${area.name.split(' ')[0]}
+                </div>`
+            ).join('');
+        }
+        
+        // ========================================
+        // 状態管理
+        // ========================================
+        let selectedAreaIndex = 0;
+        let currentViewMode = 'single';
+        let currentSortOrder = 'time_desc';  // ソート順を追加
+        let sortedAreas = [];  // ソート済み配列を保持
+        let zoomScale = 2.0;  // デフォルトを2.0（200%）に変更
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let lastOffsetX = 0;
+        let lastOffsetY = 0;
+        let bottomSheetExpanded = false;
+        
+        // ========================================
+        // メイン描画関数
+        // ========================================
+        function drawBackground() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 純粋な黒背景
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 現在の物件の最大移動時間を取得（元の配列から直接取得）
+            const currentArea = areas[selectedAreaIndex];
+            let maxTime = 0;
+            currentArea.routes.forEach(route => {
+                if (route.total > maxTime) {
+                    maxTime = route.total;
+                }
+            });
+            
+            // 10分単位で切り上げ（最小40分、最大80分）
+            const maxCircleTime = Math.max(40, Math.min(80, Math.ceil(maxTime / 10) * 10 + 10));
+            
+            // 変換を適用
+            ctx.save();
+            ctx.translate(canvas.width / 2 + offsetX, canvas.height / 2 + offsetY);
+            ctx.scale(zoomScale, zoomScale);
+            
+            // 同心円（時間の目安）
+            for (let minutes = 5; minutes <= maxCircleTime; minutes += 5) {
+                const radius = minutes * 10; // スケール調整（30分が画面の端に来るように）
+                
+                // 10分刻みは実線、5分刻みは点線
+                if (minutes % 10 === 0) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)'; // 少し濃く
+                    ctx.setLineDash([]); // 実線
+                } else {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                    ctx.setLineDash([5, 5]); // 点線
+                }
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, Math.PI * 2);
+                ctx.stroke();
+                
+                // 10分刻みのみラベル表示（4方向）
+                if (minutes % 10 === 0) {
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                    ctx.font = '10px sans-serif'; // フォントサイズを小さく
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    // 右
+                    ctx.fillText(minutes + '分', radius, 0);
+                    // 左
+                    ctx.fillText(minutes + '分', -radius, 0);
+                    // 上
+                    ctx.save();
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText(minutes + '分', 0, -radius);
+                    ctx.restore();
+                    // 下
+                    ctx.save();
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText(minutes + '分', 0, radius);
+                    ctx.restore();
+                }
+            }
+            
+            ctx.setLineDash([]);
+            
+            // 放射状の線（方向の目安）- 最大円まで延長
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            const maxRadius = maxCircleTime * 10 + 50; // スケール調整
+            for (let i = 0; i < 12; i++) {
+                const angle = (i * 30) * Math.PI / 180;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(Math.cos(angle) * maxRadius, Math.sin(angle) * maxRadius);
+                ctx.stroke();
+            }
+            
+            ctx.restore();
+        }
+        
+        function drawElements() {
+            // 個別ビュー以外では実行しない
+            if (currentViewMode !== 'single') return;
+            
+            // 既存の要素を削除
+            document.querySelectorAll('.destination-marker, .destination-label, .home-marker, .route-segment').forEach(el => el.remove());
+            
+            const centerX = canvas.width / 2 + offsetX;
+            const centerY = canvas.height / 2 + offsetY;
+            const scale = zoomScale;
+            
+            // ホームマーカー（中心）
+            const homeMarker = document.createElement('div');
+            homeMarker.className = 'home-marker';
+            homeMarker.style.left = centerX + 'px';
+            homeMarker.style.top = centerY + 'px';
+            document.getElementById('container').appendChild(homeMarker);
+            
+            // 目的地マーカーと経路（元の配列から直接取得）
+            const area = areas[selectedAreaIndex];
+            
+            area.routes.forEach((route) => {
+                const dest = destinations[route.dest];
+                const time = route.total;
+                
+                // archive版の計算方法を正確に再現（スケール調整）
+                const angle = dest.angle * Math.PI / 180;
+                const distance = time * 10; // 時間距離の計算（30分圏内が適切に表示されるスケール）
+                
+                const totalDistance = distance * scale;
+                const x = centerX + Math.cos(angle) * totalDistance;
+                const y = centerY + Math.sin(angle) * totalDistance;
+                
+                // 経路セグメントを描画（マーカーより先に描画して下層に）
+                drawRouteSegments(route, dest, angle, totalDistance, centerX, centerY);
+                
+                // マーカー（borderを含めた全体サイズは20px）
+                const marker = document.createElement('div');
+                marker.className = 'destination-marker';
+                if (dest.owner === 'partner') marker.classList.add('partner');
+                if (dest.owner === 'shared' || dest.owner === 'both') marker.classList.add('shared');
+                
+                // マーカーの中心を線分の終端に正確に配置
+                marker.style.left = x + 'px';
+                marker.style.top = y + 'px';
+                
+                // ラベル
+                const label = document.createElement('div');
+                label.className = 'destination-label';
+                label.textContent = dest.name;
+                label.style.left = x + 'px';
+                label.style.top = y + 'px';
+                
+                // マーカーのホバーイベント
+                marker.onmouseover = (e) => showTimeInfo(e, route, dest);
+                marker.onmouseout = hideTimeInfo;
+                
+                document.getElementById('container').appendChild(marker);
+                document.getElementById('container').appendChild(label);
+            });
+        }
+        
+        function drawRouteSegments(route, dest, angle, totalDistance, centerX, centerY) {
+            let segments = [];
+            
+            // マーカーの半径を考慮した線分の終端位置
+            const markerRadius = 10; // マーカーの実際の半径（16px/2 + border 2px）
+            const lineEndDistance = totalDistance - markerRadius;
+            
+            // セグメントの構築
+            if (!route.lines || route.lines.length === 0) {
+                // 徒歩のみまたはデータ不足の場合
+                segments.push({type: 'walk', duration: route.total, color: 'walk'});
+            } else {
+                // 駅までの徒歩
+                if (route.walk > 0) {
+                    segments.push({type: 'walk', duration: route.walk, color: 'walk'});
+                }
+                
+                // 新形式チェック（乗換情報が個別に含まれている）
+                const hasDetailedTransfers = route.lines.some(segment => segment.type === 'transfer');
+                
+                if (hasDetailedTransfers) {
+                    // 新形式: 電車と乗換が交互に入っている
+                    route.lines.forEach(segment => {
+                        if (segment.type === 'transfer') {
+                            segments.push({
+                                type: 'transfer',
+                                duration: segment.time,
+                                color: 'transfer',
+                                from_line: segment.from_line,
+                                to_line: segment.to_line
+                            });
+                        } else {
+                            segments.push({
+                                type: 'train',
+                                duration: segment.time,
+                                color: 'train',
+                                line: segment.name
+                            });
+                        }
+                    });
+                } else {
+                    // 旧形式: 電車の配列と総乗換時間
+                    route.lines.forEach((line, index) => {
+                        segments.push({
+                            type: 'train',
+                            duration: line.time,
+                            color: 'train',
+                            line: line.name
+                        });
+                        
+                        // 最後の電車以外の後に乗換を挿入
+                        if (index < route.lines.length - 1 && route.transfer > 0) {
+                            // 複数乗換の場合は均等割り（仮）
+                            const transferTime = route.transfer / (route.lines.length - 1);
+                            segments.push({
+                                type: 'transfer',
+                                duration: transferTime,
+                                color: 'transfer'
+                            });
+                        }
+                    });
+                }
+                
+                // 駅からの徒歩
+                if (route.walk2 > 0) {
+                    segments.push({type: 'walk', duration: route.walk2, color: 'walk'});
+                }
+            }
+            
+            // セグメントをDOM要素として描画
+            let currentPos = 0;
+            const gap = 2;
+            const activeSegments = segments.filter(s => s.duration > 0);
+            const totalGaps = Math.max(0, activeSegments.length - 1) * gap;
+            const adjustedTotalDistance = lineEndDistance - totalGaps; // マーカー半径とギャップを考慮
+            
+            segments.forEach((segment, idx) => {
+                if (segment.duration > 0) {
+                    const segmentLength = (segment.duration / route.total) * adjustedTotalDistance;
+                    const startX = centerX + Math.cos(angle) * currentPos;
+                    const startY = centerY + Math.sin(angle) * currentPos;
+                    
+                    const div = document.createElement('div');
+                    div.className = `route-segment ${segment.color}`;
+                    
+                    // 共有路線は青系の色で統一（緑色を廃止）
+                    if (dest.owner === 'shared' && segment.type === 'train') {
+                        // sharedクラスは追加せず、通常の電車の色を使用
+                        div.style.opacity = '1';
+                    }
+                    
+                    div.style.left = startX + 'px';
+                    div.style.top = startY + 'px';
+                    div.style.width = Math.max(segmentLength, 5) + 'px';
+                    div.style.transform = `rotate(${angle}rad) translateY(-4px)`;
+                    
+                    // ツールチップ
+                    if (segment.type === 'walk') {
+                        div.title = `徒歩: ${segment.duration}分`;
+                    } else if (segment.type === 'train') {
+                        div.title = `${segment.line}: ${segment.duration}分`;
+                    } else {
+                        div.title = `乗り換え: ${segment.duration}分`;
+                    }
+                    
+                    document.getElementById('container').appendChild(div);
+                    
+                    currentPos += segmentLength;
+                    // 最後のセグメント以外はギャップを追加
+                    const activeIndex = activeSegments.indexOf(segment);
+                    if (activeIndex < activeSegments.length - 1) {
+                        currentPos += gap;
+                    }
+                }
+            });
+        }
+        
+        function showTimeInfo(e, route, dest) {
+            const info = document.getElementById('timeInfo');
+            let content = `<strong>${dest.name}</strong><br>`;
+            content += `合計: ${route.total}分<br><br>`;
+            
+            if (route.lines.length === 0) {
+                content += `徒歩のみ: ${route.walk}分`;
+            } else {
+                content += `徒歩（家→駅）: ${route.walk}分<br>`;
+                route.lines.forEach((line, i) => {
+                    content += `${line.name}: ${line.time}分<br>`;
+                    if (i < route.lines.length - 1 && route.transfer) {
+                        content += `乗り換え: ${route.transfer}分<br>`;
+                    }
+                });
+                if (route.walk2 > 0) {
+                    content += `徒歩（駅→目的地）: ${route.walk2}分`;
+                }
+            }
+            
+            info.innerHTML = content;
+            info.style.display = 'block';
+            info.style.left = e.pageX + 15 + 'px';
+            info.style.top = e.pageY + 15 + 'px';
+        }
+        
+        function hideTimeInfo() {
+            document.getElementById('timeInfo').style.display = 'none';
+        }
+        
+        // ========================================
+        // UI制御
+        // ========================================
+        function setViewMode(mode, event) {
+            currentViewMode = mode;
+            
+            // ビュー切り替え時にソート順を同期
+            setTimeout(() => {
+                const sortSelect = document.getElementById('sortOrder');
+                const rankingSortSelect = document.getElementById('rankingSortOrder');
+                const compareSortSelect = document.getElementById('compareSortOrder');
+                
+                // 現在のソート順を新しいビューのセレクトボックスに反映
+                if (sortSelect) sortSelect.value = currentSortOrder;
+                if (rankingSortSelect) rankingSortSelect.value = currentSortOrder;
+                if (compareSortSelect) compareSortSelect.value = currentSortOrder;
+            }, 100);
+            
+            // 既存のDOM要素をクリーンアップ
+            document.querySelectorAll('.destination-marker, .destination-label, .home-marker, .route-segment').forEach(el => el.remove());
+            
+            // ビューを切り替え
+            document.querySelectorAll('.view-container').forEach(v => v.classList.remove('active'));
+            document.getElementById(mode + 'View').classList.add('active');
+            
+            // ボタンのアクティブ状態を更新
+            document.querySelectorAll('.view-mode-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // キャンバスをクリア
+            if (ctx) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            
+            // 各ビューを更新
+            if (mode === 'compare') {
+                updateCompareView();
+            } else if (mode === 'ranking') {
+                updateRankingView();
+            } else if (mode === 'single') {
+                animate();
+            }
+        }
+        
+        function calculateMonthlyTimes(area) {
+            let totalTime = 0;
+            let totalWalkTime = 0;
+            
+            area.routes.forEach((route, index) => {
+                const dest = destinations[route.dest];
+                const frequency = dest.frequency || 1;
+                
+                // 往復で2倍
+                totalTime += route.total * frequency * 2;
+                
+                // 徒歩時間の計算
+                const walkTime = route.walk + (route.walk2 || 0);
+                totalWalkTime += walkTime * frequency * 2;
+            });
+            
+            return { totalTime, totalWalkTime };
+        }
+        
+        function updateSelectedArea() {
+            const selectIndex = parseInt(document.getElementById('areaSelect').value);
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            
+            // ソート後の配列から物件を取得し、その元のインデックスを保持
+            const selectedArea = displayAreas[selectIndex];
+            selectedAreaIndex = selectedArea.originalIndex || selectIndex;
+            
+            updateAreaInfo();
+            animate();
+        }
+        
+        function updateSortOrder() {
+            // すべてのビューのセレクトボックスをチェック
+            const sortSelect = document.getElementById('sortOrder');
+            const rankingSortSelect = document.getElementById('rankingSortOrder');
+            const compareSortSelect = document.getElementById('compareSortOrder');
+            
+            // いずれかのセレクトから値を取得
+            if (sortSelect) {
+                currentSortOrder = sortSelect.value;
+            } else if (rankingSortSelect) {
+                currentSortOrder = rankingSortSelect.value;
+            } else if (compareSortSelect) {
+                currentSortOrder = compareSortSelect.value;
+            }
+            
+            console.log('updateSortOrder called. New sort order:', currentSortOrder);
+            
+            // すべてのセレクトボックスを同期
+            if (sortSelect) sortSelect.value = currentSortOrder;
+            if (rankingSortSelect) rankingSortSelect.value = currentSortOrder;
+            if (compareSortSelect) compareSortSelect.value = currentSortOrder;
+            
+            sortAreas();
+            console.log('After sortAreas:', sortedAreas.map(a => a.name));
+            
+            updatePropertySelector();
+            
+            // 各ビューが表示中の場合は更新
+            if (currentViewMode === 'ranking') {
+                updateRanking();
+            } else if (currentViewMode === 'compare') {
+                updateCompareView();
+            }
+        }
+        
+        function updateAreaInfo() {
+            // 元の配列から直接取得（selectedAreaIndexは元のインデックス）
+            const area = areas[selectedAreaIndex];
+            const { totalTime, totalWalkTime } = calculateMonthlyTimes(area);
+            
+            // 時間を読みやすい形式に
+            const formatTime = (minutes) => {
+                const hours = Math.floor(minutes / 60);
+                const mins = minutes % 60;
+                return hours > 0 ? `${hours}時間${mins}分` : `${mins}分`;
+            };
+            
+            // 目的地を指定順序で並べる（至善館、東京アメリカンクラブ、Yawara、その後は頻度順）
+            const priorityOrder = ['至善館', '東京アメリカンクラブ', 'Yawara（渋谷）'];
+            
+            const destinationsWithFreq = destinations.map((dest, index) => ({
+                name: dest.name,
+                index: index,
+                frequency: dest.frequency,
+                owner: dest.owner
+            })).sort((a, b) => {
+                // 優先順位リストにある場合はその順序で
+                const aPriority = priorityOrder.indexOf(a.name);
+                const bPriority = priorityOrder.indexOf(b.name);
+                
+                if (aPriority !== -1 && bPriority !== -1) {
+                    return aPriority - bPriority;
+                }
+                if (aPriority !== -1) return -1;
+                if (bPriority !== -1) return 1;
+                
+                // それ以外は頻度順
+                return b.frequency - a.frequency;
+            });
+            
+            let destinationsList = '<div class="destinations-list">';
+            destinationsList += '<div class="destinations-list-title">主要目的地への移動時間</div>';
+            destinationsWithFreq.forEach(dest => {
+                const route = area.routes[dest.index];
+                const ownerIcon = dest.owner === 'you' ? '🔴' : dest.owner === 'partner' ? '🟢' : '🟡';
+                destinationsList += `
+                    <div class="destination-item">
+                        <span class="name">${ownerIcon} ${dest.name}:</span>
+                        <span class="time">${route.total}分</span>
+                    </div>
+                `;
+            });
+            destinationsList += '</div>';
+            
+            // 全ビューの物件情報カードを同じ内容で更新
+            const areaInfoElements = [
+                document.getElementById('areaInfo'),
+                document.getElementById('rankingAreaInfo'), 
+                document.getElementById('compareAreaInfo')
+            ];
+            
+            areaInfoElements.forEach(info => {
+                if (info) {
+                    info.innerHTML = `
+                        <div class="rent">家賃: ${area.rent}</div>
+                        <div class="stations">最寄駅: ${area.stations}</div>
+                        <div class="total-time">月間総移動時間: ${formatTime(Math.round(totalTime))}</div>
+                        <div class="walk-time">うち徒歩時間: ${formatTime(Math.round(totalWalkTime))}</div>
+                        ${destinationsList}
+                    `;
+                }
+            });
+            
+            // モバイル用
+            if (document.getElementById('mobileRent')) {
+                document.getElementById('mobileRent').textContent = `家賃: ${area.rent}`;
+                document.getElementById('mobileStation').textContent = `最寄駅: ${area.stations}`;
+                document.getElementById('mobileTotalTime').textContent = `月間総移動時間: ${formatTime(Math.round(totalTime))}`;
+                document.getElementById('mobileWalkTime').textContent = `うち徒歩時間: ${formatTime(Math.round(totalWalkTime))}`;
+            }
+        }
+        
+        function updateCompareView() {
+            const compareContent = document.getElementById('compareContent');
+            
+            // 物件情報カードは updateAreaInfo で更新される
+            updateAreaInfo();
+            
+            // 全目的地を頻度順にソート
+            const importantDestinations = destinations
+                .map((dest, index) => ({ 
+                    dest, 
+                    index, 
+                    frequency: dest.frequency 
+                }))
+                .sort((a, b) => b.frequency - a.frequency);
+            
+            let html = '';
+            
+            importantDestinations.forEach(destInfo => {
+                const dest = destInfo.dest;
+                const destIndex = destInfo.index;
+                
+                // 各物件の時間を取得
+                const times = areas.map(area => {
+                    const route = area.routes[destIndex];
+                    return { area, route, total: route.total };
+                });
+                
+                // 最短時間を見つける
+                const minTime = Math.min(...times.map(t => t.total));
+                const maxTime = 45; // 最大45分のスケール
+                
+                // 頻度の表示形式
+                const freqText = destInfo.frequency >= 4.4 ? 
+                    `週${Math.round(destInfo.frequency / 4.4)}回` : 
+                    `月${Math.round(destInfo.frequency)}回`;
+                
+                html += `
+                    <div class="destination-comparison">
+                        <div class="destination-header">
+                            <div class="destination-name">${dest.name}</div>
+                            <div class="destination-frequency">${freqText}</div>
+                        </div>
+                        <div class="time-axis">
+                            <div class="axis-labels">
+                                <span>0分</span>
+                                <span>15分</span>
+                                <span>30分</span>
+                                <span>45分</span>
+                            </div>
+                `;
+                
+                // 現在の物件と最速2つを表示
+                const currentArea = areas[selectedAreaIndex];
+                const currentRoute = currentArea.routes[destIndex];
+                
+                // 現在の物件を表示
+                html += generateTimeBar(currentArea.name, currentRoute, currentRoute.total === minTime, true, maxTime);
+                
+                // 他の物件から最速3つを選択（3件比較に拡張）
+                const otherAreas = areas
+                    .filter((_, i) => i !== selectedAreaIndex)
+                    .map((area, originalIndex) => {
+                        const actualIndex = originalIndex >= selectedAreaIndex ? originalIndex + 1 : originalIndex;
+                        return { area, index: actualIndex, time: area.routes[destIndex].total };
+                    })
+                    .sort((a, b) => a.time - b.time)
+                    .slice(0, 3);  // 2つから3つに変更
+                
+                otherAreas.forEach(item => {
+                    const route = item.area.routes[destIndex];
+                    html += generateTimeBar(item.area.name, route, route.total === minTime, false, maxTime);
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            compareContent.innerHTML = html;
+        }
+        
+        function generateTimeBar(label, route, isBest, isCurrent, maxTime) {
+            const barWidth = (route.total / maxTime) * 100;
+            let segments = '';
+            
+            // セグメントを構築（整列改善）
+            if (!route.lines || route.lines.length === 0) {
+                // 徒歩のみ
+                segments = `<div class="time-segment segment-walk" style="width: 100%;">${route.walk > 5 ? route.walk + '分' : ''}</div>`;
+            } else {
+                const totalTime = route.total;
+                let segmentHTML = '';
+                
+                // 徒歩（駅まで）
+                if (route.walk > 0) {
+                    const walkWidth = (route.walk / totalTime) * 100;
+                    segmentHTML += `<div class="time-segment segment-walk" style="width: ${walkWidth}%;">${route.walk > 3 ? route.walk : ''}</div>`;
+                }
+                
+                // 電車と乗換
+                route.lines.forEach((line, i) => {
+                    if (i > 0 && route.transfer && route.transfer > 0) {
+                        const transferWidth = (route.transfer / totalTime) * 100;
+                        segmentHTML += `<div class="time-segment segment-transfer" style="width: ${transferWidth}%;"></div>`;
+                    }
+                    const trainWidth = (line.time / totalTime) * 100;
+                    segmentHTML += `<div class="time-segment segment-train" style="width: ${trainWidth}%;">${line.time > 5 ? line.time : ''}</div>`;
+                });
+                
+                // 徒歩（駅から）
+                if (route.walk2 > 0) {
+                    const walkWidth = (route.walk2 / totalTime) * 100;
+                    segmentHTML += `<div class="time-segment segment-walk" style="width: ${walkWidth}%;">${route.walk2 > 3 ? route.walk2 : ''}</div>`;
+                }
+                
+                segments = segmentHTML;
+            }
+            
+            return `
+                <div class="property-comparison">
+                    <div class="property-label ${isCurrent ? 'current' : ''}">${label}</div>
+                    <div class="time-bar-container">
+                        <span class="time-total">${route.total}分</span>
+                        <div class="time-bar" style="width: ${barWidth}%;">
+                            ${segments}
+                        </div>
+                        ${isBest ? '<span class="best-marker">✨</span>' : ''}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function drawMiniMap(canvasId, area) {
+            // この関数は不要になったので削除
+        }
+        
+        function updateRanking() {
+            updateRankingView();
+        }
+        
+        function updateRankingView() {
+            const rankingList = document.getElementById('rankingList');
+            
+            // 物件情報カードは updateAreaInfo で更新される
+            updateAreaInfo();
+            
+            // ソート済みリストを使用（ルフォンプログレは常に最初）
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            console.log('updateRankingView called. sortOrder:', currentSortOrder);
+            console.log('sortedAreas.length:', sortedAreas.length);
+            console.log('Using:', sortedAreas.length > 0 ? 'sortedAreas' : 'areas');
+            console.log('displayAreas:', displayAreas.map(a => a.name));
+            const rankedAreas = displayAreas.map((area) => {
+                const { totalTime, totalWalkTime } = calculateMonthlyTimes(area);
+                
+                // 電車時間と乗換時間を計算
+                let totalTrainTime = 0;
+                let totalTransferTime = 0;
+                area.routes.forEach((route) => {
+                    const dest = destinations[route.dest];
+                    const frequency = dest.frequency || 1;
+                    
+                    // 電車時間
+                    if (route.lines) {
+                        route.lines.forEach(line => {
+                            totalTrainTime += line.time * frequency * 2; // 往復
+                        });
+                    }
+                    
+                    // 乗換時間
+                    if (route.transfer) {
+                        totalTransferTime += route.transfer * frequency * 2; // 往復
+                    }
+                });
+                
+                return { area, index: area.originalIndex, totalTime, totalWalkTime, totalTrainTime, totalTransferTime };
+            });
+            
+            let html = '';
+            
+            // 家賃ソートの場合
+            if (currentSortOrder === 'rent_asc') {
+                // 最大家賃を取得（バーの幅計算用）
+                const maxRent = Math.max(...rankedAreas.map(item => item.area.rent));
+                
+                rankedAreas.forEach((item, rank) => {
+                    const rentBarWidth = (item.area.rent / maxRent) * 100;
+                    const hours = Math.floor(item.totalTime / 60);
+                    const mins = Math.round(item.totalTime % 60);
+                    
+                    // メダルまたは順位番号
+                    const medal = rank === 0 ? '🥇' : rank === 1 ? '🥈' : rank === 2 ? '🥉' : '';
+                    const currentClass = item.index === selectedAreaIndex ? 'current' : '';
+                    
+                    html += `
+                        <div class="ranking-item ${currentClass}" onclick="selectFromRanking(${item.index})">
+                            <div class="ranking-item-header">
+                                ${medal ? `<span class="ranking-medal">${medal}</span>` : `<span class="ranking-number">${rank + 1}</span>`}
+                                <span class="ranking-name">${item.area.name}</span>
+                                <span class="ranking-time-total" style="color: #ffc107;">${item.area.rent}万円</span>
+                            </div>
+                            <div class="ranking-time-bar">
+                                <div class="ranking-time-bar-fill" style="width: ${rentBarWidth}%; background: linear-gradient(90deg, #ffc107, #ffb300);">
+                                    <span style="padding-left: 10px; font-size: 12px;">家賃: ${item.area.rent}万円</span>
+                                </div>
+                            </div>
+                            <div class="ranking-details">
+                                <div class="ranking-detail-item">
+                                    <span>月間移動</span>
+                                    <strong>${hours}h ${mins}m</strong>
+                                </div>
+                                <div class="ranking-detail-item">
+                                    <span style="color: var(--color-walk);">徒歩時間</span>
+                                    <strong>${Math.floor(item.totalWalkTime / 60)}h ${Math.round(item.totalWalkTime % 60)}m</strong>
+                                </div>
+                                <div class="ranking-detail-item">
+                                    <span>駅から</span>
+                                    <strong>${item.area.stationWalk || 'N/A'}分</strong>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                // 時間ソートの場合（既存の処理）
+                // 最大時間を取得（バーの幅計算用）
+                const maxTime = Math.max(...rankedAreas.map(item => item.totalTime));
+                
+                rankedAreas.forEach((item, rank) => {
+                    const hours = Math.floor(item.totalTime / 60);
+                    const mins = Math.round(item.totalTime % 60);
+                    const walkPercent = Math.round((item.totalWalkTime / item.totalTime) * 100);
+                    const trainPercent = Math.round((item.totalTrainTime / item.totalTime) * 100);
+                    const transferPercent = Math.round((item.totalTransferTime / item.totalTime) * 100);
+                    const barWidth = (item.totalTime / maxTime) * 100;
+                    const walkBarWidth = (item.totalWalkTime / item.totalTime) * 100;
+                    const trainBarWidth = (item.totalTrainTime / item.totalTime) * 100;
+                    const transferBarWidth = (item.totalTransferTime / item.totalTime) * 100;
+                    
+                    // メダルまたは順位番号
+                    const medal = rank === 0 ? '🥇' : rank === 1 ? '🥈' : rank === 2 ? '🥉' : '';
+                    const currentClass = item.index === selectedAreaIndex ? 'current' : '';
+                    
+                    html += `
+                    <div class="ranking-item ${currentClass}" onclick="selectFromRanking(${item.index})">
+                        <div class="ranking-item-header">
+                            ${medal ? `<span class="ranking-medal">${medal}</span>` : `<span class="ranking-number">${rank + 1}</span>`}
+                            <span class="ranking-name">${item.area.name}</span>
+                            <span class="ranking-time-total">${hours}h ${mins}m</span>
+                        </div>
+                        <div class="ranking-time-bar">
+                            <div class="ranking-time-bar-fill" style="width: ${barWidth}%">
+                                <div class="ranking-walk-bar" style="width: ${walkBarWidth}%; background: var(--color-walk-gradient);">
+                                    ${walkPercent > 10 ? `徒歩 ${walkPercent}%` : ''}
+                                </div>
+                                ${item.totalTrainTime > 0 ? `
+                                    <div class="ranking-train-bar" style="position: absolute; left: ${walkBarWidth}%; width: ${trainBarWidth}%; height: 100%; background: var(--color-train-gradient); opacity: 0.7; display: flex; align-items: center; padding-left: 6px;">
+                                        ${trainPercent > 10 ? `<span style="font-size: 9px; color: white; font-weight: 600;">電車 ${trainPercent}%</span>` : ''}
+                                    </div>
+                                ` : ''}
+                                ${item.totalTransferTime > 0 ? `
+                                    <div class="ranking-transfer-bar" style="position: absolute; left: ${walkBarWidth + trainBarWidth}%; width: ${transferBarWidth}%; height: 100%; background: var(--color-transfer-gradient); opacity: 0.6; display: flex; align-items: center; padding-left: 4px;">
+                                        ${transferPercent > 5 ? `<span style="font-size: 8px; color: white;">乗換</span>` : ''}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        <div class="ranking-details">
+                            <div class="ranking-detail-item">
+                                <span style="color: var(--color-walk);">徒歩</span>
+                                <strong>${Math.floor(item.totalWalkTime / 60)}h ${Math.round(item.totalWalkTime % 60)}m</strong>
+                            </div>
+                            <div class="ranking-detail-item">
+                                <span style="color: var(--color-train);">電車</span>
+                                <strong>${Math.floor(item.totalTrainTime / 60)}h ${Math.round(item.totalTrainTime % 60)}m</strong>
+                            </div>
+                            ${item.totalTransferTime > 0 ? `
+                                <div class="ranking-detail-item">
+                                    <span style="color: var(--color-transfer);">乗換</span>
+                                    <strong>${Math.floor(item.totalTransferTime / 60)}h ${Math.round(item.totalTransferTime % 60)}m</strong>
+                                </div>
+                            ` : ''}
+                            <div class="ranking-detail-item">
+                                <span>|</span>
+                                <strong>${item.area.rent}</strong>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                });
+            }
+            
+            rankingList.innerHTML = html;
+        }
+        
+        function selectFromRanking(originalIndex) {
+            selectedAreaIndex = originalIndex;
+            
+            // ソート済みリストでの位置を見つける
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            const sortedIndex = displayAreas.findIndex(area => area.originalIndex === originalIndex);
+            if (sortedIndex !== -1) {
+                document.getElementById('areaSelect').value = sortedIndex;
+            }
+            
+            setViewMode('single');
+            updateAreaInfo();
+            animate();
+        }
+        
+        function zoom(factor) {
+            zoomScale *= factor;
+            zoomScale = Math.max(0.5, Math.min(5, zoomScale));
+            const zoomText = Math.round(zoomScale * 100) + '%';
+            const zoomLevel = document.getElementById('zoomLevel');
+            const zoomLevelInfo = document.getElementById('zoomLevelInfo');
+            if (zoomLevel) zoomLevel.textContent = zoomText;
+            if (zoomLevelInfo) zoomLevelInfo.textContent = zoomText;
+            animate();
+        }
+        
+        function resetView() {
+            zoomScale = 1.0;  // デフォルトの1.0（100%）に戻す
+            offsetX = 0;
+            offsetY = 0;
+            const zoomText = Math.round(zoomScale * 100) + '%';
+            const zoomLevel = document.getElementById('zoomLevel');
+            const zoomLevelInfo = document.getElementById('zoomLevelInfo');
+            if (zoomLevel) zoomLevel.textContent = zoomText;
+            if (zoomLevelInfo) zoomLevelInfo.textContent = zoomText;
+            animate();
+        }
+        
+        function selectPropertyMobile(sortedIndex) {
+            const displayAreas = sortedAreas.length > 0 ? sortedAreas : areas;
+            const selectedArea = displayAreas[sortedIndex];
+            selectedAreaIndex = selectedArea.originalIndex || sortedIndex;
+            
+            document.querySelectorAll('.property-chip').forEach((chip, i) => {
+                chip.classList.toggle('active', i === sortedIndex);
+            });
+            updateAreaInfo();
+            animate();
+        }
+        
+        function toggleBottomSheet() {
+            bottomSheetExpanded = !bottomSheetExpanded;
+            document.getElementById('bottomSheet').classList.toggle('expanded', bottomSheetExpanded);
+        }
+        
+        // ========================================
+        // マウス・タッチイベント
+        // ========================================
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            lastOffsetX = offsetX;
+            lastOffsetY = offsetY;
+            canvas.classList.add('grabbing');
+        });
+        
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                offsetX = lastOffsetX + (e.clientX - dragStartX);
+                offsetY = lastOffsetY + (e.clientY - dragStartY);
+                animate();
+            }
+            
+            // ツールチップ追従
+            const info = document.getElementById('timeInfo');
+            if (info.style.display === 'block') {
+                info.style.left = e.pageX + 15 + 'px';
+                info.style.top = e.pageY + 15 + 'px';
+            }
+        });
+        
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+            canvas.classList.remove('grabbing');
+        });
+        
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false;
+            canvas.classList.remove('grabbing');
+        });
+        
+        // マウスホイールでズーム
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+            zoom(zoomFactor);
+        });
+        
+        // ========================================
+        // アニメーション
+        // ========================================
+        function animate() {
+            // 個別ビューの時のみキャンバスを描画
+            if (currentViewMode === 'single') {
+                drawBackground();
+                drawElements();
+            }
+        }
+        
+        // ========================================
+        // データ検証関数
+        // ========================================
+        function validateRouteTime(route) {
+            // 各セグメントの時間を合計して、total_timeと一致するか確認
+            let calculatedTime = 0;
+            
+            if (route.details) {
+                // 徒歩のみの場合
+                if (route.details.walk_only) {
+                    calculatedTime = route.details.walk_time || 0;
+                } else {
+                    // 駅まで
+                    calculatedTime += route.details.walk_to_station || 0;
+                    
+                    // 電車と乗換
+                    if (route.details.trains) {
+                        route.details.trains.forEach(train => {
+                            calculatedTime += train.time || 0;
+                            if (train.transfer_after) {
+                                calculatedTime += train.transfer_after.time || 0;
+                            }
+                        });
+                        
+                        // 旧形式の乗換時間
+                        if (route.details.transfer_time) {
+                            calculatedTime += route.details.transfer_time;
+                        }
+                    }
+                    
+                    // 駅から
+                    calculatedTime += route.details.walk_from_station || 0;
+                }
+            }
+            
+            if (calculatedTime !== route.total_time) {
+                console.warn(`時間の不一致: ${route.destination}`, {
+                    計算値: calculatedTime,
+                    記載値: route.total_time,
+                    差分: route.total_time - calculatedTime
+                });
+            }
+            
+            return calculatedTime === route.total_time;
+        }
+        
+        // ========================================
+        // 初期化
+        // ========================================
+        // DOMContentLoadedを待つ
+        async function initializeApp() {
+            // まずJSONデータを読み込む
+            await loadDataFromJSON();
+            
+            // データが読み込まれたら初期化処理を継続
+            if (areas.length > 0) {
+                updateAreaInfo();
+                const zoomText = Math.round(zoomScale * 100) + '%';
+            const zoomLevel = document.getElementById('zoomLevel');
+            const zoomLevelInfo = document.getElementById('zoomLevelInfo');
+            if (zoomLevel) zoomLevel.textContent = zoomText;
+            if (zoomLevelInfo) zoomLevelInfo.textContent = zoomText;
+                
+                // 初期表示を確実に中央に
+                setTimeout(() => {
+                    if (currentViewMode === 'single') {
+                        animate();
+                    }
+                }, 100);
+            }
+        }
+        
+        // DOMが完全に読み込まれてから初期化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
+        
+    </script>
+</body>
+</html>

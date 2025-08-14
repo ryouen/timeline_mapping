@@ -1,0 +1,25 @@
+{
+    "timestamp": "2025-08-13 02:11:08",
+    "debug": {
+        "method": "POST",
+        "contentType": "application\/json",
+        "dataDir": "\/usr\/local\/apache2\/htdocs\/japandatascience.com\/timeline-mapping\/api\/..\/data\/",
+        "dataDirExists": true,
+        "dataDirWritable": true,
+        "rawInputLength": 67,
+        "rawInputSample": "{\"destinations\":{\"destinations\":[]},\"properties\":{\"properties\":[]}}...",
+        "jsonDecodeError": "No error",
+        "inputKeys": [
+            "destinations",
+            "properties"
+        ]
+    },
+    "input": {
+        "destinations": {
+            "destinations": []
+        },
+        "properties": {
+            "properties": []
+        }
+    }
+}

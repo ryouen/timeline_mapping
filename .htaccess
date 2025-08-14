@@ -1,0 +1,17 @@
+# PHPの実行を有効化（複数の方法を試行）
+AddHandler application/x-httpd-php .php
+AddType application/x-httpd-php .php
+
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# .envファイルへの直接アクセスを禁止
+<Files ".env">
+    Require all denied
+</Files>
+
+# バックアップファイルへのアクセスを禁止
+<FilesMatch "\.(bak|backup|old)$">
+    Require all denied
+</FilesMatch>

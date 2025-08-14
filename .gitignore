@@ -1,0 +1,74 @@
+# 環境変数・機密情報
+.env
+.env.*
+phpinfo.php
+
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Node.js関連  
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# エディタ・IDE関連
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# デバッグ出力（画像・HTMLのみ）
+api/debug/*.png
+api/debug/*.html
+api/test_screenshots/
+api/error_screenshots/
+api/test_results/
+debug_screenshots/
+test_screenshots/
+error_screenshots/
+
+# プロジェクトルートのスクリーンショット
+after_click_handle.png
+after_second_click_handle.png
+initial_state.png
+
+# ログファイル
+*.log
+logs/
+
+# 一時ファイル
+*.tmp
+*.temp
+temp/
+tmp/
+
+# バックアップファイル（拡張子のみ）
+*.bak
+*.backup
+*.old
+*.orig
+
+# OS固有ファイル
+Thumbs.db
+Desktop.ini
+
+# 圧縮ファイル（アップロード不要）
+*.zip
+*.tar.gz
+*.rar
+
+# 一時的な実験ファイル
+temp_*.py
+
+# Claude作業ディレクトリ
+.claude/
+
+# セレクタ設定（自動生成される場合）
+api/selectors.json

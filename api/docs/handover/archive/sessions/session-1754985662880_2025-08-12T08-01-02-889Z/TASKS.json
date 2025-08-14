@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-08-12T08:01:02.887Z",
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Google Maps migration project",
+      "status": "completed",
+      "priority": "high",
+      "assignee": "claude",
+      "created": "2025-08-11T00:00:00Z",
+      "completed": "2025-08-12T14:00:00Z",
+      "description": "Migrate from Yahoo to Google Maps for route searching"
+    },
+    {
+      "id": "TASK-002",
+      "title": "Fix transfer walking time accuracy",
+      "status": "in_progress",
+      "priority": "high",
+      "assignee": "next-session",
+      "created": "2025-08-11T10:00:00Z",
+      "description": "Transfer times showing 5 minutes instead of actual 1 minute"
+    },
+    {
+      "id": "TASK-003",
+      "title": "Implement route optimization",
+      "status": "pending",
+      "priority": "medium",
+      "assignee": "next-session",
+      "created": "2025-08-12T12:00:00Z",
+      "description": "Prefer Ginza line routes when total time is similar"
+    },
+    {
+      "id": "TASK-004",
+      "title": "Complete handover system setup",
+      "status": "in_progress",
+      "priority": "high",
+      "assignee": "claude",
+      "created": "2025-08-12T14:20:00Z",
+      "description": "Implement crash-resilient handover system based on documentation"
+    },
+    {
+      "id": "TASK-005",
+      "title": "Run regression tests",
+      "status": "pending",
+      "priority": "medium",
+      "assignee": "next-session",
+      "created": "2025-08-12T14:00:00Z",
+      "description": "Ensure all existing functionality works after Google Maps integration"
+    }
+  ],
+  "task_metrics": {
+    "total": 5,
+    "pending": 2,
+    "in_progress": 2,
+    "completed": 1
+  }
+}

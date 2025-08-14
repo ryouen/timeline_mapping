@@ -1,0 +1,50 @@
+{
+  "test_info": {
+    "test_id": "complex_route",
+    "test_name": "複数乗り換えルート",
+    "mode": "departure",
+    "origin": "東京都千代田区神田須田町1-20-1 ルフォンプログレ神田プレミア",
+    "destination": "東京都港区六本木6-10-1 六本木ヒルズ",
+    "created_at": "2025-08-14T11:50:00",
+    "verified_manually": true
+  },
+  "expected_result": {
+    "status": "success",
+    "search_info": {
+      "type": "departure",
+      "day_of_week": "Thursday",
+      "arrival_time": null
+    },
+    "route": {
+      "total_time": 29,
+      "details": {
+        "walk_to_station": 4,
+        "station_used": "神田",
+        "trains": [
+          {
+            "line": "地下鉄銀座線",
+            "time": 7,
+            "from": "神田",
+            "to": "銀座",
+            "departure": "9:05",
+            "arrival": "9:12",
+            "transfer_after": {
+              "walk_time": 1,
+              "wait_time": 3,
+              "to_station": "銀座"
+            }
+          },
+          {
+            "line": "地下鉄日比谷線",
+            "time": 11,
+            "from": "銀座",
+            "to": "六本木",
+            "departure": "9:16",
+            "arrival": "9:27"
+          }
+        ],
+        "walk_from_station": 3
+      }
+    }
+  }
+}
