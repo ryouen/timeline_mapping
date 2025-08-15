@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Mapping - JSON Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .progress-bar {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: -50%;
+            height: 1px;
+            background: #ddd;
+            z-index: -1;
+        }
+
+        .progress-step:first-child::before {
+            left: 50%;
+        }
+
+        .progress-step:last-child::before {
+            display: none;
+        }
+
+        .progress-step.active {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .progress-step.completed {
+            color: #4CAF50;
+        }
+
+        .progress-step.completed::before {
+            background: #4CAF50;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            min-height: 400px;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .form-section {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .form-section h3 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 4px;
+            color: #666;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            padding: 4px 8px;
+            font-size: 11px;
+        }
+        
+        .btn-small {
+            padding: 4px 8px;
+            font-size: 11px;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+
+        .btn-add {
+            background: #2196F3;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-add:hover {
+            background: #1976D2;
+        }
+
+        .destination-item, .property-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            position: relative;
+            font-size: 13px;
+        }
+
+        .destination-item strong, .property-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .item-details {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #4CAF50;
+            background: #f9f9f9;
+        }
+
+        .processing {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .processing.active {
+            display: flex;
+        }
+
+        .processing-modal {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        .progress-details {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .progress-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .progress-bar-container {
+            background: #e0e0e0;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-bar-fill {
+            background: #4CAF50;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .stats-box {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0;
+            font-size: 14px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .natural-language-section {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .natural-language-section h4 {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #2196F3;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .frequency-selects {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .frequency-selects select {
+            width: auto;
+        }
+
+        #destFrequencyUnit {
+            width: 60px;
+        }
+
+        #destFrequencyCount {
+            width: 50px;
+        }
+
+        .destinations-list {
+            margin-bottom: 20px;
+        }
+
+        .destinations-list h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Timeline Mapping JSON Generator</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1">1. 目的地設定</div>
+            <div class="progress-step" data-step="2">2. 物件情報</div>
+            <div class="progress-step" data-step="3">3. ルート検索</div>
+            <div class="progress-step" data-step="4">4. 完了</div>
+        </div>
+
+        <div class="content">
+            <!-- Step 1: 目的地設定 -->
+            <div class="step-content active" id="step1">
+                <h2>目的地の設定</h2>
+
+                <div class="form-section">
+                    <h3>新しい目的地を追加</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>目的地名 *</label>
+                            <input type="text" id="destName" placeholder="例: 早稲田大学">
+                        </div>
+                        <div class="form-group">
+                            <label>カテゴリー *</label>
+                            <select id="destCategory">
+                                <option value="school">学校</option>
+                                <option value="office">オフィス</option>
+                                <option value="gym">ジム</option>
+                                <option value="station">駅</option>
+                                <option value="airport">空港</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>利用者 *</label>
+                            <select id="destOwner">
+                                <option value="you">自分</option>
+                                <option value="partner">パートナー</option>
+                                <option value="both">両方</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>住所 *</label>
+                            <input type="text" id="destAddress" placeholder="例: 東京都新宿区西早稲田1-6-1">
+                        </div>
+                        <div class="form-group" style="flex: 0 0 200px;">
+                            <label>訪問頻度 *</label>
+                            <div class="frequency-selects">
+                                <select id="destFrequencyUnit">
+                                    <option value="week">週</option>
+                                    <option value="month">月</option>
+                                    <option value="year">年</option>
+                                </select>
+                                <select id="destFrequencyCount">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                </select>
+                                <span>回</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-add" onclick="addDestination()">目的地を追加</button>
+                </div>
+
+                <div class="destinations-list" id="destinationsList"></div>
+
+                <div class="natural-language-section">
+                    <h4>自然言語から一括登録（オプション）</h4>
+                    <textarea id="nlInput" rows="4" placeholder="例: 早稲田大学（パートナーの学校、週1-2回）住所: 東京都新宿区西早稲田1-6-1"></textarea>
+                    <button style="margin-top: 10px;" onclick="parseNaturalLanguage()">AIで解析して追加</button>
+                </div>
+
+                <div class="nav-buttons">
+                    <div></div>
+                    <button onclick="nextStep()">次へ →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: 物件情報 -->
+            <div class="step-content" id="step2">
+                <h2>物件情報の入力</h2>
+
+                <div class="form-section" style="background: #fff8e1;">
+                    <h3>物件情報を入力</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>物件名</label>
+                            <input type="text" id="currentName" placeholder="例: ルフォンプログレ神田">
+                        </div>
+                        <div class="form-group">
+                            <label>家賃（円）</label>
+                            <input type="text" id="currentRent" placeholder="150000">
+                        </div>
+                        <div class="form-group">
+                            <label>広さ（㎡）</label>
+                            <input type="text" id="currentArea" placeholder="50.5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>住所 *</label>
+                        <input type="text" id="currentAddress" placeholder="東京都千代田区...">
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button onclick="addPropertyFromForm()" class="btn-add" style="width: auto; flex: 1;">
+                            物件を追加
+                        </button>
+                        <button onclick="updateCurrentProperty()" class="btn-secondary" style="width: auto; flex: 1;" id="updatePropertyBtn" style="display: none;">
+                            現住所を更新
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>物件リストPDF</h3>
+                    <div class="file-upload" onclick="document.getElementById('pdfFile').click()">
+                        <div>PDFファイルを選択</div>
+                        <div style="font-size: 11px; color: #999; margin-top: 5px;">クリックまたはドラッグ&ドロップ</div>
+                        <input type="file" id="pdfFile" accept=".pdf" style="display: none;" onchange="handlePDFUpload(event)">
+                    </div>
+                    <div id="pdfStatus" style="margin-top: 15px;"></div>
+                </div>
+
+                <div id="propertiesList"></div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="previousStep()">← 戻る</button>
+                    <button onclick="nextStep()">次へ →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: ルート検索 -->
+            <div class="step-content" id="step3">
+                <h2>ルート検索</h2>
+
+                <div class="stats-box">
+                    <div class="stat">
+                        <div class="stat-number" id="totalDestinations">0</div>
+                        <div class="stat-label">目的地</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="totalProperties">0</div>
+                        <div class="stat-label">物件</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="totalRoutes">0</div>
+                        <div class="stat-label">ルート</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    平日午前10時到着の条件でルート検索を行います
+                </div>
+
+                <div style="text-align: center;">
+                    <button onclick="startRouteSearch()" style="padding: 12px 30px; font-size: 14px;">
+                        ルート検索を開始
+                    </button>
+                </div>
+
+                <div id="previousSearchAlert" style="display: none; margin-top: 20px;">
+                    <div class="alert alert-info">
+                        <strong>以前のルート検索結果が見つかりました</strong><br>
+                        <span id="previousSearchInfo"></span><br>
+                        <button onclick="restorePreviousSearch()" style="margin-top: 10px;">
+                            以前の検索結果を復元
+                        </button>
+                    </div>
+                </div>
+
+                <div id="searchProgress" style="margin-top: 20px; text-align: center;"></div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="previousStep()">← 戻る</button>
+                    <div></div>
+                </div>
+            </div>
+
+            <!-- Step 4: 完了 -->
+            <div class="step-content" id="step4">
+                <h2>JSON生成完了</h2>
+
+                <div class="alert alert-success">
+                    JSONファイルの生成が完了しました
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <p style="margin-bottom: 20px; color: #666; font-size: 13px;">
+                        ファイルは /timeline-mapping/data/ フォルダに保存されました
+                    </p>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <button onclick="downloadJSON('destinations')">
+                            destinations.json をダウンロード
+                        </button>
+                        <button onclick="downloadJSON('properties')">
+                            properties.json をダウンロード
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <button class="btn-secondary" onclick="viewJSON('destinations')">
+                            destinations.json を確認
+                        </button>
+                        <button class="btn-secondary" onclick="viewJSON('properties')">
+                            properties.json を確認
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <button onclick="manualSave()" style="background: #4CAF50;">
+                            サーバーに保存
+                        </button>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="resetAll()">最初からやり直す</button>
+                    <a href="/timeline-mapping/" style="text-decoration: none;">
+                        <button>Timeline Mappingで表示</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="processing" id="processingOverlay">
+        <div class="processing-modal">
+            <div class="spinner"></div>
+            <div id="processingMessage">処理中...</div>
+        </div>
+    </div>
+
+    <script>
+        // グローバル変数
+        let currentStep = 1;
+        let destinations = [];
+        let properties = [];
+
+        // ステップ制御
+        function updateStepDisplay() {
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                } else if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`step${currentStep}`).classList.add('active');
+
+            if (currentStep === 2) {
+                // Step 2に入った時、現住所をフォームに反映
+                syncCurrentAddressToForm();
+                updatePropertyFormButtons();
+            } else if (currentStep === 3) {
+                document.getElementById('totalDestinations').textContent = destinations.length;
+                document.getElementById('totalProperties').textContent = properties.length;
+                document.getElementById('totalRoutes').textContent = destinations.length * properties.length;
+                
+                // 以前の検索結果をチェック
+                checkPreviousSearchResults();
+            }
+        }
+
+        async function nextStep() {
+            if (validateCurrentStep()) {
+                // ステップ1（目的地設定）完了時にdestinations.jsonを保存
+                if (currentStep === 1 && destinations.length > 0) {
+                    showProcessing('目的地データを保存中...');
+                    try {
+                        await saveDestinationsOnly();
+                        console.log('destinations.json saved successfully');
+                    } catch (error) {
+                        console.error('Failed to save destinations.json:', error);
+                        // エラーがあっても続行
+                    }
+                    hideProcessing();
+                }
+                
+                currentStep++;
+                updateStepDisplay();
+            }
+        }
+
+        function previousStep() {
+            currentStep--;
+            updateStepDisplay();
+        }
+
+        function validateCurrentStep() {
+            if (currentStep === 1) {
+                if (destinations.length === 0) {
+                    alert('少なくとも1つの目的地を登録してください');
+                    return false;
+                }
+            } else if (currentStep === 2) {
+                if (properties.length === 0) {
+                    alert('少なくとも1つの物件を登録してください');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // 目的地管理
+        function addDestination() {
+            const name = document.getElementById('destName').value.trim();
+            const address = document.getElementById('destAddress').value.trim();
+            const category = document.getElementById('destCategory').value;
+            const owner = document.getElementById('destOwner').value;
+            const unit = document.getElementById('destFrequencyUnit').value;
+            const count = document.getElementById('destFrequencyCount').value;
+
+            if (!name || !address) {
+                alert('目的地名と住所を入力してください');
+                return;
+            }
+
+            // 月間頻度の計算
+            let monthlyFrequency = 0;
+            if (unit === 'week') {
+                monthlyFrequency = parseFloat(count) * 4.4;
+            } else if (unit === 'month') {
+                monthlyFrequency = parseFloat(count);
+            } else if (unit === 'year') {
+                monthlyFrequency = parseFloat(count) / 12;
+            }
+            monthlyFrequency = Math.round(monthlyFrequency * 10) / 10;
+
+            const dest = {
+                id: generateId(name),
+                name: name,
+                category: category,
+                address: address,
+                owner: owner,
+                monthly_frequency: monthlyFrequency,
+                time_preference: 'morning'
+            };
+
+            destinations.push(dest);
+            updateDestinationsList();
+            clearDestinationForm();
+            saveToLocalStorage();
+        }
+
+        function generateId(name) {
+            return name.toLowerCase()
+                .replace(/[^\w\s]/gi, '')
+                .replace(/\s+/g, '_')
+                .substring(0, 20);
+        }
+
+        function updateDestinationsList() {
+            const list = document.getElementById('destinationsList');
+            if (destinations.length === 0) {
+                list.innerHTML = '';
+                return;
+            }
+
+            list.innerHTML = '<h3>登録済みの目的地</h3>' +
+                destinations.map((dest, index) => `
+                    <div class="destination-item">
+                        <button class="btn-danger remove-btn" onclick="removeDestination(${index})">削除</button>
+                        <strong>${dest.name}</strong>
+                        <div class="item-details">
+                            ${dest.address} | 
+                            ${getCategoryLabel(dest.category)} | 
+                            ${getOwnerLabel(dest.owner)} | 
+                            月${dest.monthly_frequency}回
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        function getCategoryLabel(category) {
+            const labels = {
+                'school': '学校',
+                'office': 'オフィス',
+                'gym': 'ジム',
+                'station': '駅',
+                'airport': '空港'
+            };
+            return labels[category] || category;
+        }
+
+        function getOwnerLabel(owner) {
+            const labels = {
+                'you': '自分',
+                'partner': 'パートナー',
+                'both': '両方'
+            };
+            return labels[owner] || owner;
+        }
+
+        function removeDestination(index) {
+            destinations.splice(index, 1);
+            updateDestinationsList();
+            saveToLocalStorage();
+        }
+
+        function clearDestinationForm() {
+            document.getElementById('destName').value = '';
+            document.getElementById('destAddress').value = '';
+            document.getElementById('destFrequencyUnit').value = 'week';
+            document.getElementById('destFrequencyCount').value = '1';
+        }
+
+        // 自然言語解析
+        async function parseNaturalLanguage() {
+            console.log('=== parseNaturalLanguage started ===');
+            const text = document.getElementById('nlInput').value.trim();
+            if (!text) {
+                alert('解析するテキストを入力してください');
+                return;
+            }
+
+            showProcessing('AI解析中...');
+            
+            console.log('Sending request with text:', text);
+
+            try {
+                const response = await fetch('/timeline-mapping/api/generate_test.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'parseDestinations',
+                        text: text
+                    })
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+
+                // レスポンスステータスチェック
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('API Response Error:', response.status, errorText);
+                    throw new Error(`API Error: ${response.status} - ${errorText}`);
+                }
+                
+                const data = await response.json();
+                console.log('API Response:', data); // デバッグ用ログ
+                
+                if (data.error) {
+                    console.error('API returned error:', data.error);
+                    alert('API エラー: ' + data.error);
+                    hideProcessing();
+                    return;
+                }
+                
+                if (data.destinations) {
+                    console.log('Processing destinations:', data.destinations);
+                    data.destinations.forEach((dest, index) => {
+                        console.log(`Processing destination ${index}:`, dest);
+                        // APIがidを返さない場合のみ生成
+                        if (!dest.id) {
+                            dest.id = generateId(dest.name);
+                        }
+                        // APIがmonthly_frequencyを返さない場合のみ計算
+                        if (!dest.monthly_frequency && dest.frequency) {
+                            dest.monthly_frequency = parseFrequency(dest.frequency);
+                        }
+                        // time_preferenceがない場合のみ追加
+                        if (!dest.time_preference) {
+                            dest.time_preference = 'morning';
+                        }
+                        console.log(`Adding destination to array:`, dest);
+                        destinations.push(dest);
+                    });
+                    console.log('Calling updateDestinationsList');
+                    updateDestinationsList();
+                    console.log('Clearing input field');
+                    document.getElementById('nlInput').value = '';
+                    console.log('Saving to localStorage');
+                    try {
+                        saveToLocalStorage();
+                        console.log('Save completed');
+                    } catch (saveError) {
+                        console.error('Error in saveToLocalStorage:', saveError);
+                        console.error('Stack:', saveError.stack);
+                    }
+                    
+                    // 成功時にhideProcessingを呼ぶ
+                    hideProcessing();
+                    console.log('All processing completed successfully');
+                    
+                } else {
+                    console.error('No destinations in response:', data);
+                    alert('目的地データが取得できませんでした');
+                    hideProcessing();
+                }
+            } catch (error) {
+                console.error('Parse error:', error);
+                console.error('Error stack:', error.stack);
+                console.error('Error details:', {
+                    message: error.message,
+                    name: error.name,
+                    text: text.substring(0, 100)
+                });
+                alert('解析に失敗しました: ' + error.message);
+                hideProcessing();
+            }
+        }
+
+        function parseFrequency(text) {
+            const weekMatch = text.match(/週(\d+)/);
+            if (weekMatch) return parseFloat(weekMatch[1]) * 4.4;
+            
+            const monthRangeMatch = text.match(/月(\d+)[~\-ー～](\d+)/);
+            if (monthRangeMatch) return (parseFloat(monthRangeMatch[1]) + parseFloat(monthRangeMatch[2])) / 2;
+            
+            const monthMatch = text.match(/月(\d+)/);
+            if (monthMatch) return parseFloat(monthMatch[1]);
+            
+            return 4;
+        }
+
+        // PDF処理
+        async function handlePDFUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            showProcessing('PDF解析中...');
+
+            const formData = new FormData();
+            formData.append('pdf', file);
+            formData.append('action', 'parseProperties');
+
+            try {
+                // 60秒のタイムアウトを設定
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 60000);
+                
+                const response = await fetch('/timeline-mapping/api/generate_pdf.php', {
+                    method: 'POST',
+                    body: formData,
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+
+                console.log('PDF Response status:', response.status);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('PDF API error:', errorText);
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+                
+                const data = await response.json();
+                console.log('PDF API Response:', data);
+                
+                if (data.error) {
+                    console.error('PDF API returned error:', data.error);
+                    if (data.raw_response) {
+                        console.error('Raw response:', data.raw_response);
+                        console.error('JSON error:', data.json_error);
+                    }
+                    if (data.api_response_structure) {
+                        console.error('API Response Structure:', data.api_response_structure);
+                        console.error('Candidates count:', data.candidates_count);
+                        console.error('First candidate:', data.first_candidate);
+                        console.error('Raw sample:', data.raw_response_sample);
+                    }
+                    document.getElementById('pdfStatus').innerHTML = 
+                        `<div class="alert alert-error">エラー: ${data.error}</div>`;
+                } else if (data.properties) {
+                    console.log(`Extracted ${data.properties.length} properties:`, data.properties);
+                    properties = properties.concat(data.properties);
+                    updatePropertiesList();
+                    document.getElementById('pdfStatus').innerHTML = 
+                        `<div class="alert alert-success">${data.properties.length}件の物件を抽出しました</div>`;
+                    
+                    // 物件基本情報（ルートなし）を保存
+                    await savePropertiesBase();
+                    
+                    // ステップ2ではルート情報を生成しない（ステップ3で実行）
+                    // await generateRoutes(data.properties);
+                    saveToLocalStorage();
+                } else {
+                    console.error('No properties in response:', data);
+                    document.getElementById('pdfStatus').innerHTML = 
+                        `<div class="alert alert-warning">物件が見つかりませんでした</div>`;
+                }
+            } catch (error) {
+                console.error('PDF parse error:', error);
+                let errorMessage = error.message;
+                
+                if (error.name === 'AbortError') {
+                    errorMessage = 'タイムアウトしました（60秒）。PDFが大きすぎるか、サーバーの処理に時間がかかっています。';
+                }
+                
+                document.getElementById('pdfStatus').innerHTML = 
+                    `<div class="alert alert-error">PDF解析に失敗しました: ${errorMessage}</div>`;
+            }
+
+            hideProcessing();
+        }
+
+        async function generateRoutes(newProperties) {
+            try {
+                console.log('Generating routes for properties...');
+                
+                const response = await fetch('/timeline-mapping/api/generate_routes.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        properties: newProperties,
+                        destinations: destinations
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.error('Route generation error:', data.error);
+                    document.getElementById('pdfStatus').innerHTML += 
+                        `<div class="alert alert-warning">ルート生成エラー: ${data.error}</div>`;
+                } else if (data.properties) {
+                    // 既存のproperties配列を更新されたルート情報で置き換え
+                    const startIndex = properties.length - newProperties.length;
+                    for (let i = 0; i < data.properties.length; i++) {
+                        properties[startIndex + i] = data.properties[i];
+                    }
+                    updatePropertiesList();
+                    console.log('Routes generated successfully');
+                }
+            } catch (error) {
+                console.error('Route generation failed:', error);
+            }
+        }
+
+        function updatePropertiesList() {
+            const list = document.getElementById('propertiesList');
+            if (properties.length === 0) {
+                list.innerHTML = '<p style="color: #999;">物件を登録してください</p>';
+                return;
+            }
+
+            // 現在のステップを確認
+            const currentStep = getCurrentStep();
+            const showRouteInfo = currentStep >= 3;
+
+            list.innerHTML = '<h3 style="margin-top: 20px;">物件リスト</h3>' +
+                properties.map((prop, index) => `
+                    <div class="property-item">
+                        <div style="float: right;">
+                            ${properties.length > 1 ? 
+                                `<button class="btn-danger btn-small" onclick="removeProperty(${index})">削除</button>` : 
+                                '<span style="color: #999; font-size: 12px;">削除不可</span>'}
+                            ${index > 0 ? 
+                                `<button class="btn-secondary btn-small" onclick="makeCurrentAddress(${index})" style="margin-left: 5px;">現住所に設定</button>` : 
+                                ''}
+                        </div>
+                        <strong>${prop.name} ${index === 0 ? '<span style="color: #4CAF50;">（現住所）</span>' : ''}</strong>
+                        <div class="item-details">
+                            ${prop.address} | ${prop.rent ? prop.rent : '家賃未設定'}${prop.area ? ` | ${prop.area}㎡` : ''}
+                            ${showRouteInfo && prop.total_monthly_travel_time ? 
+                                `<br><span style="color: #666;">月間移動時間: ${prop.total_monthly_travel_time}分 
+                                (${Math.round(prop.total_monthly_travel_time/60*10)/10}時間)</span>` : ''}
+                        </div>
+                    </div>
+                `).join('') +
+                '<div style="margin-top: 15px; text-align: center;">' +
+                    '<button class="btn-danger" onclick="removeAllProperties()" style="padding: 8px 20px;">全て削除</button>' +
+                '</div>';
+        }
+
+        function removeProperty(index) {
+            if (properties.length === 1) {
+                alert('最低1件の物件が必要です。\n内容を変更する場合は、上のフォームで編集してください。');
+                return;
+            }
+            
+            const confirmMessage = index === 0 ? 
+                `現住所「${properties[0].name}」を削除しますか？\n「${properties[1].name}」が新しい現住所になります。` :
+                `「${properties[index].name}」を削除しますか？`;
+            
+            if (confirm(confirmMessage)) {
+                properties.splice(index, 1);
+                
+                // 現住所を削除した場合、新しい現住所をフォームに反映
+                if (index === 0) {
+                    syncCurrentAddressToForm();
+                }
+                
+                updatePropertiesList();
+                saveToLocalStorage();
+            }
+        }
+        
+        // 現在のステップを取得
+        function getCurrentStep() {
+            const activeStep = document.querySelector('.step-content.active');
+            if (!activeStep) return 1;
+            const stepId = activeStep.id;
+            return parseInt(stepId.replace('step', '')) || 1;
+        }
+        
+        // 現住所をフォームに同期
+        function syncCurrentAddressToForm() {
+            if (properties.length > 0) {
+                const current = properties[0];
+                document.getElementById('currentName').value = current.name || '';
+                document.getElementById('currentAddress').value = current.address || '';
+                // 賃料から円記号とカンマを除去して数値のみにする
+                const rentValue = current.rent ? current.rent.replace(/[^0-9]/g, '') : '';
+                document.getElementById('currentRent').value = rentValue;
+                document.getElementById('currentArea').value = current.area || '';
+            }
+        }
+        
+        // 全ての物件を削除
+        function removeAllProperties() {
+            if (confirm('全ての物件を削除しますか？この操作は取り消せません。')) {
+                properties = [];
+                updatePropertiesList();
+                saveToLocalStorage();
+                // フォームをクリア
+                document.getElementById('currentName').value = '';
+                document.getElementById('currentAddress').value = '';
+                document.getElementById('currentRent').value = '';
+                document.getElementById('currentArea').value = '';
+            }
+        }
+
+        // 現住所に設定
+        function makeCurrentAddress(index) {
+            if (index === 0) return;
+            
+            const property = properties[index];
+            if (confirm(`「${property.name}」を現在の住所に設定しますか？`)) {
+                // 配列の順序を入れ替え
+                properties.splice(index, 1);
+                properties.unshift(property);
+                
+                // フォームを更新
+                syncCurrentAddressToForm();
+                
+                updatePropertiesList();
+                saveToLocalStorage();
+            }
+        }
+
+        // ルート検索
+        async function startRouteSearch() {
+            const totalRoutes = destinations.length * properties.length;
+            let completedRoutes = 0;
+            let failedRoutes = 0;
+            
+            showProcessing(`ルート検索中... 0 / ${totalRoutes}`);
+            
+            // 進行状況表示エリアを更新
+            const progressDiv = document.getElementById('searchProgress');
+            progressDiv.innerHTML = '<div class="progress-details"></div>';
+
+            for (let propIndex = 0; propIndex < properties.length; propIndex++) {
+                const property = properties[propIndex];
+                property.routes = [];
+                property.total_monthly_travel_time = 0;
+                property.total_monthly_walk_time = 0;
+                property.stations = [];
+
+                for (let destIndex = 0; destIndex < destinations.length; destIndex++) {
+                    const destination = destinations[destIndex];
+                    completedRoutes++;
+                    
+                    // 進行状況を更新
+                    showProcessing(`ルート検索中... ${completedRoutes} / ${totalRoutes}`);
+                    progressDiv.innerHTML = `
+                        <div class="progress-details">
+                            <p>検索中: ${property.name} → ${destination.name}</p>
+                            <div style="margin-top: 10px;">
+                                <div style="background: #e0e0e0; height: 20px; border-radius: 10px; overflow: hidden;">
+                                    <div style="background: #4CAF50; height: 100%; width: ${(completedRoutes / totalRoutes * 100)}%; transition: width 0.3s;"></div>
+                                </div>
+                                <p style="margin-top: 5px; font-size: 12px; color: #666;">
+                                    ${Math.round(completedRoutes / totalRoutes * 100)}% 完了
+                                    ${failedRoutes > 0 ? ` (${failedRoutes}件のエラー)` : ''}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    try {
+                        // 住所が空の場合は名前を使用（東京駅、羽田空港など）
+                        const destAddress = destination.address || destination.name;
+                        const route = await searchRoute(property.address, destAddress);
+                        
+                        if (route && route.routes && route.routes.length > 0) {
+                            const details = parseRouteDetails(route);
+                            
+                            property.routes.push({
+                                destination: destination.id,  // IDベースに変更
+                                destination_name: destination.name,  // 名前も保存（デバッグ用）
+                                total_time: details.total_time,
+                                details: details
+                            });
+                            
+                            property.total_monthly_travel_time += 
+                                details.total_time * destination.monthly_frequency * 2;
+                            
+                            if (details.walk_only) {
+                                property.total_monthly_walk_time += 
+                                    details.walk_time * destination.monthly_frequency * 2;
+                            } else {
+                                property.total_monthly_walk_time += 
+                                    (details.walk_to_station + details.walk_from_station) * 
+                                    destination.monthly_frequency * 2;
+                            }
+                        } else {
+                            failedRoutes++;
+                            console.warn(`No route found: ${property.name} → ${destination.name}`);
+                        }
+                    } catch (error) {
+                        failedRoutes++;
+                        console.error(`Route error for ${property.name} → ${destination.name}:`, error);
+                    }
+                }
+                
+                property.stations = generateStationsArray(property.routes);
+            }
+
+            // 検索結果サマリーを表示
+            progressDiv.innerHTML = `
+                <div class="alert ${failedRoutes === 0 ? 'alert-success' : 'alert-warning'}">
+                    <strong>ルート検索完了</strong><br>
+                    成功: ${completedRoutes - failedRoutes}件 / 失敗: ${failedRoutes}件
+                </div>
+            `;
+
+            await saveJSONFiles();
+            
+            hideProcessing();
+            
+            // 少し待ってから画面遷移（結果を確認できるように）
+            setTimeout(() => {
+                currentStep = 4;
+                updateStepDisplay();
+            }, 2000);
+        }
+
+        async function searchRoute(origin, destination) {
+            const response = await fetch('/timeline-mapping/api/maps.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    origin: origin,
+                    destination: destination,
+                    mode: 'transit',
+                    departure_time: 'morning'
+                })
+            });
+
+            return await response.json();
+        }
+
+        function parseRouteDetails(routeData) {
+            if (!routeData.routes || routeData.routes.length === 0) {
+                return { total_time: 0, walk_only: true, walk_time: 0 };
+            }
+
+            const route = routeData.routes[0];
+            const leg = route.legs[0];
+            
+            const details = {
+                total_time: Math.round(leg.duration.value / 60),
+                walk_to_station: 0,
+                station_used: '',
+                trains: [],
+                walk_from_station: 0
+            };
+
+            if (leg.steps.length === 1 && leg.steps[0].travel_mode === 'WALKING') {
+                return {
+                    total_time: Math.round(leg.duration.value / 60),
+                    walk_only: true,
+                    walk_time: Math.round(leg.duration.value / 60)
+                };
+            }
+
+            // v5 APIからのroute_detailsデータがある場合は優先的に使用
+            if (leg.route_details) {
+                console.log('Using v5 API route_details data');
+                const v5Details = leg.route_details;
+                details.walk_to_station = v5Details.walk_to_station;
+                details.walk_from_station = v5Details.walk_from_station;
+                details.station_used = v5Details.station_used;
+                details.trains = v5Details.trains;
+                details.wait_time_minutes = v5Details.wait_time_minutes || 0;
+            } 
+            // v4 APIからのtrains_with_transferデータがある場合
+            else if (leg.trains_with_transfer && leg.trains_with_transfer.length > 0) {
+                console.log('Using v4 API trains_with_transfer data');
+                details.trains = leg.trains_with_transfer;
+                
+                // 最初の駅を特定
+                if (details.trains.length > 0) {
+                    details.station_used = details.trains[0].from;
+                }
+                
+                // walk_to_stationとwalk_from_stationを設定
+                // 最初の徒歩
+                if (leg.steps.length > 0 && leg.steps[0].travel_mode === 'WALKING') {
+                    const walkTime = leg.steps[0].duration && leg.steps[0].duration.value ? 
+                        Math.round(leg.steps[0].duration.value / 60) : 5;
+                    details.walk_to_station = walkTime;
+                }
+                
+                // 最後の徒歩
+                const lastStep = leg.steps[leg.steps.length - 1];
+                if (lastStep && lastStep.travel_mode === 'WALKING') {
+                    const walkTime = lastStep.duration && lastStep.duration.value ? 
+                        Math.round(lastStep.duration.value / 60) : 5;
+                    details.walk_from_station = walkTime;
+                }
+            } else {
+                // 従来の処理（v3 API互換）
+                let previousTrain = null;
+                
+                leg.steps.forEach((step, index) => {
+                    if (step.travel_mode === 'WALKING') {
+                        // duration.valueが存在しない場合のデフォルト値
+                        const walkTime = step.duration && step.duration.value ? 
+                            Math.round(step.duration.value / 60) : 5;
+                        
+                        if (index === 0) {
+                            details.walk_to_station = walkTime;
+                        } else if (index === leg.steps.length - 1) {
+                            details.walk_from_station = walkTime;
+                        } else if (previousTrain) {
+                            previousTrain.transfer_after = {
+                                time: walkTime,
+                                to_line: ''
+                            };
+                        }
+                    } else if (step.travel_mode === 'TRANSIT') {
+                        const transit = step.transit_details;
+                        
+                        if (!transit) {
+                            console.warn('Transit details missing for step:', step);
+                            return;
+                        }
+                        
+                        if (!details.station_used) {
+                            details.station_used = transit.departure_stop ? transit.departure_stop.name : '不明';
+                        }
+                        
+                        // duration.valueが存在しない場合のデフォルト値
+                        const trainTime = step.duration && step.duration.value ? 
+                            Math.round(step.duration.value / 60) : 10;
+                        
+                        const trainInfo = {
+                            line: transit.line ? (transit.line.name || transit.line.short_name || '不明') : '不明',
+                            time: trainTime,
+                            from: transit.departure_stop ? transit.departure_stop.name : '不明',
+                            to: transit.arrival_stop ? transit.arrival_stop.name : '不明'
+                        };
+                        
+                        if (previousTrain && previousTrain.transfer_after) {
+                            previousTrain.transfer_after.to_line = trainInfo.line;
+                        }
+                        
+                        details.trains.push(trainInfo);
+                        previousTrain = trainInfo;
+                    }
+                });
+            }
+
+            return details;
+        }
+
+        function generateStationsArray(routes) {
+            const stationsMap = {};
+            
+            routes.forEach(route => {
+                if (!route.details || route.details.walk_only) return;
+                
+                const stationName = route.details.station_used;
+                if (!stationName) return;
+                
+                if (!stationsMap[stationName]) {
+                    stationsMap[stationName] = {
+                        name: stationName,
+                        lines: [],
+                        walk_times: {}
+                    };
+                }
+                
+                route.details.trains.forEach(train => {
+                    const line = train.line;
+                    if (!stationsMap[stationName].lines.includes(line)) {
+                        stationsMap[stationName].lines.push(line);
+                    }
+                    
+                    const lineGroup = getLineGroup(line);
+                    if (!stationsMap[stationName].walk_times[lineGroup]) {
+                        stationsMap[stationName].walk_times[lineGroup] = route.details.walk_to_station;
+                    }
+                });
+            });
+            
+            return Object.values(stationsMap);
+        }
+
+        function getLineGroup(line) {
+            if (line.includes('JR')) return 'JR';
+            if (line.includes('東京メトロ') || line.includes('メトロ')) return 'メトロ';
+            if (line.includes('都営')) return '都営';
+            return line;
+        }
+
+        // JSONファイル操作
+        // 物件基本情報（ルートなし）を保存
+        async function savePropertiesBase() {
+            // ルート情報を除外した物件データを作成
+            const propertiesBase = properties.map(prop => ({
+                name: prop.name,
+                address: prop.address,
+                rent: prop.rent,
+                ...(prop.area && { area: prop.area })
+            }));
+            
+            const propertiesBaseData = { properties: propertiesBase };
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/save-simple.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        propertiesBase: propertiesBaseData,
+                        savePropertiesBaseOnly: true
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                if (!result.success) {
+                    throw new Error(result.error || '保存に失敗しました');
+                }
+                
+                console.log('properties_base.json saved successfully');
+                return true;
+            } catch (error) {
+                console.error('Save properties base error:', error);
+                // エラーがあっても処理を継続
+                return false;
+            }
+        }
+
+        // 目的地データのみを保存
+        async function saveDestinationsOnly() {
+            const destinationsData = { destinations: destinations };
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/save-simple.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        destinations: destinationsData,
+                        saveDestinationsOnly: true
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                if (!result.success) {
+                    throw new Error(result.error || '保存に失敗しました');
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('Save destinations error:', error);
+                throw error;
+            }
+        }
+
+        async function saveJSONFiles() {
+            console.log('saveJSONFiles called');
+            console.log('Global destinations:', destinations);
+            console.log('Global properties:', properties);
+            console.log('destinations length:', destinations ? destinations.length : 'undefined');
+            console.log('properties length:', properties ? properties.length : 'undefined');
+            
+            const destinationsData = { destinations: destinations };
+            const propertiesData = { properties: properties };
+            
+            console.log('destinationsData:', destinationsData);
+            console.log('propertiesData:', propertiesData);
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/save-simple.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        destinations: destinationsData,
+                        properties: propertiesData
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                if (!result.success) {
+                    throw new Error(result.error || '保存に失敗しました');
+                }
+                
+                // LocalStorageにも保存
+                localStorage.setItem('timeline_destinations', JSON.stringify(destinationsData));
+                localStorage.setItem('timeline_properties', JSON.stringify(propertiesData));
+                
+                return true;
+            } catch (error) {
+                console.error('Save error:', error);
+                throw error;  // 呼び出し元でハンドリング
+            }
+        }
+
+        function downloadJSON(type) {
+            const data = type === 'destinations' ? 
+                { destinations: destinations } : 
+                { properties: properties };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = type + '.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function viewJSON(type) {
+            const data = type === 'destinations' ? 
+                { destinations: destinations } : 
+                { properties: properties };
+            
+            const json = JSON.stringify(data, null, 2);
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(`<pre>${json}</pre>`);
+        }
+
+        // ユーティリティ
+        function showProcessing(message) {
+            document.getElementById('processingMessage').textContent = message;
+            document.getElementById('processingOverlay').classList.add('active');
+        }
+
+        function hideProcessing() {
+            document.getElementById('processingOverlay').classList.remove('active');
+        }
+
+        function resetAll() {
+            if (confirm('すべてのデータをリセットしてよろしいですか？')) {
+                destinations = [];
+                properties = [];
+                currentStep = 1;
+                localStorage.removeItem('timeline_data');
+                localStorage.removeItem('timeline_destinations');
+                localStorage.removeItem('timeline_properties');
+                updateStepDisplay();
+                updateDestinationsList();
+                updatePropertiesList();
+                document.getElementById('currentName').value = '';
+                document.getElementById('currentAddress').value = '';
+                document.getElementById('currentRent').value = '';
+                clearDestinationForm();
+            }
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem('timeline_data', JSON.stringify({
+                destinations: destinations,
+                properties: properties
+            }));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('timeline_data');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    destinations = data.destinations || [];
+                    properties = data.properties || [];
+                    
+                    // 現住所（最初の物件）をフォームに反映
+                    if (properties.length > 0) {
+                        syncCurrentAddressToForm();
+                    }
+                    
+                    updateDestinationsList();
+                    updatePropertiesList();
+                } catch (error) {
+                    console.error('Load error:', error);
+                }
+            }
+        }
+
+        // ルート検索機能
+        async function startRouteSearch() {
+            if (destinations.length === 0 || properties.length === 0) {
+                alert('目的地と物件の両方が必要です');
+                return;
+            }
+            
+            const totalRoutes = destinations.length * properties.length;
+            let currentRoute = 0;
+            let successfulRoutes = 0;
+            let failedRoutes = 0;
+            
+            // 接続テスト
+            showProcessing('API接続をテスト中...');
+            const connectionTest = await testAPIConnection();
+            if (!connectionTest) {
+                hideProcessing();
+                alert('Google Maps APIに接続できません。しばらく待ってから再試行してください。');
+                return;
+            }
+            
+            showProcessing(`ルート検索中... (0/${totalRoutes})`);
+            
+            try {
+                // 各物件に対してルート情報を追加
+                for (let propIndex = 0; propIndex < properties.length; propIndex++) {
+                    const property = properties[propIndex];
+                    property.routes = [];
+                    
+                    for (let destIndex = 0; destIndex < destinations.length; destIndex++) {
+                        const destination = destinations[destIndex];
+                        currentRoute++;
+                        
+                        // 進捗更新
+                        showProcessing(`ルート検索中... (${currentRoute}/${totalRoutes}) - ${property.name} → ${destination.name}`);
+                        
+                        try {
+                            const route = await searchSingleRoute(
+                                property.address || property.name,
+                                destination.address || destination.name,
+                                destination.id,
+                                destination.name
+                            );
+                            
+                            if (route) {
+                                property.routes.push(route);
+                                successfulRoutes++;
+                            } else {
+                                failedRoutes++;
+                                console.warn(`No route found for ${property.name} -> ${destination.name}`);
+                            }
+                            
+                        } catch (error) {
+                            failedRoutes++;
+                            console.error(`Route search failed for ${property.name} -> ${destination.name}:`, error);
+                            // エラーの場合でも処理を継続
+                        }
+                        
+                        // API負荷軽減のため待機
+                        await sleep(3000); // 3秒に延長
+                    }
+                }
+                
+                // ルート検索完了
+                updatePropertiesList();
+                saveToLocalStorage();
+                
+                // サーバーにも保存
+                let saveSuccess = false;
+                try {
+                    await saveJSONFiles();
+                    saveSuccess = true;
+                } catch (saveError) {
+                    console.error('Save failed:', saveError);
+                }
+                
+                updateStats();
+                
+                hideProcessing();
+                
+                let message = `ルート検索が完了しました！\n成功: ${successfulRoutes}件\n失敗: ${failedRoutes}件\n\n`;
+                if (saveSuccess) {
+                    message += `✅ データは自動的にサーバーに保存されました。\n\n次のステップでJSONファイルをダウンロードできます。`;
+                } else {
+                    message += `⚠️ サーバーへの自動保存に失敗しました。\n次のステップで手動保存してください。`;
+                }
+                alert(message);
+                
+                // 成功したルートが1つ以上あれば次のステップに進む
+                if (successfulRoutes > 0) {
+                    nextStep();
+                }
+                
+            } catch (error) {
+                console.error('Route search error:', error);
+                hideProcessing();
+                alert('ルート検索中にエラーが発生しました: ' + error.message);
+            }
+        }
+        
+        async function testAPIConnection() {
+            try {
+                const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'testConnection' })
+                });
+                
+                if (!response.ok) {
+                    return false;
+                }
+                
+                const data = await response.json();
+                return data.success;
+                
+            } catch (error) {
+                console.error('Connection test failed:', error);
+                return false;
+            }
+        }
+        
+        async function searchSingleRoute(origin, destination, destinationId, destinationName) {
+            try {
+                // 平日午前10時到着を計算
+                const arrivalTime = getNextWeekday10AM();
+                console.log(`Route search: ${origin} -> ${destination} (arrival: ${arrivalTime.toISOString()})`);
+                
+                const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'getSingleRoute',
+                        origin: origin,
+                        destination: destination,
+                        destinationId: destinationId,
+                        destinationName: destinationName,
+                        arrivalTime: arrivalTime.toISOString()  // ISO形式で送信
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data.route;
+                } else {
+                    console.error('Route API error:', data.error);
+                    return null;
+                }
+                
+            } catch (error) {
+                console.error('Route search network error:', error);
+                return null;
+            }
+        }
+        
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        function updateStats() {
+            document.getElementById('totalDestinations').textContent = destinations.length;
+            document.getElementById('totalProperties').textContent = properties.length;
+            
+            let totalRoutes = 0;
+            properties.forEach(property => {
+                totalRoutes += (property.routes || []).length;
+            });
+            document.getElementById('totalRoutes').textContent = totalRoutes;
+        }
+        
+        // 以前の検索結果をチェック
+        function checkPreviousSearchResults() {
+            const saved = localStorage.getItem('timeline_data');
+            if (!saved) return;
+            
+            try {
+                const data = JSON.parse(saved);
+                if (!data.properties || !data.destinations) return;
+                
+                // ルート検索が完了しているかチェック
+                let hasRoutes = false;
+                let routeCount = 0;
+                
+                data.properties.forEach(prop => {
+                    if (prop.routes && prop.routes.length > 0) {
+                        hasRoutes = true;
+                        routeCount += prop.routes.length;
+                    }
+                });
+                
+                if (hasRoutes) {
+                    const info = `物件数: ${data.properties.length}, 目的地数: ${data.destinations.length}, ルート数: ${routeCount}`;
+                    document.getElementById('previousSearchInfo').textContent = info;
+                    document.getElementById('previousSearchAlert').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error checking previous search:', error);
+            }
+        }
+        
+        // 以前の検索結果を復元
+        async function restorePreviousSearch() {
+            const saved = localStorage.getItem('timeline_data');
+            if (!saved) {
+                alert('保存されたデータが見つかりません');
+                return;
+            }
+            
+            showProcessing('データを復元中...');
+            
+            try {
+                const data = JSON.parse(saved);
+                console.log('Parsed data:', data);
+                console.log('Data has destinations:', data.destinations ? data.destinations.length : 'none');
+                console.log('Data has properties:', data.properties ? data.properties.length : 'none');
+                
+                destinations = data.destinations || [];
+                properties = data.properties || [];
+                
+                console.log('After assignment - destinations:', destinations.length);
+                console.log('After assignment - properties:', properties.length);
+                console.log('First property:', properties[0]);
+                
+                // 現住所をフォームに反映
+                if (properties.length > 0) {
+                    syncCurrentAddressToForm();
+                }
+                
+                updateDestinationsList();
+                updatePropertiesList();
+                updateStats();
+                
+                // サーバーにも保存
+                try {
+                    await saveJSONFiles();
+                    hideProcessing();
+                    
+                    // 直接完了画面へ
+                    currentStep = 4;
+                    updateStepDisplay();
+                    
+                    alert(`以前の検索結果を復元しました！\n\n物件数: ${properties.length}\n目的地数: ${destinations.length}\n\n✅ データはサーバーに保存されました。\n\n📌 注意: Timeline Mapping (index.html) に反映するには、\nそのページを開いて再読み込み（F5キー）してください。`);
+                } catch (saveError) {
+                    hideProcessing();
+                    alert(`データの復元は成功しましたが、サーバーへの保存に失敗しました。\n\nエラー: ${saveError.message}\n\nStep 4でもう一度保存を試みてください。`);
+                    
+                    // エラーでもStep 4へ進む
+                    currentStep = 4;
+                    updateStepDisplay();
+                }
+            } catch (error) {
+                console.error('Restore error:', error);
+                hideProcessing();
+                alert('データの復元に失敗しました: ' + error.message);
+            }
+        }
+
+        // 賃料のフォーマットを統一する関数
+        function formatRent(rentValue) {
+            // 空の場合
+            if (!rentValue || rentValue === '0') {
+                return '0円';
+            }
+            
+            // 数値以外の文字を除去（カンマと円記号を除去）
+            let cleanedValue = rentValue.toString().replace(/[^0-9]/g, '');
+            
+            // 数値に変換
+            const numValue = parseInt(cleanedValue) || 0;
+            
+            // カンマ付きフォーマットに変換
+            const formatted = numValue.toLocaleString('ja-JP');
+            
+            // 円記号を付けて返す
+            return formatted + '円';
+        }
+        
+        // 物件をフォームから追加
+        function addPropertyFromForm() {
+            const name = document.getElementById('currentName').value.trim();
+            const address = document.getElementById('currentAddress').value.trim();
+            const rentInput = document.getElementById('currentRent').value.trim();
+            const areaInput = document.getElementById('currentArea').value.trim();
+            
+            if (!address) {
+                alert('住所を入力してください');
+                return;
+            }
+            
+            const propertyName = name || `物件${properties.length + 1}`;
+            const formattedRent = formatRent(rentInput);
+            
+            // 新しい物件を追加
+            const newProperty = {
+                name: propertyName,
+                address: address,
+                rent: formattedRent,
+                routes: []
+            };
+            
+            // 面積が入力されている場合は追加
+            if (areaInput) {
+                newProperty.area = areaInput;
+            }
+            
+            properties.push(newProperty);
+            
+            // フォームをクリア
+            document.getElementById('currentName').value = '';
+            document.getElementById('currentAddress').value = '';
+            document.getElementById('currentRent').value = '';
+            document.getElementById('currentArea').value = '';
+            
+            updatePropertiesList();
+            saveToLocalStorage();
+            updatePropertyFormButtons();
+            
+            // 追加成功のフィードバック
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success';
+            alertDiv.textContent = `「${propertyName}」を追加しました`;
+            alertDiv.style.marginTop = '10px';
+            document.querySelector('#step2 .form-section').appendChild(alertDiv);
+            setTimeout(() => alertDiv.remove(), 3000);
+        }
+        
+        // 現住所を更新
+        function updateCurrentProperty() {
+            const name = document.getElementById('currentName').value.trim();
+            const address = document.getElementById('currentAddress').value.trim();
+            const rentInput = document.getElementById('currentRent').value.trim();
+            const areaInput = document.getElementById('currentArea').value.trim();
+            
+            if (!address) {
+                alert('住所を入力してください');
+                return;
+            }
+            
+            const formattedRent = formatRent(rentInput);
+            
+            if (properties.length > 0) {
+                properties[0] = {
+                    ...properties[0],
+                    name: name || properties[0].name,
+                    address: address,
+                    rent: formattedRent
+                };
+                
+                // 面積が入力されている場合は更新
+                if (areaInput) {
+                    properties[0].area = areaInput;
+                } else if (properties[0].area) {
+                    // 空欄になった場合は削除
+                    delete properties[0].area;
+                }
+                
+                updatePropertiesList();
+                saveToLocalStorage();
+                alert('現住所を更新しました');
+            }
+        }
+        
+        // フォームボタンの表示を更新
+        function updatePropertyFormButtons() {
+            const updateBtn = document.getElementById('updatePropertyBtn');
+            if (properties.length > 0) {
+                updateBtn.style.display = 'block';
+            } else {
+                updateBtn.style.display = 'none';
+            }
+        }
+        
+        // 手動保存
+        async function manualSave() {
+            showProcessing('サーバーに保存中...');
+            try {
+                await saveJSONFiles();
+                hideProcessing();
+                alert('✅ データをサーバーに保存しました！\n\nTimeline Mapping (index.html) に反映するには、\nそのページを開いて再読み込み（F5キー）してください。');
+            } catch (error) {
+                hideProcessing();
+                alert(`❌ 保存に失敗しました\n\nエラー: ${error.message}\n\nもう一度お試しください。`);
+            }
+        }
+        
+        // 平日午前10時到着の時刻を計算
+        function getNextWeekday10AM() {
+            const now = new Date();
+            let targetDate = new Date(now);
+            
+            // 今日が平日で10時前なら今日、それ以外は次の平日
+            if (now.getDay() >= 1 && now.getDay() <= 5 && now.getHours() < 10) {
+                targetDate.setHours(10, 0, 0, 0);
+            } else {
+                // 次の平日を探す
+                targetDate.setDate(targetDate.getDate() + 1);
+                while (targetDate.getDay() === 0 || targetDate.getDay() === 6) {
+                    targetDate.setDate(targetDate.getDate() + 1);
+                }
+                targetDate.setHours(10, 0, 0, 0);
+            }
+            
+            return targetDate;
+        }
+        
+        // 初期化
+        window.addEventListener('load', () => {
+            loadFromLocalStorage();
+            updateStats();
+        });
+    </script>
+</body>
+</html>

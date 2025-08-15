@@ -1,0 +1,76 @@
+{
+  "destinations": [
+    {
+      "id": "shizenkan_univ",
+      "name": "Shizenkan University",
+      "category": "school",
+      "address": "東京都中央区日本橋2-5-1 髙島屋三井ビルディング 17階",
+      "owner": "you",
+      "monthly_frequency": 13.2,
+      "time_preference": "morning"
+    },
+    {
+      "id": "tokyo_american_club",
+      "name": "東京アメリカンクラブ",
+      "category": "gym",
+      "address": "東京都中央区日本橋室町3-2-1",
+      "owner": "both",
+      "monthly_frequency": 8.8,
+      "time_preference": "morning"
+    },
+    {
+      "id": "axle_ochanomizu",
+      "name": "axle御茶ノ水",
+      "category": "office",
+      "address": "東京都千代田区神田小川町3-28-5",
+      "owner": "you",
+      "monthly_frequency": 1.5,
+      "time_preference": "morning"
+    },
+    {
+      "id": "yawara_jingumae",
+      "name": "Yawara",
+      "category": "gym",
+      "address": "東京都渋谷区神宮前1-8-10 The Ice Cubes 9階",
+      "owner": "you",
+      "monthly_frequency": 4.0,
+      "time_preference": "morning"
+    },
+    {
+      "id": "tokyo_station",
+      "name": "東京駅新幹線乗り場",
+      "category": "station",
+      "address": "東京駅",
+      "owner": "both",
+      "monthly_frequency": 3.0,
+      "time_preference": "morning"
+    },
+    {
+      "id": "haneda_airport",
+      "name": "羽田空港 第1・第2ターミナル",
+      "category": "airport",
+      "address": "羽田空港",
+      "owner": "you",
+      "monthly_frequency": 0.5,
+      "time_preference": "morning"
+    },
+    {
+      "id": "kamiyacho_ee",
+      "name": "神谷町(EE)",
+      "category": "office",
+      "address": "東京都港区虎ノ門4-2-6 第二扇屋ビル 1F",
+      "owner": "partner",
+      "monthly_frequency": 6.6,
+      "time_preference": "morning"
+    },
+    {
+      "id": "waseda_univ",
+      "name": "早稲田大学",
+      "category": "school",
+      "address": "東京都新宿区西早稲田1-6 11号館",
+      "owner": "partner",
+      "monthly_frequency": 6.6,
+      "time_preference": "morning"
+    }
+  ]
+}

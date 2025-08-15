@@ -1,0 +1,80 @@
+{
+  "test_time": "20250811_142637",
+  "results": [
+    {
+      "test_name": "電車ルート（神田→日本橋）",
+      "results": {
+        "google_maps_transit_final.py": {
+          "status": "success",
+          "search_info": {
+            "type": "departure",
+            "time": "2025-08-11 14:25:20"
+          },
+          "route": {
+            "total_time": 13,
+            "details": {
+              "walk_to_station": 8,
+              "station_used": "神田駅",
+              "trains": [
+                {
+                  "line": "銀座線",
+                  "time": 3,
+                  "from": "神田",
+                  "to": "日本橋"
+                }
+              ],
+              "walk_from_station": 2
+            }
+          }
+        },
+        "google_maps_walking_final.py": {
+          "status": "success",
+          "search_info": {
+            "type": "walking",
+            "time": "2025-08-11 14:25:31"
+          },
+          "route": {
+            "total_time": 30,
+            "details": {
+              "walk_to_station": 0,
+              "station_used": "",
+              "trains": [],
+              "walk_from_station": 30,
+              "distance_meters": 2000.0,
+              "route_type": "walking_only"
+            }
+          }
+        },
+        "google_maps_transfer_debug.py": null
+      }
+    },
+    {
+      "test_name": "徒歩ルート（神田→axle御茶ノ水）",
+      "results": {
+        "google_maps_transit_final.py": {
+          "status": "error",
+          "message": "ルート情報の抽出に失敗しました"
+        },
+        "google_maps_walking_final.py": {
+          "status": "success",
+          "search_info": {
+            "type": "walking",
+            "time": "2025-08-11 14:26:15"
+          },
+          "route": {
+            "total_time": 13,
+            "details": {
+              "walk_to_station": 0,
+              "station_used": "",
+              "trains": [],
+              "walk_from_station": 13,
+              "distance_meters": 850,
+              "route_type": "walking_only"
+            }
+          }
+        },
+        "google_maps_transfer_debug.py": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+<\!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ルートデバッグ - 府中オフィス問題調査</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .error { background: #ffe0e0; color: #d00; }
+        .success { background: #e0ffe0; }
+        .warning { background: #fff3cd; }
+        h1, h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>🔍 ルートデバッグ - 府中オフィス問題調査</h1>
+    
+    <div class="section">
+        <h2>1. 現在のJSONデータ確認</h2>
+        <button onclick="checkCurrentData()">JSONデータをチェック</button>
+        <div id="jsonResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. 府中オフィスルートの再取得</h2>
+        <button onclick="testFuchuRoute()">正しいルートを取得</button>
+        <div id="routeResult" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        async function checkCurrentData() {
+            const resultDiv = document.getElementById('jsonResult');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = '読み込み中...';
+            
+            try {
+                const propResponse = await fetch('./data/properties.json');
+                const properties = await propResponse.json();
+                
+                // 府中オフィスのルートを探す
+                const fuchuRoutes = [];
+                properties.properties.forEach(prop => {
+                    if (prop.routes) {
+                        prop.routes.forEach(route => {
+                            if (route.destination === 'fuchu_office') {
+                                fuchuRoutes.push({
+                                    property: prop.name,
+                                    route: route
+                                });
+                            }
+                        });
+                    }
+                });
+                
+                resultDiv.textContent = '=== 府中オフィスへの現在のルート ===\n';
+                resultDiv.textContent += '見つかったルート数: ' + fuchuRoutes.length + '\n\n';
+                
+                fuchuRoutes.forEach((item, index) => {
+                    resultDiv.textContent += '--- ' + (index + 1) + '. ' + item.property + ' ---\n';
+                    resultDiv.textContent += JSON.stringify(item.route, null, 2) + '\n\n';
+                });
+                
+                if (fuchuRoutes.length > 0) {
+                    const route = fuchuRoutes[0].route;
+                    resultDiv.textContent += '\n=== 問題点の分析 ===\n';
+                    resultDiv.textContent += '総所要時間: ' + route.total_time + '分 ← これは府中まで行くには短すぎる\n';
+                    resultDiv.textContent += '使用路線: ' + (route.details.trains?.[0]?.line || 'なし') + '\n';
+                    resultDiv.textContent += '経路: ' + (route.details.trains?.[0]?.from || '?') + ' → ' + (route.details.trains?.[0]?.to || '?') + '\n';
+                    resultDiv.textContent += '\n明らかに府中ではなく、近隣の駅への経路になっている！';
+                    resultDiv.className = 'result error';
+                } else {
+                    resultDiv.className = 'result warning';
+                }
+                
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function testFuchuRoute() {
+            const resultDiv = document.getElementById('routeResult');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = '府中オフィスへの正しいルートを取得中...';
+            
+            try {
+                const response = await fetch('./api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'getSingleRoute',
+                        origin: 'ルフォンプログレ神田プレミア',
+                        destination: '府中オフィス 東京都府中市住吉町５丁目２２−５',
+                        destinationId: 'fuchu_office',
+                        destinationName: '府中オフィス'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.textContent = '=== 正しい府中オフィスルート ===\n';
+                    resultDiv.textContent += JSON.stringify(data.route, null, 2);
+                    resultDiv.textContent += '\n\n=== ポイント ===\n';
+                    resultDiv.textContent += '総所要時間: ' + data.route.total_time + '分\n';
+                    resultDiv.textContent += '電車利用: ' + (data.route.details.trains?.map(t => t.line + '(' + t.from + '→' + t.to + ')').join(', ') || 'なし') + '\n';
+                    resultDiv.className = 'result success';
+                } else {
+                    resultDiv.textContent = 'エラー: ' + data.error;
+                    resultDiv.className = 'result error';
+                }
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        // ページロード時に自動実行
+        window.addEventListener('load', () => {
+            checkCurrentData();
+        });
+    </script>
+</body>
+</html>

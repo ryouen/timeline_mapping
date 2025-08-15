@@ -1,0 +1,86 @@
+{
+  "golden_routes": [
+    {
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都府中市住吉町5-22-5",
+      "search_type": "departure",
+      "search_time": "9:00",
+      "verified_manually": true,
+      "verified_date": "2025-08-15",
+      "route_info": {
+        "total_time": 67,
+        "walk_to_station": 8,
+        "station_used": "小川町",
+        "trains": [
+          {
+            "line": "地下鉄新宿線",
+            "time": 12,
+            "from": "小川町",
+            "to": "笹塚"
+          },
+          {
+            "line": "京王新線",
+            "time": 6,
+            "from": "笹塚",
+            "to": "笹塚",
+            "note": "直通"
+          },
+          {
+            "line": "京王線",
+            "time": 26,
+            "from": "笹塚",
+            "to": "府中",
+            "type": "急行"
+          },
+          {
+            "line": "京王線",
+            "time": 3,
+            "from": "府中",
+            "to": "中河原",
+            "type": "各停"
+          }
+        ],
+        "walk_from_station": 8,
+        "price": 580
+      }
+    },
+    {
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都府中市住吉町5-22-5",
+      "search_type": "arrival",
+      "search_time": "10:00",
+      "verified_manually": true,
+      "verified_date": "2025-08-15",
+      "route_info": {
+        "total_time": 69,
+        "walk_to_station": 7,
+        "station_used": "神田",
+        "trains": [
+          {
+            "line": "中央線",
+            "time": 12,
+            "from": "神田",
+            "to": "新宿",
+            "type": "快速"
+          },
+          {
+            "line": "京王線",
+            "time": 32,
+            "from": "新宿",
+            "to": "分倍河原",
+            "type": "特急"
+          },
+          {
+            "line": "京王線",
+            "time": 2,
+            "from": "分倍河原",
+            "to": "中河原",
+            "type": "各停"
+          }
+        ],
+        "walk_from_station": 8,
+        "price": 540
+      }
+    }
+  ]
+}

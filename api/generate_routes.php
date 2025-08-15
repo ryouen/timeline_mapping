@@ -1,5 +1,9 @@
 <?php
 // Timeline Mapping用 properties.json 生成API
+
+// タイムゾーンを日本標準時に設定
+date_default_timezone_set('Asia/Tokyo');
+
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 

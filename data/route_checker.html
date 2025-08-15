@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Checker - ルート情報の問題確認</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .explanation {
+            background: #fffacd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #f0e68c;
+        }
+        .route-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .issue-box {
+            background: #fee;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #fcc;
+        }
+        .correct-box {
+            background: #efe;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #cfc;
+        }
+        .route-display {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .route-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .route-card h3 {
+            margin-top: 0;
+            color: #666;
+        }
+        .current-route {
+            background: #fff5f5;
+        }
+        .correct-route {
+            background: #f5fff5;
+        }
+        .route-details {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .route-details dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .route-details dd {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .error {
+            background: #fee;
+            color: #c00;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .gmaps-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .gmaps-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Route Checker - ルート情報の問題確認</h1>
+        
+        <div class="explanation">
+            <h3>このページの目的</h3>
+            <p>現在のシステムで取得されているルート情報を確認し、問題のあるルートを特定します。</p>
+            <p>特に<strong>府中オフィス</strong>へのルートが「8分」という異常に短い時間になっている問題を調査しています。</p>
+        </div>
+
+        <div id="routeContainer" class="loading">
+            データを読み込み中...
+        </div>
+    </div>
+
+    <script>
+        let propertiesData = null;
+        let destinationsData = null;
+
+        async function loadData() {
+            try {
+                const [propResponse, destResponse] = await Promise.all([
+                    fetch('/timeline-mapping/data/properties.json'),
+                    fetch('/timeline-mapping/data/destinations.json')
+                ]);
+                
+                propertiesData = await propResponse.json();
+                destinationsData = await destResponse.json();
+                
+                displayRoutes();
+            } catch (error) {
+                document.getElementById('routeContainer').innerHTML = 
+                    '<div class="error">データの読み込みに失敗しました: ' + error.message + '</div>';
+            }
+        }
+
+        function displayRoutes() {
+            const container = document.getElementById('routeContainer');
+            container.innerHTML = '';
+            
+            // 目的地マップを作成
+            const destMap = {};
+            destinationsData.destinations.forEach(dest => {
+                destMap[dest.id] = dest;
+            });
+            
+            // 府中オフィスの問題を最初に表示
+            const fuchuSection = document.createElement('div');
+            fuchuSection.className = 'route-section';
+            fuchuSection.innerHTML = '<h2>府中オフィスルートの問題</h2>';
+            
+            let fuchuFound = false;
+            
+            // 全物件から府中オフィスへのルートを探す
+            propertiesData.properties.forEach(property => {
+                if (!property.routes) return;
+                
+                property.routes.forEach(route => {
+                    if (route.destination === 'fuchu_office' || 
+                        (route.destination_name && route.destination_name.includes('府中'))) {
+                        fuchuFound = true;
+                        
+                        const destInfo = destMap[route.destination] || {};
+                        const issueBox = document.createElement('div');
+                        issueBox.className = 'issue-box';
+                        issueBox.innerHTML = `
+                            <h3>問題のあるルート: ${property.name} → ${route.destination_name || route.destination}</h3>
+                            <div class="route-display">
+                                <div class="route-card current-route">
+                                    <h3>現在のシステムの結果</h3>
+                                    <dl class="route-details">
+                                        <dt>総所要時間:</dt>
+                                        <dd><strong style="color: red">${route.total_time}分</strong> （異常に短い）</dd>
+                                        ${route.details ? formatRouteDetails(route.details) : '<dd>詳細情報なし</dd>'}
+                                    </dl>
+                                    <a href="https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(property.address)}&destination=${encodeURIComponent(destInfo.address || '東京都府中市住吉町5-22-5')}&travelmode=transit" 
+                                       target="_blank" class="gmaps-link">
+                                       Google Mapsで確認 →
+                                    </a>
+                                </div>
+                                <div class="route-card correct-route">
+                                    <h3>正しいルート（推定）</h3>
+                                    <dl class="route-details">
+                                        <dt>正しいGoogle Maps検索:</dt>
+                                        <dd>出発: ${property.address}</dd>
+                                        <dd>到着: 東京都府中市住吉町5-22-5</dd>
+                                        <dt>推定所要時間:</dt>
+                                        <dd><strong>約45-50分</strong></dd>
+                                        <dt>問題の原因:</dt>
+                                        <dd style="color: red">「府中」を正しく認識できず、近隣の駅と誤認識している可能性</dd>
+                                        <dd style="color: red">現在表示されている「${route.details?.trains?.[0]?.to || '不明'}」は府中ではない</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        `;
+                        fuchuSection.appendChild(issueBox);
+                    }
+                });
+            });
+            
+            if (!fuchuFound) {
+                fuchuSection.innerHTML += '<p>府中オフィスへのルートが見つかりませんでした。</p>';
+            }
+            
+            container.appendChild(fuchuSection);
+            
+            // その他の問題のあるルートを表示
+            const otherSection = document.createElement('div');
+            otherSection.className = 'route-section';
+            otherSection.innerHTML = '<h2>その他の異常なルート</h2>';
+            
+            let otherIssues = 0;
+            propertiesData.properties.forEach(property => {
+                if (!property.routes) return;
+                
+                property.routes.forEach(route => {
+                    // 時間が異常に短い（5分未満）ルートを検出
+                    if (route.total_time < 5 && route.destination !== 'fuchu_office') {
+                        otherIssues++;
+                        
+                        const destInfo = destMap[route.destination] || {};
+                        const routeBox = document.createElement('div');
+                        routeBox.className = 'issue-box';
+                        routeBox.innerHTML = `
+                            <h3>${property.name} → ${route.destination_name || route.destination}</h3>
+                            <p>総所要時間: <strong style="color: red">${route.total_time}分</strong> （短すぎる可能性）</p>
+                            ${route.details ? '<details><summary>詳細を見る</summary>' + formatRouteDetails(route.details) + '</details>' : ''}
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(property.address)}&destination=${encodeURIComponent(destInfo.address || '')}&travelmode=transit" 
+                               target="_blank" class="gmaps-link">
+                               Google Mapsで確認 →
+                            </a>
+                        `;
+                        otherSection.appendChild(routeBox);
+                    }
+                });
+            });
+            
+            // 極端に長いルート（2時間以上）も表示
+            propertiesData.properties.forEach(property => {
+                if (!property.routes) return;
+                
+                property.routes.forEach(route => {
+                    if (route.total_time > 120) {
+                        otherIssues++;
+                        
+                        const destInfo = destMap[route.destination] || {};
+                        const routeBox = document.createElement('div');
+                        routeBox.className = 'correct-box';
+                        routeBox.innerHTML = `
+                            <h3>${property.name} → ${route.destination_name || route.destination}</h3>
+                            <p>総所要時間: <strong>${route.total_time}分</strong> （長距離）</p>
+                            ${route.details ? '<details><summary>詳細を見る</summary>' + formatRouteDetails(route.details) + '</details>' : ''}
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(property.address)}&destination=${encodeURIComponent(destInfo.address || '')}&travelmode=transit" 
+                               target="_blank" class="gmaps-link">
+                               Google Mapsで確認 →
+                            </a>
+                        `;
+                        otherSection.appendChild(routeBox);
+                    }
+                });
+            });
+            
+            if (otherIssues === 0) {
+                otherSection.innerHTML += '<p>その他の明らかに異常なルートは見つかりませんでした。</p>';
+            }
+            
+            container.appendChild(otherSection);
+            
+            // 統計情報を追加
+            const statsSection = document.createElement('div');
+            statsSection.className = 'route-section';
+            statsSection.innerHTML = '<h2>統計情報</h2>';
+            
+            let totalRoutes = 0;
+            let shortRoutes = 0;
+            let longRoutes = 0;
+            
+            propertiesData.properties.forEach(property => {
+                if (property.routes) {
+                    property.routes.forEach(route => {
+                        totalRoutes++;
+                        if (route.total_time < 5) shortRoutes++;
+                        if (route.total_time > 120) longRoutes++;
+                    });
+                }
+            });
+            
+            statsSection.innerHTML += `
+                <p>総ルート数: ${totalRoutes}</p>
+                <p>5分未満の短いルート: ${shortRoutes}</p>
+                <p>2時間以上の長いルート: ${longRoutes}</p>
+                <p>物件数: ${propertiesData.properties.length}</p>
+                <p>目的地数: ${destinationsData.destinations.length}</p>
+            `;
+            
+            container.appendChild(statsSection);
+        }
+        
+        function formatRouteDetails(details) {
+            let html = '<dl class="route-details">';
+            
+            if (details.walk_only) {
+                html += '<dt>徒歩のみ:</dt><dd>' + details.walk_time + '分</dd>';
+            } else {
+                if (details.walk_to_station !== undefined) {
+                    html += '<dt>駅まで徒歩:</dt><dd>' + details.walk_to_station + '分</dd>';
+                }
+                if (details.station_used) {
+                    html += '<dt>使用駅:</dt><dd>' + details.station_used + '</dd>';
+                }
+                if (details.trains && details.trains.length > 0) {
+                    html += '<dt>電車:</dt>';
+                    details.trains.forEach((train, idx) => {
+                        html += '<dd>' + (idx + 1) + '. ' + train.line + ' (' + train.from + '→' + train.to + ') ' + train.time + '分</dd>';
+                    });
+                }
+                if (details.walk_from_station !== undefined) {
+                    html += '<dt>駅から徒歩:</dt><dd>' + details.walk_from_station + '分</dd>';
+                }
+                if (details.wait_time_minutes !== undefined) {
+                    html += '<dt>待ち時間:</dt><dd>' + details.wait_time_minutes + '分</dd>';
+                }
+            }
+            
+            html += '</dl>';
+            return html;
+        }
+        
+        // ページ読み込み時にデータを取得
+        loadData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>v3スクレイパー結果 - 18ルート完全版</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .origin-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .origin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        .origin-header h2 {
+            margin: 0 0 5px 0;
+        }
+        .origin-address {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .success {
+            background-color: #d4edda;
+        }
+        .failure {
+            background-color: #f8d7da;
+        }
+        .time-badge {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .route-path {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: 0.9em;
+        }
+        .route-step {
+            background: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .route-arrow {
+            color: #6c757d;
+            font-size: 0.8em;
+        }
+        .map-link {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85em;
+            transition: background 0.2s;
+        }
+        .map-link:hover {
+            background: #218838;
+        }
+        .route-count {
+            background: #6c757d;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+        .golden-route {
+            background-color: #fff3cd;
+            font-weight: bold;
+        }
+        .note {
+            color: #6c757d;
+            font-size: 0.85em;
+            font-style: italic;
+        }
+        .time-short { background: #28a745; }
+        .time-medium { background: #007bff; }
+        .time-long { background: #fd7e14; }
+        .walk-step { background: #ffeeba !important; }
+        .station-step { background: #bee5eb !important; }
+        .line-step { background: #d1ecf1 !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚇 v3スクレイパー 18ルート完全結果</h1>
+        
+        <div class="summary-card">
+            <h2>📊 実行サマリー</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">出発地点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">目的地</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">総ルート数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #28a745;">18</div>
+                    <div class="stat-label">成功</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #dc3545;">0</div>
+                    <div class="stat-label">失敗</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #007bff;">100.0%</div>
+                    <div class="stat-label">成功率</div>
+                </div>
+            </div>
+            <p style="margin-top: 20px;">
+                <strong>到着時刻:</strong> 2025年08月16日 10:00<br>
+                <strong>実行時刻:</strong> 2025年08月15日 04:13:32
+            </p>
+        </div>
+
+        <div class="origin-section">
+            <div class="origin-header">
+                <h2>📍 ルフォンプログレ</h2>
+                <div class="origin-address">東京都千代田区神田須田町1-20-1</div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th width="18%">目的地</th>
+                        <th width="10%">所要時間</th>
+                        <th width="45%">経路</th>
+                        <th width="12%">備考</th>
+                        <th width="15%">地図リンク</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="success">
+                        <td><strong>Shizenkan University</strong></td>
+                        <td><span class="time-badge time-short">6分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 6分</span></div></td>
+                        <td class="note">徒歩圏内</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都中央区日本橋２丁目５−１%20髙島屋三井ビルディング%2017階/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>東京アメリカンクラブ</strong></td>
+                        <td><span class="time-badge time-short">14分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 2分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 神田駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 銀座線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 三越前駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 5分</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都中央区日本橋室町３丁目２−１/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>axle 御茶ノ水</strong></td>
+                        <td><span class="time-badge time-short">13分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 13分</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都千代田区神田小川町３丁目２８−５/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>Yawara</strong></td>
+                        <td><span class="time-badge time-long">33分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 6分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 小川町駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 半蔵門線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 表参道駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 8分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都渋谷区神宮前１丁目８−１０%20Ｔｈｅ%20Ｉｃｅ%20Ｃｕｂｅｓ%209階/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>神谷町(EE)</strong></td>
+                        <td><span class="time-badge time-long">35分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 2分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 神田駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 銀座線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 溜池山王駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 南北線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 六本木一丁目駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 6分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都港区虎ノ門４丁目２−６%20第二扇屋ビル%201F/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>早稲田大学</strong></td>
+                        <td><span class="time-badge time-long">31分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 2分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 神田駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 銀座線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 日本橋駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 東西線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 早稲田駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 5分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都新宿区西早稲田１丁目６%2011号館/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="golden-route">
+                        <td><strong>府中オフィス</strong></td>
+                        <td><span class="time-badge" style="background: #ffc107; color: #212529;">✨ 69分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 6分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 淡路町駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 新宿線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 新宿駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 京王線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 府中駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 15分</span></div></td>
+                        <td class="note">ゴールデンデータと完全一致！</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都府中市住吉町５丁目２２−５/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>東京駅</strong></td>
+                        <td><span class="time-badge time-short">12分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 2分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 神田駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 中央線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 東京駅</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都千代田区丸の内１丁目/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>羽田空港</strong></td>
+                        <td><span class="time-badge time-long">59分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 2分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 神田駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 京浜東北線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 浜松町駅</span><span class="route-arrow">→</span><span class="route-step">東京モノレール</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 羽田空港第1ターミナル駅</span></div></td>
+                        <td class="note">長距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都大田区羽田空港3-3-2/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="origin-section">
+            <div class="origin-header">
+                <h2>📍 La Belle 三越前 702</h2>
+                <div class="origin-address">東京都中央区日本橋本町1丁目</div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th width="18%">目的地</th>
+                        <th width="10%">所要時間</th>
+                        <th width="45%">経路</th>
+                        <th width="12%">備考</th>
+                        <th width="15%">地図リンク</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="success">
+                        <td><strong>Shizenkan University</strong></td>
+                        <td><span class="time-badge time-short">5分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 5分</span></div></td>
+                        <td class="note">徒歩圏内</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都中央区日本橋２丁目５−１%20髙島屋三井ビルディング%2017階/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>東京アメリカンクラブ</strong></td>
+                        <td><span class="time-badge time-short">14分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 7分</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都中央区日本橋室町３丁目２−１/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>axle 御茶ノ水</strong></td>
+                        <td><span class="time-badge time-medium">19分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 3分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 三越前駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 半蔵門線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 大手町駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 千代田線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 新御茶ノ水駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 5分</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都千代田区神田小川町３丁目２８−５/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>Yawara</strong></td>
+                        <td><span class="time-badge time-long">34分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 3分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 三越前駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 半蔵門線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 表参道駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 8分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都渋谷区神宮前１丁目８−１０%20Ｔｈｅ%20Ｉｃｅ%20Ｃｕｂｅｓ%209階/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>神谷町(EE)</strong></td>
+                        <td><span class="time-badge time-long">37分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 3分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 三越前駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 銀座線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 溜池山王駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 南北線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 六本木一丁目駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 6分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都港区虎ノ門４丁目２−６%20第二扇屋ビル%201F/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>早稲田大学</strong></td>
+                        <td><span class="time-badge time-long">32分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 5分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 日本橋駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 東西線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 早稲田駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 5分</span></div></td>
+                        <td class="note">中距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都新宿区西早稲田１丁目６%2011号館/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>府中オフィス</strong></td>
+                        <td><span class="time-badge time-long">73分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 3分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 三越前駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 半蔵門線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 九段下駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 新宿線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 新宿駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 京王線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 府中駅</span><span class="route-arrow">→</span><span class="route-step walk-step">🚶 徒歩 15分</span></div></td>
+                        <td class="note">長距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都府中市住吉町５丁目２２−５/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>東京駅</strong></td>
+                        <td><span class="time-badge time-medium">16分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 16分</span></div></td>
+                        <td class="note">近距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都千代田区丸の内１丁目/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                    <tr class="success">
+                        <td><strong>羽田空港</strong></td>
+                        <td><span class="time-badge time-long">59分</span></td>
+                        <td><div class="route-path"><span class="route-step walk-step">🚶 徒歩 5分</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 日本橋駅</span><span class="route-arrow">→</span><span class="route-step line-step">🚃 都営浅草線</span><span class="route-arrow">→</span><span class="route-step station-step">🚉 羽田空港第1・第2ターミナル駅</span></div></td>
+                        <td class="note">長距離</td>
+                        <td style="text-align: center;"><a href="https://www.google.com/maps/dir/東京都中央区日本橋本町1丁目/東京都大田区羽田空港3-3-2/data=!3e3" target="_blank" class="map-link">🗺️ 地図を開く</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        
+        <div style="margin-top: 40px; padding: 20px; background: #f0f8ff; border-radius: 10px;">
+            <h3>🔗 実際のスクレイピングURL例</h3>
+            <p>以下は実際にv3スクレイパーが使用するURLの例です。各URLには場所ID、座標、時刻情報が含まれています：</p>
+            <ul style="list-style: none; padding: 0;">
+
+                <li style="margin: 20px 0; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <strong>Shizenkan University</strong><br>
+                    <code style="font-size: 0.8em; word-break: break-all; display: block; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91%20%E9%AB%99%E5%B3%B6%E5%B1%8B%E4%B8%89%E4%BA%95%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2017%E9%9A%8E/data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!2d35.6949994!1m5!2m2!1d139.7738165!2d35.6811282!2m3!6e1!7e2!8j1755252000!3e3
+                    </code>
+                    <div style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
+                        データパラメータ: <code>data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!...</code>
+                    </div>
+                </li>
+
+                <li style="margin: 20px 0; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <strong>東京アメリカンクラブ</strong><br>
+                    <code style="font-size: 0.8em; word-break: break-all; display: block; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%E5%AE%A4%E7%94%BA%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%92%E2%88%92%EF%BC%91/data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!2d35.6949994!1m5!1m1!1s0x60188bffe47b594f:0!2m2!1d139.772537!2d35.6879088!2m3!6e1!7e2!8j1755252000!3e3
+                    </code>
+                    <div style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
+                        データパラメータ: <code>data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!...</code>
+                    </div>
+                </li>
+
+                <li style="margin: 20px 0; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <strong>府中オフィス</strong><br>
+                    <code style="font-size: 0.8em; word-break: break-all; display: block; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%B8%AD%E5%B8%82%E4%BD%8F%E5%90%89%E7%94%BA%EF%BC%95%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%92%E2%88%92%EF%BC%95/data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!2d35.6949994!1m5!1m1!1s0x6018e499970c7047:0!2m2!1d139.4549699!2d35.6559218!2m3!6e1!7e2!8j1755252000!3e3
+                    </code>
+                    <div style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
+                        データパラメータ: <code>data=!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0!2m2!1d139.7711379!...</code>
+                    </div>
+                </li>
+
+            </ul>
+            <div style="margin-top: 20px; padding: 15px; background: #fffbe6; border-radius: 8px; border: 1px solid #fff59d;">
+                <strong>📝 URL構造の詳細:</strong>
+                <ul style="margin-top: 10px; font-size: 0.9em;">
+                    <li><code>!1m5!1m1!1s{place_id}!2m2!1d{lng}!2d{lat}</code> - 各地点の場所情報</li>
+                    <li><code>!2m3!6e1!7e2!8j{timestamp}</code> - 到着時刻指定（10:00）</li>
+                    <li><code>!3e3</code> - 公共交通機関モード</li>
+                </ul>
+            </div>
+        </div>
+<div style="margin-top: 40px; text-align: center; color: #6c757d;">
+            <p>Generated by Google Maps Scraper v3 with improved route extraction</p>
+            <p>30分フィルターを削除し、すべての近距離ルートに対応</p>
+        </div>
+    </div>
+</body>
+</html>

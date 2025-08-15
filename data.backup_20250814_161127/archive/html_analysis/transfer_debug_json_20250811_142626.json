@@ -1,0 +1,192 @@
+{
+  "time_elements": [],
+  "walk_texts": [
+    {
+      "text": "\n\n\n13 分（850 m）\n靖国通り/都道302号 経由\n  徒歩ルートは実際の状況を反映していない場合がありますので、ご注意ください。\n〒101-0041 東京都千代田区神田須田町１丁目２０−１ 吉川ビル\n北に進んで靖国通り/都道302号に向かう\n84 m\n左折して靖国通り/都道302号に入る\n セブン-イレブン 神田須田町中央通り店（左側）を通過する\n\n70 m\n須田町（交差点） を右折して 旧中山道 に入る\n13 m\n須田町（交差点） を左折して 靖国通り/都道302号 に入る\n260 m\n淡路町（交差点） を右折する\n48 m\n左側のタリーズコーヒー 淡路町靖国通り店の先を左折する\n7 m\n右折する\n 太助（右側）を通過する\n53 m\n左折して 本郷通り/都道403号 に向かう\n10 m\n右側のコチャバンバTokioの先を右折する\n50 m\n左側の中央管機工業㈱の先を左折する\n22 m\n左側のココペリの先を右折する\n72 m\n駿河台（交差点） を左折して 本郷通り/都道403号 に入る\n11 m\n駿河台（交差点） を右折して 駿河台道灌道 に入る\n ICHIGOYA（左側）を通過する\n 目的地は前方左側です\n160 m\n〒101-0052 東京都千代田区神田小川町３丁目２８−５ Axle御茶ノ水",
+      "tag": "div",
+      "class": "m6QErb DxyBCb kA9KIf dS8AEf XiKgde "
+    },
+    {
+      "text": "13 分（850 m）\n靖国通り/都道302号 経由",
+      "tag": "div",
+      "class": "PNEhTd Hk4XGb"
+    },
+    {
+      "text": "13 分（850 m）",
+      "tag": "div",
+      "class": "TGDfee"
+    },
+    {
+      "text": "13 分（850 m）",
+      "tag": "span",
+      "class": ""
+    },
+    {
+      "text": "13 分",
+      "tag": "span",
+      "class": ""
+    },
+    {
+      "text": "徒歩ルートは実際の状況を反映していない場合がありますので、ご注意ください。",
+      "tag": "div",
+      "class": "RcCsl fVHpi w4vB1d NOE9ve "
+    },
+    {
+      "text": "徒歩ルートは実際の状況を反映していない場合がありますので、ご注意ください。",
+      "tag": "div",
+      "class": "AeaXub"
+    },
+    {
+      "text": "徒歩ルートは実際の状況を反映していない場合がありますので、ご注意ください。",
+      "tag": "div",
+      "class": "rogA2c "
+    },
+    {
+      "text": "徒歩ルートは実際の状況を反映していない場合がありますので、ご注意ください。",
+      "tag": "div",
+      "class": "Io6YTe fontBodyMedium kR99db fdkmkc "
+    }
+  ],
+  "all_segments": [
+    {
+      "index": 0,
+      "raw_text": "北に進んで靖国通り/都道302号に向かう",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 1,
+      "raw_text": "左折して靖国通り/都道302号に入る",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 2,
+      "raw_text": "",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 3,
+      "raw_text": "須田町（交差点） を右折して 旧中山道 に入る",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 4,
+      "raw_text": "須田町（交差点） を左折して 靖国通り/都道302号 に入る",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 5,
+      "raw_text": "淡路町（交差点） を右折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 6,
+      "raw_text": "左側のタリーズコーヒー 淡路町靖国通り店の先を左折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 7,
+      "raw_text": "右折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 8,
+      "raw_text": "左折して 本郷通り/都道403号 に向かう",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 9,
+      "raw_text": "右側のコチャバンバTokioの先を右折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 10,
+      "raw_text": "左側の中央管機工業㈱の先を左折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 11,
+      "raw_text": "左側のココペリの先を右折する",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 12,
+      "raw_text": "駿河台（交差点） を左折して 本郷通り/都道403号 に入る",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    },
+    {
+      "index": 13,
+      "raw_text": "駿河台（交差点） を右折して 駿河台道灌道 に入る",
+      "type": "unknown",
+      "duration_text": null,
+      "duration_minutes": null,
+      "start_time": null,
+      "end_time": null,
+      "calculated_duration": null
+    }
+  ]
+}

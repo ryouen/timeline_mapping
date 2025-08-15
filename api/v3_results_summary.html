@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>v3スクレイパー実行結果 - ルフォンプログレから9目的地（リアルタイム更新）</title>
+    <meta http-equiv="refresh" content="10">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .success {
+            background-color: #d4edda;
+        }
+        .pending {
+            background-color: #f8f9fa;
+            color: #6c757d;
+        }
+        .processing {
+            background-color: #cfe2ff;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        .time-badge {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .route-path {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: 0.9em;
+        }
+        .route-step {
+            background: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .route-arrow {
+            color: #6c757d;
+            font-size: 0.8em;
+        }
+        .golden-route {
+            background-color: #fff3cd;
+            font-weight: bold;
+        }
+        .time-info {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-left: 10px;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .url-display {
+            font-family: monospace;
+            font-size: 0.75em;
+            background: #f8f9fa;
+            padding: 4px;
+            margin-top: 4px;
+            word-break: break-all;
+            border-radius: 3px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚇 v3スクレイパー実行中 - ルフォンプログレから9目的地
+            <span class="live-indicator"></span>
+        </h1>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 100.0%">
+                9/9 完了
+            </div>
+        </div>
+        
+        <div class="summary-card">
+            <h2>📊 実行状況</h2>
+            <p>
+                <strong>出発地:</strong> ルフォンプログレ（東京都千代田区神田須田町1-20-1）<br>
+                <strong>到着時刻:</strong> 2025年08月16日 10:00<br>
+                <strong>実行開始時刻:</strong> 2025年08月15日 03:05:19<br>
+                <strong>進捗:</strong> 9/9 ルート完了
+                （成功: 9件）
+            </p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="3%">#</th>
+                    <th width="15%">目的地</th>
+                    <th width="8%">所要時間</th>
+                    <th width="12%">時刻情報</th>
+                    <th width="35%">経路</th>
+                    <th width="10%">ステータス</th>
+                    <th width="17%">実際のURL</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="success">
+                    <td style="text-align: center;">1</td>
+                    <td><strong>Shizenkan University</strong></td>
+                    <td><span class="time-badge">7分</span></td>
+                    <td><div class="time-info">09:53発<br>↓<br>10:00着</div></td>
+                    <td><div class="route-path"><span class="route-step">銀座線</span><span class="route-arrow">→</span><span class="route-step">神田駅から 11:31</span></div></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91%20%E9%AB%99%E5%B3%B6%E5%B1%8B%E4%B8%89%E4%BA%95%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%2017%E9%9A%8E/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7712416!2d35.6811282!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...2!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">2</td>
+                    <td><strong>東京アメリカンクラブ</strong></td>
+                    <td><span class="time-badge">7分</span></td>
+                    <td><div class="time-info">09:53発<br>↓<br>10:00着</div></td>
+                    <td><div class="route-path"><span class="route-step">銀座線 </span><span class="route-arrow">→</span><span class="route-step">神田駅から 11:39</span></div></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%E5%AE%A4%E7%94%BA%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%92%E2%88%92%EF%BC%91/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7699621!2d35.6879088!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...8!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">3</td>
+                    <td><strong>axle 御茶ノ水</strong></td>
+                    <td><span class="time-badge">13分</span></td>
+                    <td><div class="time-info">09:47発<br>↓<br>10:00着</div></td>
+                    <td><span style="color: #6c757d;">詳細なし</span></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E5%B0%8F%E5%B7%9D%E7%94%BA%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%98%E2%88%92%EF%BC%95/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7605548!2d35.6960075!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...5!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">4</td>
+                    <td><strong>Yawara</strong></td>
+                    <td><span class="time-badge">33分</span></td>
+                    <td><div class="time-info">09:27発<br>↓<br>10:00着</div></td>
+                    <td><span style="color: #6c757d;">詳細なし</span></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%98%E2%88%92%EF%BC%91%EF%BC%90%20%EF%BC%B4%EF%BD%88%EF%BD%85%20%EF%BC%A9%EF%BD%83%EF%BD%85%20%EF%BC%A3%EF%BD%95%EF%BD%82%EF%BD%85%EF%BD%93%209%E9%9A%8E/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7033729!2d35.6696422!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...2!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">5</td>
+                    <td><strong>神谷町(EE)</strong></td>
+                    <td><span class="time-badge">18分</span></td>
+                    <td><div class="time-info">09:42発<br>↓<br>10:00着</div></td>
+                    <td><span style="color: #6c757d;">詳細なし</span></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%99%8E%E3%83%8E%E9%96%80%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%92%E2%88%92%EF%BC%96%20%E7%AC%AC%E4%BA%8C%E6%89%87%E5%B1%8B%E3%83%93%E3%83%AB%201F/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7431435!2d35.6639966!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...6!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">6</td>
+                    <td><strong>早稲田大学</strong></td>
+                    <td><span class="time-badge">31分</span></td>
+                    <td><div class="time-info">09:29発<br>↓<br>10:00着</div></td>
+                    <td><div class="route-path"><span class="route-step">銀座線  東西線 </span></div></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E8%A5%BF%E6%97%A9%E7%A8%B2%E7%94%B0%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%96%2011%E5%8F%B7%E9%A4%A8/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7163281!2d35.7092181!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...1!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">7</td>
+                    <td><strong>府中オフィス</strong></td>
+                    <td><span class="time-badge">62分</span></td>
+                    <td><div class="time-info">08:58発<br>↓<br>10:00着</div></td>
+                    <td><div class="route-path"><span class="route-step"> 新宿線  京王線  京王線 </span></div></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%B8%AD%E5%B8%82%E4%BD%8F%E5%90%89%E7%94%BA%EF%BC%95%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%92%E2%88%92%EF%BC%95/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.452395!2d35.6559218!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...8!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">8</td>
+                    <td><strong>東京駅</strong></td>
+                    <td><span class="time-badge">9分</span></td>
+                    <td><div class="time-info">09:51発<br>↓<br>10:00着</div></td>
+                    <td><div class="route-path"><span class="route-step">中央通り/中山道/国道17号 と 丸の内室町線/都道407号 経由</span></div></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E4%B8%B8%E3%81%AE%E5%86%85%EF%BC%91%E4%B8%81%E7%9B%AE/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7551989!2d35.6814997!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...7!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+                <tr class="success">
+                    <td style="text-align: center;">9</td>
+                    <td><strong>羽田空港</strong></td>
+                    <td><span class="time-badge">29分</span></td>
+                    <td><div class="time-info">09:31発<br>↓<br>10:00着</div></td>
+                    <td><span style="color: #6c757d;">詳細なし</span></td>
+                    <td>成功</td>
+                    <td><a href="https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A4%A7%E7%94%B0%E5%8C%BA%E7%BE%BD%E7%94%B0%E7%A9%BA%E6%B8%AF3-3-2/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7838033!2d35.5593859!2m3!6e1!7e2!8j1755306000!3e3" target="_blank" class="url-display" style="color: #007bff; text-decoration: none; display: block;">https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC...9!2m3!6e1!7e2!8j1755306000!3e3</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 40px; text-align: center; color: #6c757d;">
+            <p>Generated by Google Maps Scraper v3 - Auto-updating every 10 seconds</p>
+            <p>最終更新: 2025-08-15 03:05:19</p>
+        </div>
+    </div>
+</body>
+</html>

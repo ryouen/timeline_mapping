@@ -1,0 +1,183 @@
+{
+    "properties": [
+        {
+            "name": "ルフォンプログレ神田プレミア",
+            "address": "東京都千代田区神田須田町1-20-1",
+            "rent": "280,000円",
+            "routes": [
+                {
+                    "destination": "shizenkan-university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都中央区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "tokyo-american-club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都中央区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "axle-ochanomizu",
+                    "destination_name": "axle御茶ノ水",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都千代田区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 25,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 12,
+                                "from": "東京都千代田区",
+                                "to": "東京都渋谷区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "kamiyacho",
+                    "destination_name": "神谷町",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都港区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都新宿区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "tokyo-station",
+                    "destination_name": "東京駅",
+                    "total_time": 23,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 10,
+                                "from": "東京都千代田区",
+                                "to": "東京都千代田区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "haneda-airport",
+                    "destination_name": "羽田空港 第一・第二ターミナル",
+                    "total_time": 26,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 13,
+                                "from": "東京都千代田区",
+                                "to": "東京都大田区"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                },
+                {
+                    "destination": "fuchu-office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 46,
+                    "details": {
+                        "walk_to_station": 5,
+                        "station_used": "東京都千代田区",
+                        "trains": [
+                            {
+                                "line": "電車",
+                                "time": 33,
+                                "from": "東京都千代田区",
+                                "to": "東京都府中市住吉町５(東京都)"
+                            }
+                        ],
+                        "walk_from_station": 5,
+                        "wait_time_minutes": 3
+                    }
+                }
+            ],
+            "area": "41.96"
+        }
+    ]
+}

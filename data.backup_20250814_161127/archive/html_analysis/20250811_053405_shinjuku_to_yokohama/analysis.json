@@ -1,0 +1,59 @@
+{
+  "html_sizes": {
+    "initial": 527774,
+    "expanded": 524718
+  },
+  "found_patterns": {
+    "route_lines": [],
+    "stations": [
+      "こんにちは"
+    ],
+    "times": [
+      "15",
+      "30",
+      "33",
+      [
+        "1",
+        "0"
+      ],
+      [
+        "9",
+        "20"
+      ],
+      [
+        "9",
+        "53"
+      ]
+    ],
+    "walk_info": []
+  },
+  "potential_selectors": [
+    {
+      "section": "directions_panel",
+      "text": "\n出発地: 新宿駅、〒160-0022 東京都新宿区新宿３丁目３８−１\n目的地: 横浜駅、〒220-0011 神奈川県横浜市西区高島２丁目\n\n\n\n9:20 (火曜日) - 9:53 （33 分",
+      "classes": "m6QErb WNBkOb XiKgde "
+    },
+    {
+      "section": "transit_details",
+      "text": "湘南新宿ライン\n新宿駅から 9:20\n580円",
+      "classes": "transit"
+    },
+    {
+      "section": "transit_details",
+      "text": "湘南新宿ライン各停大船行\n\n33 分\n（7 駅乗車）\n· 1 番ホーム · 乗換地点 ID: JS20",
+      "classes": "transit-logical-step-content Hk4XGb TbDNX"
+    }
+  ],
+  "summary": {
+    "lines_found": [],
+    "stations_found": [
+      "こんにちは"
+    ],
+    "times_found": [
+      "15",
+      "33",
+      "30"
+    ],
+    "walk_info_found": []
+  }
+}

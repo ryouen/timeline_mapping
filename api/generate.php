@@ -2,6 +2,9 @@
 // /timeline-mapping/api/generate.php
 // Gemini API プロキシ
 
+// タイムゾーンを日本標準時に設定
+date_default_timezone_set('Asia/Tokyo');
+
 // エラー表示を無効化（本番環境）
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);

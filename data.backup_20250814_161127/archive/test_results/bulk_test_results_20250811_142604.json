@@ -1,0 +1,213 @@
+{
+  "test_time": "20250811_142604",
+  "results": [
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "Shizenkan University",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:14:16\"\n  },\n  \"route\": {\n    \"total_time\": 23,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 23,\n      \"distance_meters\": 1600.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "東京アメリカンクラブ",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:14:29\"\n  },\n  \"route\": {\n    \"total_time\": 12,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 12,\n      \"distance_meters\": 800,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "axle御茶ノ水",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:14:42\"\n  },\n  \"route\": {\n    \"total_time\": 13,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 13,\n      \"distance_meters\": 850,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "Yawara",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:14:55\"\n  },\n  \"route\": {\n    \"total_time\": 55,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 55,\n      \"distance_meters\": 8100.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "東京駅",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "羽田空港",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "神谷町(EE)",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:15:33\"\n  },\n  \"route\": {\n    \"total_time\": 11,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 11,\n      \"distance_meters\": 4900.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "ルフォンプログレ神田プレミア",
+      "destination": "早稲田大学",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:15:46\"\n  },\n  \"route\": {\n    \"total_time\": 21,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 21,\n      \"distance_meters\": 5600.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "Shizenkan University",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:16:01\"\n  },\n  \"route\": {\n    \"total_time\": 33,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 33,\n      \"distance_meters\": 2300.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "東京アメリカンクラブ",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:16:14\"\n  },\n  \"route\": {\n    \"total_time\": 47,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 47,\n      \"distance_meters\": 3300.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "axle御茶ノ水",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:16:28\"\n  },\n  \"route\": {\n    \"total_time\": 8,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 8,\n      \"distance_meters\": 4700.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "Yawara",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:16:44\"\n  },\n  \"route\": {\n    \"total_time\": 9,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 9,\n      \"distance_meters\": 8900.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "東京駅",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "羽田空港",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "神谷町(EE)",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:18:56\"\n  },\n  \"route\": {\n    \"total_time\": 12,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 12,\n      \"distance_meters\": 4900.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "テラス月島 801",
+      "destination": "早稲田大学",
+      "error": "タイムアウト"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "Shizenkan University",
+      "error": "タイムアウト"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "東京アメリカンクラブ",
+      "error": "タイムアウト"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "axle御茶ノ水",
+      "error": "タイムアウト"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "Yawara",
+      "error": "タイムアウト"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "東京駅",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "羽田空港",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"error\",\n  \"message\": \"徒歩時間を取得できませんでした\"\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "神谷町(EE)",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:25:25\"\n  },\n  \"route\": {\n    \"total_time\": 16,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 16,\n      \"distance_meters\": 5200.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    },
+    {
+      "status": "error",
+      "property": "J-FIRST CHIYODA 702",
+      "destination": "早稲田大学",
+      "error": "JSONパースエラー",
+      "output": "電車ルートが見つからないため、徒歩ルートを検索します...\n{\n  \"status\": \"success\",\n  \"search_info\": {\n    \"type\": \"walking\",\n    \"time\": \"2025-08-11 14:26:01\"\n  },\n  \"route\": {\n    \"total_time\": 16,\n    \"details\": {\n      \"walk_to_station\": 0,\n      \"station_used\": \"\",\n      \"trains\": [],\n      \"walk_from_station\": 16,\n      \"distance_meters\": 5300.0,\n      \"route_type\": \"walking_only\"\n    }\n  }\n}\n"
+    }
+  ],
+  "analysis": {
+    "total_tests": 24,
+    "success_count": 0,
+    "error_count": 24,
+    "route_types": {
+      "transit": 0,
+      "walking": 0
+    },
+    "transfer_patterns": [],
+    "error_patterns": {
+      "JSONパースエラー": [
+        "ルフォンプログレ神田プレミア → Shizenkan University",
+        "ルフォンプログレ神田プレミア → 東京アメリカンクラブ",
+        "ルフォンプログレ神田プレミア → axle御茶ノ水",
+        "ルフォンプログレ神田プレミア → Yawara",
+        "ルフォンプログレ神田プレミア → 東京駅",
+        "ルフォンプログレ神田プレミア → 羽田空港",
+        "ルフォンプログレ神田プレミア → 神谷町(EE)",
+        "ルフォンプログレ神田プレミア → 早稲田大学",
+        "テラス月島 801 → Shizenkan University",
+        "テラス月島 801 → 東京アメリカンクラブ",
+        "テラス月島 801 → axle御茶ノ水",
+        "テラス月島 801 → Yawara",
+        "テラス月島 801 → 東京駅",
+        "テラス月島 801 → 羽田空港",
+        "テラス月島 801 → 神谷町(EE)",
+        "J-FIRST CHIYODA 702 → 東京駅",
+        "J-FIRST CHIYODA 702 → 羽田空港",
+        "J-FIRST CHIYODA 702 → 神谷町(EE)",
+        "J-FIRST CHIYODA 702 → 早稲田大学"
+      ],
+      "タイムアウト": [
+        "テラス月島 801 → 早稲田大学",
+        "J-FIRST CHIYODA 702 → Shizenkan University",
+        "J-FIRST CHIYODA 702 → 東京アメリカンクラブ",
+        "J-FIRST CHIYODA 702 → axle御茶ノ水",
+        "J-FIRST CHIYODA 702 → Yawara"
+      ]
+    },
+    "time_statistics": {
+      "min_total_time": Infinity,
+      "max_total_time": 0,
+      "avg_total_time": 0
+    }
+  }
+}

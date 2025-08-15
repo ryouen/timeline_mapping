@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Integration Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .error {
+            background: #ffe0e0;
+            color: #d00;
+        }
+        .success {
+            background: #e0ffe0;
+        }
+        .info {
+            background: #e0e0ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Google Maps Integration Test</h1>
+        
+        <div class="info">
+            <strong>テスト環境:</strong> https://japandatascience.com/timeline-mapping/api/google_maps_integration.php<br>
+            <strong>スクレイパー:</strong> google_maps_scraper.py (旧 ultimate)
+        </div>
+
+        <!-- 接続テスト -->
+        <div class="test-section">
+            <h2>1. 接続テスト</h2>
+            <button onclick="testConnection()">接続テスト実行</button>
+            <div id="connectionResult" class="result" style="display:none;"></div>
+        </div>
+
+        <!-- 単一ルート検索テスト -->
+        <div class="test-section">
+            <h2>2. 単一ルート検索テスト</h2>
+            <div>
+                <input type="text" id="origin" placeholder="出発地" value="ルフォンプログレ神田プレミア">
+                <input type="text" id="destination" placeholder="目的地" value="至善館">
+                <br>
+                <button onclick="testSingleRoute()">ルート検索</button>
+                <button onclick="testWithArrivalTime()">平日10時到着で検索</button>
+            </div>
+            <div id="routeResult" class="result" style="display:none;"></div>
+        </div>
+
+        <!-- JSON形式確認 -->
+        <div class="test-section">
+            <h2>3. JSON形式確認</h2>
+            <button onclick="checkJsonFormat()">現在のJSONファイルを確認</button>
+            <div id="jsonResult" class="result" style="display:none;"></div>
+        </div>
+
+        <!-- バッチテスト -->
+        <div class="test-section">
+            <h2>4. バッチテスト（主要ルート）</h2>
+            <button onclick="testBatchRoutes()">主要9ルートをテスト</button>
+            <div id="batchResult" class="result" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('connectionResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = '接続テスト中...';
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'testConnection' })
+                });
+                
+                const data = await response.json();
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+                resultDiv.className = data.success ? 'result success' : 'result error';
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function testSingleRoute() {
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            const resultDiv = document.getElementById('routeResult');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = '検索中...';
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'getSingleRoute',
+                        origin: origin,
+                        destination: destination,
+                        destinationId: 'test-destination',
+                        destinationName: destination
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+                resultDiv.className = data.success ? 'result success' : 'result error';
+                
+                if (data.success && data.route) {
+                    // 重要な情報をハイライト
+                    const route = data.route;
+                    const summary = `
+=== ルート概要 ===
+総所要時間: ${route.total_time}分
+徒歩時間合計: ${route.total_walk_time || '不明'}分
+
+=== 詳細 ===
+駅まで徒歩: ${route.details.walk_to_station}分
+使用駅: ${route.details.station_used}
+電車: ${route.details.trains.map(t => `${t.line} (${t.time}分)`).join(', ')}
+駅から徒歩: ${route.details.walk_from_station}分
+待ち時間: ${route.details.wait_time_minutes}分
+
+=== 完全なレスポンス ===
+${JSON.stringify(data, null, 2)}`;
+                    resultDiv.textContent = summary;
+                }
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function testWithArrivalTime() {
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            const resultDiv = document.getElementById('routeResult');
+            
+            // 次の平日の10時を計算
+            const arrivalTime = getNextWeekday10AM();
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = `平日10時到着（${arrivalTime.toLocaleString()}）で検索中...`;
+            
+            try {
+                const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'getSingleRoute',
+                        origin: origin,
+                        destination: destination,
+                        destinationId: 'test-destination',
+                        destinationName: destination,
+                        arrivalTime: arrivalTime.toISOString()
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+                resultDiv.className = data.success ? 'result success' : 'result error';
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        function getNextWeekday10AM() {
+            const now = new Date();
+            let targetDate = new Date(now);
+            
+            // 今日が平日で10時前なら今日、それ以外は次の平日
+            if (now.getDay() >= 1 && now.getDay() <= 5 && now.getHours() < 10) {
+                targetDate.setHours(10, 0, 0, 0);
+            } else {
+                // 次の平日を探す
+                targetDate.setDate(targetDate.getDate() + 1);
+                while (targetDate.getDay() === 0 || targetDate.getDay() === 6) {
+                    targetDate.setDate(targetDate.getDate() + 1);
+                }
+                targetDate.setHours(10, 0, 0, 0);
+            }
+            
+            return targetDate;
+        }
+
+        async function checkJsonFormat() {
+            const resultDiv = document.getElementById('jsonResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'JSONファイルを読み込み中...';
+            
+            try {
+                const [destResponse, propResponse] = await Promise.all([
+                    fetch('/timeline-mapping/data/destinations.json'),
+                    fetch('/timeline-mapping/data/properties.json')
+                ]);
+                
+                const destinations = await destResponse.json();
+                const properties = await propResponse.json();
+                
+                resultDiv.textContent = `=== destinations.json ===
+${JSON.stringify(destinations.destinations[0], null, 2)}
+
+=== properties.json (最初の物件、最初のルート) ===
+${JSON.stringify(properties.properties[0]?.routes?.[0], null, 2)}
+
+=== 統計情報 ===
+目的地数: ${destinations.destinations.length}
+物件数: ${properties.properties.length}
+`;
+            } catch (error) {
+                resultDiv.textContent = 'エラー: ' + error.message;
+                resultDiv.className = 'result error';
+            }
+        }
+
+        async function testBatchRoutes() {
+            const resultDiv = document.getElementById('batchResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            
+            const testRoutes = [
+                { from: 'ルフォンプログレ神田プレミア', to: '至善館' },
+                { from: 'ルフォンプログレ神田プレミア', to: '東京アメリカンクラブ' },
+                { from: 'ルフォンプログレ神田プレミア', to: 'axle御茶ノ水' },
+                { from: 'ルフォンプログレ神田プレミア', to: 'Yawara' },
+                { from: 'ルフォンプログレ神田プレミア', to: '早稲田大学' },
+                { from: 'ルフォンプログレ神田プレミア', to: '羽田空港' },
+                { from: 'ルフォンプログレ神田プレミア', to: '東京駅' },
+                { from: 'ルフォンプログレ神田プレミア', to: '上野駅' },
+                { from: 'ルフォンプログレ神田プレミア', to: '神田駅' }
+            ];
+            
+            let results = [];
+            
+            for (let i = 0; i < testRoutes.length; i++) {
+                const route = testRoutes[i];
+                resultDiv.textContent = `テスト中... (${i + 1}/${testRoutes.length})\n${route.from} → ${route.to}`;
+                
+                try {
+                    const response = await fetch('/timeline-mapping/api/google_maps_integration.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'getSingleRoute',
+                            origin: route.from,
+                            destination: route.to,
+                            destinationId: `test-${i}`,
+                            destinationName: route.to
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    if (data.success && data.route) {
+                        results.push({
+                            route: `${route.from} → ${route.to}`,
+                            time: data.route.total_time,
+                            line: data.route.details.trains?.[0]?.line || '不明',
+                            status: '✅'
+                        });
+                    } else {
+                        results.push({
+                            route: `${route.from} → ${route.to}`,
+                            error: data.error,
+                            status: '❌'
+                        });
+                    }
+                } catch (error) {
+                    results.push({
+                        route: `${route.from} → ${route.to}`,
+                        error: error.message,
+                        status: '❌'
+                    });
+                }
+                
+                // APIサーバーに負荷をかけないよう待機
+                await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+            
+            // 結果をテーブル形式で表示
+            const summary = results.map(r => 
+                r.status === '✅' 
+                    ? `${r.status} ${r.route}: ${r.time}分 (${r.line})`
+                    : `${r.status} ${r.route}: ${r.error}`
+            ).join('\n');
+            
+            const successCount = results.filter(r => r.status === '✅').length;
+            
+            resultDiv.textContent = `=== テスト結果 ===
+成功: ${successCount}/${testRoutes.length}
+
+${summary}`;
+            resultDiv.className = successCount === testRoutes.length ? 'result success' : 'result';
+        }
+    </script>
+</body>
+</html>

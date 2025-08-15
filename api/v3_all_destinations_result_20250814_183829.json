@@ -1,0 +1,117 @@
+{
+  "origin": "東京都千代田区神田須田町1-20-1",
+  "arrival_time": "2025-08-15T10:00:00",
+  "total_destinations": 9,
+  "successful": 5,
+  "failed": 4,
+  "results": [
+    {
+      "destination_id": "shizenkan_university",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "travel_time": null,
+      "error": "No route found"
+    },
+    {
+      "destination_id": "tokyo_american_club",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "travel_time": null,
+      "error": "No route found"
+    },
+    {
+      "destination_id": "axle_ochanomizu",
+      "destination_name": "axle 御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "travel_time": null,
+      "error": "No route found"
+    },
+    {
+      "destination_id": "yawara",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "travel_time": 33,
+      "scraped_at": "2025-08-14T18:35:28.229678",
+      "route_count": 6,
+      "origin_coords": {
+        "lat": 35.6949994,
+        "lng": 139.7711379
+      },
+      "destination_coords": {
+        "lat": 35.6696422,
+        "lng": 139.7059478
+      }
+    },
+    {
+      "destination_id": "kamiyacho_ee",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "travel_time": 35,
+      "scraped_at": "2025-08-14T18:36:04.271169",
+      "route_count": 1,
+      "origin_coords": {
+        "lat": 35.6949994,
+        "lng": 139.7711379
+      },
+      "destination_coords": {
+        "lat": 35.6639966,
+        "lng": 139.7457184
+      }
+    },
+    {
+      "destination_id": "waseda_university",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "travel_time": 31,
+      "scraped_at": "2025-08-14T18:36:40.215869",
+      "route_count": 6,
+      "origin_coords": {
+        "lat": 35.6949994,
+        "lng": 139.7711379
+      },
+      "destination_coords": {
+        "lat": 35.7092181,
+        "lng": 139.718903
+      }
+    },
+    {
+      "destination_id": "fuchu_office",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "travel_time": 69,
+      "scraped_at": "2025-08-14T18:37:16.829230",
+      "route_count": 6,
+      "origin_coords": {
+        "lat": 35.6949994,
+        "lng": 139.7711379
+      },
+      "destination_coords": {
+        "lat": 35.6559218,
+        "lng": 139.4549699
+      }
+    },
+    {
+      "destination_id": "tokyo_station",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "travel_time": null,
+      "error": "No route found"
+    },
+    {
+      "destination_id": "haneda_airport",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "travel_time": 59,
+      "scraped_at": "2025-08-14T18:38:29.862558",
+      "route_count": 6,
+      "origin_coords": {
+        "lat": 35.6949994,
+        "lng": 139.7711379
+      },
+      "destination_coords": {
+        "lat": 35.5593859,
+        "lng": 139.7863782
+      }
+    }
+  ]
+}
