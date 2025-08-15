@@ -20,7 +20,7 @@
         },
         {
             "id": "axle_ochanomizu",
-            "name": "axle 御茶ノ水",
+            "name": "axle御茶ノ水",
             "category": "office",
             "address": "東京都千代田区神田小川町３丁目２８−５",
             "owner": "you",
@@ -28,7 +28,7 @@
             "time_preference": "morning"
         },
         {
-            "id": "yawara",
+            "id": "yawara_gym",
             "name": "Yawara",
             "category": "gym",
             "address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
@@ -37,7 +37,7 @@
             "time_preference": "morning"
         },
         {
-            "id": "kamiyacho_ee",
+            "id": "kamiyacho_ee_office",
             "name": "神谷町(EE)",
             "category": "office",
             "address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
@@ -52,15 +52,6 @@
             "address": "東京都新宿区西早稲田１丁目６ 11号館",
             "owner": "partner",
             "monthly_frequency": 6.6,
-            "time_preference": "morning"
-        },
-        {
-            "id": "fuchu_office",
-            "name": "府中オフィス",
-            "category": "office",
-            "address": "東京都府中市住吉町５丁目２２−５",
-            "owner": "you",
-            "monthly_frequency": 1,
             "time_preference": "morning"
         },
         {
@@ -79,6 +70,15 @@
             "address": "東京都大田区羽田空港3-3-2",
             "owner": "you",
             "monthly_frequency": 0.5,
+            "time_preference": "morning"
+        },
+        {
+            "id": "fuchu_office",
+            "name": "府中オフィス",
+            "category": "office",
+            "address": "東京都府中市住吉町５丁目２２−５",
+            "owner": "you",
+            "monthly_frequency": 1,
             "time_preference": "morning"
         }
     ]

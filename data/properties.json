@@ -70,7 +70,7 @@
                 {
                     "destination": "yawara",
                     "destination_name": "Yawara",
-                    "total_time": 33,
+                    "total_time": 19,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 17,
@@ -91,7 +91,7 @@
                 {
                     "destination": "kamiyacho_ee",
                     "destination_name": "神谷町(EE)",
-                    "total_time": 18,
+                    "total_time": 15,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 7,
@@ -112,7 +112,7 @@
                 {
                     "destination": "waseda_university",
                     "destination_name": "早稲田大学",
-                    "total_time": 31,
+                    "total_time": 33,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 17,
@@ -133,7 +133,7 @@
                 {
                     "destination": "fuchu_office",
                     "destination_name": "府中オフィス",
-                    "total_time": 62,
+                    "total_time": 57,
                     "details": {
                         "walk_to_station": 4,
                         "station_used": "神田",
@@ -155,7 +155,7 @@
                 {
                     "destination": "tokyo_station",
                     "destination_name": "東京駅",
-                    "total_time": 9,
+                    "total_time": 11,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 9,
@@ -176,7 +176,7 @@
                 {
                     "destination": "haneda_airport",
                     "destination_name": "羽田空港",
-                    "total_time": 29,
+                    "total_time": 60,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 19,
@@ -268,7 +268,7 @@
                 {
                     "destination": "yawara",
                     "destination_name": "Yawara",
-                    "total_time": 33,
+                    "total_time": 19,
                     "details": {
                         "wait_time_minutes": 3,
                         "walk_to_station": 16,

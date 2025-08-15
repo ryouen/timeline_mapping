@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>デバッグキャプチャ結果</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background: #f5f5f5; }
+        .test-case { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        .url { background: #f0f0f0; padding: 10px; border-radius: 4px; word-break: break-all; font-family: monospace; font-size: 12px; }
+        .screenshot { max-width: 600px; border: 1px solid #ddd; margin: 10px 0; }
+        .info { background: #e8f4f8; padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .error { background: #fee; padding: 10px; border-radius: 4px; color: #c00; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Google Maps スクレイピング デバッグキャプチャ</h1>
+    <p>実行時刻: 2025-08-15 10:45:27</p>
+
+    <div class="test-case">
+        <h2>1. 基本URL（時刻指定なし）</h2>
+        <div class="url">URL: https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91</div>
+        <div class="info">
+            <strong>読み込み時間:</strong> 2.9秒<br>
+            <strong>公共交通機関ボタン:</strong> 0個<br>
+            <strong>時刻表示要素:</strong> 1個<br>
+            <strong>ルート数:</strong> 3個
+        </div>
+        <h3>スクリーンショット:</h3>
+        <img src="basic_screenshot.png" class="screenshot" alt="基本URL（時刻指定なし）">
+        <p><a href="basic_page.html">HTMLファイルを表示</a></p>
+    </div>
+
+    <div class="test-case">
+        <h2>2. 公共交通機関モード</h2>
+        <div class="url">URL: https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91/data=!3e3</div>
+        <div class="info">
+            <strong>読み込み時間:</strong> 3.6秒<br>
+            <strong>公共交通機関ボタン:</strong> 0個<br>
+            <strong>時刻表示要素:</strong> 1個<br>
+            <strong>ルート数:</strong> 3個
+        </div>
+        <h3>スクリーンショット:</h3>
+        <img src="transit_screenshot.png" class="screenshot" alt="公共交通機関モード">
+        <p><a href="transit_page.html">HTMLファイルを表示</a></p>
+    </div>
+
+    <div class="test-case">
+        <h2>3. 時刻指定付き</h2>
+        <div class="url">URL: https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91/data=!4m18!4m17!1m5!2m2!1d139.768563!2d35.6949994!1m5!2m2!1d139.7712416!2d35.6811282!2m3!6e1!7e2!8j1755306000!3e3</div>
+        <div class="info">
+            <strong>読み込み時間:</strong> 1.5秒<br>
+            <strong>公共交通機関ボタン:</strong> 0個<br>
+            <strong>時刻表示要素:</strong> 1個<br>
+            <strong>ルート数:</strong> 3個
+        </div>
+        <h3>スクリーンショット:</h3>
+        <img src="with_time_screenshot.png" class="screenshot" alt="時刻指定付き">
+        <p><a href="with_time_page.html">HTMLファイルを表示</a></p>
+    </div>
+
+</body>
+</html>

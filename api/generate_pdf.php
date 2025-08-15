@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 try {
     // .env読み込み
     $envPath = __DIR__ . '/../.env';
+    if (!file_exists($envPath)) {
+        die(json_encode(['error' => '.env file not found at: ' . $envPath]));
+    }
     $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         if (strpos(trim($line), '#') === 0) continue;
@@ -41,7 +44,18 @@ try {
     
     // PDFファイル確認
     if (!isset($_FILES['pdf']) || $_FILES['pdf']['error'] !== UPLOAD_ERR_OK) {
-        die(json_encode(['error' => 'PDF upload failed: ' . ($_FILES['pdf']['error'] ?? 'unknown error')]));
+        $uploadError = $_FILES['pdf']['error'] ?? 'no file';
+        $errorMessages = [
+            1 => 'File exceeds upload_max_filesize in php.ini',
+            2 => 'File exceeds MAX_FILE_SIZE in HTML form',
+            3 => 'File was only partially uploaded',
+            4 => 'No file was uploaded',
+            6 => 'Missing temporary folder',
+            7 => 'Failed to write file to disk',
+            8 => 'File upload stopped by extension'
+        ];
+        $errorMsg = $errorMessages[$uploadError] ?? "Unknown error: $uploadError";
+        die(json_encode(['error' => 'PDF upload failed: ' . $errorMsg]));
     }
     
     // ファイルサイズチェック（50MB以下に制限）
@@ -123,8 +137,8 @@ try {
         ],
         'generationConfig' => [
             'temperature' => 0.3,  // より確実な出力のため低めに設定
-            'maxOutputTokens' => 16384,  // 20物件以上に対応（最大値）
-            'response_mime_type' => 'application/json'
+            'maxOutputTokens' => 16384  // 20物件以上に対応（最大値）
+            // response_mime_typeを削除（1.5-flashでは不安定な場合がある）
         ]
     ];
     
@@ -133,7 +147,7 @@ try {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
     
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
