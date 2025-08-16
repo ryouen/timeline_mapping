@@ -7,11 +7,7 @@
       "address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
       "owner": "you",
       "monthly_frequency": 13.2,
-      "time_preference": "morning",
-      "place_id": "ChIJy_fF8PKJGGARr8tJ4FAd9gg",
-      "place_id_format": "ChIJ",
-      "lat": 35.6813393,
-      "lon": 139.7739613
+      "time_preference": "morning"
     },
     {
       "id": "tokyo_american_club",
@@ -20,11 +16,7 @@
       "address": "東京都中央区日本橋室町３丁目２−１",
       "owner": "both",
       "monthly_frequency": 8.8,
-      "time_preference": "morning",
-      "place_id": "ChIJT1l75P-LGGARHl9jRRY1svU",
-      "place_id_format": "ChIJ",
-      "lat": 35.6879088,
-      "lon": 139.772537
+      "time_preference": "morning"
     },
     {
       "id": "axle_ochanomizu",
@@ -33,11 +25,7 @@
       "address": "東京都千代田区神田小川町３丁目２８−５",
       "owner": "you",
       "monthly_frequency": 1.5,
-      "time_preference": "morning",
-      "place_id": "ChIJ2SOIhhqMGGARQ9iwrbH-Pyo",
-      "place_id_format": "ChIJ",
-      "lat": 35.6960075,
-      "lon": 139.7631297
+      "time_preference": "morning"
     },
     {
       "id": "yawara",
@@ -46,11 +34,7 @@
       "address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
       "owner": "you",
       "monthly_frequency": 4,
-      "time_preference": "morning",
-      "place_id": "ChIJQZypWaOMGGAR92ErEJ-hYJ4",
-      "place_id_format": "ChIJ",
-      "lat": 35.6677097,
-      "lon": 139.7066373
+      "time_preference": "morning"
     },
     {
       "id": "kamiyacho_ee",
@@ -59,11 +43,7 @@
       "address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
       "owner": "partner",
       "monthly_frequency": 6.6,
-      "time_preference": "morning",
-      "place_id": "ChIJaVqfzJaLGGARju81iYTB4dQ",
-      "place_id_format": "ChIJ",
-      "lat": 35.6639966,
-      "lon": 139.7457184
+      "time_preference": "morning"
     },
     {
       "id": "waseda_university",
@@ -72,11 +52,7 @@
       "address": "東京都新宿区西早稲田１丁目６ 11号館",
       "owner": "partner",
       "monthly_frequency": 6.6,
-      "time_preference": "morning",
-      "place_id": "ChIJ6a8IHyaNGGARKQZV2dkEKsU",
-      "place_id_format": "ChIJ",
-      "lat": 35.7098401,
-      "lon": 139.7179419
+      "time_preference": "morning"
     },
     {
       "id": "tokyo_station",
@@ -85,11 +61,7 @@
       "address": "東京都千代田区丸の内１丁目９番１号",
       "owner": "both",
       "monthly_frequency": 3,
-      "time_preference": "morning",
-      "place_id": "ChIJC3Cf2PuLGGAROO00ukl8JwA",
-      "place_id_format": "ChIJ",
-      "lat": 35.6811398,
-      "lon": 139.7670614
+      "time_preference": "morning"
     },
     {
       "id": "haneda_airport",
@@ -98,11 +70,7 @@
       "address": "東京都大田区羽田空港3-3-2",
       "owner": "you",
       "monthly_frequency": 0.5,
-      "time_preference": "morning",
-      "place_id": "ChIJ45IxpAtkGGAR3_hG0anDMg0",
-      "place_id_format": "ChIJ",
-      "lat": 35.5476839,
-      "lon": 139.7787882
+      "time_preference": "morning"
     },
     {
       "id": "fuchu_office",
@@ -111,11 +79,7 @@
       "address": "東京都府中市住吉町５丁目２２−５",
       "owner": "you",
       "monthly_frequency": 1,
-      "time_preference": "morning",
-      "place_id": "ChIJR3AMl5nkGGARCqvDOHEMads",
-      "place_id_format": "ChIJ",
-      "lat": 35.6559218,
-      "lon": 139.4549699
+      "time_preference": "morning"
     }
   ]
 }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place IDテスト結果まとめ（2024-08-16）</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #f0f9ff, #e0f2fe);
+        }
+        h1 {
+            color: #0c4a6e;
+            border-bottom: 3px solid #0284c7;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .summary-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+        .error {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th {
+            background: #f1f5f9;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .place-id {
+            font-family: monospace;
+            background: #f8fafc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .test-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .test-link:hover {
+            background: #0369a1;
+        }
+        .highlight {
+            background: #fef08a;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+        h2 {
+            color: #0c4a6e;
+            margin-top: 0;
+        }
+        .status-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗺️ Place IDテスト結果まとめ（2024-08-16）</h1>
+    
+    <div class="summary-box">
+        <h2>📊 概要</h2>
+        <p><strong>問題:</strong> 東京駅への経路が「東京都千代田区丸の内１丁目」の番地として認識され、駅ではなく建物への徒歩ルートが含まれていた</p>
+        <p><strong>解決策:</strong> <span class="highlight">駅・空港カテゴリは名前で直接検索してPlace IDを取得</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>🚉 Place ID比較表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>場所</th>
+                    <th>検索方法</th>
+                    <th>Place ID</th>
+                    <th>結果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>東京駅</td>
+                    <td>住所で検索<br><small>「東京都千代田区丸の内１丁目９番１号」</small></td>
+                    <td class="place-id">ChIJGWlcqP6LGGARddFD1M78MhU</td>
+                    <td>❌ 番地として認識</td>
+                </tr>
+                <tr class="success">
+                    <td><strong>東京駅</strong></td>
+                    <td><strong>駅名で検索</strong><br><small>「東京駅」</small></td>
+                    <td class="place-id"><strong>ChIJC3Cf2PuLGGAROO00ukl8JwA</strong></td>
+                    <td><span class="status-icon">✅</span><strong>駅として認識</strong></td>
+                </tr>
+                <tr class="success">
+                    <td>羽田空港</td>
+                    <td>空港名で検索<br><small>「羽田空港」</small></td>
+                    <td class="place-id">ChIJ45IxpAtkGGAR3_hG0anDMg0</td>
+                    <td><span class="status-icon">✅</span>空港として認識</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="test-section">
+        <h2>🔬 テストURL一覧</h2>
+        
+        <h3>1. ルフォンプログレ → 東京駅（駅専用Place ID）</h3>
+        <p>Place IDを駅専用のものに変更後のURL</p>
+        <a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京駅/data=!4m18!4m17!1m5!1m1!1sChIJ2RxO9gKMGGARSvjnp3ocfJg!2m2!1d139.7711!2d35.6950!1m5!1m1!1sChIJC3Cf2PuLGGAROO00ukl8JwA!2m2!1d139.7671!2d35.6812!2m3!6e1!7e2!8j1755511200!3e3" 
+           target="_blank" class="test-link">✅ 新URL（駅専用）をテスト</a>
+        
+        <h3>2. ルフォンプログレ → 東京駅（旧Place ID）</h3>
+        <p>住所検索で取得した旧Place ID使用</p>
+        <a href="https://www.google.com/maps/dir/東京都千代田区神田須田町1-20-1/東京都千代田区丸の内１丁目９番１号/data=!4m18!4m17!1m5!1m1!1sChIJ2RxO9gKMGGARSvjnp3ocfJg!2m2!1d139.7711!2d35.6950!1m5!1m1!1sChIJGWlcqP6LGGARddFD1M78MhU!2m2!1d139.7676!2d35.6812!2m3!6e1!7e2!8j1755511200!3e3" 
+           target="_blank" class="test-link">❌ 旧URL（番地）をテスト</a>
+    </div>
+
+    <div class="test-section warning">
+        <h2>⚠️ WebDriverの現状</h2>
+        <p><strong>データ取得状況:</strong></p>
+        <ul>
+            <li>✅ ルート要素は検出できる（6個）</li>
+            <li>✅ 時間データ取得可能：「14分」「9:44 - 9:58」</li>
+            <li>✅ 運賃データ取得可能：「180円」</li>
+            <li>❌ 正規表現パターンが新形式にマッチしない</li>
+            <li>❌ タイムアウトエラーが発生</li>
+        </ul>
+    </div>
+
+    <div class="test-section success">
+        <h2>✅ 実装済みの改善</h2>
+        <ol>
+            <li><strong>destinations.json更新:</strong>
+                <ul>
+                    <li>東京駅: ChIJC3Cf2PuLGGAROO00ukl8JwA（駅専用）</li>
+                    <li>羽田空港: ChIJ45IxpAtkGGAR3_hG0anDMg0（空港専用）</li>
+                </ul>
+            </li>
+            <li><strong>collect_place_ids.py改修:</strong>
+                <ul>
+                    <li>category が "station" または "airport" の場合、名前で直接検索</li>
+                </ul>
+            </li>
+            <li><strong>データ取得の確認:</strong>
+                <ul>
+                    <li>WebDriverでデータ自体は取得できることを確認</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 次のステップ</h2>
+        <ol>
+            <li>正規表現パターンを新しいデータ形式に対応</li>
+            <li>全9目的地でのテスト実行</li>
+            <li>全23物件×9目的地（207ルート）の処理</li>
+        </ol>
+    </div>
+</body>
+</html>

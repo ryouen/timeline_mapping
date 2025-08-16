@@ -1,0 +1,3332 @@
+{
+  "completed_properties": [
+    "ザ・パークハビオ日本橋箱崎町 204",
+    "DaiDo ANNEX 402",
+    "アーバンレジデンス神田富山町 302",
+    "グレイスリヴィエール東京八丁堀 702",
+    "クレスト五番町 801",
+    "ゼンパレス日本橋 702",
+    "コルティーレ日本橋人形町 501",
+    "シティインデックス千代田秋葉原 701",
+    "アーバンレジデンス神田富山町 701",
+    "レジディア月島III 1201",
+    "セレサ日本橋堀留町 605",
+    "La Belle 三越前 0702",
+    "PEAKS神田 1005",
+    "ルフォンプログレ神田プレミア 0706",
+    "パトリス 神保町 1101号室",
+    "RODIA日本橋茅場町 0407",
+    "カスタリア人形町 111",
+    "テラス月島 801",
+    "リベルテ月島 604",
+    "J-FIRST CHIYODA 702",
+    "アイル秋葉原EAST 307",
+    "ルフォンプログレ神田プレミア",
+    "シティハウス東京八重洲通り 1502"
+  ],
+  "last_property_index": 23,
+  "total_success": 207,
+  "total_failed": 0,
+  "routes": [
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 35.76346564292908,
+      "timestamp": "2025-08-16T08:20:42.338232"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 35.75218176841736,
+      "timestamp": "2025-08-16T08:21:18.091390"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 21,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "千代田線"
+      ],
+      "fare": null,
+      "processing_time": 34.636967420578,
+      "timestamp": "2025-08-16T08:21:52.730798"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 36,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 210,
+      "processing_time": 36.20515966415405,
+      "timestamp": "2025-08-16T08:22:28.936630"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.97017312049866,
+      "timestamp": "2025-08-16T08:23:03.908064"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 36.74968886375427,
+      "timestamp": "2025-08-16T08:23:40.658107"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 21,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": null,
+      "processing_time": 37.09844255447388,
+      "timestamp": "2025-08-16T08:24:17.758726"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 44,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線",
+        "東京シティ・エアターミナル（バス）（成田空港線"
+      ],
+      "fare": 0,
+      "processing_time": 34.439003705978394,
+      "timestamp": "2025-08-16T08:24:52.199604"
+    },
+    {
+      "property_name": "ザ・パークハビオ日本橋箱崎町 204",
+      "property_address": "東京都中央区日本橋箱崎町",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 72,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": 650,
+      "processing_time": 36.666494846343994,
+      "timestamp": "2025-08-16T08:25:28.866191"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 35.510173320770264,
+      "timestamp": "2025-08-16T08:26:06.878429"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 34.85621643066406,
+      "timestamp": "2025-08-16T08:26:41.734984"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "千代田線"
+      ],
+      "fare": null,
+      "processing_time": 37.09318566322327,
+      "timestamp": "2025-08-16T08:27:18.830065"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 38,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 210,
+      "processing_time": 36.45675182342529,
+      "timestamp": "2025-08-16T08:27:55.288657"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 37.85118079185486,
+      "timestamp": "2025-08-16T08:28:33.140529"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 31,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 35.8463454246521,
+      "timestamp": "2025-08-16T08:29:08.989024"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 34.06874442100525,
+      "timestamp": "2025-08-16T08:29:43.058207"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 47,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線",
+        "東京シティ・エアターミナル（バス）（成田空港線"
+      ],
+      "fare": 0,
+      "processing_time": 36.119024991989136,
+      "timestamp": "2025-08-16T08:30:19.178090"
+    },
+    {
+      "property_name": "DaiDo ANNEX 402",
+      "property_address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 73,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": 650,
+      "processing_time": 36.64379668235779,
+      "timestamp": "2025-08-16T08:30:55.822048"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 35.34701657295227,
+      "timestamp": "2025-08-16T08:31:33.628323"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 33.63128685951233,
+      "timestamp": "2025-08-16T08:32:07.260227"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": 150,
+      "processing_time": 37.102824687957764,
+      "timestamp": "2025-08-16T08:32:44.365368"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 38.967615365982056,
+      "timestamp": "2025-08-16T08:33:23.334180"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 28,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.779109477996826,
+      "timestamp": "2025-08-16T08:33:58.115092"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 34,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 37.14518094062805,
+      "timestamp": "2025-08-16T08:34:35.260966"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": null,
+      "processing_time": 34.789883852005005,
+      "timestamp": "2025-08-16T08:35:10.051494"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": 690,
+      "processing_time": 34.958606481552124,
+      "timestamp": "2025-08-16T08:35:45.012211"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 302",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": 950,
+      "processing_time": 36.16372227668762,
+      "timestamp": "2025-08-16T08:36:21.176026"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 19,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 35.29024815559387,
+      "timestamp": "2025-08-16T08:36:58.971345"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.21428298950195,
+      "timestamp": "2025-08-16T08:37:33.185961"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線",
+        "千代田線"
+      ],
+      "fare": 180,
+      "processing_time": 34.29905390739441,
+      "timestamp": "2025-08-16T08:38:07.487060"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 40,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 38.350680112838745,
+      "timestamp": "2025-08-16T08:38:45.838556"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 27,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 36.222946643829346,
+      "timestamp": "2025-08-16T08:39:22.064196"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 39,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 38.684876918792725,
+      "timestamp": "2025-08-16T08:40:00.751517"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 20,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京葉線"
+      ],
+      "fare": 150,
+      "processing_time": 41.117746353149414,
+      "timestamp": "2025-08-16T08:40:41.871311"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 66,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": null,
+      "processing_time": 35.9435498714447,
+      "timestamp": "2025-08-16T08:41:17.817156"
+    },
+    {
+      "property_name": "グレイスリヴィエール東京八丁堀 702",
+      "property_address": "東京都中央区湊1丁目 14-17",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 78,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 37.12909388542175,
+      "timestamp": "2025-08-16T08:41:54.947164"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "fare": 290,
+      "processing_time": 36.1956787109375,
+      "timestamp": "2025-08-16T08:42:33.642677"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "中央線"
+      ],
+      "fare": null,
+      "processing_time": 35.80014681816101,
+      "timestamp": "2025-08-16T08:43:09.443191"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線"
+      ],
+      "fare": null,
+      "processing_time": 36.22811794281006,
+      "timestamp": "2025-08-16T08:43:45.673442"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 26,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "山手線"
+      ],
+      "fare": 170,
+      "processing_time": 36.86885404586792,
+      "timestamp": "2025-08-16T08:44:22.544734"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "丸ノ内線",
+        "日比谷線"
+      ],
+      "fare": null,
+      "processing_time": 37.331844091415405,
+      "timestamp": "2025-08-16T08:44:59.878000"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 26,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "fare": 290,
+      "processing_time": 35.52819466590881,
+      "timestamp": "2025-08-16T08:45:35.408139"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 18,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "中央線"
+      ],
+      "fare": null,
+      "processing_time": 38.31969141960144,
+      "timestamp": "2025-08-16T08:46:13.728552"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 66,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 34.98091983795166,
+      "timestamp": "2025-08-16T08:46:48.711529"
+    },
+    {
+      "property_name": "クレスト五番町 801",
+      "property_address": "東京都千代田区五番町 6-5",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 56,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 35.527950286865234,
+      "timestamp": "2025-08-16T08:47:24.239987"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 180,
+      "processing_time": 35.00176215171814,
+      "timestamp": "2025-08-16T08:48:01.720428"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 34.8345000743866,
+      "timestamp": "2025-08-16T08:48:36.555140"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線"
+      ],
+      "fare": 180,
+      "processing_time": 38.51560044288635,
+      "timestamp": "2025-08-16T08:49:15.072949"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 38,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "副都心線"
+      ],
+      "fare": 290,
+      "processing_time": 38.52880334854126,
+      "timestamp": "2025-08-16T08:49:53.603595"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 29,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "日比谷線"
+      ],
+      "fare": 290,
+      "processing_time": 36.465036153793335,
+      "timestamp": "2025-08-16T08:50:30.069716"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "fare": 290,
+      "processing_time": 37.14405965805054,
+      "timestamp": "2025-08-16T08:51:07.215809"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 36.381563663482666,
+      "timestamp": "2025-08-16T08:51:43.598218"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 59,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 690,
+      "processing_time": 34.61388683319092,
+      "timestamp": "2025-08-16T08:52:18.214019"
+    },
+    {
+      "property_name": "ゼンパレス日本橋 702",
+      "property_address": "東京都中央区日本橋横山町 7-16",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 65,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "京王線"
+      ],
+      "fare": 580,
+      "processing_time": 35.65043640136719,
+      "timestamp": "2025-08-16T08:52:53.864925"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 180,
+      "processing_time": 35.974042892456055,
+      "timestamp": "2025-08-16T08:53:32.325484"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 34.68239736557007,
+      "timestamp": "2025-08-16T08:54:07.008233"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 22,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "新宿線"
+      ],
+      "fare": null,
+      "processing_time": 35.08676838874817,
+      "timestamp": "2025-08-16T08:54:42.097248"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 37,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 37.21903204917908,
+      "timestamp": "2025-08-16T08:55:19.318031"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 33.393635272979736,
+      "timestamp": "2025-08-16T08:55:52.712225"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 33,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 34.82114624977112,
+      "timestamp": "2025-08-16T08:56:27.533964"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 35.39451360702515,
+      "timestamp": "2025-08-16T08:57:02.929274"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 56,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 690,
+      "processing_time": 33.55761003494263,
+      "timestamp": "2025-08-16T08:57:36.488688"
+    },
+    {
+      "property_name": "コルティーレ日本橋人形町 501",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-2",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 68,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 35.746044397354126,
+      "timestamp": "2025-08-16T08:58:12.235363"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線",
+        "銀座線"
+      ],
+      "fare": null,
+      "processing_time": 35.06035232543945,
+      "timestamp": "2025-08-16T08:58:49.751368"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 33.78536343574524,
+      "timestamp": "2025-08-16T08:59:23.537092"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線"
+      ],
+      "fare": 150,
+      "processing_time": 36.918776988983154,
+      "timestamp": "2025-08-16T09:00:00.458121"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 39,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "副都心線"
+      ],
+      "fare": null,
+      "processing_time": 39.058499813079834,
+      "timestamp": "2025-08-16T09:00:39.517099"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 210,
+      "processing_time": 35.86539936065674,
+      "timestamp": "2025-08-16T09:01:15.382967"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 36,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 36.69250512123108,
+      "timestamp": "2025-08-16T09:01:52.075953"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": null,
+      "processing_time": 36.5713837146759,
+      "timestamp": "2025-08-16T09:02:28.649530"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 61,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": null,
+      "processing_time": 34.62006115913391,
+      "timestamp": "2025-08-16T09:03:03.270261"
+    },
+    {
+      "property_name": "シティインデックス千代田秋葉原 701",
+      "property_address": "東京都千代田区神田佐久間町3丁目",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 66,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 36.25085115432739,
+      "timestamp": "2025-08-16T09:03:39.521204"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 35.18054533004761,
+      "timestamp": "2025-08-16T09:04:17.183190"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 33.39903497695923,
+      "timestamp": "2025-08-16T09:04:50.582605"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": 150,
+      "processing_time": 37.41697645187378,
+      "timestamp": "2025-08-16T09:05:28.001844"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "山手線"
+      ],
+      "fare": 180,
+      "processing_time": 37.63908863067627,
+      "timestamp": "2025-08-16T09:06:05.642458"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 26,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 36.162959814071655,
+      "timestamp": "2025-08-16T09:06:41.807395"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 36.512574672698975,
+      "timestamp": "2025-08-16T09:07:18.321139"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": 150,
+      "processing_time": 33.929771900177,
+      "timestamp": "2025-08-16T09:07:52.251272"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 57,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 34.3397912979126,
+      "timestamp": "2025-08-16T09:08:26.592605"
+    },
+    {
+      "property_name": "アーバンレジデンス神田富山町 701",
+      "property_address": "東京都千代田区神田富山町 29番地",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 62,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 36.58839154243469,
+      "timestamp": "2025-08-16T09:09:03.181085"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 19,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線"
+      ],
+      "fare": 290,
+      "processing_time": 34.78339219093323,
+      "timestamp": "2025-08-16T09:09:40.433035"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線",
+        "銀座線"
+      ],
+      "fare": null,
+      "processing_time": 35.67507076263428,
+      "timestamp": "2025-08-16T09:10:16.108461"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 29,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線",
+        "千代田線"
+      ],
+      "fare": null,
+      "processing_time": 35.7246835231781,
+      "timestamp": "2025-08-16T09:10:51.835526"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 37,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 36.08163237571716,
+      "timestamp": "2025-08-16T09:11:27.918457"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 29,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 390,
+      "processing_time": 34.05683875083923,
+      "timestamp": "2025-08-16T09:12:01.977298"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 39,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線"
+      ],
+      "fare": 320,
+      "processing_time": 35.05810260772705,
+      "timestamp": "2025-08-16T09:12:37.045793"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 35.86896204948425,
+      "timestamp": "2025-08-16T09:13:12.915256"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 62,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線"
+      ],
+      "fare": null,
+      "processing_time": 34.312119007110596,
+      "timestamp": "2025-08-16T09:13:47.229572"
+    },
+    {
+      "property_name": "レジディア月島III 1201",
+      "property_address": "東京都中央区月島3丁目 12-4",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 75,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "京王線"
+      ],
+      "fare": 50,
+      "processing_time": 35.8325412273407,
+      "timestamp": "2025-08-16T09:14:23.062202"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 180,
+      "processing_time": 35.26618528366089,
+      "timestamp": "2025-08-16T09:15:00.891740"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 12,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 34.53489589691162,
+      "timestamp": "2025-08-16T09:15:35.426717"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": null,
+      "processing_time": 37.754170417785645,
+      "timestamp": "2025-08-16T09:16:13.183635"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 38,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 36.64029788970947,
+      "timestamp": "2025-08-16T09:16:49.826039"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.11646294593811,
+      "timestamp": "2025-08-16T09:17:23.942988"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 34,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 35.15983724594116,
+      "timestamp": "2025-08-16T09:17:59.103140"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": null,
+      "processing_time": 35.23128795623779,
+      "timestamp": "2025-08-16T09:18:34.335067"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 53,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線"
+      ],
+      "fare": null,
+      "processing_time": 35.418493032455444,
+      "timestamp": "2025-08-16T09:19:09.755788"
+    },
+    {
+      "property_name": "セレサ日本橋堀留町 605",
+      "property_address": "東京都中央区日本橋堀留町1丁目8-13",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 69,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 37.86041307449341,
+      "timestamp": "2025-08-16T09:19:47.617108"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 10,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 36.96729278564453,
+      "timestamp": "2025-08-16T09:20:27.060887"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 35.89434313774109,
+      "timestamp": "2025-08-16T09:21:02.955816"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 680.6336107254028,
+      "timestamp": "2025-08-16T09:32:23.592788",
+      "error": "タイムアウト"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.09070372581482,
+      "timestamp": "2025-08-16T09:36:23.684755",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.06522226333618,
+      "timestamp": "2025-08-16T09:40:23.750040",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.06483626365662,
+      "timestamp": "2025-08-16T09:44:23.814915",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.065012216568,
+      "timestamp": "2025-08-16T09:48:23.880243",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.07480788230896,
+      "timestamp": "2025-08-16T09:52:23.955091",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.0661106109619,
+      "timestamp": "2025-08-16T09:56:24.021243",
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55f9a83c37da <unknown>\n#1 0x55f9a7e682e0 <unknown>\n#2 0x55f9a7e5046c <unknown>\n#3 0x55f9a7e50175 <unknown>\n#4 0x55f9a7e4dfd5 <unknown>\n#5 0x55f9a7e4e92f <unknown>\n#6 0x55f9a7e5d3e3 <unknown>\n#7 0x55f9a7e7683e <unknown>\n#8 0x55f9a7e7d07b <unknown>\n#9 0x55f9a7e4f070 <unknown>\n#10 0x55f9a7e76499 <unknown>\n#11 0x55f9a7f055f6 <unknown>\n#12 0x55f9a7edf683 <unknown>\n#13 0x55f9a7eabb5b <unknown>\n#14 0x55f9a7eacf31 <unknown>\n#15 0x55f9a838872b <unknown>\n#16 0x55f9a838c534 <unknown>\n#17 0x55f9a836f229 <unknown>\n#18 0x55f9a838d0d8 <unknown>\n#19 0x55f9a835361f <unknown>\n#20 0x55f9a83b0dd8 <unknown>\n#21 0x55f9a83b0fb6 <unknown>\n#22 0x55f9a83c2af6 <unknown>\n#23 0x7f169d1b6aa4 <unknown>\n#24 0x7f169d243a34 __clone\n"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 12,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 36.610740423202515,
+      "timestamp": "2025-08-16T10:16:03.032620"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 8,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 34.82097268104553,
+      "timestamp": "2025-08-16T10:16:37.854215"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": 150,
+      "processing_time": 36.02308917045593,
+      "timestamp": "2025-08-16T10:17:13.879959"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 34,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "山手線"
+      ],
+      "fare": 180,
+      "processing_time": 35.620760440826416,
+      "timestamp": "2025-08-16T10:17:49.503249"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.840463399887085,
+      "timestamp": "2025-08-16T10:18:24.343800"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 37,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 39.30625057220459,
+      "timestamp": "2025-08-16T10:19:03.651795"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 9,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 36.0935435295105,
+      "timestamp": "2025-08-16T10:19:39.747813"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 65,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": 690,
+      "processing_time": 34.561063051223755,
+      "timestamp": "2025-08-16T10:20:14.309878"
+    },
+    {
+      "property_name": "PEAKS神田 1005",
+      "property_address": "東京都千代田区神田西福田町4-7 PEAKS神田",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 62,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": 540,
+      "processing_time": 35.7471387386322,
+      "timestamp": "2025-08-16T10:20:50.057109"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 8,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 35.708399295806885,
+      "timestamp": "2025-08-16T10:21:28.262733"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 9,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 33.697654008865356,
+      "timestamp": "2025-08-16T10:22:01.960549"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 37.31204652786255,
+      "timestamp": "2025-08-16T10:22:39.284286"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 31,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 36.109925746917725,
+      "timestamp": "2025-08-16T10:23:15.396470"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "丸ノ内線",
+        "日比谷線"
+      ],
+      "fare": null,
+      "processing_time": 36.28255486488342,
+      "timestamp": "2025-08-16T10:23:51.679900"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 36.630194425582886,
+      "timestamp": "2025-08-16T10:24:28.312050"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": 150,
+      "processing_time": 35.49124813079834,
+      "timestamp": "2025-08-16T10:25:03.803789"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 64,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": 790,
+      "processing_time": 34.50520586967468,
+      "timestamp": "2025-08-16T10:25:38.309103"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア 0706",
+      "property_address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 61,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": 540,
+      "processing_time": 35.37092137336731,
+      "timestamp": "2025-08-16T10:26:13.680908"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": null,
+      "processing_time": 35.71336030960083,
+      "timestamp": "2025-08-16T10:26:51.954320"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 34.59345483779907,
+      "timestamp": "2025-08-16T10:27:26.547853"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 34.61832857131958,
+      "timestamp": "2025-08-16T10:28:01.167140"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 27,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 37.174720764160156,
+      "timestamp": "2025-08-16T10:28:38.343117"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "三田線",
+        "日比谷線"
+      ],
+      "fare": 290,
+      "processing_time": 34.56234860420227,
+      "timestamp": "2025-08-16T10:29:12.908028"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 36.871196269989014,
+      "timestamp": "2025-08-16T10:29:49.779976"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "丸ノ内線"
+      ],
+      "fare": null,
+      "processing_time": 38.03177523612976,
+      "timestamp": "2025-08-16T10:30:27.812854"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 63,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "リムジンバス羽田空港線"
+      ],
+      "fare": null,
+      "processing_time": 34.94335889816284,
+      "timestamp": "2025-08-16T10:31:02.757956"
+    },
+    {
+      "property_name": "パトリス 神保町 1101号室",
+      "property_address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 62,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "京王線"
+      ],
+      "fare": 580,
+      "processing_time": 37.7137553691864,
+      "timestamp": "2025-08-16T10:31:40.472212"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 36.32443618774414,
+      "timestamp": "2025-08-16T10:32:19.373757"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 20,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": null,
+      "processing_time": 33.28314018249512,
+      "timestamp": "2025-08-16T10:32:52.657497"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 27,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線",
+        "千代田線"
+      ],
+      "fare": null,
+      "processing_time": 36.54348945617676,
+      "timestamp": "2025-08-16T10:33:29.202972"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 41,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 36.44225740432739,
+      "timestamp": "2025-08-16T10:34:05.645962"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 28,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 35.68864393234253,
+      "timestamp": "2025-08-16T10:34:41.337173"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 37.67488241195679,
+      "timestamp": "2025-08-16T10:35:19.012663"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 21,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 35.838847398757935,
+      "timestamp": "2025-08-16T10:35:54.851911"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 52,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線",
+        "東京シティ・エアターミナル（バス）（成田空港線"
+      ],
+      "fare": 0,
+      "processing_time": 34.68825101852417,
+      "timestamp": "2025-08-16T10:36:29.542080"
+    },
+    {
+      "property_name": "RODIA日本橋茅場町 0407",
+      "property_address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 73,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 37.84634709358215,
+      "timestamp": "2025-08-16T10:37:07.388523"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 180,
+      "processing_time": 36.66613817214966,
+      "timestamp": "2025-08-16T10:37:46.578862"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 34.156471490859985,
+      "timestamp": "2025-08-16T10:38:20.735697"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "新宿線"
+      ],
+      "fare": null,
+      "processing_time": 35.08698391914368,
+      "timestamp": "2025-08-16T10:38:55.825475"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 38,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 36.32715201377869,
+      "timestamp": "2025-08-16T10:39:32.153334"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 35.48730206489563,
+      "timestamp": "2025-08-16T10:40:07.640732"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 33,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 36.79217720031738,
+      "timestamp": "2025-08-16T10:40:44.434207"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 18,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 36.19937205314636,
+      "timestamp": "2025-08-16T10:41:20.633793"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 54,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線"
+      ],
+      "fare": null,
+      "processing_time": 34.17100238800049,
+      "timestamp": "2025-08-16T10:41:54.805322"
+    },
+    {
+      "property_name": "カスタリア人形町 111",
+      "property_address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 71,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 36.28903913497925,
+      "timestamp": "2025-08-16T10:42:31.094452"
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 21,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": 180,
+      "processing_time": 36.05865120887756,
+      "timestamp": "2025-08-16T13:20:15.978673",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線"
+      ],
+      "fare": null,
+      "processing_time": 33.90669560432434,
+      "timestamp": "2025-08-16T13:20:49.886568",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 27,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "日比谷線"
+      ],
+      "fare": null,
+      "processing_time": 36.03088998794556,
+      "timestamp": "2025-08-16T13:21:25.918835",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 180,
+      "processing_time": 37.36433792114258,
+      "timestamp": "2025-08-16T13:22:03.285778",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 36.47597002983093,
+      "timestamp": "2025-08-16T13:22:39.764638",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 70,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 590,
+      "processing_time": 35.4341766834259,
+      "timestamp": "2025-08-16T13:23:15.200957",
+      "is_retry": true
+    },
+    {
+      "property_name": "La Belle 三越前 0702",
+      "property_address": "東京都中央区日本橋本町1丁目",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 69,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "半蔵門線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 35.186676263809204,
+      "timestamp": "2025-08-16T13:23:50.388318",
+      "is_retry": true
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 37.09352111816406,
+      "timestamp": "2025-08-16T13:24:29.007496"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 36.22240424156189,
+      "timestamp": "2025-08-16T13:25:05.230309"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 36.54192900657654,
+      "timestamp": "2025-08-16T13:25:41.772865"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "千代田線"
+      ],
+      "fare": null,
+      "processing_time": 39.242746114730835,
+      "timestamp": "2025-08-16T13:26:21.015731"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "丸ノ内線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 36.562915563583374,
+      "timestamp": "2025-08-16T13:26:57.579943"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 38.56342005729675,
+      "timestamp": "2025-08-16T13:27:36.144991"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線"
+      ],
+      "fare": null,
+      "processing_time": 36.63308262825012,
+      "timestamp": "2025-08-16T13:28:12.779206"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 64,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": 690,
+      "processing_time": 36.06223225593567,
+      "timestamp": "2025-08-16T13:28:48.844116"
+    },
+    {
+      "property_name": "ルフォンプログレ神田プレミア",
+      "property_address": "東京都千代田区神田須田町1-20-1",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 62,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 36.47715163230896,
+      "timestamp": "2025-08-16T13:29:25.321874"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 37.44030261039734,
+      "timestamp": "2025-08-16T13:30:05.279675"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 26,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 37.752599239349365,
+      "timestamp": "2025-08-16T13:30:43.032940"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "千代田線"
+      ],
+      "fare": 180,
+      "processing_time": 36.312153577804565,
+      "timestamp": "2025-08-16T13:31:19.347262"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 39,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 36.540801763534546,
+      "timestamp": "2025-08-16T13:31:55.890207"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 38.8756537437439,
+      "timestamp": "2025-08-16T13:32:34.767527"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 41,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 38.667656898498535,
+      "timestamp": "2025-08-16T13:33:13.436377"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "山手線"
+      ],
+      "fare": 330,
+      "processing_time": 37.56578826904297,
+      "timestamp": "2025-08-16T13:33:51.003440"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 75,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 35.25396203994751,
+      "timestamp": "2025-08-16T13:34:26.258160"
+    },
+    {
+      "property_name": "テラス月島 801",
+      "property_address": "東京都中央区佃2丁目 22-3",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 77,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "中央・総武線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 82.78548741340637,
+      "timestamp": "2025-08-16T13:35:49.044297"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 36.972265005111694,
+      "timestamp": "2025-08-16T13:36:28.480996"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 35.23154067993164,
+      "timestamp": "2025-08-16T13:37:03.713191"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 35.90872073173523,
+      "timestamp": "2025-08-16T13:37:39.623699"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 35,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 37.69748520851135,
+      "timestamp": "2025-08-16T13:38:17.323468"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "丸ノ内線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 36.388731718063354,
+      "timestamp": "2025-08-16T13:38:53.714460"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 37,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 37.17646789550781,
+      "timestamp": "2025-08-16T13:39:30.892404"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": 150,
+      "processing_time": 37.19539523124695,
+      "timestamp": "2025-08-16T13:40:08.096719"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 63,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 35.68472385406494,
+      "timestamp": "2025-08-16T13:40:43.788936"
+    },
+    {
+      "property_name": "J-FIRST CHIYODA 702",
+      "property_address": "東京都千代田区外神田2丁目 8-14",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 65,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 40.55836606025696,
+      "timestamp": "2025-08-16T13:41:24.347885"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線"
+      ],
+      "fare": 180,
+      "processing_time": 34.84479117393494,
+      "timestamp": "2025-08-16T13:42:01.745797"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 17,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 34.02640080451965,
+      "timestamp": "2025-08-16T13:42:35.774119"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線"
+      ],
+      "fare": 150,
+      "processing_time": 37.42745900154114,
+      "timestamp": "2025-08-16T13:43:13.203889"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 36,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "山手線"
+      ],
+      "fare": 230,
+      "processing_time": 37.43374276161194,
+      "timestamp": "2025-08-16T13:43:50.639807"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 31,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "浅草線",
+        "日比谷線"
+      ],
+      "fare": 290,
+      "processing_time": 36.85533595085144,
+      "timestamp": "2025-08-16T13:44:27.496573"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "東西線"
+      ],
+      "fare": 350,
+      "processing_time": 35.67072892189026,
+      "timestamp": "2025-08-16T13:45:03.170074"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 15,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "総武線"
+      ],
+      "fare": 150,
+      "processing_time": 36.57653737068176,
+      "timestamp": "2025-08-16T13:45:39.747238"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 71,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": null,
+      "processing_time": 33.254509925842285,
+      "timestamp": "2025-08-16T13:46:13.001847"
+    },
+    {
+      "property_name": "アイル秋葉原EAST 307",
+      "property_address": "東京都千代田区東神田3丁目 6-6",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 64,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央・総武線",
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 36.29663062095642,
+      "timestamp": "2025-08-16T13:46:49.299428"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 36.81389760971069,
+      "timestamp": "2025-08-16T13:47:28.704809"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 31,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "銀座線"
+      ],
+      "fare": null,
+      "processing_time": 36.4466986656189,
+      "timestamp": "2025-08-16T13:48:05.152200"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "三田線"
+      ],
+      "fare": 290,
+      "processing_time": 35.81593942642212,
+      "timestamp": "2025-08-16T13:48:40.970534"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 38,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "半蔵門線"
+      ],
+      "fare": null,
+      "processing_time": 37.455750942230225,
+      "timestamp": "2025-08-16T13:49:18.428270"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 29,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 36.55789756774902,
+      "timestamp": "2025-08-16T13:49:54.987730"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 40,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 39.06036567687988,
+      "timestamp": "2025-08-16T13:50:34.050065"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "山手線"
+      ],
+      "fare": 330,
+      "processing_time": 37.01505160331726,
+      "timestamp": "2025-08-16T13:51:11.066419"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 70,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "浅草線"
+      ],
+      "fare": null,
+      "processing_time": 36.05760884284973,
+      "timestamp": "2025-08-16T13:51:47.126238"
+    },
+    {
+      "property_name": "リベルテ月島 604",
+      "property_address": "東京都中央区佃2丁目 12-1",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 87,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "新宿線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 37.50703287124634,
+      "timestamp": "2025-08-16T13:52:24.634025"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "Shizenkan University",
+      "destination_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "success": true,
+      "travel_time": 16,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": null,
+      "processing_time": 36.23668146133423,
+      "timestamp": "2025-08-16T13:53:03.406058"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "東京アメリカンクラブ",
+      "destination_address": "東京都中央区日本橋室町３丁目２−１",
+      "success": true,
+      "travel_time": 22,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 34.29091119766235,
+      "timestamp": "2025-08-16T13:53:37.697601"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "axle御茶ノ水",
+      "destination_address": "東京都千代田区神田小川町３丁目２８−５",
+      "success": true,
+      "travel_time": 31,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 180,
+      "processing_time": 38.34282827377319,
+      "timestamp": "2025-08-16T13:54:16.042986"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "Yawara",
+      "destination_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "success": true,
+      "travel_time": 37,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 35.49807929992676,
+      "timestamp": "2025-08-16T13:54:51.542903"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "神谷町(EE)",
+      "destination_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線"
+      ],
+      "fare": 180,
+      "processing_time": 39.18596863746643,
+      "timestamp": "2025-08-16T13:55:30.729836"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "早稲田大学",
+      "destination_address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "success": true,
+      "travel_time": 36,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 36.80135631561279,
+      "timestamp": "2025-08-16T13:56:07.533390"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "東京駅",
+      "destination_address": "東京都千代田区丸の内１丁目",
+      "success": true,
+      "travel_time": 18,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京葉線"
+      ],
+      "fare": 150,
+      "processing_time": 37.4303081035614,
+      "timestamp": "2025-08-16T13:56:44.964596"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "羽田空港",
+      "destination_address": "東京都大田区羽田空港3-3-2",
+      "success": true,
+      "travel_time": 57,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "リムジンバス羽田空港線"
+      ],
+      "fare": null,
+      "processing_time": 35.112557888031006,
+      "timestamp": "2025-08-16T13:57:20.079237"
+    },
+    {
+      "property_name": "シティハウス東京八重洲通り 1502",
+      "property_address": "東京都中央区新川2丁目 18-1",
+      "destination_name": "府中オフィス",
+      "destination_address": "東京都府中市住吉町５丁目２２−５",
+      "success": true,
+      "travel_time": 89,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "日比谷線",
+        "丸ノ内線",
+        "京王線"
+      ],
+      "fare": 570,
+      "processing_time": 37.49718403816223,
+      "timestamp": "2025-08-16T13:57:57.577335"
+    }
+  ]
+}

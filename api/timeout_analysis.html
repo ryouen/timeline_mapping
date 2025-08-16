@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイムアウト分析結果</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .analysis-box {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .problem {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .solution {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .code-block {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .timeline {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+        .timeline-item.success {
+            background: #c8e6c9;
+        }
+        .timeline-item.fail {
+            background: #ffcdd2;
+        }
+        .timeline-item.timeout {
+            background: #ffe0b2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .badge.success { background: #4caf50; color: white; }
+        .badge.fail { background: #f44336; color: white; }
+        .badge.warning { background: #ff9800; color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 タイムアウト分析結果</h1>
+        <p>Google Maps スクレイピングのタイムアウト問題を調査しました</p>
+    </div>
+
+    <div class="analysis-box">
+        <h2>📊 実行フロー分析</h2>
+        <div class="timeline">
+            <div class="timeline-item success">
+                <strong>Python起動</strong><br>
+                ✅ 成功
+            </div>
+            <div class="timeline-item success">
+                <strong>WebDriver接続</strong><br>
+                ✅ 成功
+            </div>
+            <div class="timeline-item success">
+                <strong>Google Maps読込</strong><br>
+                ✅ 成功
+            </div>
+            <div class="timeline-item fail">
+                <strong>URLパラメータ</strong><br>
+                ❌ 消失
+            </div>
+            <div class="timeline-item fail">
+                <strong>詳細抽出</strong><br>
+                ❌ セレクタ不一致
+            </div>
+            <div class="timeline-item timeout">
+                <strong>無限待機</strong><br>
+                ⏱️ タイムアウト
+            </div>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <h2>🐛 発見された問題</h2>
+        
+        <div class="problem">
+            <h3>問題1: URLパラメータが消える</h3>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>期待値</th>
+                    <th>実際の値</th>
+                    <th>状態</th>
+                </tr>
+                <tr>
+                    <td>元のURL</td>
+                    <td><code>data=!3e3!8j1755252000</code></td>
+                    <td>含まれている</td>
+                    <td><span class="badge success">OK</span></td>
+                </tr>
+                <tr>
+                    <td>リダイレクト後</td>
+                    <td><code>!3e3</code> (公共交通機関)</td>
+                    <td>消えている</td>
+                    <td><span class="badge fail">NG</span></td>
+                </tr>
+                <tr>
+                    <td>リダイレクト後</td>
+                    <td><code>!8j</code> (時刻指定)</td>
+                    <td>消えている</td>
+                    <td><span class="badge fail">NG</span></td>
+                </tr>
+            </table>
+            <p><strong>原因:</strong> Google Mapsがリダイレクト時にURLパラメータを再構築し、一部のパラメータが失われる</p>
+        </div>
+
+        <div class="problem">
+            <h3>問題2: 詳細ステップセレクタが機能しない</h3>
+            <div class="code-block">試したセレクタ:
+1. //div[@class="cYhGGe"]           → 見つからず
+2. //div[contains(@class, "directions-mode-step")]  → 見つからず  
+3. //div[contains(@class, "section-directions-trip")] → 見つからず</div>
+            <p><strong>原因:</strong> Google MapsのHTML構造が変更され、古いセレクタが使えない</p>
+        </div>
+
+        <div class="problem">
+            <h3>問題3: extract_route_steps()の無限待機</h3>
+            <p>詳細ステップが見つからないため、WebDriverWaitが20秒待機を繰り返し、最終的にタイムアウト</p>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <h2>✅ 解決策</h2>
+        
+        <div class="solution">
+            <h3>解決策1: URLパラメータの確認方法を改善</h3>
+            <ul>
+                <li>リダイレクト後のURLではなく、ページの状態で判定</li>
+                <li>ルート要素の存在 = パラメータ適用済みと判断</li>
+                <li>すでに実装済み（check_needs_setup）だが、判定ロジックを調整必要</li>
+            </ul>
+        </div>
+
+        <div class="solution">
+            <h3>解決策2: セレクタを最新のものに更新</h3>
+            <div class="code-block">// 新しいセレクタ候補
+//div[@data-trip-index]  // ルート全体
+//div[contains(@class, "trip-details")]  // 詳細部分
+//span[contains(@class, "transit-mode")]  // 交通手段</div>
+        </div>
+
+        <div class="solution">
+            <h3>解決策3: タイムアウト処理の改善</h3>
+            <ul>
+                <li>WebDriverWaitのタイムアウトを短く（5-10秒）</li>
+                <li>要素が見つからない場合は即座にフォールバック</li>
+                <li>サマリー情報だけでも返す</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="analysis-box">
+        <h2>📝 結論</h2>
+        <p><strong>タイムアウトの直接原因:</strong></p>
+        <ol>
+            <li>URLパラメータが正しく認識されず、手動設定モードに入る</li>
+            <li>詳細ステップ抽出で古いセレクタを使用</li>
+            <li>要素が見つからず20秒の待機を繰り返す</li>
+            <li>合計で2分を超えてタイムアウト</li>
+        </ol>
+        
+        <p><strong>推奨対応:</strong></p>
+        <ul>
+            <li>🔧 セレクタを現在のGoogle Maps構造に合わせて更新</li>
+            <li>⏱️ タイムアウトを短くして、失敗時は即座にサマリー情報を返す</li>
+            <li>📊 詳細が取れなくても、基本情報（時間・料金）は確実に返す</li>
+        </ul>
+    </div>
+</body>
+</html>

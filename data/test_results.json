@@ -1,0 +1,425 @@
+{
+  "property": {
+    "id": "property_1",
+    "name": "ルフォンプログレ神田プレミア",
+    "address": "東京都千代田区神田須田町1-20-1",
+    "rent": "280,000円",
+    "rent_normalized": 280000,
+    "area": "41.96",
+    "floor": "",
+    "building_floors": "",
+    "age": "",
+    "station_walk": "",
+    "url": ""
+  },
+  "results": [
+    {
+      "success": true,
+      "destination": "Shizenkan University",
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "departure_time": "16:37",
+      "arrival_time": "16:40",
+      "all_routes": [
+        {
+          "travel_time": 7,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": 180,
+          "departure_time": "16:37",
+          "arrival_time": "16:40",
+          "route_number": 1
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 35.82067823410034,
+      "dest_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階"
+    },
+    {
+      "success": true,
+      "destination": "東京アメリカンクラブ",
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "departure_time": "16:37",
+      "arrival_time": "16:40",
+      "all_routes": [
+        {
+          "travel_time": 7,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": 180,
+          "departure_time": "16:37",
+          "arrival_time": "16:40",
+          "route_number": 1
+        },
+        {
+          "travel_time": 12,
+          "route_type": "不明",
+          "train_lines": [],
+          "fare": null,
+          "departure_time": null,
+          "arrival_time": null,
+          "route_number": 2
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 34.95892596244812,
+      "dest_address": "東京都中央区日本橋室町３丁目２−１"
+    },
+    {
+      "success": true,
+      "destination": "axle御茶ノ水",
+      "travel_time": 13,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "departure_time": null,
+      "arrival_time": null,
+      "all_routes": [
+        {
+          "travel_time": 13,
+          "route_type": "不明",
+          "train_lines": [],
+          "fare": null,
+          "departure_time": null,
+          "arrival_time": null,
+          "route_number": 1
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 37.38021206855774,
+      "dest_address": "東京都千代田区神田小川町３丁目２８−５"
+    },
+    {
+      "success": true,
+      "destination": "Yawara",
+      "travel_time": 33,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "千代田線"
+      ],
+      "fare": null,
+      "departure_time": "16:43",
+      "arrival_time": "17:16",
+      "all_routes": [
+        {
+          "travel_time": 36,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": 210,
+          "departure_time": "16:40",
+          "arrival_time": "16:43",
+          "route_number": 1
+        },
+        {
+          "travel_time": 34,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "千代田線"
+          ],
+          "fare": null,
+          "departure_time": "16:42",
+          "arrival_time": "17:16",
+          "route_number": 2
+        },
+        {
+          "travel_time": 34,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "中央線",
+            "山手線"
+          ],
+          "fare": null,
+          "departure_time": "16:38",
+          "arrival_time": "17:12",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 36.82257342338562,
+      "dest_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階"
+    },
+    {
+      "success": true,
+      "destination": "神谷町(EE)",
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "日比谷線"
+      ],
+      "fare": 180,
+      "departure_time": "16:43",
+      "arrival_time": "16:46",
+      "all_routes": [
+        {
+          "travel_time": 24,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線",
+            "日比谷線"
+          ],
+          "fare": 180,
+          "departure_time": "16:43",
+          "arrival_time": "16:46",
+          "route_number": 1
+        },
+        {
+          "travel_time": 26,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": null,
+          "departure_time": "16:40",
+          "arrival_time": "17:06",
+          "route_number": 2
+        },
+        {
+          "travel_time": 25,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "丸ノ内線",
+            "日比谷線"
+          ],
+          "fare": null,
+          "departure_time": "16:42",
+          "arrival_time": "17:07",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 38.45823407173157,
+      "dest_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F"
+    },
+    {
+      "success": true,
+      "destination": "早稲田大学",
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "fare": null,
+      "departure_time": "16:42",
+      "arrival_time": "17:12",
+      "all_routes": [
+        {
+          "travel_time": 32,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線",
+            "東西線"
+          ],
+          "fare": 210,
+          "departure_time": "16:40",
+          "arrival_time": "16:43",
+          "route_number": 1
+        },
+        {
+          "travel_time": 30,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "新宿線",
+            "東西線"
+          ],
+          "fare": null,
+          "departure_time": "16:42",
+          "arrival_time": "17:12",
+          "route_number": 2
+        },
+        {
+          "travel_time": 35,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "丸ノ内線",
+            "東西線"
+          ],
+          "fare": null,
+          "departure_time": "16:42",
+          "arrival_time": "17:17",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 38.12755060195923,
+      "dest_address": "東京都新宿区西早稲田１丁目６ 11号館"
+    },
+    {
+      "success": true,
+      "destination": "東京駅",
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": 150,
+      "departure_time": "16:41",
+      "arrival_time": "16:48",
+      "all_routes": [
+        {
+          "travel_time": 11,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "山手線"
+          ],
+          "fare": 150,
+          "departure_time": "16:41",
+          "arrival_time": "16:48",
+          "route_number": 1
+        },
+        {
+          "travel_time": 11,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "京浜東北線"
+          ],
+          "fare": null,
+          "departure_time": "16:44",
+          "arrival_time": "16:55",
+          "route_number": 2
+        },
+        {
+          "travel_time": 11,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "中央線"
+          ],
+          "fare": null,
+          "departure_time": "16:44",
+          "arrival_time": "16:55",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 39.598801374435425,
+      "dest_address": "東京都千代田区丸の内１丁目"
+    },
+    {
+      "success": true,
+      "destination": "羽田空港",
+      "travel_time": 53,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": null,
+      "departure_time": "16:51",
+      "arrival_time": "17:44",
+      "all_routes": [
+        {
+          "travel_time": 58,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "山手線"
+          ],
+          "fare": 690,
+          "departure_time": "16:41",
+          "arrival_time": "16:48",
+          "route_number": 1
+        },
+        {
+          "travel_time": 53,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "山手線"
+          ],
+          "fare": null,
+          "departure_time": "16:51",
+          "arrival_time": "17:44",
+          "route_number": 2
+        },
+        {
+          "travel_time": 55,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "京浜東北線"
+          ],
+          "fare": null,
+          "departure_time": "16:49",
+          "arrival_time": "17:44",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 38.03176760673523,
+      "dest_address": "東京都大田区羽田空港3-3-2"
+    },
+    {
+      "success": true,
+      "destination": "府中オフィス",
+      "travel_time": 63,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "departure_time": "16:44",
+      "arrival_time": "17:47",
+      "all_routes": [
+        {
+          "travel_time": 65,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "新宿線",
+            "京王線"
+          ],
+          "fare": 580,
+          "departure_time": "16:42",
+          "arrival_time": "16:50",
+          "route_number": 1
+        },
+        {
+          "travel_time": 63,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "中央線",
+            "京王線"
+          ],
+          "fare": null,
+          "departure_time": "16:44",
+          "arrival_time": "17:47",
+          "route_number": 2
+        },
+        {
+          "travel_time": 84,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "新宿線",
+            "京王線"
+          ],
+          "fare": null,
+          "departure_time": "16:42",
+          "arrival_time": "18:06",
+          "route_number": 3
+        }
+      ],
+      "from_cache": false,
+      "processing_time": 37.57395124435425,
+      "dest_address": "東京都府中市住吉町５丁目２２−５"
+    }
+  ],
+  "summary": {
+    "success_count": 9,
+    "fail_count": 0,
+    "total_time": 441.66487431526184,
+    "timestamp": "2025-08-16T07:41:21.984798"
+  }
+}

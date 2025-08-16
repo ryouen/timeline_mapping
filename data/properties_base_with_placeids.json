@@ -5,18 +5,16 @@
       "address": "東京都千代田区神田須田町1-20-1",
       "rent": "280,000円",
       "area": "41.96",
-      "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
-      "place_id_format": "ChIJ",
-      "lat": 35.6949994,
-      "lon": 139.7711379
+      "place_id": "0x60188d6bebccecdd:0x23523f6b391f4c01",
+      "lat": "35.6949089",
+      "lon": "139.77116"
     },
     {
       "name": "テラス月島 801",
       "address": "東京都中央区佃2丁目 22-3",
       "rent": "194,000円",
       "area": "35.23",
-      "place_id": "ChIJ2Ua43XGJGGARPSxoO4VLD1A",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
@@ -25,28 +23,25 @@
       "address": "東京都千代田区外神田2丁目 8-14",
       "rent": "200,000円",
       "area": "41.58",
-      "place_id": "ChIJBwDMAhyMGGARwxybRRdbbFQ",
-      "place_id_format": "ChIJ",
-      "lat": 35.700603,
-      "lon": 139.7685984
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "ザ・パークハビオ日本橋箱崎町 204",
-      "address": "東京都中央区日本橋箱崎町8-7",
+      "address": "東京都中央区日本橋箱崎町",
       "rent": "205,000円",
       "area": "40.70",
-      "place_id": "ChIJw2mSc0OJGGARdhhrQjfAUNk",
-      "place_id_format": "ChIJ",
-      "lat": 35.6789622,
-      "lon": 139.785291
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "DaiDo ANNEX 402",
       "address": "東京都中央区日本橋蛎殻町1丁目2-4",
       "rent": "203,000円",
       "area": "39.45",
-      "place_id": "ChIJH2n11ESJGGAR5cQQ-WJHSS4",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
@@ -55,8 +50,7 @@
       "address": "東京都千代田区神田富山町 29番地",
       "rent": "190,000円",
       "area": "39.98",
-      "place_id": "ChIJU8npG6qOGGARHSzK_0V9uw4",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
@@ -65,28 +59,25 @@
       "address": "東京都中央区湊1丁目 14-17",
       "rent": "182,000円",
       "area": "42.16",
-      "place_id": "ChIJQ9jyU1KJGGARo9RZHNC6CUc",
-      "place_id_format": "ChIJ",
-      "lat": 35.6723538,
-      "lon": 139.7810225
+      "place_id": "0x6018895253f2d843:0x4709bad01c59d4a3",
+      "lat": "35.6723538",
+      "lon": "139.7810225"
     },
     {
       "name": "クレスト五番町 801",
       "address": "東京都千代田区五番町 6-5",
       "rent": "170,000円",
       "area": "35.97",
-      "place_id": "ChIJ5zInHWGMGGAR51irtIGq7i4",
-      "place_id_format": "ChIJ",
-      "lat": 35.6895436,
-      "lon": 139.735245
+      "place_id": "0x60188d64db59520f:0xeab78edd74925757",
+      "lat": "35.6895436",
+      "lon": "139.735245"
     },
     {
       "name": "ゼンパレス日本橋 702",
       "address": "東京都中央区日本橋横山町 7-16",
       "rent": "173,000円",
       "area": "36.27",
-      "place_id": "ChIJ7354t7KOGGAR_jrqXsBWKO0",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
@@ -95,28 +86,25 @@
       "address": "東京都中央区日本橋堀留町1丁目8-2",
       "rent": "186,000円",
       "area": "36.10",
-      "place_id": "ChIJsW3QhlGJGGARPrdlV8vnuwc",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
     {
       "name": "シティインデックス千代田秋葉原 701",
-      "address": "東京都千代田区神田佐久間町3-37-24",
+      "address": "東京都千代田区神田佐久間町3丁目",
       "rent": "180,000円",
       "area": "40.04",
-      "place_id": "ChIJqY3qxqiOGGAR6iAD81Fy82s",
-      "place_id_format": "ChIJ",
-      "lat": 35.6982325,
-      "lon": 139.7770894
+      "place_id": null,
+      "lat": "35.6981596",
+      "lon": "139.7785573"
     },
     {
       "name": "アーバンレジデンス神田富山町 701",
       "address": "東京都千代田区神田富山町 29番地",
       "rent": "197,000円",
       "area": "43.10",
-      "place_id": "ChIJU8npG6qOGGARHSzK_0V9uw4",
-      "place_id_format": "ChIJ",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
@@ -125,110 +113,99 @@
       "address": "東京都中央区月島3丁目 12-4",
       "rent": "190,000円",
       "area": "40.21",
-      "place_id": "ChIJu2BYX3qJGGAR1wlytTcA_Dg",
-      "place_id_format": "ChIJ",
-      "lat": 35.6623318,
-      "lon": 139.7815581
+      "place_id": "0x601889f961dc57b1:0x13f7f88d5d59d74",
+      "lat": "35.6622364",
+      "lon": "139.7814989"
     },
     {
       "name": "セレサ日本橋堀留町 605",
       "address": "東京都中央区日本橋堀留町1丁目8-13",
       "rent": "198,000円",
       "area": "40.14",
-      "place_id": "ChIJwzmCiFGJGGARZ_YWP-iQlZc",
-      "place_id_format": "ChIJ",
-      "lat": 35.6872632,
-      "lon": 139.7811737
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "La Belle 三越前 0702",
-      "address": "東京都中央区日本橋本町1-8-12",
+      "address": "東京都中央区日本橋本町1丁目",
       "rent": "177,000円",
       "area": "40.01",
-      "place_id": "ChIJ1w5Gs1aJGGARn4L9Jnr8rKQ",
-      "place_id_format": "ChIJ",
-      "lat": 35.6853347,
-      "lon": 139.777942
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "アイル秋葉原EAST 307",
       "address": "東京都千代田区東神田3丁目 6-6",
       "rent": "172,000円",
       "area": "42.76",
-      "place_id": "ChIJMTTFDq6OGGARcKIKN4-bMso",
-      "place_id_format": "ChIJ",
-      "lat": 35.6973763,
-      "lon": 139.7822506
+      "place_id": "0x60188eae0ec53431:0xca329b8f370aa270",
+      "lat": "35.6973763",
+      "lon": "139.7822506"
     },
     {
       "name": "リベルテ月島 604",
       "address": "東京都中央区佃2丁目 12-1",
       "rent": "198,000円",
       "area": "45.33",
-      "place_id": "ChIJe1wPJm6JGGARYvs6QuQwf1A",
-      "place_id_format": "ChIJ",
-      "lat": 35.6668437,
-      "lon": 139.7863167
+      "place_id": "0x6018896e260f5c7b:0x507f30e4423afb62",
+      "lat": "35.6668437",
+      "lon": "139.7863167"
     },
     {
       "name": "シティハウス東京八重洲通り 1502",
       "address": "東京都中央区新川2丁目 18-1",
       "rent": "205,000円",
       "area": "37.49",
-      "place_id": "ChIJs8i8a12JGGAR9EQ0jwPaiQo",
-      "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "place_id": "0x6018895d6bf012f1:0xb1ee1298412f4d38",
+      "lat": "35.6747289",
+      "lon": "139.7816783"
     },
     {
       "name": "PEAKS神田 1005",
       "address": "東京都千代田区神田西福田町4-7 PEAKS神田",
       "rent": "213,000円",
       "area": "35.74",
-      "place_id": "ChIJQVxDHyiPGGARJLaKiOI2xBs",
-      "place_id_format": "ChIJ",
+      "place_id": "0x60188f281f435c41:0x1bc436e2888ab624",
+      "lat": "35.6914125",
+      "lon": "139.7745842"
+    },
+    {
+      "name": "ルフォンプログレ神田プレミア 0706",
+      "address": "東京都千代田区神田須田町1丁目 ルフォンプログレ神田プレミア",
+      "rent": "210,000円",
+      "area": "30.53",
+      "place_id": null,
       "lat": null,
       "lon": null
     },
     {
-      "name": "ルフォンプログレ神田プレミア 0706",
-      "address": "東京都千代田区神田須田町1-20-1",
-      "rent": "210,000円",
-      "area": "30.53",
-      "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
-      "place_id_format": "ChIJ",
-      "lat": 35.6949994,
-      "lon": 139.7711379
-    },
-    {
       "name": "パトリス 神保町 1101号室",
-      "address": "東京都千代田区神田神保町2-4-64",
+      "address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
       "rent": "177,000円",
       "area": "37.18",
-      "place_id": "ChIJd2c4bhSMGGARXc9N02jSQnk",
-      "place_id_format": "ChIJ",
-      "lat": 35.6963033,
-      "lon": 139.7558627
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "RODIA日本橋茅場町 0407",
-      "address": "東京都中央区新川1丁目31-5",
+      "address": "東京都中央区新川1丁目 RODIA日本橋茅場町",
       "rent": "195,000円",
       "area": "41.49",
-      "place_id": "ChIJvX89cEKJGGAR3uysfDGNw7M",
-      "place_id_format": "ChIJ",
-      "lat": 35.6759007,
-      "lon": 139.7860147
+      "place_id": null,
+      "lat": null,
+      "lon": null
     },
     {
       "name": "カスタリア人形町 111",
       "address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
       "rent": "191,000円",
       "area": "37.78",
-      "place_id": "ChIJIbY5qlGJGGARqMyuM4EQ44U",
-      "place_id_format": "ChIJ",
-      "lat": 35.6851915,
-      "lon": 139.7806643
+      "place_id": null,
+      "lat": "35.6868868",
+      "lon": "139.7819159"
     }
   ]
 }

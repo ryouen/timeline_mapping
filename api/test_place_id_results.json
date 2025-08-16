@@ -1,0 +1,62 @@
+{
+  "property": {
+    "name": "ルフォンプログレ神田プレミア",
+    "address": "東京都千代田区神田須田町1-20-1",
+    "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
+    "format": "ChIJ",
+    "lat": 35.6949994,
+    "lon": 139.7711379
+  },
+  "destinations": [
+    {
+      "name": "Shizenkan University",
+      "place_id": "ChIJy_fF8PKJGGARr8tJ4FAd9gg",
+      "format": "ChIJ"
+    },
+    {
+      "name": "東京アメリカンクラブ",
+      "place_id": "ChIJT1l75P-LGGARHl9jRRY1svU",
+      "format": "ChIJ"
+    },
+    {
+      "name": "axle御茶ノ水",
+      "place_id": "ChIJ2SOIhhqMGGARQ9iwrbH-Pyo",
+      "format": "ChIJ"
+    },
+    {
+      "name": "Yawara",
+      "place_id": "ChIJQZypWaOMGGAR92ErEJ-hYJ4",
+      "format": "ChIJ"
+    },
+    {
+      "name": "神谷町(EE)",
+      "place_id": "ChIJaVqfzJaLGGARju81iYTB4dQ",
+      "format": "ChIJ"
+    },
+    {
+      "name": "早稲田大学",
+      "place_id": "ChIJ6a8IHyaNGGARKQZV2dkEKsU",
+      "format": "ChIJ"
+    },
+    {
+      "name": "東京駅",
+      "place_id": "ChIJLdASefmLGGARF3Ez6A4i4Q4",
+      "format": "ChIJ"
+    },
+    {
+      "name": "羽田空港",
+      "place_id": "ChIJYQVK7-5jGGAR4lHBGzyAxgM",
+      "format": "ChIJ"
+    },
+    {
+      "name": "府中オフィス",
+      "place_id": "ChIJR3AMl5nkGGARCqvDOHEMads",
+      "format": "ChIJ"
+    }
+  ],
+  "summary": {
+    "chij_count": 9,
+    "ox_count": 0,
+    "failed_count": 0
+  }
+}

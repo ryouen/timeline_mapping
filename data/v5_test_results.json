@@ -1,0 +1,238 @@
+[
+  {
+    "name": "Shizenkan University",
+    "success": true,
+    "data": {
+      "success": true,
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "destination_name": "Shizenkan University",
+      "travel_time": 6,
+      "departure_time": null,
+      "arrival_time": null,
+      "fare": null,
+      "route_type": "不明",
+      "all_routes": [
+        {
+          "index": 1,
+          "travel_time": 6,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "summary": "\n6 分\n1.6 km\n中央通り 経由\n最速ルート（通常より少なめの交通量）\n詳細"
+        },
+        {
+          "index": 2,
+          "travel_time": 7,
+          "departure_time": "10:44",
+          "arrival_time": "10:51",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n7 分\n10:44 - 10:51\n銀座線"
+        },
+        {
+          "index": 3,
+          "travel_time": 23,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "summary": "\n23 分\n1.6 km\n中央通り 経由"
+        }
+      ],
+      "place_ids": {
+        "origin": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+        "destination": null
+      },
+      "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B2-5-1%E9%AB%99%E5%B3%B6%E5%B1%8B%E4%B8%89%E4%BA%95%E3%83%93%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B017%E9%9A%8E/@35.68798685,139.77252900000002,15z/data=!2m3!6e1!7e2!8j1755424800!3e3"
+    }
+  },
+  {
+    "name": "東京アメリカンクラブ",
+    "success": true,
+    "data": {
+      "success": true,
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都中央区日本橋室町３丁目２−１",
+      "destination_name": "東京アメリカンクラブ",
+      "travel_time": 7,
+      "departure_time": "9:52",
+      "arrival_time": "9:59",
+      "fare": 180,
+      "route_type": "公共交通機関",
+      "all_routes": [
+        {
+          "index": 1,
+          "travel_time": 7,
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "summary": "\n7 分\n9:52 (日曜日) - 9:59\n銀座線 \n神田駅から 9:55\n180円  6 分\n詳細"
+        },
+        {
+          "index": 2,
+          "travel_time": 7,
+          "departure_time": "9:48",
+          "arrival_time": "9:55",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n7 分\n9:48 (日曜日) - 9:55\n銀座線 "
+        },
+        {
+          "index": 3,
+          "travel_time": 7,
+          "departure_time": "9:44",
+          "arrival_time": "9:51",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n7 分\n9:44 (日曜日) - 9:51\n銀座線 "
+        }
+      ],
+      "place_ids": {
+        "origin": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+        "destination": "0x60188bffe47b594f:0xf5b2351645635f1e"
+      },
+      "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%97%A5%E6%9C%AC%E6%A9%8B%E5%AE%A4%E7%94%BA3-2-1/@35.6914541,139.77183745000002,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0x987c1c7aa7e7f84a!2m2!1d139.7711379!2d35.6949994!1m5!1m1!1s0x60188bffe47b594f:0xf5b2351645635f1e!2m2!1d139.772537!2d35.6879088!2m3!6e1!7e2!8j1755424800!3e3"
+    }
+  },
+  {
+    "name": "axle御茶ノ水",
+    "success": true,
+    "data": {
+      "success": true,
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都千代田区神田小川町３丁目２８−５",
+      "destination_name": "axle御茶ノ水",
+      "travel_time": 13,
+      "departure_time": null,
+      "arrival_time": null,
+      "fare": null,
+      "route_type": "不明",
+      "all_routes": [
+        {
+          "index": 1,
+          "travel_time": 13,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "summary": "\n13 分\n850 m\n靖国通り/都道302号 経由\n詳細"
+        },
+        {
+          "index": 2,
+          "travel_time": 14,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "summary": "\n14 分\n900 m\n靖国通り/都道302号 と 駿河台道灌道 経由"
+        }
+      ],
+      "place_ids": {
+        "origin": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+        "destination": null
+      },
+      "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E5%B0%8F%E5%B7%9D%E7%94%BA3-28-5/data=!2m3!6e1!7e2!8j1755424800!3e3"
+    }
+  },
+  {
+    "name": "早稲田大学",
+    "success": true,
+    "data": {
+      "success": true,
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都新宿区西早稲田１丁目６ 11号館",
+      "destination_name": "早稲田大学",
+      "travel_time": 13,
+      "departure_time": null,
+      "arrival_time": null,
+      "fare": null,
+      "route_type": "公共交通機関",
+      "all_routes": [
+        {
+          "index": 1,
+          "travel_time": 13,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n13 分\n6.6 km\n首都高速５号池袋線/ルート 5 経由\n最速ルート（通常より少なめの交通量）\n このルートには有料区間が含まれます。\n詳細"
+        },
+        {
+          "index": 2,
+          "travel_time": 17,
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "summary": "\n17 分\n6.0 km\n外堀通り/都道405号 経由\n多少の交通量（通常どおり）"
+        },
+        {
+          "index": 3,
+          "travel_time": 34,
+          "departure_time": "10:44",
+          "arrival_time": "11:18",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n34 分\n10:44 - 11:18\n銀座線  東西線 "
+        }
+      ],
+      "place_ids": {
+        "origin": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+        "destination": null
+      },
+      "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E8%A5%BF%E6%97%A9%E7%A8%B2%E7%94%B01-611%E9%A4%A8/@35.702419750000004,139.7445399,15z/data=!2m3!6e1!7e2!8j1755424800!3e3"
+    }
+  },
+  {
+    "name": "府中オフィス",
+    "success": true,
+    "data": {
+      "success": true,
+      "origin": "東京都千代田区神田須田町1-20-1",
+      "destination": "東京都府中市住吉町５丁目２２−５",
+      "destination_name": "府中オフィス",
+      "travel_time": 57,
+      "departure_time": "8:34",
+      "arrival_time": "9:31",
+      "fare": null,
+      "route_type": "公共交通機関",
+      "all_routes": [
+        {
+          "index": 1,
+          "travel_time": 63,
+          "departure_time": "8:48",
+          "arrival_time": "9:51",
+          "fare": 580,
+          "route_type": "公共交通機関",
+          "summary": "\n1 時間 3 分\n8:48 (日曜日) - 9:51\n 新宿線  京王線  京王線 \n小川町駅から 8:56\n580円  17 分\n詳細"
+        },
+        {
+          "index": 2,
+          "travel_time": 67,
+          "departure_time": "8:44",
+          "arrival_time": "9:51",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n1 時間 7 分\n8:44 (日曜日) - 9:51\n 中央線  京王線  京王線 "
+        },
+        {
+          "index": 3,
+          "travel_time": 57,
+          "departure_time": "8:34",
+          "arrival_time": "9:31",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "summary": "\n57 分\n8:34 (日曜日) - 9:31\n 中央線  京王線  京王線 "
+        }
+      ],
+      "place_ids": {
+        "origin": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+        "destination": "0x6018e499970c7047:0xdb690c7138c3ab0a"
+      },
+      "url": "https://www.google.com/maps/dir/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E7%A5%9E%E7%94%B0%E9%A0%88%E7%94%B0%E7%94%BA1-20-1/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%B8%AD%E5%B8%82%E4%BD%8F%E5%90%89%E7%94%BA5-22-5/@35.6754606,139.6130539,15z/data=!3m1!4b1!4m18!4m17!1m5!1m1!1s0x60188c02f64e1cd9:0x987c1c7aa7e7f84a!2m2!1d139.7711379!2d35.6949994!1m5!1m1!1s0x6018e499970c7047:0xdb690c7138c3ab0a!2m2!1d139.4549699!2d35.6559218!2m3!6e1!7e2!8j1755424800!3e3"
+    }
+  }
+]

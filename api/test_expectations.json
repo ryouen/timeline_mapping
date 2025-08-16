@@ -1,0 +1,48 @@
+{
+  "test_case": "ルフォンプログレ → 東京駅",
+  "origin": "東京都千代田区神田須田町1-20-1",
+  "destination": "東京駅",
+  "expected_details": {
+    "success": true,
+    "explanation": "実際のGoogle Mapsから取得すべき値",
+    "details": {
+      "walk_to_station": "実測値（おそらく3-5分）",
+      "station_used": "淡路町駅 or 神田駅",
+      "trains": [
+        {
+          "line": "丸ノ内線 or 銀座線",
+          "from": "淡路町 or 神田",
+          "to": "東京 or 大手町",
+          "time": "実測値（おそらく3-7分）"
+        }
+      ],
+      "walk_from_station": "実測値（おそらく1-3分）",
+      "wait_time_minutes": "実測値またはnull"
+    }
+  },
+  "unacceptable_values": {
+    "walk_to_station": [5, "5", "不明", null],
+    "walk_from_station": [5, "5", "不明", null],
+    "wait_time_minutes": [3, "3"],
+    "trains": [
+      {
+        "line": ["電車", "不明"],
+        "time": [10, 5, "不明"],
+        "from": ["不明", "東京都千代田区"],
+        "to": ["不明", "東京駅"]
+      }
+    ]
+  },
+  "error_case": {
+    "explanation": "データが取得できない場合",
+    "expected_response": {
+      "success": false,
+      "error": "詳細データを取得できませんでした",
+      "partial_data": "取得できた部分のみ（ハードコード値なし）"
+    },
+    "unacceptable_response": {
+      "success": true,
+      "details": "ハードコード値で埋められたデータ"
+    }
+  }
+}

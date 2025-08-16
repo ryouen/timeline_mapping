@@ -1,0 +1,46 @@
+{
+  "start_time": "2025-08-16T15:03:30.941279+09:00",
+  "total_properties": 23,
+  "total_destinations": 9,
+  "unique_addresses": 22,
+  "total_count": 198,
+  "completed_count": 3,
+  "completed_routes": [
+    "東京都千代田区神田須田町1-20-1→東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+    "東京都千代田区神田須田町1-20-1→東京都中央区日本橋室町３丁目２−１",
+    "東京都千代田区神田須田町1-20-1→東京都千代田区神田小川町３丁目２８−５"
+  ],
+  "failed_routes": [
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.845133+09:00"
+    },
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.855009+09:00"
+    },
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都新宿区西早稲田１丁目６ 11号館",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.864153+09:00"
+    },
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都千代田区丸の内１丁目",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.875980+09:00"
+    },
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都大田区羽田空港3-3-2",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.888857+09:00"
+    },
+    {
+      "route": "東京都千代田区神田須田町1-20-1→東京都府中市住吉町５丁目２２−５",
+      "error": "Message: Cannot find session with id: f9df3bfbb07c9adb8991a2cdd2248f81; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception\n",
+      "timestamp": "2025-08-16T15:27:37.909169+09:00"
+    }
+  ],
+  "current_property_index": 1
+}

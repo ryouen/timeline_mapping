@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <title>ルート検索進捗モニター</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .auto-refresh {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        
+        .progress-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .routes-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            font-size: 1.3em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .failed {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .processing {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .property-header {
+            background: #e3f2fd;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .route-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .train-line {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e3f2fd;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #1976d2;
+            margin-right: 5px;
+        }
+        
+        .url-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        
+        .url-link:hover {
+            text-decoration: underline;
+        }
+        
+        .timestamp {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 ルート検索進捗モニター</h1>
+            <div class="auto-refresh">⚡ 30秒ごとに自動更新</div>
+        </div>
+
+        <div id="content">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>データを読み込み中...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadProgress() {
+            try {
+                // バッチ進捗データを読み込み
+                const response = await fetch('/timeline-mapping/data/batch_progress.json?t=' + Date.now());
+                const data = await response.json();
+                
+                const totalRoutes = 207; // 23物件 × 9目的地
+                const completedRoutes = data.total_success + data.total_failed;
+                const progressPercent = Math.round((completedRoutes / totalRoutes) * 100);
+                const remainingRoutes = totalRoutes - completedRoutes;
+                const avgTimePerRoute = 37; // 秒
+                const estimatedRemaining = Math.round((remainingRoutes * avgTimePerRoute) / 60); // 分
+                
+                // Google Maps URLを生成する関数
+                function generateMapsUrl(origin, destination, arrivalTime = '2025-08-17T10:00:00') {
+                    const timestamp = new Date(arrivalTime).getTime() / 1000;
+                    return `https://www.google.com/maps/dir/${encodeURIComponent(origin)}/${encodeURIComponent(destination)}/data=!2m3!6e1!7e2!8j${timestamp}!3e3`;
+                }
+                
+                let html = `
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${data.last_property_index || 0}/23</div>
+                            <div class="stat-label">物件完了</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${data.total_success}</div>
+                            <div class="stat-label">成功ルート</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${data.total_failed}</div>
+                            <div class="stat-label">失敗ルート</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${progressPercent}%</div>
+                            <div class="stat-label">全体進捗</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${remainingRoutes}</div>
+                            <div class="stat-label">残りルート</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">約${estimatedRemaining}分</div>
+                            <div class="stat-label">推定残り時間</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <h2 style="margin-bottom: 15px;">全体進捗</h2>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progressPercent}%;">
+                                ${completedRoutes} / ${totalRoutes} ルート完了 (${progressPercent}%)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="routes-table">
+                        <div class="table-header">
+                            最近の処理ルート（最新10件）
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">物件名</th>
+                                    <th style="width: 20%;">目的地</th>
+                                    <th style="width: 10%;">所要時間</th>
+                                    <th style="width: 15%;">路線</th>
+                                    <th style="width: 10%;">運賃</th>
+                                    <th style="width: 10%;">処理時間</th>
+                                    <th style="width: 10%;">状態</th>
+                                    <th style="width: 5%;">URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                // 最新10件のルートを表示
+                const recentRoutes = data.routes.slice(-10).reverse();
+                recentRoutes.forEach(route => {
+                    const statusClass = route.success ? 'success' : 'failed';
+                    const statusText = route.success ? '✅ 成功' : '❌ 失敗';
+                    const travelTime = route.travel_time ? `${route.travel_time}分` : '-';
+                    const fare = route.fare ? `¥${route.fare}` : '-';
+                    const processingTime = route.processing_time ? `${route.processing_time.toFixed(1)}秒` : '-';
+                    const trainLines = route.train_lines && route.train_lines.length > 0 
+                        ? route.train_lines.map(line => `<span class="train-line">${line}</span>`).join('')
+                        : '-';
+                    
+                    // Google Maps URLを生成
+                    const mapsUrl = generateMapsUrl(
+                        route.property_address || '',
+                        route.destination_address || ''
+                    );
+                    
+                    html += `
+                        <tr>
+                            <td>${route.property_name}</td>
+                            <td>${route.destination_name}</td>
+                            <td>${travelTime}</td>
+                            <td>${trainLines}</td>
+                            <td>${fare}</td>
+                            <td>${processingTime}</td>
+                            <td class="${statusClass}">${statusText}</td>
+                            <td>
+                                <a href="${mapsUrl}" target="_blank" class="url-link" title="Google Mapsで開く">
+                                    🗺️
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center; color: white;">
+                        <div class="timestamp">最終更新: ${new Date().toLocaleString('ja-JP')}</div>
+                    </div>
+                `;
+                
+                document.getElementById('content').innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error loading progress:', error);
+                document.getElementById('content').innerHTML = `
+                    <div class="loading">
+                        <p style="color: #ffcccc;">データの読み込みに失敗しました</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // 初回読み込み
+        loadProgress();
+        
+        // 30秒ごとに更新
+        setInterval(loadProgress, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+[
+  {
+    "name": "La Belle 三越前 0702",
+    "address": "東京都中央区日本橋本町1丁目",
+    "rent": "230,000円",
+    "routes": [
+      {
+        "destination": "shizenkan_university",
+        "destination_name": "Shizenkan University",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_american_club",
+        "destination_name": "東京アメリカンクラブ",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "axle_ochanomizu",
+        "destination_name": "axle御茶ノ水",
+        "total_time": 13,
+        "details": {
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "yawara",
+        "destination_name": "Yawara",
+        "total_time": 34,
+        "details": {
+          "departure_time": "9:24",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "kamiyacho_ee",
+        "destination_name": "神谷町(EE)",
+        "total_time": 24,
+        "details": {
+          "departure_time": "9:32",
+          "arrival_time": "9:56",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "waseda_university",
+        "destination_name": "早稲田大学",
+        "total_time": 33,
+        "details": {
+          "departure_time": "9:25",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_station",
+        "destination_name": "東京駅",
+        "total_time": 11,
+        "details": {
+          "departure_time": "9:45",
+          "arrival_time": "9:56",
+          "fare": 150,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "haneda_airport",
+        "destination_name": "羽田空港",
+        "total_time": 60,
+        "details": {
+          "departure_time": "8:59",
+          "arrival_time": "9:59",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "fuchu_office",
+        "destination_name": "府中オフィス",
+        "total_time": 57,
+        "details": {
+          "departure_time": "8:34",
+          "arrival_time": "9:31",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      }
+    ]
+  },
+  {
+    "name": "リベルテ月島 604",
+    "address": "東京都中央区佃2丁目 12-1",
+    "rent": "195,000円",
+    "routes": [
+      {
+        "destination": "shizenkan_university",
+        "destination_name": "Shizenkan University",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_american_club",
+        "destination_name": "東京アメリカンクラブ",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "axle_ochanomizu",
+        "destination_name": "axle御茶ノ水",
+        "total_time": 13,
+        "details": {
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "yawara",
+        "destination_name": "Yawara",
+        "total_time": 34,
+        "details": {
+          "departure_time": "9:24",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "kamiyacho_ee",
+        "destination_name": "神谷町(EE)",
+        "total_time": 24,
+        "details": {
+          "departure_time": "9:32",
+          "arrival_time": "9:56",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "waseda_university",
+        "destination_name": "早稲田大学",
+        "total_time": 33,
+        "details": {
+          "departure_time": "9:25",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_station",
+        "destination_name": "東京駅",
+        "total_time": 11,
+        "details": {
+          "departure_time": "9:45",
+          "arrival_time": "9:56",
+          "fare": 150,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "haneda_airport",
+        "destination_name": "羽田空港",
+        "total_time": 60,
+        "details": {
+          "departure_time": "8:59",
+          "arrival_time": "9:59",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "fuchu_office",
+        "destination_name": "府中オフィス",
+        "total_time": 57,
+        "details": {
+          "departure_time": "8:34",
+          "arrival_time": "9:31",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      }
+    ]
+  },
+  {
+    "name": "パトリス 神保町 1101号室",
+    "address": "東京都千代田区神田神保町二丁目4番64号 パトリス神保町",
+    "rent": "330,000円",
+    "routes": [
+      {
+        "destination": "shizenkan_university",
+        "destination_name": "Shizenkan University",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_american_club",
+        "destination_name": "東京アメリカンクラブ",
+        "total_time": 7,
+        "details": {
+          "departure_time": "9:52",
+          "arrival_time": "9:59",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "axle_ochanomizu",
+        "destination_name": "axle御茶ノ水",
+        "total_time": 13,
+        "details": {
+          "departure_time": null,
+          "arrival_time": null,
+          "fare": null,
+          "route_type": "不明",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "yawara",
+        "destination_name": "Yawara",
+        "total_time": 34,
+        "details": {
+          "departure_time": "9:24",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "kamiyacho_ee",
+        "destination_name": "神谷町(EE)",
+        "total_time": 24,
+        "details": {
+          "departure_time": "9:32",
+          "arrival_time": "9:56",
+          "fare": 180,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "waseda_university",
+        "destination_name": "早稲田大学",
+        "total_time": 33,
+        "details": {
+          "departure_time": "9:25",
+          "arrival_time": "9:58",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "tokyo_station",
+        "destination_name": "東京駅",
+        "total_time": 11,
+        "details": {
+          "departure_time": "9:45",
+          "arrival_time": "9:56",
+          "fare": 150,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "haneda_airport",
+        "destination_name": "羽田空港",
+        "total_time": 60,
+        "details": {
+          "departure_time": "8:59",
+          "arrival_time": "9:59",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      },
+      {
+        "destination": "fuchu_office",
+        "destination_name": "府中オフィス",
+        "total_time": 57,
+        "details": {
+          "departure_time": "8:34",
+          "arrival_time": "9:31",
+          "fare": null,
+          "route_type": "公共交通機関",
+          "wait_time_minutes": 0,
+          "walk_to_station": 0,
+          "station_used": "",
+          "trains": [],
+          "walk_from_station": 0
+        },
+        "total_walk_time": 0
+      }
+    ]
+  }
+]

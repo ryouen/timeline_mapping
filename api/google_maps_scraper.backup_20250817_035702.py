@@ -35,7 +35,6 @@ class GoogleMapsScraper:
         # self.place_id_cache = {}  # Place IDキャッシュ - 無効化
         # self.route_cache = {}     # ルート結果キャッシュ - 無効化
         self.route_count = 0      # 処理済みルート数
-        self.setup_driver()       # WebDriverを初期化
         
     def setup_driver(self):
         """Selenium WebDriverのセットアップ"""
@@ -97,18 +96,11 @@ class GoogleMapsScraper:
     
     def get_place_id(self, address, name=None):
         """
-        住所または名前からPlace IDを取得
-        駅や空港は名前で検索、それ以外は住所で検索
+        住所からPlace IDを取得
+        住所のみで検索し、施設名は使わない
         """
-        # 駅や空港は名前で検索
-        if name and ('駅' in name or 'Station' in name.lower() if name else False or '空港' in name or 'Airport' in name.lower() if name else False):
-            search_query = name
-            normalized = name  # キャッシュ用
-            logger.info(f"🚉 駅/空港を名前で検索: {name}")
-        else:
-            # それ以外は住所を正規化して検索
-            normalized = self.normalize_address(address)
-            search_query = normalized
+        # 正規化した住所でキャッシュチェック
+        normalized = self.normalize_address(address)
         
         # キャッシュ無効化
         # if normalized in self.place_id_cache:
@@ -116,8 +108,8 @@ class GoogleMapsScraper:
         #     return self.place_id_cache[normalized]
         
         try:
-            # Google Mapsで検索
-            url = f"https://www.google.com/maps/search/{quote(search_query)}"
+            # Google Mapsで住所を直接検索
+            url = f"https://www.google.com/maps/search/{quote(normalized)}"
             
             logger.info(f"🔍 Place ID取得中: {name or address[:30]}...")
             self.driver.get(url)
@@ -125,20 +117,13 @@ class GoogleMapsScraper:
             
             # URLからPlace IDを抽出
             current_url = self.driver.current_url
-            logger.debug(f"Place ID抽出用URL: {current_url}")
             place_id = None
             
-            # 複数のパターンで検索（ChIJ形式と0x形式の両方に対応）
+            # 複数のパターンで検索
             patterns = [
-                # ChIJ形式のパターン
-                r'!1s(ChIJ[A-Za-z0-9_-]+)',
-                r'/place/[^/]+/@[^/]+/data=.*!1s(ChIJ[A-Za-z0-9_-]+)',
-                r'ftid=(ChIJ[A-Za-z0-9_-]+)',
-                # 0x形式のパターン
                 r'!1s(0x[0-9a-f]+:0x[0-9a-f]+)',
                 r'/place/[^/]+/@[^/]+/data=.*!1s(0x[0-9a-f]+:0x[0-9a-f]+)',
-                r'ftid=(0x[0-9a-f]+:0x[0-9a-f]+)',
-                r'!3m1!1s(0x[0-9a-f]+:0x[0-9a-f]+)'
+                r'ftid=(0x[0-9a-f]+:0x[0-9a-f]+)'
             ]
             
             for pattern in patterns:
@@ -174,64 +159,44 @@ class GoogleMapsScraper:
     def build_url_with_timestamp(self, origin_info, dest_info, arrival_time):
         """
         タイムスタンプ付きURLを構築
-        ユーザー提供の動作確認済みフォーマットを使用
         """
-        # 住所を正規化してエンコード
+        # 住所を正規化
         origin_str = quote(origin_info['normalized_address'])
         dest_str = quote(dest_info['normalized_address'])
         
         # 基本URL
         url = f"https://www.google.com/maps/dir/{origin_str}/{dest_str}/"
         
-        # dataパラメータの構築（動作確認済みのフォーマット）
+        # dataパラメータの構築
         data_parts = []
         
         # Place IDがある場合
         if origin_info.get('place_id') and dest_info.get('place_id'):
             data_parts.append("!4m18!4m17")
-            # 出発地ブロック
             data_parts.append("!1m5!1m1")
             data_parts.append(f"!1s{origin_info['place_id']}")
             if origin_info.get('lon') and origin_info.get('lat'):
-                # 緯度経度は小数点4桁まで
-                data_parts.append(f"!2m2!1d{float(origin_info['lon']):.4f}!2d{float(origin_info['lat']):.4f}")
-            
-            # 目的地ブロック
+                data_parts.append(f"!2m2!1d{origin_info['lon']}!2d{origin_info['lat']}")
             data_parts.append("!1m5!1m1")
             data_parts.append(f"!1s{dest_info['place_id']}")
             if dest_info.get('lon') and dest_info.get('lat'):
-                # 緯度経度は小数点4桁まで
-                data_parts.append(f"!2m2!1d{float(dest_info['lon']):.4f}!2d{float(dest_info['lat']):.4f}")
-            
-            # 時刻指定（Place IDブロックの後）
-            if arrival_time:
-                jst = pytz.timezone('Asia/Tokyo')
-                arrival_jst = arrival_time.astimezone(jst)
-                timestamp = self.generate_google_maps_timestamp(
-                    arrival_jst.year,
-                    arrival_jst.month,
-                    arrival_jst.day,
-                    arrival_jst.hour,
-                    arrival_jst.minute
-                )
-                data_parts.append(f"!2m3!6e1!7e2!8j{timestamp}")
-            
-            # 公共交通機関モード（最後）
-            data_parts.append("!3e3")
-        else:
-            # Place IDがない場合
-            if arrival_time:
-                jst = pytz.timezone('Asia/Tokyo')
-                arrival_jst = arrival_time.astimezone(jst)
-                timestamp = self.generate_google_maps_timestamp(
-                    arrival_jst.year,
-                    arrival_jst.month,
-                    arrival_jst.day,
-                    arrival_jst.hour,
-                    arrival_jst.minute
-                )
-                data_parts.append(f"!2m3!6e1!7e2!8j{timestamp}")
-            data_parts.append("!3e3")
+                data_parts.append(f"!2m2!1d{dest_info['lon']}!2d{dest_info['lat']}")
+        
+        # 時刻指定
+        if arrival_time:
+            jst = pytz.timezone('Asia/Tokyo')
+            arrival_jst = arrival_time.astimezone(jst)
+            timestamp = self.generate_google_maps_timestamp(
+                arrival_jst.year,
+                arrival_jst.month,
+                arrival_jst.day,
+                arrival_jst.hour,
+                arrival_jst.minute
+            )
+            data_parts.append(f"!2m3!6e1!7e2!8j{timestamp}")
+        
+        # 公共交通機関モード
+        data_parts.append("!3e3")
         
         if data_parts:
             url += "data=" + "".join(data_parts)
@@ -379,128 +344,6 @@ class GoogleMapsScraper:
         logger.info("時刻設定完了")
         return True
     
-    def extract_detailed_info_from_text(self, text):
-        """
-        展開されたルートテキストから詳細情報を抽出
-        目標JSONフォーマットに合わせて抽出
-        """
-        detailed_info = {
-            'walk_to_station': None,
-            'walk_from_station': None,
-            'wait_time_minutes': None,
-            'station_used': None,
-            'trains': []
-        }
-        
-        try:
-            # 徒歩時間を抽出（約X分、Xmのパターン）
-            walk_pattern = re.findall(r'約\s*(\d+)\s*分[、,]\s*(\d+)\s*m', text)
-            if walk_pattern:
-                # 最初の徒歩 = 駅までの徒歩
-                detailed_info['walk_to_station'] = int(walk_pattern[0][0])
-                # 最後の徒歩 = 駅からの徒歩
-                if len(walk_pattern) > 1:
-                    detailed_info['walk_from_station'] = int(walk_pattern[-1][0])
-            
-            # 使用駅を抽出（「XXX駅から」のパターン）
-            station_from_pattern = re.search(r'([^\s]+駅)から\s*(\d+:\d+)', text)
-            if station_from_pattern:
-                detailed_info['station_used'] = station_from_pattern.group(1).replace('駅', '')
-                first_train_departure = station_from_pattern.group(2)
-            else:
-                # 別のパターン: 時刻の後に駅名
-                alt_pattern = re.search(r'(\d+:\d+)\s*([^\s]+駅)', text)
-                if alt_pattern:
-                    detailed_info['station_used'] = alt_pattern.group(2).replace('駅', '')
-                    first_train_departure = alt_pattern.group(1)
-                else:
-                    first_train_departure = None
-            
-            # 電車情報を抽出
-            # 路線名を探す（XX線のパターン）
-            lines_in_text = re.findall(r'((?:地下鉄)?[^\s]+線)', text)
-            
-            # 駅名を全て抽出
-            all_stations = re.findall(r'([^\s]+駅)', text)
-            
-            # 時刻を全て抽出
-            all_times = re.findall(r'(\d{1,2}:\d{2})', text)
-            
-            # 電車の詳細を構築
-            if lines_in_text:
-                # 重複を除去しつつ順序を保持
-                seen = set()
-                unique_lines = []
-                for line in lines_in_text:
-                    if line not in seen:
-                        seen.add(line)
-                        unique_lines.append(line)
-                
-                # 各路線について情報を構築
-                for i, line in enumerate(unique_lines[:3]):  # 最大3路線まで
-                    train_info = {
-                        'line': line.replace('地下鉄', ''),  # 「地下鉄」を除去
-                        'time': None,  # 乗車時間（分）
-                        'from': None,
-                        'to': None,
-                        'departure': None
-                    }
-                    
-                    # 出発時刻を設定
-                    if i == 0 and first_train_departure:
-                        train_info['departure'] = first_train_departure
-                    
-                    # 駅情報を設定
-                    if i < len(all_stations) - 1:
-                        train_info['from'] = all_stations[i].replace('駅', '')
-                        if i + 1 < len(all_stations):
-                            train_info['to'] = all_stations[i + 1].replace('駅', '')
-                    
-                    # 乗車時間を推定（次の時刻との差分から）
-                    if train_info['departure'] and len(all_times) > 1:
-                        try:
-                            dep_idx = all_times.index(train_info['departure'])
-                            if dep_idx + 1 < len(all_times):
-                                dep_time = datetime.strptime(train_info['departure'], '%H:%M')
-                                arr_time = datetime.strptime(all_times[dep_idx + 1], '%H:%M')
-                                duration = (arr_time - dep_time).seconds // 60
-                                if 0 < duration < 120:  # 妥当な範囲の時間のみ
-                                    train_info['time'] = duration
-                        except:
-                            pass
-                    
-                    detailed_info['trains'].append(train_info)
-            
-            # 待機時間の計算（出発時刻と駅到着時刻の差）
-            if first_train_departure and all_times:
-                try:
-                    # 全体の出発時刻（最初の時刻）
-                    overall_departure = all_times[0]
-                    # 駅からの出発時刻
-                    if first_train_departure in all_times:
-                        overall_dep = datetime.strptime(overall_departure, '%H:%M')
-                        train_dep = datetime.strptime(first_train_departure, '%H:%M')
-                        
-                        # 徒歩時間を考慮した待機時間
-                        total_to_station_time = (train_dep - overall_dep).seconds // 60
-                        if detailed_info['walk_to_station']:
-                            wait_time = total_to_station_time - detailed_info['walk_to_station']
-                            if 0 <= wait_time < 30:  # 妥当な範囲
-                                detailed_info['wait_time_minutes'] = wait_time
-                except:
-                    pass
-            
-            # デフォルト値の設定
-            if detailed_info['wait_time_minutes'] is None:
-                detailed_info['wait_time_minutes'] = 3  # デフォルト3分
-            
-            logger.info(f"詳細情報抽出完了: 駅まで{detailed_info['walk_to_station']}分, 駅から{detailed_info['walk_from_station']}分, 使用駅:{detailed_info['station_used']}, 電車{len(detailed_info['trains'])}本")
-            
-        except Exception as e:
-            logger.warning(f"詳細情報抽出エラー: {e}")
-        
-        return detailed_info
-    
     def extract_route_details(self):
         """ルート詳細を抽出（改良版）"""
         try:
@@ -509,19 +352,10 @@ class GoogleMapsScraper:
             
             if not route_elements:
                 # 要素がない場合のみ待機
-                logger.warning(f"ルート要素が見つかりません。待機中...")
-                wait = WebDriverWait(self.driver, 5)  # 20秒から5秒に短縮
-                try:
-                    route_elements = wait.until(
-                        EC.presence_of_all_elements_located((By.XPATH, "//div[@data-trip-index]"))
-                    )
-                except TimeoutException:
-                    logger.error(f"ルート要素の待機タイムアウト")
-                    # HTMLを保存してデバッグ
-                    with open('/app/output/japandatascience.com/timeline-mapping/api/timeout_debug.html', 'w') as f:
-                        f.write(self.driver.page_source)
-                    logger.info("デバッグ用HTMLを保存: timeout_debug.html")
-                    return []
+                wait = WebDriverWait(self.driver, 20)
+                route_elements = wait.until(
+                    EC.presence_of_all_elements_located((By.XPATH, "//div[@data-trip-index]"))
+                )
             
             logger.info(f"{len(route_elements)}個のルートを検出")
             
@@ -581,10 +415,6 @@ class GoogleMapsScraper:
                         'train_lines': train_lines,
                         'summary': text[:200]
                     }
-                    
-                    # 最初のルートに詳細情報を追加
-                    if i == 0 and 'detailed_info' in locals() and detailed_info:
-                        route_info.update(detailed_info)
                     
                     routes.append(route_info)
                     logger.info(f"ルート{i+1}: {travel_time}分 ({route_type}) 料金:{fare}円 路線:{','.join(train_lines)}")
@@ -672,14 +502,10 @@ class GoogleMapsScraper:
             url = self.build_url_with_timestamp(origin_info, dest_info, arrival_time)
             
             logger.info(f"📍 ルート検索: {dest_name or dest_address[:30]}...")
-            logger.info(f"URL: {url}")
+            logger.debug(f"URL: {url[:150]}...")
             
             self.driver.get(url)
             time.sleep(5)  # 初期ロード待機
-            
-            # 現在のURLを記録
-            current_url = self.driver.current_url
-            logger.info(f"📍 現在のURL: {current_url}")
             
             # ルート要素の存在を確認
             try:
@@ -687,157 +513,13 @@ class GoogleMapsScraper:
                 if route_elements:
                     # ルート要素が既に存在 = URLパラメータが適用済み
                     logger.info(f"✅ ルート要素検出（{len(route_elements)}個）- URLパラメータ適用済み")
-                    
-                    # 公共交通機関と時刻が既に設定されている場合はスキップ
-                    if '!3e3' in current_url and '!8j' in current_url:
-                        logger.info("✅ 公共交通機関モードと時刻指定は既に設定済み")
-                    else:
-                        # 時刻設定が必要な場合は先に設定
-                        if arrival_time:
-                            try:
-                                self.click_transit_and_set_time(arrival_time)
-                                time.sleep(3)  # 時刻設定後の再読み込みを待つ
-                                # ルート要素を再取得
-                                route_elements = self.driver.find_elements(By.XPATH, "//div[@data-trip-index]")
-                                logger.info(f"時刻設定後のルート要素: {len(route_elements)}個")
-                            except Exception as e:
-                                logger.warning(f"時刻設定エラー（続行）: {e}")
-                    
-                    # 「詳細」ボタンまたは最初のルート要素をクリックして詳細表示
-                    detailed_info = None
-                    
-                    # まず「詳細」ボタンを探してクリック
+                    # 最初のルートをクリックして詳細表示
                     try:
-                        # 詳細ボタンのセレクタ（複数パターン）
-                        detail_button_selectors = [
-                            "//button[contains(@id, 'section-directions-trip-details-msg-0')]",
-                            "//button[contains(., '詳細')]",
-                            "//button[contains(@class, 'TIQqpf') and contains(., '詳細')]",
-                            "//span[text()='詳細']/..",
-                            "//div[@data-trip-index='0']//button[contains(., '詳細')]"
-                        ]
-                        
-                        detail_clicked = False
-                        for selector in detail_button_selectors:
-                            try:
-                                detail_btn = self.driver.find_element(By.XPATH, selector)
-                                if detail_btn.is_displayed():
-                                    detail_btn.click()
-                                    logger.info("✅ 「詳細」ボタンをクリック")
-                                    detail_clicked = True
-                                    time.sleep(3)  # 詳細展開を待つ
-                                    break
-                            except:
-                                continue
-                        
-                        # 詳細ボタンが見つからない場合は、最初のルート要素全体をクリック
-                        if not detail_clicked and route_elements:
-                            route_elements[0].click()
-                            logger.info("最初のルート要素をクリックして詳細表示")
-                            time.sleep(3)
-                        
-                        # 展開された詳細情報を取得
-                        # 詳細ボタンクリック後、詳細情報が展開される
-                        try:
-                            # 複数のセレクタパターンを試す（詳細表示後のDOM構造）
-                            detail_selectors = [
-                                # 詳細情報を含む正確なコンテナ（HTMLから確認済み）
-                                "//div[@class='m6QErb WNBkOb XiKgde']",
-                                "//div[@class='m6QErb DxyBCb kA9KIf dS8AEf XiKgde']",
-                                # フォールバック：m6QErbクラスを含む要素
-                                "//div[contains(@class, 'm6QErb') and contains(@class, 'XiKgde')]",
-                                "//div[contains(@class, 'm6QErb')]"
-                            ]
-                            
-                            expanded_text = None
-                            for selector in detail_selectors:
-                                try:
-                                    expanded_element = self.driver.find_element(By.XPATH, selector)
-                                    expanded_text = expanded_element.text
-                                    if expanded_text and len(expanded_text) > 500:  # 詳細情報は長いはず
-                                        logger.info(f"✅ 詳細テキスト取得成功: {len(expanded_text)}文字")
-                                        # 取得内容の一部をログ出力（デバッグ用）
-                                        if "小川町駅" in expanded_text or "中河原駅" in expanded_text:
-                                            logger.info("✅ 駅名を含む詳細情報を確認")
-                                        break
-                                except:
-                                    continue
-                            
-                            if expanded_text:
-                                # 詳細情報を抽出
-                                detailed_info = self.extract_detailed_info_from_text(expanded_text)
-                                
-                                # 詳細情報が取得できた場合、基本情報も抽出して結果を返す
-                                if detailed_info and detailed_info.get('trains'):
-                                    # 所要時間を抽出
-                                    time_match = re.search(r'(\d+)\s*時間\s*(\d+)\s*分|(\d+)\s*分', expanded_text)
-                                    if time_match:
-                                        if time_match.group(1):  # 時間と分
-                                            travel_time = int(time_match.group(1)) * 60 + int(time_match.group(2))
-                                        else:  # 分のみ
-                                            travel_time = int(time_match.group(3))
-                                    else:
-                                        travel_time = 60  # デフォルト
-                                    
-                                    # 料金を抽出
-                                    fare_match = re.search(r'([\d,]+)\s*円', expanded_text)
-                                    fare = int(fare_match.group(1).replace(',', '')) if fare_match else None
-                                    
-                                    # 時刻を抽出
-                                    time_pattern = r'(\d{1,2}:\d{2})[^\d]*(?:\([^)]+\)[^\d]*)?\s*-\s*(\d{1,2}:\d{2})'
-                                    time_match = re.search(time_pattern, expanded_text)
-                                    if time_match:
-                                        departure_time = time_match.group(1)
-                                        arrival_time = time_match.group(2)
-                                    else:
-                                        departure_time = None
-                                        arrival_time = None
-                                    
-                                    # 詳細情報が取得できたので、結果を構築して返す
-                                    result = {
-                                        'success': True,
-                                        'origin': origin_address,
-                                        'destination': dest_address,
-                                        'destination_name': dest_name,
-                                        'travel_time': travel_time,
-                                        'departure_time': departure_time,
-                                        'arrival_time': arrival_time,
-                                        'fare': fare,
-                                        'route_type': '公共交通機関',
-                                        'train_lines': [train['line'] for train in detailed_info.get('trains', [])],
-                                        'walk_to_station': detailed_info.get('walk_to_station'),
-                                        'walk_from_station': detailed_info.get('walk_from_station'),
-                                        'wait_time_minutes': detailed_info.get('wait_time_minutes'),
-                                        'station_used': detailed_info.get('station_used'),
-                                        'trains': detailed_info.get('trains', []),
-                                        'place_ids': {
-                                            'origin': origin_info.get('place_id'),
-                                            'destination': dest_info.get('place_id')
-                                        },
-                                        'url': url
-                                    }
-                                    
-                                    logger.info("✅ 詳細情報から結果を構築しました")
-                                    return result
-                                
-                            else:
-                                # 最後の手段：ページ全体のテキストから抽出
-                                logger.warning("特定セレクタで取得できず、ページ全体から取得を試みます")
-                                try:
-                                    page_text = self.driver.find_element(By.XPATH, "//body").text
-                                    if "小川町駅" in page_text and "中河原駅" in page_text:
-                                        logger.info(f"✅ ページ全体から詳細情報を取得: {len(page_text)}文字")
-                                        detailed_info = self.extract_detailed_info_from_text(page_text)
-                                    else:
-                                        logger.warning("詳細テキストが取得できませんでした")
-                                except Exception as e:
-                                    logger.warning(f"ページ全体のテキスト取得失敗: {e}")
-                                
-                        except Exception as e:
-                            logger.warning(f"詳細テキスト取得エラー: {e}")
-                            
-                    except Exception as e:
-                        logger.warning(f"詳細表示クリックエラー: {e}")
+                        route_elements[0].click()
+                        time.sleep(2)
+                        logger.info("最初のルートをクリックして詳細表示")
+                    except:
+                        pass  # クリックできなくても続行
                 else:
                     # ルート要素なし = 手動で設定が必要
                     logger.info("ルート要素未検出 - 手動設定モードへ")
@@ -877,10 +559,6 @@ class GoogleMapsScraper:
                     'fare': shortest.get('fare'),
                     'route_type': shortest['route_type'],
                     'train_lines': shortest.get('train_lines', []),
-                    'walk_to_station': shortest.get('walk_to_station'),
-                    'walk_from_station': shortest.get('walk_from_station'),
-                    'wait_time_minutes': shortest.get('wait_time_minutes'),
-                    'trains': shortest.get('trains', []),
                     'all_routes': routes,
                     'place_ids': {
                         'origin': origin_info.get('place_id'),

@@ -1,0 +1,146 @@
+{
+  "property": "ルフォンプログレ神田プレミア",
+  "origin": "東京都千代田区神田須田町1-20-1",
+  "arrival_time": "2025-08-17T10:00:00+09:00",
+  "results": [
+    {
+      "destination": "Shizenkan University",
+      "success": true,
+      "travel_time": 8,
+      "route_type": "公共交通機関",
+      "fare": 180,
+      "train_lines": [
+        "銀座線"
+      ],
+      "departure_time": "12:44",
+      "arrival_time": "12:47",
+      "elapsed_seconds": 35.17982506752014,
+      "from_cache": false
+    },
+    {
+      "destination": "パラレルマーケターズ",
+      "success": true,
+      "travel_time": 33,
+      "route_type": "公共交通機関",
+      "fare": 230,
+      "train_lines": [
+        "中央線"
+      ],
+      "departure_time": "12:41",
+      "arrival_time": "12:48",
+      "elapsed_seconds": 30.673097133636475,
+      "from_cache": false
+    },
+    {
+      "destination": "ネクセンス",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "fare": 290,
+      "train_lines": [
+        "新宿線",
+        "有楽町線"
+      ],
+      "departure_time": "12:42",
+      "arrival_time": "12:50",
+      "elapsed_seconds": 38.46374249458313,
+      "from_cache": false
+    },
+    {
+      "destination": "メディファーマ",
+      "success": true,
+      "travel_time": 25,
+      "route_type": "公共交通機関",
+      "fare": null,
+      "train_lines": [
+        "新宿線",
+        "有楽町線"
+      ],
+      "departure_time": "12:48",
+      "arrival_time": "13:13",
+      "elapsed_seconds": 191.04372429847717,
+      "from_cache": false
+    },
+    {
+      "destination": "アクスル",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "fare": 180,
+      "train_lines": [
+        "銀座線",
+        "半蔵門線"
+      ],
+      "departure_time": "12:48",
+      "arrival_time": "12:51",
+      "elapsed_seconds": 80.56187176704407,
+      "from_cache": false
+    },
+    {
+      "destination": "早稲田大学",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "fare": 290,
+      "train_lines": [
+        "新宿線",
+        "東西線"
+      ],
+      "departure_time": "12:48",
+      "arrival_time": "12:56",
+      "elapsed_seconds": 78.02281308174133,
+      "from_cache": false
+    },
+    {
+      "destination": "羽田空港国際線",
+      "success": true,
+      "travel_time": 43,
+      "route_type": "公共交通機関",
+      "fare": 690,
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "departure_time": "12:51",
+      "arrival_time": "12:58",
+      "elapsed_seconds": 40.848902463912964,
+      "from_cache": false
+    },
+    {
+      "destination": "駒澤大学",
+      "success": true,
+      "travel_time": 46,
+      "route_type": "公共交通機関",
+      "fare": 390,
+      "train_lines": [
+        "銀座線",
+        "半蔵門線"
+      ],
+      "departure_time": "12:56",
+      "arrival_time": "12:59",
+      "elapsed_seconds": 31.96042037010193,
+      "from_cache": false
+    },
+    {
+      "destination": "府中オフィス",
+      "success": true,
+      "travel_time": 61,
+      "route_type": "公共交通機関",
+      "fare": 580,
+      "train_lines": [
+        "新宿線",
+        "京王線"
+      ],
+      "departure_time": "12:58",
+      "arrival_time": "13:06",
+      "elapsed_seconds": 39.94368886947632,
+      "from_cache": false
+    }
+  ],
+  "summary": {
+    "success_count": 9,
+    "cache_count": 0,
+    "total_time_seconds": 566.7822728157043,
+    "average_time_seconds": 62.97580809063382,
+    "estimated_speedup": 4.3
+  }
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "route_name": "Shizenkan University",
+    "success": true,
+    "data": {
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "fare": null,
+      "departure_time": "11:00",
+      "arrival_time": "11:07",
+      "train_lines": [
+        "銀座線"
+      ]
+    }
+  },
+  {
+    "route_name": "早稲田大学",
+    "success": true,
+    "data": {
+      "travel_time": 14,
+      "route_type": "公共交通機関",
+      "fare": null,
+      "departure_time": null,
+      "arrival_time": null,
+      "train_lines": [
+        "首都高速５号池袋線"
+      ]
+    }
+  },
+  {
+    "route_name": "府中オフィス",
+    "success": true,
+    "data": {
+      "travel_time": 58,
+      "route_type": "公共交通機関",
+      "fare": null,
+      "departure_time": null,
+      "arrival_time": null,
+      "train_lines": [
+        "首都高速４号新宿線",
+        "中央自動車道/富士吉田線/西宮線/長野線"
+      ]
+    }
+  }
+]

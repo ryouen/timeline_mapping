@@ -17,8 +17,8 @@
       "area": "35.23",
       "place_id": "ChIJ2Ua43XGJGGARPSxoO4VLD1A",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6663501,
+      "lon": 139.7868759
     },
     {
       "name": "J-FIRST CHIYODA 702",
@@ -47,8 +47,8 @@
       "area": "39.45",
       "place_id": "ChIJH2n11ESJGGAR5cQQ-WJHSS4",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6811684,
+      "lon": 139.7832707
     },
     {
       "name": "アーバンレジデンス神田富山町 302",
@@ -57,8 +57,8 @@
       "area": "39.98",
       "place_id": "ChIJU8npG6qOGGARHSzK_0V9uw4",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6933134,
+      "lon": 139.7738038
     },
     {
       "name": "グレイスリヴィエール東京八丁堀 702",
@@ -67,8 +67,8 @@
       "area": "42.16",
       "place_id": "ChIJQ9jyU1KJGGARo9RZHNC6CUc",
       "place_id_format": "ChIJ",
-      "lat": 35.6723538,
-      "lon": 139.7810225
+      "lat": null,
+      "lon": null
     },
     {
       "name": "クレスト五番町 801",
@@ -87,8 +87,8 @@
       "area": "36.27",
       "place_id": "ChIJ7354t7KOGGAR_jrqXsBWKO0",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6938036,
+      "lon": 139.7842232
     },
     {
       "name": "コルティーレ日本橋人形町 501",
@@ -97,8 +97,8 @@
       "area": "36.10",
       "place_id": "ChIJsW3QhlGJGGARPrdlV8vnuwc",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6871608,
+      "lon": 139.78091
     },
     {
       "name": "シティインデックス千代田秋葉原 701",
@@ -177,8 +177,8 @@
       "area": "37.49",
       "place_id": "ChIJs8i8a12JGGAR9EQ0jwPaiQo",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6746534,
+      "lon": 139.7817128
     },
     {
       "name": "PEAKS神田 1005",
@@ -187,8 +187,8 @@
       "area": "35.74",
       "place_id": "ChIJQVxDHyiPGGARJLaKiOI2xBs",
       "place_id_format": "ChIJ",
-      "lat": null,
-      "lon": null
+      "lat": 35.6914125,
+      "lon": 139.7745842
     },
     {
       "name": "ルフォンプログレ神田プレミア 0706",

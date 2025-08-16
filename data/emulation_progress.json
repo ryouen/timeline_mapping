@@ -1,0 +1,279 @@
+{
+  "total_routes": 18,
+  "completed": 18,
+  "success": 16,
+  "failed": 2,
+  "routes": [
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "shizenkan_university",
+      "destination_name": "Shizenkan University",
+      "success": true,
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 36.894853830337524,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "tokyo_american_club",
+      "destination_name": "東京アメリカンクラブ",
+      "success": true,
+      "travel_time": 7,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": 180,
+      "processing_time": 34.16007947921753,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "axle_ochanomizu",
+      "destination_name": "axle御茶ノ水",
+      "success": true,
+      "travel_time": 13,
+      "route_type": "不明",
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 36.13361310958862,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "yawara",
+      "destination_name": "Yawara",
+      "success": true,
+      "travel_time": 33,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "山手線"
+      ],
+      "fare": null,
+      "processing_time": 36.30148935317993,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "kamiyacho_ee",
+      "destination_name": "神谷町(EE)",
+      "success": true,
+      "travel_time": 24,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "日比谷線"
+      ],
+      "fare": null,
+      "processing_time": 38.19876480102539,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "waseda_university",
+      "destination_name": "早稲田大学",
+      "success": true,
+      "travel_time": 32,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線",
+        "東西線"
+      ],
+      "fare": 210,
+      "processing_time": 36.61870765686035,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "tokyo_station",
+      "destination_name": "東京駅",
+      "success": true,
+      "travel_time": 11,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "京浜東北線"
+      ],
+      "fare": 150,
+      "processing_time": 35.96662473678589,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "haneda_airport",
+      "destination_name": "羽田空港",
+      "success": true,
+      "travel_time": 58,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "山手線"
+      ],
+      "fare": 790,
+      "processing_time": 36.22998023033142,
+      "error": null
+    },
+    {
+      "property_id": "property_1",
+      "property_name": "ルフォンプログレ神田プレミア",
+      "destination_id": "fuchu_office",
+      "destination_name": "府中オフィス",
+      "success": true,
+      "travel_time": 61,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "中央線",
+        "京王線"
+      ],
+      "fare": null,
+      "processing_time": 41.143197774887085,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "shizenkan_university",
+      "destination_name": "Shizenkan University",
+      "success": true,
+      "travel_time": 19,
+      "route_type": "公共交通機関",
+      "train_lines": [],
+      "fare": 210,
+      "processing_time": 36.17853927612305,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "tokyo_american_club",
+      "destination_name": "東京アメリカンクラブ",
+      "success": true,
+      "travel_time": 26,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "銀座線"
+      ],
+      "fare": null,
+      "processing_time": 36.174965620040894,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "axle_ochanomizu",
+      "destination_name": "axle御茶ノ水",
+      "success": true,
+      "travel_time": 29,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "千代田線"
+      ],
+      "fare": 180,
+      "processing_time": 36.79472517967224,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "yawara",
+      "destination_name": "Yawara",
+      "success": true,
+      "travel_time": 39,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "千代田線"
+      ],
+      "fare": 210,
+      "processing_time": 37.03717017173767,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "kamiyacho_ee",
+      "destination_name": "神谷町(EE)",
+      "success": true,
+      "travel_time": 30,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "日比谷線"
+      ],
+      "fare": null,
+      "processing_time": 37.220473289489746,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "waseda_university",
+      "destination_name": "早稲田大学",
+      "success": true,
+      "travel_time": 40,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "大江戸線",
+        "東西線"
+      ],
+      "fare": 320,
+      "processing_time": 37.82633328437805,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "tokyo_station",
+      "destination_name": "東京駅",
+      "success": true,
+      "travel_time": 23,
+      "route_type": "公共交通機関",
+      "train_lines": [
+        "有楽町線",
+        "京浜東北線"
+      ],
+      "fare": 330,
+      "processing_time": 38.908552169799805,
+      "error": null
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "haneda_airport",
+      "destination_name": "羽田空港",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 678.2885076999664,
+      "error": "タイムアウト"
+    },
+    {
+      "property_id": "property_2",
+      "property_name": "テラス月島 801",
+      "destination_id": "fuchu_office",
+      "destination_name": "府中オフィス",
+      "success": false,
+      "travel_time": null,
+      "route_type": null,
+      "train_lines": [],
+      "fare": null,
+      "processing_time": 240.0665032863617,
+      "error": "Message: timeout: Timed out receiving message from renderer: 60.000\n  (Session info: chrome=138.0.7204.157)\nStacktrace:\n#0 0x55a334e407da <unknown>\n#1 0x55a3348e52e0 <unknown>\n#2 0x55a3348cd46c <unknown>\n#3 0x55a3348cd175 <unknown>\n#4 0x55a3348cafd5 <unknown>\n#5 0x55a3348cb92f <unknown>\n#6 0x55a3348da3e3 <unknown>\n#7 0x55a3348f383e <unknown>\n#8 0x55a3348fa07b <unknown>\n#9 0x55a3348cc070 <unknown>\n#10 0x55a3348f3499 <unknown>\n#11 0x55a3349825f6 <unknown>\n#12 0x55a33495c683 <unknown>\n#13 0x55a334928b5b <unknown>\n#14 0x55a334929f31 <unknown>\n#15 0x55a334e0572b <unknown>\n#16 0x55a334e09534 <unknown>\n#17 0x55a334dec229 <unknown>\n#18 0x55a334e0a0d8 <unknown>\n#19 0x55a334dd061f <unknown>\n#20 0x55a334e2ddd8 <unknown>\n#21 0x55a334e2dfb6 <unknown>\n#22 0x55a334e3faf6 <unknown>\n#23 0x7f48b1b90aa4 <unknown>\n#24 0x7f48b1c1da34 __clone\n"
+    }
+  ]
+}

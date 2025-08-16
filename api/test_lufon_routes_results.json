@@ -1,0 +1,79 @@
+{
+  "test_timestamp": "2025-08-16T16:00:10.775936",
+  "property": {
+    "name": "ルフォンプログレ神田プレミア",
+    "address": "東京都千代田区神田須田町1-20-1",
+    "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg"
+  },
+  "arrival_time": "2025-08-18T10:00:00+09:00",
+  "results": [
+    {
+      "destination": "Shizenkan University",
+      "success": true,
+      "travel_time": 8,
+      "fare": null,
+      "has_time": true
+    },
+    {
+      "destination": "東京アメリカンクラブ",
+      "success": true,
+      "travel_time": 7,
+      "fare": 180,
+      "has_time": true
+    },
+    {
+      "destination": "axle御茶ノ水",
+      "success": true,
+      "travel_time": 13,
+      "fare": null,
+      "has_time": false
+    },
+    {
+      "destination": "Yawara",
+      "success": true,
+      "travel_time": 17,
+      "fare": null,
+      "has_time": false
+    },
+    {
+      "destination": "神谷町(EE)",
+      "success": true,
+      "travel_time": 14,
+      "fare": null,
+      "has_time": false
+    },
+    {
+      "destination": "早稲田大学",
+      "success": true,
+      "travel_time": 12,
+      "fare": null,
+      "has_time": false
+    },
+    {
+      "destination": "東京駅",
+      "success": true,
+      "travel_time": 11,
+      "fare": null,
+      "has_time": true
+    },
+    {
+      "destination": "羽田空港",
+      "success": true,
+      "travel_time": 25,
+      "fare": null,
+      "has_time": false
+    },
+    {
+      "destination": "府中オフィス",
+      "success": true,
+      "travel_time": 35,
+      "fare": null,
+      "has_time": false
+    }
+  ],
+  "summary": {
+    "success_count": 9,
+    "time_extraction_count": 3,
+    "average_travel_time": 15.777777777777779
+  }
+}

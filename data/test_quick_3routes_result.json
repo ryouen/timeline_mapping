@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Shizenkan（近距離）",
+    "success": true,
+    "time": 8,
+    "type": "公共交通機関",
+    "lines": [
+      "銀座線"
+    ],
+    "fare": 180,
+    "elapsed_seconds": 177.47500014305115
+  },
+  {
+    "name": "早稲田大学（中距離）",
+    "success": true,
+    "time": 34,
+    "type": "公共交通機関",
+    "lines": [
+      "東西線",
+      "新宿線"
+    ],
+    "fare": null,
+    "elapsed_seconds": 172.53945922851562
+  },
+  {
+    "name": "府中（長距離）",
+    "success": true,
+    "time": 57,
+    "type": "公共交通機関",
+    "lines": [
+      "中央線",
+      "京王線"
+    ],
+    "fare": null,
+    "elapsed_seconds": 170.82819271087646
+  }
+]

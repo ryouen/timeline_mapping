@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps 統合テスト</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .test-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .status.running {
+            background: #FFF3CD;
+            color: #856404;
+        }
+        .status.success {
+            background: #D4EDDA;
+            color: #155724;
+        }
+        .status.error {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+        .status.timeout {
+            background: #FFE5B4;
+            color: #8B4513;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .info-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .details-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 5px;
+        }
+        .train-info {
+            background: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+        .error-box {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .warning-box {
+            background: #fff3e0;
+            color: #e65100;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .json-output {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre;
+        }
+        .test-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .test-button:hover {
+            background: #45a049;
+        }
+        .test-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .progress-log {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry {
+            margin: 2px 0;
+            padding: 2px 5px;
+        }
+        .log-entry.info { color: #0066cc; }
+        .log-entry.success { color: #008800; }
+        .log-entry.warning { color: #ff8800; }
+        .log-entry.error { color: #cc0000; }
+        .hardcoded-check {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+        .check-item {
+            padding: 5px 0;
+        }
+        .check-item.pass::before {
+            content: "✅ ";
+        }
+        .check-item.fail::before {
+            content: "❌ ";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚇 Google Maps ルート詳細抽出テスト</h1>
+    
+    <div class="test-container">
+        <div class="test-header">
+            <h2>テストケース: ルフォンプログレ → 東京駅</h2>
+            <span id="status" class="status running">準備中</span>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">出発地</div>
+                <div class="info-value">ルフォンプログレ</div>
+                <small>東京都千代田区神田須田町1-20-1</small>
+            </div>
+            <div class="info-card">
+                <div class="info-label">目的地</div>
+                <div class="info-value">東京駅</div>
+                <small>JR・メトロ各線</small>
+            </div>
+            <div class="info-card">
+                <div class="info-label">到着時刻</div>
+                <div class="info-value" id="arrival-time">明日 17:00</div>
+            </div>
+        </div>
+        
+        <button id="test-button" class="test-button" onclick="runTest()">テスト実行</button>
+        
+        <div class="progress-log" id="progress-log">
+            <div class="log-entry info">テストを開始するには上のボタンをクリックしてください</div>
+        </div>
+    </div>
+    
+    <div id="results" style="display:none;">
+        <div class="test-container">
+            <h3>📊 基本情報</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">所要時間</div>
+                    <div class="info-value" id="travel-time">-</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">料金</div>
+                    <div class="info-value" id="fare">-</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">ルートタイプ</div>
+                    <div class="info-value" id="route-type">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-container">
+            <h3>🚶 詳細情報</h3>
+            <div id="details-content">
+                <div class="warning-box">詳細情報を取得中...</div>
+            </div>
+        </div>
+        
+        <div class="test-container">
+            <h3>🔍 ハードコード値チェック</h3>
+            <div class="hardcoded-check" id="hardcoded-check">
+                <div class="check-item">チェック中...</div>
+            </div>
+        </div>
+        
+        <div class="test-container">
+            <h3>📄 JSON出力</h3>
+            <div class="json-output" id="json-output">
+                // JSONデータがここに表示されます
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let testRunning = false;
+        
+        function addLog(message, type = 'info') {
+            const log = document.getElementById('progress-log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const time = new Date().toLocaleTimeString('ja-JP');
+            entry.textContent = `[${time}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+        
+        async function runTest() {
+            if (testRunning) return;
+            
+            testRunning = true;
+            const button = document.getElementById('test-button');
+            const status = document.getElementById('status');
+            
+            button.disabled = true;
+            button.textContent = '実行中...';
+            status.className = 'status running';
+            status.textContent = '実行中';
+            
+            // ログクリア
+            document.getElementById('progress-log').innerHTML = '';
+            addLog('テスト開始', 'info');
+            
+            // 明日の17時を設定
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(17, 0, 0, 0);
+            document.getElementById('arrival-time').textContent = 
+                tomorrow.toLocaleDateString('ja-JP') + ' 17:00';
+            
+            addLog('WebDriverを初期化中...', 'info');
+            
+            try {
+                // PHPエンドポイントを呼び出し
+                addLog('Google Mapsにアクセス中...', 'info');
+                
+                const response = await fetch('/timeline-mapping/api/test_integration.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        origin: '東京都千代田区神田須田町1-20-1',
+                        destination: '東京駅',
+                        arrival_time: tomorrow.toISOString()
+                    })
+                });
+                
+                // タイムアウトチェック
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    addLog('データ取得成功！', 'success');
+                    displayResults(data);
+                    status.className = 'status success';
+                    status.textContent = '成功';
+                } else {
+                    addLog(`エラー: ${data.error}`, 'error');
+                    if (data.timeout_info) {
+                        displayTimeoutInfo(data.timeout_info);
+                    }
+                    status.className = 'status error';
+                    status.textContent = 'エラー';
+                }
+                
+            } catch (error) {
+                addLog(`エラー発生: ${error.message}`, 'error');
+                
+                // タイムアウトの詳細を表示
+                if (error.message.includes('timeout')) {
+                    status.className = 'status timeout';
+                    status.textContent = 'タイムアウト';
+                    displayTimeoutAnalysis();
+                } else {
+                    status.className = 'status error';
+                    status.textContent = 'エラー';
+                }
+            } finally {
+                button.disabled = false;
+                button.textContent = 'テスト実行';
+                testRunning = false;
+            }
+        }
+        
+        function displayTimeoutAnalysis() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.style.display = 'block';
+            
+            const detailsContent = document.getElementById('details-content');
+            detailsContent.innerHTML = `
+                <div class="error-box">
+                    <h4>⏱️ タイムアウト分析</h4>
+                    <p><strong>タイムアウト箇所の可能性：</strong></p>
+                    <ol>
+                        <li><strong>WebDriver初期化</strong> - Seleniumコンテナとの接続に時間がかかっている</li>
+                        <li><strong>Google Maps読み込み</strong> - ページロードが完了しない</li>
+                        <li><strong>ルート要素待機</strong> - data-trip-index要素が見つからない（20秒待機）</li>
+                        <li><strong>詳細ボタンクリック</strong> - 詳細展開に失敗して無限ループ</li>
+                        <li><strong>ステップ情報抽出</strong> - 複数のセレクタで要素を探索中</li>
+                    </ol>
+                    <p><strong>推定原因：</strong></p>
+                    <ul>
+                        <li>Google Mapsの構造が変更された</li>
+                        <li>URLパラメータが正しく適用されていない</li>
+                        <li>詳細ボタンが存在しない、または異なるセレクタ</li>
+                    </ul>
+                </div>
+            `;
+            
+            addLog('タイムアウト発生 - 2分以上応答なし', 'error');
+            addLog('考えられる原因: WebDriver待機、要素検索の無限ループ', 'warning');
+        }
+        
+        function displayResults(data) {
+            document.getElementById('results').style.display = 'block';
+            
+            // 基本情報
+            document.getElementById('travel-time').textContent = 
+                data.travel_time ? `${data.travel_time}分` : '-';
+            document.getElementById('fare').textContent = 
+                data.fare ? `${data.fare}円` : '-';
+            document.getElementById('route-type').textContent = 
+                data.route_type || '-';
+            
+            // 詳細情報
+            if (data.details) {
+                displayDetails(data.details);
+                checkHardcodedValues(data.details);
+            } else {
+                document.getElementById('details-content').innerHTML = 
+                    '<div class="warning-box">詳細情報が取得できませんでした</div>';
+            }
+            
+            // JSON出力
+            document.getElementById('json-output').textContent = 
+                JSON.stringify(data, null, 2);
+        }
+        
+        function displayDetails(details) {
+            let html = '<div class="details-section">';
+            
+            if (details.walk_to_station !== undefined) {
+                html += `<p>🚶 駅までの徒歩: <strong>${details.walk_to_station}分</strong></p>`;
+            }
+            
+            if (details.station_used) {
+                html += `<p>🚉 利用駅: <strong>${details.station_used}</strong></p>`;
+            }
+            
+            if (details.trains && details.trains.length > 0) {
+                html += '<h4>🚃 電車情報</h4>';
+                details.trains.forEach((train, i) => {
+                    html += `
+                        <div class="train-info">
+                            <strong>${i + 1}. ${train.line || '路線不明'}</strong><br>
+                            ${train.from || '?'} → ${train.to || '?'}<br>
+                            乗車時間: ${train.time || '?'}分
+                        </div>
+                    `;
+                });
+            }
+            
+            if (details.walk_from_station !== undefined) {
+                html += `<p>🚶 駅からの徒歩: <strong>${details.walk_from_station}分</strong></p>`;
+            }
+            
+            if (details.wait_time_minutes !== undefined) {
+                html += `<p>⏱️ 待ち時間: <strong>${details.wait_time_minutes}分</strong></p>`;
+            }
+            
+            html += '</div>';
+            document.getElementById('details-content').innerHTML = html;
+        }
+        
+        function checkHardcodedValues(details) {
+            const checks = [];
+            let hasHardcoded = false;
+            
+            // ハードコード値のチェック
+            if (details.walk_to_station === 5) {
+                checks.push('<div class="check-item fail">walk_to_station = 5 (ハードコード値)</div>');
+                hasHardcoded = true;
+            }
+            
+            if (details.walk_from_station === 5) {
+                checks.push('<div class="check-item fail">walk_from_station = 5 (ハードコード値)</div>');
+                hasHardcoded = true;
+            }
+            
+            if (details.wait_time_minutes === 3) {
+                checks.push('<div class="check-item fail">wait_time_minutes = 3 (ハードコード値)</div>');
+                hasHardcoded = true;
+            }
+            
+            if (details.station_used === '不明') {
+                checks.push('<div class="check-item fail">station_used = "不明" (デフォルト値)</div>');
+                hasHardcoded = true;
+            }
+            
+            if (details.trains) {
+                details.trains.forEach((train, i) => {
+                    if (train.line === '電車') {
+                        checks.push(`<div class="check-item fail">trains[${i}].line = "電車" (汎用値)</div>`);
+                        hasHardcoded = true;
+                    }
+                    if (train.time === 10) {
+                        checks.push(`<div class="check-item fail">trains[${i}].time = 10 (デフォルト値)</div>`);
+                        hasHardcoded = true;
+                    }
+                    if (train.from === '不明' || train.to === '不明') {
+                        checks.push(`<div class="check-item fail">trains[${i}] に "不明" が含まれる</div>`);
+                        hasHardcoded = true;
+                    }
+                });
+            }
+            
+            if (!hasHardcoded) {
+                checks.push('<div class="check-item pass">ハードコード値は検出されませんでした</div>');
+            }
+            
+            document.getElementById('hardcoded-check').innerHTML = checks.join('');
+        }
+    </script>
+</body>
+</html>

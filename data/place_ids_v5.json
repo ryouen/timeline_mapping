@@ -1,0 +1,409 @@
+{
+  "destinations": {
+    "Shizenkan University": {
+      "place_id": "0x601889d738b39701:0x996fd0bd4cfffd56",
+      "lat": "35.6814238",
+      "lon": "139.773935",
+      "normalized_address": "東京都中央区日本橋2-5-1",
+      "original_address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階"
+    },
+    "東京アメリカンクラブ": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区日本橋室町3-2-1",
+      "original_address": "東京都中央区日本橋室町３丁目２−１"
+    },
+    "axle御茶ノ水": {
+      "place_id": "0x60188c1a868823d9:0x2a3ffeb1adb0d843",
+      "lat": "35.6960075",
+      "lon": "139.7631297",
+      "normalized_address": "東京都千代田区神田小川町3-28-5",
+      "original_address": "東京都千代田区神田小川町３丁目２８−５"
+    },
+    "Yawara": {
+      "place_id": "0x60188ca49985cf27:0x84d5e5011192e5f0",
+      "lat": "35.6696497",
+      "lon": "139.7059439",
+      "normalized_address": "東京都渋谷区神宮前1-8-10",
+      "original_address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階"
+    },
+    "神谷町(EE)": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都港区虎ノ門4-2-6",
+      "original_address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F"
+    },
+    "早稲田大学": {
+      "place_id": "0x60188d1b6d63be11:0x55d19fbb3e5a53e3",
+      "lat": "35.7098401",
+      "lon": "139.7198965",
+      "normalized_address": "東京都新宿区西早稲田1-611",
+      "original_address": "東京都新宿区西早稲田１丁目６ 11号館"
+    },
+    "東京駅": {
+      "place_id": "0x60188bf97912d02d:0xee1220ee8337117",
+      "lat": "35.6815001",
+      "lon": "139.7654987",
+      "normalized_address": "東京都千代田区丸の内1丁目",
+      "original_address": "東京都千代田区丸の内１丁目"
+    },
+    "羽田空港": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都大田区羽田空港3-3-2",
+      "original_address": "東京都大田区羽田空港3-3-2"
+    },
+    "府中オフィス": {
+      "place_id": "0x6018e499970c7047:0xdb690c7138c3ab0a",
+      "lat": "35.6559218",
+      "lon": "139.4549699",
+      "normalized_address": "東京都府中市住吉町5-22-5",
+      "original_address": "東京都府中市住吉町５丁目２２−５"
+    }
+  },
+  "properties": {
+    "ルフォンプログレ神田プレミア": {
+      "place_id": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+      "lat": "35.6949994",
+      "lon": "139.7711379",
+      "normalized_address": "東京都千代田区神田須田町1-20-1",
+      "original_address": "東京都千代田区 神田須田町１丁目２０−１"
+    },
+    "PEAKS神田 1005": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区神田西福田町4-7",
+      "original_address": "東京都千代田区神田西福田町4-7"
+    },
+    "ルフォンプログレ神田プレミア 0706": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区神田須田町1丁目",
+      "original_address": "東京都千代田区神田須田町1丁目"
+    },
+    "パトリス神保町 1101": {
+      "place_id": "0x60188c146e386777:0x7942d268d34dcf5d",
+      "lat": "35.6963033",
+      "lon": "139.7558627",
+      "normalized_address": "東京都千代田区神田神保町二丁目4-64",
+      "original_address": "東京都千代田区神田神保町二丁目4番64号"
+    },
+    "カスタリア人形町 111": {
+      "place_id": "0x60188951aa39b621:0x85e3108133aecca8",
+      "lat": "35.6851915",
+      "lon": "139.7806643",
+      "normalized_address": "東京都中央区日本橋人形町1-2-3",
+      "original_address": "東京都中央区日本橋人形町1丁目2-3"
+    },
+    "RODIA日本橋茅場町 0407": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区新川1丁目",
+      "original_address": "東京都中央区新川1丁目"
+    },
+    "テラス月島 801": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区佃2-22-3",
+      "original_address": "東京都中央区佃2丁目 22-3"
+    },
+    "J-FIRST CHIYODA 702": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区外神田2-8-14",
+      "original_address": "東京都千代田区外神田2丁目 8-14"
+    },
+    "ザ・パークハビオ日本橋箱崎町 204": {
+      "place_id": "0x601889438e75027d:0x158d13453eb60eb6",
+      "lat": "35.67993",
+      "lon": "139.7866313",
+      "normalized_address": "東京都中央区日本橋箱崎町",
+      "original_address": "東京都中央区日本橋箱崎町"
+    },
+    "DaiDo ANNEX 402": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区日本橋蛎殻町1-2-4",
+      "original_address": "東京都中央区日本橋蛎殻町1丁目2-4"
+    },
+    "アーバンレジデンス神田富山町 302": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区神田富山町29地",
+      "original_address": "東京都千代田区神田富山町 29番地"
+    },
+    "グレイスリヴィエール東京八丁堀 702": {
+      "place_id": "0x6018895253f2d843:0x4709bad01c59d4a3",
+      "lat": "35.6723538",
+      "lon": "139.7810225",
+      "normalized_address": "東京都中央区湊1-14-17",
+      "original_address": "東京都中央区湊1丁目 14-17"
+    },
+    "クレスト五番町 801": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区五番町6-5",
+      "original_address": "東京都千代田区五番町 6-5"
+    },
+    "ゼンパレス日本橋 702": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区日本橋横山町7-16",
+      "original_address": "東京都中央区日本橋横山町 7-16"
+    },
+    "コルティーレ日本橋人形町 501": {
+      "place_id": "0x6018895186d06db1:0x7bbe7cb5765b73e",
+      "lat": "35.6871608",
+      "lon": "139.78091",
+      "normalized_address": "東京都中央区日本橋堀留町1-8-2",
+      "original_address": "東京都中央区日本橋堀留町1丁目8-2"
+    },
+    "シティインデックス千代田秋葉原 701": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都千代田区神田佐久間町3丁目",
+      "original_address": "東京都千代田区神田佐久間町3丁目"
+    },
+    "レジディア月島III 1201": {
+      "place_id": "0x6018897a5f5860bb:0x38fc0037b57209d7",
+      "lat": "35.6623318",
+      "lon": "139.7815581",
+      "normalized_address": "東京都中央区月島3-12-4",
+      "original_address": "東京都中央区月島3丁目 12-4"
+    },
+    "セレサ日本橋堀留町 605": {
+      "place_id": "0x60188951888239c3:0x979590e83f16f667",
+      "lat": "35.6872632",
+      "lon": "139.7811737",
+      "normalized_address": "東京都中央区日本橋堀留町1-8-13",
+      "original_address": "東京都中央区日本橋堀留町1丁目8-13"
+    },
+    "La Belle 三越前 702": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区日本橋本町1丁目",
+      "original_address": "東京都中央区日本橋本町1丁目"
+    },
+    "アイル秋葉原EAST 307": {
+      "place_id": "0x60188eae0ec53431:0xca329b8f370aa270",
+      "lat": "35.6973763",
+      "lon": "139.7822506",
+      "normalized_address": "東京都千代田区東神田3-6-6",
+      "original_address": "東京都千代田区東神田3丁目 6-6"
+    },
+    "シティハウス東京八重洲通り 1502": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "normalized_address": "東京都中央区新川2-18-1",
+      "original_address": "東京都中央区新川2丁目18-1"
+    },
+    "リベルテ月島 604": {
+      "place_id": "0x6018896e260f5c7b:0x507f30e4423afb62",
+      "lat": "35.6668437",
+      "lon": "139.7863167",
+      "normalized_address": "東京都中央区佃2-12-1",
+      "original_address": "東京都中央区佃2丁目 12-1"
+    }
+  },
+  "unique_addresses": {
+    "東京都千代田区神田須田町1-20-1": {
+      "place_id": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+      "lat": "35.6949994",
+      "lon": "139.7711379",
+      "names": [
+        "ルフォンプログレ神田プレミア"
+      ]
+    },
+    "東京都千代田区神田西福田町4-7": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "PEAKS神田 1005"
+      ]
+    },
+    "東京都千代田区神田須田町1丁目": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "ルフォンプログレ神田プレミア 0706"
+      ]
+    },
+    "東京都千代田区神田神保町二丁目4-64": {
+      "place_id": "0x60188c146e386777:0x7942d268d34dcf5d",
+      "lat": "35.6963033",
+      "lon": "139.7558627",
+      "names": [
+        "パトリス神保町 1101"
+      ]
+    },
+    "東京都中央区日本橋人形町1-2-3": {
+      "place_id": "0x60188951aa39b621:0x85e3108133aecca8",
+      "lat": "35.6851915",
+      "lon": "139.7806643",
+      "names": [
+        "カスタリア人形町 111"
+      ]
+    },
+    "東京都中央区新川1丁目": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "RODIA日本橋茅場町 0407"
+      ]
+    },
+    "東京都中央区佃2-22-3": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "テラス月島 801"
+      ]
+    },
+    "東京都千代田区外神田2-8-14": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "J-FIRST CHIYODA 702"
+      ]
+    },
+    "東京都中央区日本橋箱崎町": {
+      "place_id": "0x601889438e75027d:0x158d13453eb60eb6",
+      "lat": "35.67993",
+      "lon": "139.7866313",
+      "names": [
+        "ザ・パークハビオ日本橋箱崎町 204"
+      ]
+    },
+    "東京都中央区日本橋蛎殻町1-2-4": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "DaiDo ANNEX 402"
+      ]
+    },
+    "東京都千代田区神田富山町29地": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "アーバンレジデンス神田富山町 302"
+      ]
+    },
+    "東京都中央区湊1-14-17": {
+      "place_id": "0x6018895253f2d843:0x4709bad01c59d4a3",
+      "lat": "35.6723538",
+      "lon": "139.7810225",
+      "names": [
+        "グレイスリヴィエール東京八丁堀 702"
+      ]
+    },
+    "東京都千代田区五番町6-5": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "クレスト五番町 801"
+      ]
+    },
+    "東京都中央区日本橋横山町7-16": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "ゼンパレス日本橋 702"
+      ]
+    },
+    "東京都中央区日本橋堀留町1-8-2": {
+      "place_id": "0x6018895186d06db1:0x7bbe7cb5765b73e",
+      "lat": "35.6871608",
+      "lon": "139.78091",
+      "names": [
+        "コルティーレ日本橋人形町 501"
+      ]
+    },
+    "東京都千代田区神田佐久間町3丁目": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "シティインデックス千代田秋葉原 701"
+      ]
+    },
+    "東京都中央区月島3-12-4": {
+      "place_id": "0x6018897a5f5860bb:0x38fc0037b57209d7",
+      "lat": "35.6623318",
+      "lon": "139.7815581",
+      "names": [
+        "レジディア月島III 1201"
+      ]
+    },
+    "東京都中央区日本橋堀留町1-8-13": {
+      "place_id": "0x60188951888239c3:0x979590e83f16f667",
+      "lat": "35.6872632",
+      "lon": "139.7811737",
+      "names": [
+        "セレサ日本橋堀留町 605"
+      ]
+    },
+    "東京都中央区日本橋本町1丁目": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "La Belle 三越前 702"
+      ]
+    },
+    "東京都千代田区東神田3-6-6": {
+      "place_id": "0x60188eae0ec53431:0xca329b8f370aa270",
+      "lat": "35.6973763",
+      "lon": "139.7822506",
+      "names": [
+        "アイル秋葉原EAST 307"
+      ]
+    },
+    "東京都中央区新川2-18-1": {
+      "place_id": null,
+      "lat": null,
+      "lon": null,
+      "names": [
+        "シティハウス東京八重洲通り 1502"
+      ]
+    },
+    "東京都中央区佃2-12-1": {
+      "place_id": "0x6018896e260f5c7b:0x507f30e4423afb62",
+      "lat": "35.6668437",
+      "lon": "139.7863167",
+      "names": [
+        "リベルテ月島 604"
+      ]
+    }
+  },
+  "timestamp": "2025-08-16T01:22:12.309713",
+  "stats": {
+    "total_destinations": 9,
+    "total_properties": 25,
+    "unique_addresses": 22,
+    "success_count": 16,
+    "failed_count": 15
+  }
+}

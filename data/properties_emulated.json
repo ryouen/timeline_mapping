@@ -1,0 +1,169 @@
+{
+  "properties": [
+    {
+      "name": "ルフォンプログレ神田プレミア",
+      "address": "東京都千代田区神田須田町1-20-1",
+      "rent": "280,000円",
+      "area": "41.96",
+      "routes": [
+        {
+          "destination": "Shizenkan University",
+          "total_time": 7,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": 180
+        },
+        {
+          "destination": "東京アメリカンクラブ",
+          "total_time": 7,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": 180
+        },
+        {
+          "destination": "axle御茶ノ水",
+          "total_time": 13,
+          "route_type": "不明",
+          "train_lines": [],
+          "fare": null
+        },
+        {
+          "destination": "Yawara",
+          "total_time": 33,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "中央線",
+            "山手線"
+          ],
+          "fare": null
+        },
+        {
+          "destination": "神谷町(EE)",
+          "total_time": 24,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線",
+            "日比谷線"
+          ],
+          "fare": null
+        },
+        {
+          "destination": "早稲田大学",
+          "total_time": 32,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線",
+            "東西線"
+          ],
+          "fare": 210
+        },
+        {
+          "destination": "東京駅",
+          "total_time": 11,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "京浜東北線"
+          ],
+          "fare": 150
+        },
+        {
+          "destination": "羽田空港",
+          "total_time": 58,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "山手線"
+          ],
+          "fare": 790
+        },
+        {
+          "destination": "府中オフィス",
+          "total_time": 61,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "中央線",
+            "京王線"
+          ],
+          "fare": null
+        }
+      ]
+    },
+    {
+      "name": "テラス月島 801",
+      "address": "東京都中央区佃2丁目 22-3",
+      "rent": "194,000円",
+      "area": "35.23",
+      "routes": [
+        {
+          "destination": "Shizenkan University",
+          "total_time": 19,
+          "route_type": "公共交通機関",
+          "train_lines": [],
+          "fare": 210
+        },
+        {
+          "destination": "東京アメリカンクラブ",
+          "total_time": 26,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "銀座線"
+          ],
+          "fare": null
+        },
+        {
+          "destination": "axle御茶ノ水",
+          "total_time": 29,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "有楽町線",
+            "千代田線"
+          ],
+          "fare": 180
+        },
+        {
+          "destination": "Yawara",
+          "total_time": 39,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "有楽町線",
+            "千代田線"
+          ],
+          "fare": 210
+        },
+        {
+          "destination": "神谷町(EE)",
+          "total_time": 30,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "有楽町線",
+            "日比谷線"
+          ],
+          "fare": null
+        },
+        {
+          "destination": "早稲田大学",
+          "total_time": 40,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "大江戸線",
+            "東西線"
+          ],
+          "fare": 320
+        },
+        {
+          "destination": "東京駅",
+          "total_time": 23,
+          "route_type": "公共交通機関",
+          "train_lines": [
+            "有楽町線",
+            "京浜東北線"
+          ],
+          "fare": 330
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4318 @@
+{
+    "properties": [
+        {
+            "name": "ルフォンプログレ神田プレミア",
+            "address": "東京都千代田区 神田須田町１丁目２０−１",
+            "rent": "280,000円",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 7,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:10"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 7,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 6,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:10"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 7
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 13,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 19,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "新御茶ノ水",
+                        "trains": [
+                            {
+                                "line": "千代田線",
+                                "time": 16,
+                                "from": "新御茶ノ水",
+                                "to": "日本橋",
+                                "departure": "17:20"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 15,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:14"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 33,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 17,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:14"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 57,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 11,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:18"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 60,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                }
+            ],
+            "area": "41.96"
+        },
+        {
+            "name": "PEAKS神田 1005",
+            "address": "東京都千代田区神田西福田町4-7",
+            "rent": "213,000円",
+            "area": "35.74",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 13,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:22"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:22"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 19,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 16,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:24"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 32,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "小伝馬町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 18,
+                                "from": "小伝馬町",
+                                "to": "日本橋",
+                                "departure": "17:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 40,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 24,
+                        "station_used": "三越前",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 15,
+                                "from": "三越前",
+                                "to": "日本橋",
+                                "departure": "17:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 25
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 12,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:25"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 56,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                }
+            ]
+        },
+        {
+            "name": "ルフォンプログレ神田プレミア 0706",
+            "address": "東京都千代田区神田須田町1丁目",
+            "rent": "210,000円",
+            "area": "30.53",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:24"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:24"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 31,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "新御茶ノ水",
+                        "trains": [
+                            {
+                                "line": "千代田線",
+                                "time": 16,
+                                "from": "新御茶ノ水",
+                                "to": "日本橋",
+                                "departure": "17:30"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "淡路町",
+                        "trains": [
+                            {
+                                "line": "丸ノ内線",
+                                "time": 13,
+                                "from": "淡路町",
+                                "to": "日本橋",
+                                "departure": "17:25"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 33,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "小川町",
+                        "trains": [
+                            {
+                                "line": "新宿線",
+                                "time": 13,
+                                "from": "小川町",
+                                "to": "日本橋",
+                                "departure": "17:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "淡路町",
+                        "trains": [
+                            {
+                                "line": "丸ノ内線",
+                                "time": 2,
+                                "from": "淡路町",
+                                "to": "日本橋",
+                                "departure": "17:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 59,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 38,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "17:38"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                }
+            ]
+        },
+        {
+            "name": "パトリス神保町 1101",
+            "address": "東京都千代田区神田神保町二丁目4番64号",
+            "rent": "177,000円",
+            "area": "37.18",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "九段下",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 5,
+                                "from": "九段下",
+                                "to": "日本橋",
+                                "departure": "17:34"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神保町",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 4,
+                                "from": "神保町",
+                                "to": "日本橋",
+                                "departure": "17:29"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 23,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神保町",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 11,
+                                "from": "神保町",
+                                "to": "日本橋",
+                                "departure": "17:33"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 24,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "神保町",
+                        "trains": [
+                            {
+                                "line": "三田線",
+                                "time": 11,
+                                "from": "神保町",
+                                "to": "日本橋",
+                                "departure": "17:35"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 35,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "神保町",
+                        "trains": [
+                            {
+                                "line": "三田線",
+                                "time": 2,
+                                "from": "神保町",
+                                "to": "日本橋",
+                                "departure": "17:35"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 59,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 27,
+                        "station_used": "神保町",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 31,
+                                "from": "神保町",
+                                "to": "日本橋",
+                                "departure": "17:45"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 28
+                }
+            ]
+        },
+        {
+            "name": "カスタリア人形町 111",
+            "address": "東京都中央区日本橋人形町1丁目2-3",
+            "rent": "191,000円",
+            "area": "37.78",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 11,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "17:36"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 25,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 21,
+                        "station_used": "三越前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 3,
+                                "from": "三越前",
+                                "to": "日本橋",
+                                "departure": "17:43"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 22
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 35,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 23,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "17:40"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 25,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 16,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "17:40"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 25,
+                        "station_used": "日本橋",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 12,
+                                "from": "日本橋",
+                                "to": "日本橋",
+                                "departure": "17:46"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 26
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 53,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 33,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 34
+                }
+            ]
+        },
+        {
+            "name": "RODIA日本橋茅場町 0407",
+            "address": "東京都中央区新川1丁目",
+            "rent": "195,000円",
+            "area": "41.49",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 11,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 6,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 7
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 20,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 18,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 7,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "17:49"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 19
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 22,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "17:49"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 13,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "17:49"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 23,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 14,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "17:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 24
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 19,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 2,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "17:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 52,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 32,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 33
+                }
+            ]
+        },
+        {
+            "name": "テラス月島 801",
+            "address": "東京都中央区佃2丁目 22-3",
+            "rent": "194,000円",
+            "area": "35.23",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 20,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 11,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "17:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 37,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 19,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "17:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 27,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 12,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "17:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 45,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 31,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "18:00"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 21,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 59,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 27,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 28
+                }
+            ]
+        },
+        {
+            "name": "J-FIRST CHIYODA 702",
+            "address": "東京都千代田区外神田2丁目 8-14",
+            "rent": "200,000円",
+            "area": "41.58",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 14,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "末広町",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 4,
+                                "from": "末広町",
+                                "to": "日本橋",
+                                "departure": "17:58"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "末広町",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "末広町",
+                                "to": "日本橋",
+                                "departure": "17:58"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "湯島",
+                        "trains": [
+                            {
+                                "line": "千代田線",
+                                "time": 19,
+                                "from": "湯島",
+                                "to": "日本橋",
+                                "departure": "18:01"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 28,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "御茶ノ水",
+                        "trains": [
+                            {
+                                "line": "丸ノ内線",
+                                "time": 13,
+                                "from": "御茶ノ水",
+                                "to": "日本橋",
+                                "departure": "18:03"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 42,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 22,
+                        "station_used": "末広町",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 19,
+                                "from": "末広町",
+                                "to": "日本橋",
+                                "departure": "18:01"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 23
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 3,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:04"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 58,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 22,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 35,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:11"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 23
+                }
+            ]
+        },
+        {
+            "name": "ザ・パークハビオ日本橋箱崎町 204",
+            "address": "東京都中央区日本橋箱崎町",
+            "rent": "205,000円",
+            "area": "40.70",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 1,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:01"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 1,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:04"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 6,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:04"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 18,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 17,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:04"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 19
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 32,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 16,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:10"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 37,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 21,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 15,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:04"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 22
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 18,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 6,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:07"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 25,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:16"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 26
+                }
+            ]
+        },
+        {
+            "name": "DaiDo ANNEX 402",
+            "address": "東京都中央区日本橋蛎殻町1丁目2-4",
+            "rent": "203,000円",
+            "area": "39.45",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 11,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 1,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "18:11"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 1,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:10"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 24,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 6,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "水天宮前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 17,
+                                "from": "水天宮前",
+                                "to": "日本橋",
+                                "departure": "18:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 25,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 13,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "18:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 21,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 14,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "18:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 22
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 2,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "18:16"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 35,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:19"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 36
+                }
+            ]
+        },
+        {
+            "name": "アーバンレジデンス神田富山町 302",
+            "address": "東京都千代田区神田富山町 29番地",
+            "rent": "190,000円",
+            "area": "39.98",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:15"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:19"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 44,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 30,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:16"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 33,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:21"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 39,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 18,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:17"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 12,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:19"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:23"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                }
+            ]
+        },
+        {
+            "name": "グレイスリヴィエール東京八丁堀 702",
+            "address": "東京都中央区湊1丁目 14-17",
+            "rent": "182,000円",
+            "area": "42.16",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 31,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 14,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "18:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "18:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 12,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "18:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 43,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 29,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 13,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "18:34"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 30
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 40,
+                        "station_used": "宝町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "宝町",
+                                "to": "日本橋",
+                                "departure": "18:40"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 41
+                }
+            ]
+        },
+        {
+            "name": "クレスト五番町 801",
+            "address": "東京都千代田区五番町 6-5",
+            "rent": "180,000円",
+            "area": "35.97",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 18,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "新宿線",
+                                "time": 8,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 23,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "新宿線",
+                                "time": 9,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 15,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 30,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 17,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:30"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 18,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 6,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 11,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:30"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 7
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "市ケ谷",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 1,
+                                "from": "市ケ谷",
+                                "to": "日本橋",
+                                "departure": "18:36"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                }
+            ]
+        },
+        {
+            "name": "ゼンパレス日本橋 702",
+            "address": "東京都中央区日本橋横山町 7-16",
+            "rent": "173,000円",
+            "area": "36.27",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 13,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "東日本橋",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 3,
+                                "from": "東日本橋",
+                                "to": "日本橋",
+                                "departure": "18:32"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 9,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 18,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "馬喰横山",
+                        "trains": [
+                            {
+                                "line": "新宿線",
+                                "time": 3,
+                                "from": "馬喰横山",
+                                "to": "日本橋",
+                                "departure": "18:37"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 41,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 23,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "18:39"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 31,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "小伝馬町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 17,
+                                "from": "小伝馬町",
+                                "to": "日本橋",
+                                "departure": "18:42"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "馬喰横山",
+                        "trains": [
+                            {
+                                "line": "新宿線",
+                                "time": 17,
+                                "from": "馬喰横山",
+                                "to": "日本橋",
+                                "departure": "18:37"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 6,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 7
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 28,
+                        "station_used": "東日本橋",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "東日本橋",
+                                "to": "日本橋",
+                                "departure": "18:42"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 29
+                }
+            ]
+        },
+        {
+            "name": "コルティーレ日本橋人形町 501",
+            "address": "東京都中央区日本橋堀留町1丁目8-2",
+            "rent": "186,000円",
+            "area": "36.10",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:37"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 13,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 24,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 39,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 27,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:39"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 25,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 16,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:43"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 16,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:41"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 27,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "18:44"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 28
+                }
+            ]
+        },
+        {
+            "name": "シティインデックス千代田秋葉原 701",
+            "address": "東京都千代田区神田佐久間町3丁目",
+            "rent": "180,000円",
+            "area": "40.04",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 19,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 4,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:44"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 1,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:47"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 40,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 27,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:48"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:48"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 45,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 31,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:54"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 14,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 3,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:52"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 31,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 1,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:59"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 32
+                }
+            ]
+        },
+        {
+            "name": "アーバンレジデンス神田富山町 701",
+            "address": "東京都千代田区神田富山町 29番地",
+            "rent": "197,000円",
+            "area": "43.10",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 2,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:51"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 14,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:54"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 30,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線",
+                                "time": 15,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:54"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 33,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "18:58"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 17,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:58"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 11,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 1,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "18:57"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 59,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 30,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 28,
+                                "from": "神田",
+                                "to": "日本橋",
+                                "departure": "19:01"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 31
+                }
+            ]
+        },
+        {
+            "name": "レジディア月島III 1201",
+            "address": "東京都中央区月島3丁目 12-4",
+            "rent": "190,000円",
+            "area": "40.21",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 20,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "大江戸線",
+                                "time": 9,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:02"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 28,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 9,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 31,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 10,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:03"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 41,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 21,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:03"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 31,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 16,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 14,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:03"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 17
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 46,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "有楽町線",
+                                "time": 30,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:03"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 26,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 29,
+                        "station_used": "月島",
+                        "trains": [
+                            {
+                                "line": "大江戸線",
+                                "time": 1,
+                                "from": "月島",
+                                "to": "日本橋",
+                                "departure": "19:08"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 30
+                }
+            ]
+        },
+        {
+            "name": "セレサ日本橋堀留町 605",
+            "address": "東京都中央区日本橋堀留町1丁目8-13",
+            "rent": "198,000円",
+            "area": "40.14",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 10,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "19:01"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 12,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 8,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 9
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 34,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 23,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "19:09"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 24,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 16,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "19:05"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 35,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "19:05"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 16,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 52,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 32,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 33
+                }
+            ]
+        },
+        {
+            "name": "La Belle 三越前 702",
+            "address": "東京都中央区日本橋本町1丁目",
+            "rent": "177,000円",
+            "area": "40.01",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 5
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "三越前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 4,
+                                "from": "三越前",
+                                "to": "日本橋",
+                                "departure": "19:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "三越前",
+                        "trains": [
+                            {
+                                "line": "半蔵門線",
+                                "time": 15,
+                                "from": "三越前",
+                                "to": "日本橋",
+                                "departure": "19:13"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 13,
+                        "station_used": "人形町",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 15,
+                                "from": "人形町",
+                                "to": "日本橋",
+                                "departure": "19:17"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 14
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 32,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "日本橋",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 12,
+                                "from": "日本橋",
+                                "to": "日本橋",
+                                "departure": "19:17"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 13,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 10,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 11
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "日本橋",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "日本橋",
+                                "to": "日本橋",
+                                "departure": "19:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                }
+            ]
+        },
+        {
+            "name": "アイル秋葉原EAST 307",
+            "address": "東京都千代田区東神田3丁目 6-6",
+            "rent": "172,000円",
+            "area": "42.76",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 12,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 4,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "19:19"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 13
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 15,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 16
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 36,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "山手線",
+                                "time": 24,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "19:17"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 34,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "秋葉原",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 19,
+                                "from": "秋葉原",
+                                "to": "日本橋",
+                                "departure": "19:25"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 35,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 20,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 14,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "19:17"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 21
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 15,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 7,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "京浜東北線",
+                                "time": 7,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "19:21"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 8
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 19,
+                        "station_used": "浅草橋",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "浅草橋",
+                                "to": "日本橋",
+                                "departure": "19:23"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 20
+                }
+            ]
+        },
+        {
+            "name": "シティハウス東京八重洲通り 1502",
+            "address": "東京都中央区新川2丁目18-1",
+            "rent": "205,000円",
+            "area": "37.49",
+            "routes": [
+                {
+                    "destination": "shizenkan_university",
+                    "destination_name": "Shizenkan University",
+                    "total_time": 12,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 6,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 7
+                },
+                {
+                    "destination": "tokyo_american_club",
+                    "destination_name": "東京アメリカンクラブ",
+                    "total_time": 22,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 17,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 4,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "19:26"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 18
+                },
+                {
+                    "destination": "axle_ochanomizu",
+                    "destination_name": "axle 御茶ノ水",
+                    "total_time": 29,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 14,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "19:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "yawara",
+                    "destination_name": "Yawara",
+                    "total_time": 37,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 14,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 22,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "19:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 15
+                },
+                {
+                    "destination": "kamiyacho_ee",
+                    "destination_name": "神谷町(EE)",
+                    "total_time": 24,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "八丁堀",
+                        "trains": [
+                            {
+                                "line": "日比谷線",
+                                "time": 12,
+                                "from": "八丁堀",
+                                "to": "日本橋",
+                                "departure": "19:28"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "waseda_university",
+                    "destination_name": "早稲田大学",
+                    "total_time": 38,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 23,
+                        "station_used": "茅場町",
+                        "trains": [
+                            {
+                                "line": "東西線",
+                                "time": 14,
+                                "from": "茅場町",
+                                "to": "日本橋",
+                                "departure": "19:32"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 24
+                },
+                {
+                    "destination": "fuchu_office",
+                    "destination_name": "府中オフィス",
+                    "total_time": 48,
+                    "details": {
+                        "walk_to_station": 4,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "中央線快速",
+                                "time": 35,
+                                "from": "神田",
+                                "to": "府中",
+                                "departure": "10:00",
+                                "note": "新宿経由"
+                            }
+                        ],
+                        "walk_from_station": 6,
+                        "wait_time_minutes": 3
+                    },
+                    "total_walk_time": 10
+                },
+                {
+                    "destination": "tokyo_station",
+                    "destination_name": "東京駅",
+                    "total_time": 17,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 11,
+                        "station_used": "神田",
+                        "trains": [
+                            {
+                                "line": "銀座線",
+                                "time": 3,
+                                "from": "神田",
+                                "to": "日本橋"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 12
+                },
+                {
+                    "destination": "haneda_airport",
+                    "destination_name": "羽田空港",
+                    "total_time": 8,
+                    "details": {
+                        "wait_time_minutes": 3,
+                        "walk_to_station": 39,
+                        "station_used": "宝町",
+                        "trains": [
+                            {
+                                "line": "浅草線",
+                                "time": 1,
+                                "from": "宝町",
+                                "to": "日本橋",
+                                "departure": "19:39"
+                            }
+                        ],
+                        "walk_from_station": 1
+                    },
+                    "total_walk_time": 40
+                }
+            ]
+        }
+    ]
+}

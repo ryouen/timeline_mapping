@@ -1,0 +1,93 @@
+{
+  "property": {
+    "name": "ルフォンプログレ神田プレミア",
+    "address": "東京都千代田区神田須田町１丁目２０−１",
+    "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
+    "place_id_format": "ChIJ",
+    "lat": 35.6949994,
+    "lon": 139.7711379
+  },
+  "destinations": [
+    {
+      "name": "東京駅",
+      "address": "東京都千代田区丸の内１丁目９番１号",
+      "category": "station",
+      "place_id": "ChIJC3Cf2PuLGGAROO00ukl8JwA",
+      "place_id_format": "ChIJ",
+      "lat": null,
+      "lon": null
+    },
+    {
+      "name": "大手町駅",
+      "address": "東京都千代田区大手町１丁目６−１",
+      "category": "station",
+      "place_id": "ChIJnUcMGviLGGAROCgXeJNX4xg",
+      "place_id_format": "ChIJ",
+      "lat": 35.6853494,
+      "lon": 139.7632784
+    },
+    {
+      "name": "銀座駅",
+      "address": "東京都中央区銀座４丁目１−２",
+      "category": "station",
+      "place_id": "ChIJoWCjwuWLGGARLl-ktwyr3KY",
+      "place_id_format": "ChIJ",
+      "lat": 35.6717279,
+      "lon": 139.7644425
+    },
+    {
+      "name": "品川駅",
+      "address": "東京都港区高輪３丁目２６−２７",
+      "category": "station",
+      "place_id": "ChIJdYcUblqKGGARcNsG90fDRZo",
+      "place_id_format": "ChIJ",
+      "lat": 35.6284713,
+      "lon": 139.7387597
+    },
+    {
+      "name": "六本木駅",
+      "address": "東京都港区六本木６丁目１−２５",
+      "category": "station",
+      "place_id": "ChIJHSjjaoKLGGARTp_Q0o4lKg8",
+      "place_id_format": "ChIJ",
+      "lat": null,
+      "lon": null
+    },
+    {
+      "name": "羽田空港",
+      "address": "東京都大田区羽田空港3-3-2",
+      "category": "airport",
+      "place_id": "ChIJ45IxpAtkGGAR3_hG0anDMg0",
+      "place_id_format": "ChIJ",
+      "lat": 35.5476839,
+      "lon": 139.7787882
+    },
+    {
+      "name": "Shizenkan University",
+      "address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "category": "office",
+      "place_id": "ChIJn_T9WEOJGGARYuY7r9sr5pE",
+      "place_id_format": "ChIJ",
+      "lat": null,
+      "lon": null
+    },
+    {
+      "name": "早稲田大学",
+      "address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "category": "university",
+      "place_id": "ChIJ6a8IHyaNGGARKQZV2dkEKsU",
+      "place_id_format": "ChIJ",
+      "lat": null,
+      "lon": null
+    },
+    {
+      "name": "府中第一小学校",
+      "address": "東京都府中市本町１丁目９−９",
+      "category": "school",
+      "place_id": "ChIJiyLb4-XkGGAR0RDYG3uIGdg",
+      "place_id_format": "ChIJ",
+      "lat": null,
+      "lon": null
+    }
+  ]
+}

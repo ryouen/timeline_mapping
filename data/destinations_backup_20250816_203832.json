@@ -8,7 +8,7 @@
       "owner": "you",
       "monthly_frequency": 13.2,
       "time_preference": "morning",
-      "place_id": "ChIJy_fF8PKJGGARr8tJ4FAd9gg",
+      "place_id": "ChIJn_T9WEOJGGARYuY7r9sr5pE",
       "place_id_format": "ChIJ",
       "lat": 35.6813393,
       "lon": 139.7739613
@@ -36,8 +36,8 @@
       "time_preference": "morning",
       "place_id": "ChIJ2SOIhhqMGGARQ9iwrbH-Pyo",
       "place_id_format": "ChIJ",
-      "lat": 35.6960075,
-      "lon": 139.7631297
+      "lat": null,
+      "lon": null
     },
     {
       "id": "yawara",
@@ -50,7 +50,7 @@
       "place_id": "ChIJQZypWaOMGGAR92ErEJ-hYJ4",
       "place_id_format": "ChIJ",
       "lat": 35.6677097,
-      "lon": 139.7066373
+      "lon": 139.7066224
     },
     {
       "id": "kamiyacho_ee",
@@ -62,8 +62,8 @@
       "time_preference": "morning",
       "place_id": "ChIJaVqfzJaLGGARju81iYTB4dQ",
       "place_id_format": "ChIJ",
-      "lat": 35.6639966,
-      "lon": 139.7457184
+      "lat": null,
+      "lon": null
     },
     {
       "id": "waseda_university",
@@ -88,8 +88,8 @@
       "time_preference": "morning",
       "place_id": "ChIJC3Cf2PuLGGAROO00ukl8JwA",
       "place_id_format": "ChIJ",
-      "lat": 35.6811398,
-      "lon": 139.7670614
+      "lat": 35.6812,
+      "lon": 139.7671
     },
     {
       "id": "haneda_airport",
@@ -101,8 +101,8 @@
       "time_preference": "morning",
       "place_id": "ChIJ45IxpAtkGGAR3_hG0anDMg0",
       "place_id_format": "ChIJ",
-      "lat": 35.5476839,
-      "lon": 139.7787882
+      "lat": 35.5494,
+      "lon": 139.7798
     },
     {
       "id": "fuchu_office",

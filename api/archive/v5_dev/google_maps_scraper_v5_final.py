@@ -1,29 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Google Maps スクレイピングツール v4 完全版
-Place IDを使用した確実な時刻指定とルート取得
+Google Maps スクレイピングツール v5 最終版
+URLパラメータ方式とPlace ID事前取得を統合
 
 主な特徴：
-1. Place IDの自動取得
-2. 正しいタイムスタンプ生成（UTC基準）
-3. 完全なURL構造の構築
-4. 確実な公共交通機関モード指定
+1. Place ID事前取得で効率化
+2. 住所正規化機能
+3. URLパラメータによる確実な時刻指定
+4. メモリリーク対策
+5. 重複処理の排除（住所ベースのキャッシュ）
 """
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 import time
 import re
-import json
 import logging
+import json
+import gc
 from datetime import datetime, timedelta
 import pytz
 from urllib.parse import quote
-import os
 
 # ロギング設定
 logging.basicConfig(
@@ -32,12 +33,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class GoogleMapsScraperV4:
-    """Google Maps スクレイパー v4"""
+class GoogleMapsScraperV5:
+    """Google Maps スクレイパー v5 最終版"""
     
     def __init__(self):
         self.driver = None
-        self.place_id_cache = {}  # Place IDのキャッシュ
+        self.place_id_cache = {}  # Place IDキャッシュ
+        self.route_cache = {}     # ルート結果キャッシュ（住所ベース）
+        self.route_count = 0      # 処理済みルート数
         
     def setup_driver(self):
         """Selenium WebDriverのセットアップ"""
@@ -49,6 +52,10 @@ class GoogleMapsScraperV4:
         chrome_options.add_argument('--window-size=1920,1080')
         chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
         chrome_options.add_argument('--accept-language=ja-JP,ja;q=0.9')
+        # メモリ最適化
+        chrome_options.add_argument('--memory-pressure-off')
+        chrome_options.add_argument('--disable-background-timer-throttling')
+        chrome_options.add_argument('--disable-renderer-backgrounding')
         
         self.driver = webdriver.Remote(
             command_executor='http://selenium:4444/wd/hub',
@@ -56,7 +63,34 @@ class GoogleMapsScraperV4:
         )
         self.driver.set_page_load_timeout(30)
         self.driver.implicitly_wait(10)
+        logger.info("WebDriver初期化完了")
+    
+    def normalize_address(self, address):
+        """
+        住所を正規化（Google Maps検索用）
+        例: "東京都千代田区 神田須田町１丁目２０−１" → "東京都千代田区神田須田町1-20-1"
+        """
+        # 全角スペースを削除
+        normalized = address.replace('　', '').replace(' ', '')
         
+        # 「丁目」を「-」に変換
+        normalized = re.sub(r'(\d+)丁目(\d+)−(\d+)', r'\1-\2-\3', normalized)
+        normalized = re.sub(r'(\d+)丁目(\d+)番(\d+)', r'\1-\2-\3', normalized)
+        normalized = re.sub(r'(\d+)丁目(\d+)', r'\1-\2', normalized)
+        
+        # 「番」「号」を削除
+        normalized = re.sub(r'(\d+)番(\d+)号', r'\1-\2', normalized)
+        normalized = re.sub(r'(\d+)番', r'\1', normalized)
+        normalized = re.sub(r'(\d+)号', r'\1', normalized)
+        
+        # 全角数字を半角に
+        normalized = normalized.translate(str.maketrans('０１２３４５６７８９', '0123456789'))
+        
+        # 全角ハイフンを半角に
+        normalized = normalized.replace('−', '-').replace('ー', '-')
+        
+        return normalized
+    
     def generate_google_maps_timestamp(self, year, month, day, hour, minute):
         """
         Google Maps用のタイムスタンプを生成
@@ -66,97 +100,74 @@ class GoogleMapsScraperV4:
         utc_time = datetime(year, month, day, hour, minute, 0, tzinfo=pytz.UTC)
         return int(utc_time.timestamp())
     
-    def get_place_info(self, address, name=None):
+    def get_place_id(self, address, name=None):
         """
-        住所からPlace IDと座標を取得
-        
-        Args:
-            address: 住所
-            name: 施設名（オプション）
-        
-        Returns:
-            dict: place_id, lat, lon
+        住所からPlace IDを取得（v5改良版）
+        住所のみで検索し、施設名は使わない
         """
-        # キャッシュチェック
-        cache_key = address
-        if cache_key in self.place_id_cache:
-            logger.info(f"キャッシュからPlace ID取得: {name or address}")
-            return self.place_id_cache[cache_key]
+        # 正規化した住所でキャッシュチェック
+        normalized = self.normalize_address(address)
+        
+        if normalized in self.place_id_cache:
+            logger.info(f"⚡ キャッシュからPlace ID取得: {name or address[:30]}...")
+            return self.place_id_cache[normalized]
         
         try:
-            # 出発地（ルフォンプログレ）
-            origin = "東京都千代田区神田須田町1-20-1"
+            # Google Mapsで住所を直接検索
+            url = f"https://www.google.com/maps/search/{quote(normalized)}"
             
-            # Google Maps URLを構築（住所を使用）
-            url = f"https://www.google.com/maps/dir/{quote(origin)}/{quote(address)}/data=!3e3"
-            
-            logger.info(f"Place ID取得中: {name or address}")
+            logger.info(f"🔍 Place ID取得中: {name or address[:30]}...")
             self.driver.get(url)
-            time.sleep(5)
+            time.sleep(3)
             
-            # URLからPlace IDを抽出（2番目が目的地）
+            # URLからPlace IDを抽出
             current_url = self.driver.current_url
-            place_id_matches = re.findall(r'!1s(0x[0-9a-f]+:0x[0-9a-f]+)', current_url)
+            place_id = None
             
-            if len(place_id_matches) >= 2:
-                place_id = place_id_matches[1]
-            else:
-                place_id = None
-                logger.warning(f"Place ID取得失敗: {name or address}")
+            # 複数のパターンで検索
+            patterns = [
+                r'!1s(0x[0-9a-f]+:0x[0-9a-f]+)',
+                r'/place/[^/]+/@[^/]+/data=.*!1s(0x[0-9a-f]+:0x[0-9a-f]+)',
+                r'ftid=(0x[0-9a-f]+:0x[0-9a-f]+)'
+            ]
+            
+            for pattern in patterns:
+                match = re.search(pattern, current_url)
+                if match:
+                    place_id = match.group(1)
+                    logger.info(f"   ✅ Place ID: {place_id}")
+                    break
             
             # 座標を抽出
+            lat, lon = None, None
             coord_match = re.search(r'@([\d.]+),([\d.]+)', current_url)
             if coord_match:
                 lat = coord_match.group(1)
                 lon = coord_match.group(2)
-            else:
-                # 別のパターンを試す
-                coord_matches = re.findall(r'!2d([\d.]+)', current_url)
-                if len(coord_matches) >= 4:
-                    lon = coord_matches[2]
-                    lat = coord_matches[3]
-                else:
-                    lat, lon = None, None
             
             result = {
                 'place_id': place_id,
                 'lat': lat,
-                'lon': lon
+                'lon': lon,
+                'normalized_address': normalized
             }
             
             # キャッシュに保存
-            self.place_id_cache[cache_key] = result
+            self.place_id_cache[normalized] = result
             
             return result
             
         except Exception as e:
-            logger.error(f"Place ID取得エラー ({name or address}): {e}")
-            return {'place_id': None, 'lat': None, 'lon': None}
+            logger.error(f"Place ID取得エラー: {e}")
+            return {'place_id': None, 'lat': None, 'lon': None, 'normalized_address': normalized}
     
     def build_complete_url(self, origin_info, dest_info, arrival_time):
         """
         Place IDを含む完全なGoogle Maps URLを構築
-        
-        Args:
-            origin_info: 出発地情報（address, place_id, lat, lon, postal_code）
-            dest_info: 目的地情報（address, place_id, lat, lon, postal_code, name）
-            arrival_time: 到着時刻（datetime）
         """
-        # 郵便番号付き住所を構築
-        if origin_info.get('postal_code'):
-            origin_str = f"〒{origin_info['postal_code']}+{quote(origin_info['address'])}"
-        else:
-            origin_str = quote(origin_info['address'])
-        
-        if dest_info.get('postal_code'):
-            dest_str = f"〒{dest_info['postal_code']}+{quote(dest_info['address'])}"
-        else:
-            dest_str = quote(dest_info['address'])
-        
-        # Place IDがない場合は取得を試みる
-        if not dest_info.get('place_id'):
-            place_info = self.get_place_info(dest_info['address'], dest_info.get('name'))
-            dest_info.update(place_info)
+        # 住所を正規化
+        origin_str = quote(origin_info['normalized_address'])
+        dest_str = quote(dest_info['normalized_address'])
         
         # 中心座標の計算
         if origin_info.get('lat') and dest_info.get('lat'):
@@ -242,28 +253,24 @@ class GoogleMapsScraperV4:
                     travel_time = hours * 60 + minutes
                     
                     # 出発・到着時刻を抽出
-                    # 「出発時刻 (曜日) - 到着時刻」形式を探す
-                    time_range_match = re.search(r'(\d{1,2}:\d{2})\s*\([^)]+\)\s*-\s*(\d{1,2}:\d{2})', text)
+                    time_range_match = re.search(r'(\d{1,2}:\d{2})[^\d]*-[^\d]*(\d{1,2}:\d{2})', text)
                     if time_range_match:
                         departure_time = time_range_match.group(1)
                         arrival_time = time_range_match.group(2)
                     else:
-                        # フォールバック：最初の時刻を出発時刻とする
                         departure_match = re.search(r'(\d{1,2}:\d{2})', text)
                         departure_time = departure_match.group(1) if departure_match else None
                         arrival_time = None
                     
                     # 料金を抽出
-                    fare_match = re.search(r'(\d+)\s*円', text)
-                    fare = int(fare_match.group(1)) if fare_match else None
+                    fare_match = re.search(r'([\d,]+)\s*円', text)
+                    fare = int(fare_match.group(1).replace(',', '')) if fare_match else None
                     
                     # ルートタイプを判定
                     if '徒歩' in text and not any(word in text for word in ['駅', '線', '電車']):
                         route_type = '徒歩のみ'
                     elif any(word in text for word in ['線', '駅', '電車', 'バス']):
                         route_type = '公共交通機関'
-                        # 路線名を抽出
-                        lines = re.findall(r'([^\s]+線)', text)
                     else:
                         route_type = '不明'
                     
@@ -274,11 +281,11 @@ class GoogleMapsScraperV4:
                         'arrival_time': arrival_time,
                         'fare': fare,
                         'route_type': route_type,
-                        'summary': text[:100]  # 最初の100文字
+                        'summary': text[:100]
                     }
                     
                     routes.append(route_info)
-                    logger.info(f"ルート{i+1}: {travel_time}分 ({route_type})")
+                    logger.info(f"ルート{i+1}: {travel_time}分 ({route_type}) 料金:{fare}円")
                     
                 except Exception as e:
                     logger.error(f"ルート{i+1}の抽出エラー: {e}")
@@ -292,92 +299,75 @@ class GoogleMapsScraperV4:
             logger.error(f"ルート抽出エラー: {e}")
             return []
     
-    def get_arrival_time(self, target_time=None, days_ahead=None):
+    def cleanup_after_route(self):
         """
-        到着時刻を決定する
-        
-        Args:
-            target_time: 指定時刻 (datetime) または文字列 "10:00"
-            days_ahead: 何日後か (0=今日, 1=明日, など)
-        
-        Returns:
-            datetime: 到着時刻（デフォルトは明日の10時）
+        各ルート処理後のメモリクリーンアップ
         """
-        jst = pytz.timezone('Asia/Tokyo')
-        now = datetime.now(jst)
-        
-        # target_timeがdatetimeオブジェクトの場合
-        if isinstance(target_time, datetime):
-            # 過去の時刻チェック
-            if target_time < now:
-                logger.warning(f"過去の時刻が指定されました: {target_time}. 明日の同時刻に変更します。")
-                target_time = target_time + timedelta(days=1)
-            return target_time
-        
-        # days_aheadが指定されている場合
-        if days_ahead is not None:
-            target_date = now + timedelta(days=days_ahead)
-        else:
-            # デフォルトは明日
-            target_date = now + timedelta(days=1)
-        
-        # 時刻の解析
-        if isinstance(target_time, str):
-            # "10:00" 形式
-            hour, minute = map(int, target_time.split(':'))
-        else:
-            # デフォルトは10:00
-            hour, minute = 10, 0
-        
-        arrival_time = target_date.replace(hour=hour, minute=minute, second=0, microsecond=0)
-        
-        # 今日の指定時刻が過去の場合は明日に変更
-        if arrival_time < now:
-            logger.info(f"指定時刻 {arrival_time.strftime('%H:%M')} は既に過ぎているため、明日に設定します")
-            arrival_time = arrival_time + timedelta(days=1)
-        
-        return arrival_time
+        try:
+            # ページをabout:blankにしてメモリ解放
+            self.driver.execute_script("window.location.href='about:blank'")
+            time.sleep(0.5)
+            
+            # ガベージコレクション実行
+            gc.collect()
+            
+            # 30ルートごとにWebDriverを再起動
+            self.route_count += 1
+            if self.route_count >= 30:
+                logger.info("30ルート処理完了。WebDriverを再起動します...")
+                self.restart_driver()
+                self.route_count = 0
+                
+        except Exception as e:
+            logger.warning(f"クリーンアップエラー: {e}")
     
-    def scrape_route(self, origin_address, dest_address, dest_name=None, arrival_time=None,
-                     target_time=None, days_ahead=None):
+    def restart_driver(self):
+        """WebDriverを再起動する"""
+        try:
+            if self.driver:
+                self.driver.quit()
+            self.setup_driver()
+            logger.info("WebDriver再起動完了")
+        except Exception as e:
+            logger.error(f"WebDriver再起動エラー: {e}")
+    
+    def scrape_route(self, origin_address, dest_address, dest_name=None, arrival_time=None):
         """
-        ルート情報をスクレイピング
+        ルート情報をスクレイピング（v5最終版）
         
         Args:
             origin_address: 出発地の住所
             dest_address: 目的地の住所
-            dest_name: 目的地の名前
-            arrival_time: 到着時刻（datetime）- 優先
-            target_time: 到着時刻文字列 "10:00" 形式
-            days_ahead: 何日後か (0=今日, 1=明日)
+            dest_name: 目的地の名前（オプション）
+            arrival_time: 到着時刻（datetime）
         """
+        # 住所を正規化
+        origin_normalized = self.normalize_address(origin_address)
+        dest_normalized = self.normalize_address(dest_address)
+        
+        # キャッシュキーを作成
+        cache_key = f"{origin_normalized}→{dest_normalized}"
+        
+        # キャッシュチェック（同じ住所ペアは再検索しない）
+        if cache_key in self.route_cache:
+            logger.info(f"⚡ キャッシュからルート取得: {dest_name or dest_address[:30]}...")
+            cached_result = self.route_cache[cache_key].copy()
+            cached_result['from_cache'] = True
+            return cached_result
+        
         try:
-            # 到着時刻の決定（デフォルトは明日の10時）
-            if arrival_time is None:
-                arrival_time = self.get_arrival_time(target_time, days_ahead)
-            
-            # 出発地情報（ルフォンプログレ）
-            origin_info = {
-                'address': origin_address,
-                'postal_code': '101-0041',
-                'place_id': '0x60188c02f64e1cd9:0x987c1c7aa7e7f84a',
-                'lat': '35.6949994',
-                'lon': '139.7711379'
-            }
-            
-            # 目的地情報
-            dest_info = {
-                'address': dest_address,
-                'name': dest_name
-            }
+            # Place IDを事前取得
+            origin_info = self.get_place_id(origin_address, "出発地")
+            dest_info = self.get_place_id(dest_address, dest_name)
             
             # 完全なURLを構築
             url = self.build_complete_url(origin_info, dest_info, arrival_time)
-            logger.info(f"アクセスURL: {url[:150]}...")
             
-            # ページにアクセス
+            logger.info(f"📍 ルート検索: {dest_name or dest_address[:30]}...")
+            logger.debug(f"URL: {url[:150]}...")
+            
             self.driver.get(url)
-            time.sleep(5)
+            time.sleep(5)  # ページロード待機
             
             # ルート詳細を抽出
             routes = self.extract_route_details()
@@ -386,7 +376,7 @@ class GoogleMapsScraperV4:
                 # 最短ルートを選択
                 shortest = min(routes, key=lambda r: r['travel_time'])
                 
-                return {
+                result = {
                     'success': True,
                     'origin': origin_address,
                     'destination': dest_address,
@@ -397,9 +387,17 @@ class GoogleMapsScraperV4:
                     'fare': shortest.get('fare'),
                     'route_type': shortest['route_type'],
                     'all_routes': routes,
-                    'url': url,
-                    'place_id': dest_info.get('place_id')
+                    'place_ids': {
+                        'origin': origin_info.get('place_id'),
+                        'destination': dest_info.get('place_id')
+                    },
+                    'url': url
                 }
+                
+                # キャッシュに保存
+                self.route_cache[cache_key] = result
+                
+                return result
             else:
                 return {
                     'success': False,
@@ -413,34 +411,21 @@ class GoogleMapsScraperV4:
                 'success': False,
                 'error': str(e)
             }
+        finally:
+            # ルート処理後のクリーンアップ
+            self.cleanup_after_route()
     
     def close(self):
         """ドライバーを閉じる"""
         if self.driver:
-            self.driver.quit()
-            logger.info("Seleniumセッション終了")
+            try:
+                self.driver.quit()
+                logger.info("Seleniumセッション終了")
+            except:
+                pass
 
-def test_v4_scraper():
-    """v4スクレイパーのテスト"""
-    
-    # テスト用の目的地データ
-    test_destinations = [
-        {
-            'name': 'Shizenkan University',
-            'address': '東京都中央区日本橋２丁目５−１',
-            'expected_time': 7
-        },
-        {
-            'name': '東京アメリカンクラブ',
-            'address': '東京都中央区日本橋室町３丁目２−１',
-            'expected_time': 7
-        },
-        {
-            'name': 'axle御茶ノ水',
-            'address': '東京都千代田区神田小川町３丁目２８−５',
-            'expected_time': 13
-        }
-    ]
+def test_v5_final():
+    """v5最終版のテスト"""
     
     # 明日の10時到着
     jst = pytz.timezone('Asia/Tokyo')
@@ -448,65 +433,50 @@ def test_v4_scraper():
     arrival_time = tomorrow.replace(hour=10, minute=0, second=0, microsecond=0)
     
     print("="*60)
-    print("Google Maps スクレイパー v4 テスト")
+    print("Google Maps スクレイパー v5 最終版テスト")
     print(f"到着時刻: {arrival_time.strftime('%Y-%m-%d %H:%M')} JST")
     print("="*60)
     
-    # スクレイパー初期化
-    scraper = GoogleMapsScraperV4()
+    # テストケース
+    test_cases = [
+        {
+            'name': 'Shizenkan University',
+            'origin': '東京都千代田区 神田須田町１丁目２０−１',
+            'destination': '東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階'
+        },
+        {
+            'name': '同じ建物の別部屋（キャッシュテスト）',
+            'origin': '東京都千代田区 神田須田町１丁目２０−１',  # 同じ住所
+            'destination': '東京都中央区日本橋２丁目５−１'  # 同じ建物
+        }
+    ]
+    
+    scraper = GoogleMapsScraperV5()
     
     try:
         scraper.setup_driver()
         
-        # 結果を保存
-        results = []
-        
-        for dest in test_destinations:
-            print(f"\n[{dest['name']}]")
-            print(f"住所: {dest['address']}")
-            
+        for test in test_cases:
+            print(f"\n[{test['name']}]")
             result = scraper.scrape_route(
-                origin_address="東京都千代田区神田須田町1-20-1",
-                dest_address=dest['address'],
-                dest_name=dest['name'],
-                arrival_time=arrival_time
+                test['origin'],
+                test['destination'],
+                test['name'],
+                arrival_time
             )
             
             if result['success']:
                 print(f"✅ 成功")
-                print(f"  所要時間: {result['travel_time']}分 (期待値: {dest['expected_time']}分)")
+                print(f"  所要時間: {result['travel_time']}分")
                 print(f"  ルートタイプ: {result['route_type']}")
-                print(f"  Place ID: {result.get('place_id', 'N/A')}")
-                if result.get('fare'):
-                    print(f"  料金: {result['fare']}円")
-                if result.get('departure_time'):
-                    print(f"  出発時刻: {result['departure_time']}")
-                if result.get('arrival_time'):
-                    print(f"  到着時刻: {result['arrival_time']}")
+                print(f"  料金: {result.get('fare', 'N/A')}円")
+                if result.get('from_cache'):
+                    print(f"  ⚡ キャッシュから取得")
             else:
                 print(f"❌ 失敗: {result.get('error')}")
-            
-            results.append(result)
-            time.sleep(3)  # レート制限対策
-        
-        # 結果サマリー
-        print("\n" + "="*60)
-        print("テスト結果サマリー")
-        print("="*60)
-        
-        success_count = sum(1 for r in results if r['success'])
-        print(f"成功: {success_count}/{len(results)}")
-        
-        for i, result in enumerate(results):
-            dest = test_destinations[i]
-            if result['success']:
-                accuracy = "✅" if abs(result['travel_time'] - dest['expected_time']) <= 2 else "⚠️"
-                print(f"{accuracy} {dest['name']}: {result['travel_time']}分 (期待値: {dest['expected_time']}分)")
-            else:
-                print(f"❌ {dest['name']}: 失敗")
                 
     finally:
         scraper.close()
 
 if __name__ == "__main__":
-    test_v4_scraper()
+    test_v5_final()

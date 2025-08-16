@@ -1,0 +1,53 @@
+{
+  "東京都千代田区神田須田町1-20-1": {
+    "property_name": "ルフォンプログレ神田プレミア",
+    "address": "東京都千代田区神田須田町1-20-1",
+    "routes": [
+      {
+        "destination_id": "shizenkan_university",
+        "destination_name": "Shizenkan University",
+        "destination_category": "school",
+        "travel_time": 7,
+        "route_type": "公共交通機関",
+        "train_lines": [
+          "銀座線"
+        ],
+        "fare": 180,
+        "departure_time": "15:07",
+        "arrival_time": "15:10",
+        "scraped_at": "2025-08-16T15:04:13.152192+09:00"
+      },
+      {
+        "destination_id": "tokyo_american_club",
+        "destination_name": "東京アメリカンクラブ",
+        "destination_category": "gym",
+        "travel_time": 7,
+        "route_type": "公共交通機関",
+        "train_lines": [
+          "銀座線"
+        ],
+        "fare": 180,
+        "departure_time": "15:10",
+        "arrival_time": "15:13",
+        "scraped_at": "2025-08-16T15:15:59.928845+09:00"
+      },
+      {
+        "destination_id": "axle_ochanomizu",
+        "destination_name": "axle御茶ノ水",
+        "destination_category": "office",
+        "travel_time": 13,
+        "route_type": "不明",
+        "train_lines": [],
+        "fare": null,
+        "departure_time": null,
+        "arrival_time": null,
+        "scraped_at": "2025-08-16T15:16:36.056910+09:00"
+      }
+    ]
+  },
+  "東京都中央区佃2丁目 22-3": {
+    "property_name": "テラス月島 801",
+    "address": "東京都中央区佃2丁目 22-3",
+    "routes": []
+  }
+}
