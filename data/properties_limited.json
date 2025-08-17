@@ -1,0 +1,38 @@
+{
+  "properties": [
+    {
+      "name": "ルフォンプログレ神田プレミア",
+      "address": "東京都千代田区神田須田町1-20-1",
+      "rent": "280,000円",
+      "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
+      "routes": [
+        {
+          "destination": "tokyo_american_club",
+          "destination_name": "東京アメリカンクラブ",
+          "total_time": 7,
+          "details": {
+            "wait_time_minutes": 0,
+            "walk_to_station": 3,
+            "station_used": "神田",
+            "trains": [
+              {
+                "line": "銀座線",
+                "time": null,
+                "from": "神田",
+                "to": "神田",
+                "departure": "9:23"
+              }
+            ],
+            "walk_from_station": 3
+          },
+          "total_walk_time": 6,
+          "fare": 180,
+          "departure_time": "9:20",
+          "arrival_time": "9:27"
+        }
+      ]
+    }
+  ],
+  "generated_at": "2025-08-17T00:16:57.067381",
+  "arrival_time": "2025-08-18T10:00:00+09:00"
+}

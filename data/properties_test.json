@@ -1,0 +1,115 @@
+{
+  "properties": [
+    {
+      "name": "ルフォンプログレ神田プレミア",
+      "address": "東京都千代田区神田須田町1-20-1",
+      "rent": "280,000円",
+      "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
+      "routes": [
+        {
+          "destination": "tokyo_american_club",
+          "destination_name": "東京アメリカンクラブ",
+          "total_time": 8,
+          "details": {
+            "wait_time_minutes": 0,
+            "walk_to_station": 3,
+            "station_used": "神田",
+            "trains": [
+              {
+                "line": "銀座線",
+                "time": null,
+                "from": "神田",
+                "to": "神田",
+                "departure": "7:12"
+              }
+            ],
+            "walk_from_station": 3
+          },
+          "total_walk_time": 6,
+          "fare": 180,
+          "departure_time": "7:09",
+          "arrival_time": "7:17"
+        }
+      ]
+    },
+    {
+      "name": "テラス月島 801",
+      "address": "東京都中央区佃2丁目 22-3",
+      "rent": "194,000円",
+      "place_id": "0x60188971ddb846d9:0x500f4b853b682c3d",
+      "routes": []
+    },
+    {
+      "name": "J-FIRST CHIYODA 702",
+      "address": "東京都千代田区外神田2丁目 8-14",
+      "rent": "200,000円",
+      "place_id": "0x60188c1c02cc0007:0x546c5b17459b1cc3",
+      "routes": []
+    },
+    {
+      "name": "ザ・パークハビオ日本橋箱崎町 204",
+      "address": "東京都中央区日本橋箱崎町8-7",
+      "rent": "205,000円",
+      "place_id": "0x60188943739269c3:0xd950c037426b1876",
+      "routes": []
+    },
+    {
+      "name": "DaiDo ANNEX 402",
+      "address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "rent": "203,000円",
+      "place_id": "0x60188944d4f5691f:0x2e494762f910c4e5",
+      "routes": []
+    },
+    {
+      "name": "グレイスリヴィエール東京八丁堀 702",
+      "address": "東京都中央区湊1丁目 14-17",
+      "rent": "182,000円",
+      "place_id": "0x6018895253f2d843:0x4709bad01c59d4a3",
+      "routes": []
+    },
+    {
+      "name": "ゼンパレス日本橋 702",
+      "address": "東京都中央区日本橋横山町 7-16",
+      "rent": "173,000円",
+      "place_id": "0x60188eb2b7787eef:0xed2856c05eea3afe",
+      "routes": []
+    },
+    {
+      "name": "シティインデックス千代田秋葉原 701",
+      "address": "東京都千代田区神田佐久間町3-37-24",
+      "rent": "180,000円",
+      "place_id": "0x60188ea8c6ea8da9:0x6bf37251f30320ea",
+      "routes": []
+    },
+    {
+      "name": "レジディア月島III 1201",
+      "address": "東京都中央区月島3丁目 12-4",
+      "rent": "190,000円",
+      "place_id": "0x6018897a5f5860bb:0x38fc0037b57209d7",
+      "routes": []
+    },
+    {
+      "name": "シティハウス東京八重洲通り 1502",
+      "address": "東京都中央区新川2丁目 18-1",
+      "rent": "205,000円",
+      "place_id": "0x6018895d6bbcc8b3:0xa89da038f3444f4",
+      "routes": []
+    },
+    {
+      "name": "ルフォンプログレ神田プレミア 0706",
+      "address": "東京都千代田区神田須田町1-20-1",
+      "rent": "210,000円",
+      "place_id": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+      "routes": []
+    },
+    {
+      "name": "カスタリア人形町 111",
+      "address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "rent": "191,000円",
+      "place_id": "0x60188951aa39b621:0x85e3108133aecca8",
+      "routes": []
+    }
+  ],
+  "generated_at": "2025-08-16T22:06:00.499508",
+  "arrival_time": "2025-08-18T10:00:00+09:00"
+}

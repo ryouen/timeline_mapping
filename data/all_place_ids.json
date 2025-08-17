@@ -1,0 +1,142 @@
+{
+  "properties": {
+    "ルフォンプログレ神田プレミア": {
+      "address": "東京都千代田区神田須田町1-20-1",
+      "place_id": "ChIJ2RxO9gKMGGARSvjnp3ocfJg",
+      "lat": null,
+      "lon": null
+    },
+    "テラス月島 801": {
+      "address": "東京都中央区佃2丁目 22-3",
+      "place_id": "0x60188971ddb846d9:0x500f4b853b682c3d",
+      "lat": "35.6663501",
+      "lon": "139.7868759"
+    },
+    "J-FIRST CHIYODA 702": {
+      "address": "東京都千代田区外神田2丁目 8-14",
+      "place_id": "0x60188c1c02cc0007:0x546c5b17459b1cc3",
+      "lat": "35.700603",
+      "lon": "139.7685984"
+    },
+    "ザ・パークハビオ日本橋箱崎町 204": {
+      "address": "東京都中央区日本橋箱崎町8-7",
+      "place_id": "0x60188943739269c3:0xd950c037426b1876",
+      "lat": "35.6789622",
+      "lon": "139.785291"
+    },
+    "DaiDo ANNEX 402": {
+      "address": "東京都中央区日本橋蛎殻町1丁目2-4",
+      "place_id": "0x60188944d4f5691f:0x2e494762f910c4e5",
+      "lat": "35.6811684",
+      "lon": "139.7832707"
+    },
+    "グレイスリヴィエール東京八丁堀 702": {
+      "address": "東京都中央区湊1丁目 14-17",
+      "place_id": "0x6018895253f2d843:0x4709bad01c59d4a3",
+      "lat": "35.6723538",
+      "lon": "139.7810225"
+    },
+    "ゼンパレス日本橋 702": {
+      "address": "東京都中央区日本橋横山町 7-16",
+      "place_id": "0x60188eb2b7787eef:0xed2856c05eea3afe",
+      "lat": "35.6938036",
+      "lon": "139.7842232"
+    },
+    "シティインデックス千代田秋葉原 701": {
+      "address": "東京都千代田区神田佐久間町3-37-24",
+      "place_id": "0x60188ea8c6ea8da9:0x6bf37251f30320ea",
+      "lat": "35.6982325",
+      "lon": "139.7770894"
+    },
+    "レジディア月島III 1201": {
+      "address": "東京都中央区月島3丁目 12-4",
+      "place_id": "0x6018897a5f5860bb:0x38fc0037b57209d7",
+      "lat": "35.6623318",
+      "lon": "139.7815581"
+    },
+    "シティハウス東京八重洲通り 1502": {
+      "address": "東京都中央区新川2丁目 18-1",
+      "place_id": "0x6018895d6bbcc8b3:0xa89da038f3444f4",
+      "lat": "35.6746534",
+      "lon": "139.7817128"
+    },
+    "ルフォンプログレ神田プレミア 0706": {
+      "address": "東京都千代田区神田須田町1-20-1",
+      "place_id": "0x60188c02f64e1cd9:0x987c1c7aa7e7f84a",
+      "lat": "35.6949994",
+      "lon": "139.7711379"
+    },
+    "カスタリア人形町 111": {
+      "address": "東京都中央区日本橋人形町1丁目2-3 カスタリア人形町III",
+      "place_id": "0x60188951aa39b621:0x85e3108133aecca8",
+      "lat": "35.6851915",
+      "lon": "139.7806643"
+    }
+  },
+  "destinations": {
+    "shizenkan_university": {
+      "name": "Shizenkan University",
+      "address": "東京都中央区日本橋２丁目５−１ 髙島屋三井ビルディング 17階",
+      "place_id": "ChIJGWlcqP6LGGARddFD1M78MhU",
+      "lat": null,
+      "lon": null
+    },
+    "tokyo_american_club": {
+      "name": "東京アメリカンクラブ",
+      "address": "東京都中央区日本橋室町３丁目２−１",
+      "place_id": "ChIJW9Ziq42LGGARUCLpfDPgR7Y",
+      "lat": null,
+      "lon": null
+    },
+    "axle_ochanomizu": {
+      "name": "axle御茶ノ水",
+      "address": "東京都千代田区神田小川町３丁目２８−５",
+      "place_id": "ChIJLfSUhXSMGGARUy6iU79r3_I",
+      "lat": null,
+      "lon": null
+    },
+    "yawara": {
+      "name": "Yawara",
+      "address": "東京都渋谷区神宮前１丁目８−１０ Ｔｈｅ Ｉｃｅ Ｃｕｂｅｓ 9階",
+      "place_id": "ChIJ3WLQGb2MGGARHj2TsjYz3Ao",
+      "lat": null,
+      "lon": null
+    },
+    "kamiyacho_ee": {
+      "name": "神谷町(EE)",
+      "address": "東京都港区虎ノ門４丁目２−６ 第二扇屋ビル 1F",
+      "place_id": "0x60188b96cc9f5a69:0x9cf627ecc0263d4",
+      "lat": "35.6639966",
+      "lon": "139.7457184"
+    },
+    "waseda_university": {
+      "name": "早稲田大学",
+      "address": "東京都新宿区西早稲田１丁目６ 11号館",
+      "place_id": "ChIJm-AJt2CMGGARWGdPPySdXEE",
+      "lat": null,
+      "lon": null
+    },
+    "tokyo_station": {
+      "name": "東京駅",
+      "address": "東京都千代田区丸の内１丁目９番１号",
+      "place_id": "ChIJ-S9lbaOLGGAR0DW0TS3vFZY",
+      "lat": null,
+      "lon": null
+    },
+    "haneda_airport": {
+      "name": "羽田空港",
+      "address": "東京都大田区羽田空港3-3-2",
+      "place_id": "ChIJgz93XJ6LGGAR48l5YKtFWzk",
+      "lat": null,
+      "lon": null
+    },
+    "fuchu_office": {
+      "name": "府中オフィス",
+      "address": "東京都府中市住吉町５丁目２２−５",
+      "place_id": "ChIJR3AMl5nkGGARCqvDOHEMads",
+      "lat": null,
+      "lon": null
+    }
+  },
+  "timestamp": "2025-08-16T22:02:52.734765"
+}
